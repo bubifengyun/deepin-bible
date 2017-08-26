@@ -65,7 +65,7 @@ install.packages('bookdown', dependencies = TRUE)
 devtools::install_github('yihui/rmini')
 ```
 
-上述没有啥问题的话，就可以点击右上角靠下的一栏，有个 `Build` 格，会出现 `Build Book` 等按钮。点击 `Build Book` 就会生成 PDF 书籍了，位于 *./_book/deepin-bible.pdf*。
+上述没有啥问题的话，就可以点击右上角靠下的一栏，有个 `Build` 格，会出现 `Build Book` 等按钮。点击 `Build Book` 就会生成 PDF 书籍了，位于 *./_book/bookdown.pdf*。
 
 ## 三、格式与规范
 
