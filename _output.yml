@@ -4,11 +4,11 @@ bookdown::gitbook:
     toc:
       collapse: none
       before: |
-        <li><a href="./">中文书示例</a></li>
+        <li><a href="./">深度易经</a></li>
       after: |
         <li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
     download: [pdf, epub]
-    edit: https://github.com/yihui/bookdown-chinese/edit/master/%s
+    edit: https://github.com/bubifengyun/deepin-bible/edit/master/%s
     sharing:
       github: yes
       facebook: no
