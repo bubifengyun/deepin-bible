@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+_book
+!_book/bookdown.pdf
+_bookdown_files
