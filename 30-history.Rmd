@@ -1,7 +1,5 @@
 \cleardoublepage 
 
-# (APPENDIX) 附录 {-}
-
 # 大事记 {#history}
 
 - 2017-08-26 开工找模板
