@@ -1,0 +1,3 @@
+# 深度操作系统简介 {#deepin}
+
+不废话了，见官网：https://www.deepin.org/

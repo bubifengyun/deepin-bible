@@ -1,4 +1,4 @@
-book_filename: bookdown
+book_filename: deepin-bible
 clean: [packages.bib, bookdown.bbl]
 language:
   label:
