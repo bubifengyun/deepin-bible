@@ -1,7 +1,3 @@
-\cleardoublepage 
-
-# (APPENDIX) 附录 {-}
-
 # 愚公移山 {#yugong}
 
 <p style="text-align: right;">

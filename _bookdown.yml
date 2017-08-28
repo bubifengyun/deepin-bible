@@ -1,4 +1,5 @@
 book_filename: deepin-bible
+rmd_subdir: TRUE
 clean: [packages.bib, bookdown.bbl]
 language:
   label:
@@ -7,3 +8,4 @@ language:
   ui:
     edit: "编辑"
     chapter_name: ["第 ", " 章"]
+

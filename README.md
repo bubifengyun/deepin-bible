@@ -89,6 +89,20 @@ devtools::install_github('yihui/rmini')
 
 改进模板，生成更好的书籍。本书可能更多的内容是在手机上完成。采用**讯飞语音输入法**完成文字草稿输入，然后调整代码。更多的内容可能来自深度维基百科，把维基百科的内容整理过来。
 
+本书源码存在两个位置：
+
++ https://gitee.com/bubifengyun/deepin-bible
++ https://github.com/bubifengyun/deepin-bible
+
+保持同步更新。由于开源中国提供了手机客户端，我可以在手机上给该项目添加 issue ，所以大部分内容会以草稿的形式存在与 gitee 的 issues 中，每周会更新一下页面。
+
+我采用的更新命令
+
+```bash
+git push github master
+git push gitee master
+
+```
 ## 五、致谢
 
 - @yihui ,在其 https://github.com/yihui/bookdown-chinese 基础上修改完善的。
