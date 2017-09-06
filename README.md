@@ -94,9 +94,16 @@ devtools::install_github('yihui/rmini')
 + https://gitee.com/bubifengyun/deepin-bible
 + https://github.com/bubifengyun/deepin-bible
 
-保持同步更新。由于开源中国提供了手机客户端，我可以在手机上给该项目添加 issue ，所以大部分内容会以草稿的形式存在与 gitee 的 issues 中，每周会更新一下页面。
+保持同步更新。由于 github 提供了手机客户端，我可以在手机上给该项目添加 issue ，所以大部分内容会以草稿的形式存在与 github 的 issues 中，每周会更新一下页面。
 
-我采用的更新命令
+通过添加如下命令
+
+```bash
+git remote add github https://github.com/bubifengyun/deepin-bible
+git remote add gitee https://gitee.com/bubifengyun/deepin-bible
+```
+
+我可以采用如下命令更新
 
 ```bash
 git push github master
