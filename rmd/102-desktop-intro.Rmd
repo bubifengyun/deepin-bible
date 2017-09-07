@@ -1,2 +1,2 @@
-# Linux 桌面系统简介 {#wind}
+# Linux 桌面系统简介 {#linux-desktop-intro}
 
