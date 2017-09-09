@@ -85,6 +85,10 @@ devtools::install_github('yihui/rmini')
 - 网站安全
 - 附录 关于怎么编辑本书，以及本书相关的一些操作
 
+编写规范。
+
+- 图片命名不含中文，因为生成的适合无法识别中文。
+
 ## 四、下一步打算
 
 改进模板，生成更好的书籍。本书可能更多的内容是在手机上完成。采用**讯飞语音输入法**完成文字草稿输入，然后调整代码。更多的内容可能来自深度维基百科，把维基百科的内容整理过来。
@@ -99,17 +103,21 @@ devtools::install_github('yihui/rmini')
 通过添加如下命令
 
 ```bash
-git remote add github https://github.com/bubifengyun/deepin-bible
-git remote add gitee https://gitee.com/bubifengyun/deepin-bible
+$ git remote add github https://github.com/bubifengyun/deepin-bible
+$ git remote add gitee https://gitee.com/bubifengyun/deepin-bible
 ```
 
 我可以采用如下命令更新
 
 ```bash
-git push github master
-git push gitee master
-
+$ git push github master
+$ git push gitee master
 ```
+
+接下来需要做的事情：
++ 对第一、二章的内容，酝酿。
++ 考虑改进写作模板。
++ 找个小伙伴，进行教学，书写。
 
 ## 五、致谢
 

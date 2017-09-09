@@ -152,7 +152,7 @@ This paragraph contains a list of items.
 > That is pulled out like this
 from the text my post.
 
-### 3、编辑器
+### 编辑器
 
 常用的Markdown 编辑器
 
