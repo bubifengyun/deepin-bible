@@ -1,6 +1,6 @@
 # Deepin-Bible 深度易经
 
-关于深度操作系统（Deepin OS）的使用介绍
+关于[深度操作系统（Deepin OS）](https://www.deepin.org/)的使用介绍
 
 ## 一、引言
 
@@ -98,7 +98,7 @@ devtools::install_github('yihui/rmini')
 + https://gitee.com/bubifengyun/deepin-bible
 + https://github.com/bubifengyun/deepin-bible
 
-保持同步更新。由于 github 提供了手机客户端，我可以在手机上给该项目添加 issue ，所以大部分内容会以草稿的形式存在与 github 的 issues 中，每周会更新一下页面。
+保持同步更新。由于 github 提供了手机客户端，我可以在手机上给该项目添加 issue ，所以大部分内容会以草稿的形式存在于 github 的 issues 中，每周会更新一下页面。
 
 通过添加如下命令
 
@@ -130,3 +130,7 @@ $ git push gitee master
 
 本书是采用合作编写的方式，版权见条款。
 本书采用的 [bookdown](https://github.com/rstudio/bookdown) 编写的。相关编码的所有权归相应的作者，谢谢。
+
+## 七、下载本书
+
+你可以在 [github](https://github.com/bubifengyun/deepin-bible/blob/master/_book/deepin-bible.pdf) ，或者 [码云](https://gitee.com/bubifengyun/deepin-bible/raw/master/_book/deepin-bible.pdf)下载 PDF 文件。
