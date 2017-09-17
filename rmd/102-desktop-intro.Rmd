@@ -1,2 +1,15 @@
 # Linux 桌面系统简介 {#linux-desktop-intro}
 
+随着智能手机平板的发展，移动操作系统趋于完善。电脑桌面操作系统，虽然不能说是夕阳产业，但也趋向一个完美的天花板。我认为很多在 windows 和苹果桌面操作系统下面能操作的软件和体验，linux 桌面会慢慢的赶上来的，可以使用的软件也会越来越多，软件的种类也越来越齐全。我们已经可以在 linux 桌面下做很多工作。Linux 桌面有如下几种，全特性的 GNOME 和 KDE 等，轻量级的 LXDE 和Xfce，以及本书要讲的深度桌面 DDE(Deepin Desktop Environment)。
+
+下面将介绍 linux 桌面技术。
+
+几乎所有的电脑桌面操作系统都会提供图形界面供用鼠标和键盘操作。当然一些服务器只有终端接口的除外。
+
+当前主要的linux桌面发行版基本都是采用x window 系统(http)，来提供桌面服务。以及 Wayland 。这部分先完全摘抄，当了解这部分知识后，再用自己的语言表述。
+
+接下来的介绍建议从网上复制过来，还有王勇的一篇文章也可以拿过来放在最后面供参考。这些内容如果纯用手机来输入的话，非常不方便，效率比较低下。
+
+参考：
++ https://baike.baidu.com/item/X%20Window/7249336?fr=aladdin
++ https://baike.baidu.com/item/Wayland/7429696?fr=aladdin
