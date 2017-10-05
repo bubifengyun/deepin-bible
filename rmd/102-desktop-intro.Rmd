@@ -11,5 +11,6 @@
 接下来的介绍建议从网上复制过来，还有王勇的一篇文章也可以拿过来放在最后面供参考。这些内容如果纯用手机来输入的话，非常不方便，效率比较低下。
 
 参考：
+
 + https://baike.baidu.com/item/X%20Window/7249336?fr=aladdin
 + https://baike.baidu.com/item/Wayland/7429696?fr=aladdin

@@ -3,7 +3,19 @@
 本章讲介绍如何从优盘、光盘和硬盘安装深度操作系统，以及 LiveCD 模式简介。
 
 参考网页：
+
 + https://bbs.deepin.org/forum.php?mod=viewthread&tid=135051
 + https://wiki.deepin.org/index.php?title=%E5%8E%9F%E7%94%9F%E5%AE%89%E8%A3%85
 
 对以上作者表示感谢。
+
+
+## 安装遇到的问题
+
+参考网页：
+
++ https://bbs.deepin.org/forum.php?mod=viewthread&tid=146222
++ https://bbs.deepin.org/forum.php?mod=viewthread&tid=146224
+
+基本全文转载，有改动。已获[许可](https://bbs.deepin.org/forum.php?mod=viewthread&tid=146224&page=1#pid384937)。
+
