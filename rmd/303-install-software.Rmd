@@ -1,0 +1,39 @@
+# 软件安装 {#software-install}
+
+这里会介绍如下几种安装方式，
+
+- 直接双击安装
+- apt 安装
+- dpkg 安装
+- .run 类型的文件安装
+- 其他软件安装，比如 `you-get` 的安装
+- 源码安装
+
+## npm 软件的安装
+
+这里以 `you-get` 软件为例，介绍 npm 软件的安装方式。
+
+## veil 软件安装
+
+其他发行版可以直接用 `apt-get` 直接安装的，比如 veil,
+
+```bash
+$ sudo apt-get install veil
+```
+
+在 Kali Linux 就可以直接运行，但是在深度操作系统下就无法下载，这个时候不妨网上搜索一下，加入私有源。当然最好的是搜到这个软件的官网，比如 `veil` 的官网：https://github.com/Veil-Framework/Veil，安装原作者的方法安装，也是不错的。
+
+```bash
+$ sudo apt-get -y install git
+$ git clone https://github.com/Veil-Framework/Veil.git
+$ cd Veil/
+$ cd setup
+$ sudo ./setup.sh -c
+```
+
+这样一路点击确认下来，慢慢等待，就可以成功安装 `veil` 了，当然还需要对 *setup.sh* 文件检测操作系统的代码改一改，让他支持 `deepin`。详情见[pull request](https://github.com/Veil-Framework/Veil/pull/130)。用方法有所变样。
+
+也可以到 debian [软件包库](http://www.debian.org/distrib/packages)去搜索，相关的软件包，选择合适的版本安装。不过 `veil` 没有对应的 deb 包。这是一个比较庞大的软件，估计也不会有一个小的包。
+
+## dpkg 安装
+
