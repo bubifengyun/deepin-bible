@@ -42,8 +42,14 @@
 litianci@litianci-pc:~$ 
 
 ```
+`$` 一般表示普通用户， `#` 一般表示 root 用户。
 
 **深度终端设置**
+
+按下 `Ctrl + Alt + T` 打开深度终端。如下图所示。
+
+![深度终端右键设置](images/shell-settings-1.jpg)
+![深度终端设置界面](images/shell-settings-2.jpg)
 
 
 
