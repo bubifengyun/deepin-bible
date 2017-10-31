@@ -55,3 +55,38 @@ $ sudo ./setup.sh -c
 
 另外，我常用的 xampp 一键安装包，却是从其他网站上下载的。如果你安装一个软件特别费劲，（不包含无法破解软件的哦）不妨试试搜索一下 “xxx 一键安装包”,看看有没有其他人已经帮你解决这个问题了。
 
+## you-get 软件的安装
+
+参考网页：
+
++ https://github.com/soimort/you-get
++ 
+
+根据 you-get [源码网站](https://github.com/soimort/you-get)的提示，在 deepin 下，用如下命令安装，较为合适。
+
+```bash
+$ sudo pip3 install you-get
+```
+
+但是，你可能会发现，自己的电脑没有安装 `pip3` 软件。试着 `sudo apt-get install pip3` 也不存在这个软件包啊。接着百度 `how to install pip3`，找到一大堆页码。参考[这个](http://ask.xmodulo.com/install-pip-linux.html)，如下命令安装。
+
+```bash
+$ sudo apt-get install python3-pip python3-dev build-essential
+```
+
+这样就安装好了 `pip3`，我的理解，`pip3` 就是 `python3-pip` 的意思，不知此解对不对。那么接下来安装 `you-get` 就容易多啦。
+
+```bash
+$ sudo pip3 install you-get
+```
+
+如果需要更新 `you-get`，可以如下。
+
+```bash
+$ sudo pip3 install --upgrade you-get
+```
+
+对于 `you-get` 如何使用，这里就不赘述啦。详见[官网说明](https://github.com/soimort/you-get)。
+
+###
+
