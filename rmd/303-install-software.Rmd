@@ -7,7 +7,9 @@
 - dpkg 安装
 - .run 类型的文件安装
 - 其他软件安装，比如 `you-get` 的安装
+- 字体的安装
 - 源码安装
+- 输入法的安装
 
 ## npm 软件的安装
 
@@ -88,5 +90,28 @@ $ sudo pip3 install --upgrade you-get
 
 对于 `you-get` 如何使用，这里就不赘述啦。详见[官网说明](https://github.com/soimort/you-get)。
 
-###
+## 字体的安装
 
+有些书籍的制作需要特殊的字体，在 Windows、Mac 下安装字体比较简单，在 Deepin 下安装字体同样很简单。参考[这里](https://github.com/weijianwen/SJTUThesis/blob/master/tex/app_setup.tex)，
+
+下载需要的字体，下面以安装交大论文需要的字体为例，网上下好需要的[字体](http://download.csdn.net/download/bubifengyun/9695994)，解压缩后，双击安装即可，也可以仿照上面[网页](https://github.com/weijianwen/SJTUThesis/blob/master/tex/app_setup.tex)提供的方式安装。
+
+```bash
+$ mkdir ~/.fonts
+$ cp *.ttf ~/.fonts				# 当前用户可用新字体
+$ sudo cp *.ttf /usr/share/fonts/local/	# 所有用户可以使用新字体
+$ sudo fc-cache -f
+```
+
+**解释**
+- `cp *.ttf ~/.fonts` 的 `*.tff` 表示你下载的那些字体，需要你修改为对应字体的路径。
+
+## 输入法的安装
+
+这里以搜狗输入法为例，讲解怎么在没有安装搜狗输入法的 Linux 桌面发行版上安装 搜狗输入法，其实深度操作系统自带搜狗输入法的。当然第一步百度搜索了，搜索到搜狗输入法的 Linux 专用版[网站](http://pinyin.sogou.com/linux/)，上面网址如果不对，请继续搜索，毕竟某搜索网址广告比较厉害，不一定就第一时间提供有用的答案。进入官网，下载对应 *.deb 文件，使用命令
+
+```bash
+$ sudo dpkg -i /path/to/***.deb
+```
+
+就可以安装了。本来这个输入法安装应该放在上面的，但是考虑到很多人找不到怎么安装，特来说一下。深度操作系统下，可以直接双击下载的 **.deb 安装包的，一会就会自动安装完。不过汉语简体版的深度操作系统已经自带了该输入法。
