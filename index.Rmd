@@ -9,7 +9,7 @@ link-citations: yes
 colorlinks: yes
 lot: yes
 lof: yes
-geometry: [b5paper, tmargin=2.5cm, bmargin=2.5cm, lmargin=3.5cm, rmargin=2.5cm]
+geometry: [a4paper, tmargin=2.5cm, bmargin=2.5cm, lmargin=3.5cm, rmargin=2.5cm]
 site: bookdown::bookdown_site
 description: "深度操作系统的简单介绍"
 github-repo: bubifengyun/deepin-bible
@@ -22,6 +22,8 @@ options(
 )
 
 # 填上你需要用到的包，如 c('ggplot2', 'dplyr')
+
+c('ggplot2', 'dplyr', 'diagram')
 lapply(c(), function(pkg) {
   if (system.file(package = pkg) == '') install.packages(pkg)
 })
