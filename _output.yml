@@ -20,12 +20,10 @@ bookdown::pdf_book:
   keep_tex: yes
   dev: "cairo_pdf"
   latex_engine: xelatex
-  citation_package: natbib
   template: template.tex
   pandoc_args: --chapters
   toc_depth: 3
   toc_unnumbered: no
   toc_appendix: yes
-  quote_footer: ["\\begin{flushright}", "\\end{flushright}"]
 bookdown::epub_book:
   stylesheet: css/style.css

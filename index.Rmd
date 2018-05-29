@@ -2,14 +2,14 @@
 title: "深度易经 Deepin Bible"
 author: "深度操作系统爱好者"
 date: "`r Sys.Date()`"
-documentclass: ctexbook
+documentclass: sjtuthesis
+classoption: [doctor, openright, twoside]
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes
 lot: yes
 lof: yes
-geometry: [a4paper, tmargin=2.5cm, bmargin=2.5cm, lmargin=3.5cm, rmargin=2.5cm]
 site: bookdown::bookdown_site
 description: "深度操作系统的简单介绍"
 github-repo: bubifengyun/deepin-bible

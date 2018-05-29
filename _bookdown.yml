@@ -1,6 +1,7 @@
 book_filename: deepin-bible
 rmd_subdir: TRUE
 clean: [packages.bib, bookdown.bbl]
+delete_merged_file: TRUE
 language:
   label:
     fig: "图 "

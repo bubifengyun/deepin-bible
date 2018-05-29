@@ -1,10 +1,3 @@
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{epigraph}
-
-\usepackage{framed,color}
-\definecolor{shadecolor}{RGB}{248,248,248}
-
 \renewcommand{\textfraction}{0.05}
 \renewcommand{\topfraction}{0.8}
 \renewcommand{\bottomfraction}{0.8}
@@ -14,7 +7,6 @@
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 
 \ifxetex
-  \usepackage{letltxmacro}
   \setlength{\XeTeXLinkMargin}{1pt}
   \LetLtxMacro\SavedIncludeGraphics\includegraphics
   \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
@@ -52,12 +44,10 @@
 }{\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}}
 \makeatother
 
-\usepackage{makeidx}
 \makeindex
 
 \urlstyle{tt}
 
-\usepackage{amsthm}
 \makeatletter
 \def\thm@space@setup{%
   \thm@preskip=8pt plus 2pt minus 4pt

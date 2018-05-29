@@ -123,7 +123,6 @@ textellipse(mid=pos[6,], radx=rx, rady = ry, la= names[6], cex=1.5, shadow.size 
 
 ```{r echo=FALSE}
 
-png("picture.jpeg", height=1000, width=600, res=100)
 openplotmat(main="流程图六个")
 
 rx <- 0.1

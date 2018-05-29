@@ -6,3 +6,5 @@ _book/*
 !_book/deepin-bible.pdf
 !_book/deepin-bible.epub
 _bookdown_files
+deepin-bible.*
+!deepin-bible.Rproj
