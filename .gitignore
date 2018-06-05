@@ -8,3 +8,4 @@ _book/*
 _bookdown_files
 deepin-bible.*
 !deepin-bible.Rproj
+*.aux
