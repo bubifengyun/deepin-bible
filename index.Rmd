@@ -1,9 +1,14 @@
 --- 
-title: "深度易经 Deepin Bible"
+title: "深度易经 Deepin Bible 交大 \LaTeX 模板"
 author: "深度操作系统爱好者"
 date: "`r Sys.Date()`"
 documentclass: sjtuthesis
 classoption: [doctor, openright, twoside]
+studentnumber: 1111
+advisor: "zhicheng"
+major: "moumou zhuanye"
+defenddate: "`r Sys.Date()`"
+englishmajor: "english major"
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
