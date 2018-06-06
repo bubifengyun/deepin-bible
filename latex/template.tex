@@ -182,26 +182,64 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
-$if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
-$endif$
-$if(subtitle)$
-\providecommand{\subtitle}[1]{}
-\subtitle{$subtitle$}
-$endif$
-$if(author)$
-\author{$for(author)$$author$$sep$ \and $endfor$}
-$endif$
-$if(institute)$
-\providecommand{\institute}[1]{}
-\institute{$for(institute)$$institute$$sep$ \and $endfor$}
-$endif$
-\date{$date$}
-
 \begin{document}
 
 %% 无编号内容：中英文论文封面、授权页
-\include{id}
+$if(title)$
+\title{$title$}
+$endif$
+$if(author)$
+\author{$author$}
+$endif$
+$if(advisor)$
+\advisor{$advisor$}
+$endif$
+$if(coadvisor)$
+\coadvisor{$coadvisor$}
+$endif$
+$if(defenddate)$
+\defenddate{$defenddate$}
+$endif$
+$if(school)$
+\school{$school$}
+$endif$
+$if(institute)$
+\institute{$institute$}
+$endif$
+$if(studentnumber)$
+\studentnumber{$studentnumber$}
+$endif$
+$if(major)$
+\major{$major$}
+$endif$
+
+$if(englishtitle)$
+\englishtitle{$englishtitle$}
+$endif$
+$if(englishauthor)$
+\englishauthor{\textsc{$englishauthor$}}
+$endif$
+$if(englishadvisor)$
+\englishadvisor{Prof. \textsc{$englishadvisor$}}
+$endif$
+$if(englishcoadvisor)$
+\englishcoadvisor{Prof. \textsc{$englishcoadvisor$}}
+$endif$
+$if(englishschool)$
+\englishschool{$englishschool$}
+$endif$
+$if(englishinstitute)$
+\englishinstitute{\textsc{$englishinstitute$} \\
+  \textsc{Shanghai Jiao Tong University} \\
+  \textsc{Shanghai, P.R.China}}
+$endif$
+$if(englishmajor)$
+\englishmajor{$englishmajor$}
+$endif$
+$if(englishdate)$
+\englishdate{$englishdate$}
+$endif$
+\maketitle
 
 $if(abstract)$
 \begin{abstract}

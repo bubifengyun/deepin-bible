@@ -3,9 +3,9 @@
 .RData
 .Ruserdata
 _book/*
-!_book/deepin-bible.pdf
-!_book/deepin-bible.epub
 _bookdown_files
 deepin-bible.*
 !deepin-bible.Rproj
+!_book/deepin-bible.pdf
+!_book/deepin-bible.epub
 *.aux
