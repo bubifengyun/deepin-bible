@@ -5,7 +5,6 @@
 _book/*
 _bookdown_files
 deepin-bible.*
+rsconnect
 !deepin-bible.Rproj
-!_book/deepin-bible.pdf
-!_book/deepin-bible.epub
 *.aux

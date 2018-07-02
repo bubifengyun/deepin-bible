@@ -1,4 +1,7 @@
-# 前言 {-}
+\frontmatter
+\pagestyle{main}
+
+# 前言
 
 
 
@@ -19,4 +22,5 @@ sessionInfo()
 
 本书的代码规范。
 
+\include{latex/content}
 

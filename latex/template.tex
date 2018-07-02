@@ -1,190 +1,202 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
-\usepackage{epigraph}
 
-$if(beamerarticle)$
-\usepackage{beamerarticle} % needs to be loaded first
-$endif$
-$if(fontfamily)$
-\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
-$else$
-\usepackage{lmodern}
-$endif$
-$if(linestretch)$
-\usepackage{setspace}
-\setstretch{$linestretch$}
-$endif$
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
-  \usepackage[utf8]{inputenc}
-$if(euro)$
-  \usepackage{eurosym}
-$endif$
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{xltxtra,xunicode}
+\usepackage{etoc} 
+% 参考 ctexbook.cls 及
+% http://www.latextemplates.com/template/the-legrand-orange-book
+% https://tex.stackexchange.com/questions/48900/two-independent-tocs
+\definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
+
+% 添加引言块
+\def\VA#1#2{\addvspace{12pt}\raggedleft #1\rightskip3em\par #2\rightskip3em}
+\renewenvironment{quote}
+  {\list{}{\rightmargin\leftmargin}%
+    \item\relax}
+  {\endlist}
+
+\makeatletter
+
+\newif\ifusepartquote
+\usepartquotetrue
+\newcommand{\thepartquote}{}
+\newcommand{\thepartquoteauthor}{}
+\newcommand{\partquote}[2]{\ifusepartquote\renewcommand{\thepartquote}{#1}\renewcommand{\thepartquoteauthor}{#2}\fi}
+
+\newif\ifusepartintro
+\usepartintrotrue
+\newcommand{\thepartintro}{}
+\newcommand{\partintro}[1]{\ifusepartintro\renewcommand{\thepartintro}{#1}\fi}
+
+% numbered part in the table of contents
+\def\@part[#1]#2{%
+  \ifnum \c@secnumdepth >-2\relax
+    \ifodd \CTEX@part@numbering
+      \CTEX@ifnametrue
+      \refstepcounter{part}%
+    \else
+      \CTEX@ifnamefalse
+      \CTEX@makeanchor{part*}%
+    \fi
   \else
-    \usepackage{fontspec}
+    \CTEX@ifnamefalse
+    \CTEX@makeanchor{part*}%
   \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
-$for(fontfamilies)$
-  \newfontfamily{$fontfamilies.name$}[$fontfamilies.options$]{$fontfamilies.font$}
-$endfor$
-$if(euro)$
-  \newcommand{\euro}{€}
-$endif$
-$if(mainfont)$
-    \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
-$endif$
-$if(sansfont)$
-    \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
-$endif$
-$if(monofont)$
-    \setmonofont[Mapping=tex-ansi$if(monofontoptions)$,$for(monofontoptions)$$monofontoptions$$sep$,$endfor$$endif$]{$monofont$}
-$endif$
-$if(CJKmainfont)$
-    \usepackage{xeCJK}
-    \setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
-$endif$
-\fi
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-}{}
-$if(geometry)$
-\usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
-$endif$
-$if(colorlinks)$
-\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+  \CTEX@addtocline{part}{#1}%
+  \partmark{#1}%
+  {\interlinepenalty \@M
+   \normalfont \CTEX@part@format
+   \ifnum \c@secnumdepth >-2\relax \ifodd \CTEX@part@numbering
+     \CTEX@partname \CTEX@part@aftername
+   \fi \fi}%
+\markboth{}{}%
+{\thispagestyle{empty}%
+\begin{tikzpicture}[remember picture,overlay]%
+\node at (current page.north west){\begin{tikzpicture}[remember picture,overlay]%	
+\fill[ocre!20](0cm,0cm) rectangle (\paperwidth,-\paperheight);
+\node[anchor=north] at (7cm,-3.25cm){\color{ocre!40}\fontsize{88}{40}\sffamily\bfseries\CTEX@partname};
+\node[anchor=north east] at (\paperwidth-1cm,-9.25cm){\color{ocre!40}\fontsize{66}{30}\sffamily\bfseries\CTEX@part@titleformat{#2}};
+\node[anchor=north west] at (2cm,-12.25cm){\ifusepartquote\parbox[t][][t]{\paperwidth-4cm}{\begin{quote}
+`` \thepartquote ''
+
+\VA{------ \thepartquoteauthor}{}
+\end{quote}}\fi};
+\node[anchor=north west] at (1cm,-16cm){\ifusepartintro\parbox[t][][t]{\paperwidth/2-1.5cm}{\quad\quad\thepartintro}\fi};
+\node[anchor=north east] at (\paperwidth-1cm,-16cm){\parbox[t][][t]{\paperwidth/2-1.5cm}{
+\etocsettocstyle{\renewcommand\contentsname{\null}}{}
+\etocsetnexttocdepth{0} % 目录层次到章
+\localtableofcontents
+}};
+\end{tikzpicture}};
+\end{tikzpicture}}%
+\@endpart}
+\makeatother
+
+$if(cover-image)$
+\usepackage{wallpaper}
 $endif$
 
-\urlstyle{same}  % don't use monospace font for urls
-$if(lang)$
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=$babel-lang$]{babel}
-$if(babel-newcommands)$
-  $babel-newcommands$
-$endif$
-\else
-  \usepackage{polyglossia}
-  \setmainlanguage[$polyglossia-lang.options$]{$polyglossia-lang.name$}
-$for(polyglossia-otherlangs)$
-  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
-$endfor$
-\fi
-$endif$
-$if(natbib)$
-\usepackage{natbib}
-\bibliographystyle{$if(biblio-style)$$biblio-style$$else$plainnat$endif$}
-$endif$
-$if(biblatex)$
-\usepackage[$if(biblio-style)$style=$biblio-style$,$endif$$for(biblatexoptions)$$biblatexoptions$$sep$,$endfor$]{biblatex}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{248,248,248}
+
+\makeatletter
+\newenvironment{kframe}{%
+\medskip{}
+\setlength{\fboxsep}{.8em}
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+\newenvironment{Shaded}{\begin{kframe}}{\end{kframe}}
+
+\makeatletter
+\@ifundefined{Shaded}{
+}{\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}}
+\makeatother
 $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
-$endif$
-$if(listings)$
-\usepackage{listings}
-$endif$
-$if(lhs)$
-\lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
-$endif$
-$if(highlighting-macros)$
-$highlighting-macros$
-$endif$
-$if(verbatim-in-note)$
-\usepackage{fancyvrb}
-\VerbatimFootnotes % allows verbatim text in footnotes
-$endif$
-$if(tables)$
-\usepackage{longtable,booktabs}
-% Fix footnotes in tables (requires footnote package)
-\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
-$endif$
-$if(graphics)$
-\usepackage{graphicx,grffile}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-$endif$
-$if(links-as-notes)$
-% Make links footnotes instead of hotlinks:
+
+\providecommand{\tightlist}{%
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$if(href2footnote)$% 是否把链接改为脚注
+\let\oldhref\href
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 $endif$
-$if(strikeout)$
-\usepackage[normalem]{ulem}
-% avoid problems with \sout in headers with hyperref:
-\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
-$endif$
-$if(indent)$
-$else$
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-$endif$
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
-  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-$if(numbersections)$
-\setcounter{secnumdepth}{$if(secnumdepth)$$secnumdepth$$else$5$endif$}
-$else$
-\setcounter{secnumdepth}{0}
-$endif$
-$if(subparagraph)$
-$else$
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-$endif$
-$if(dir)$
-\ifxetex
-  % load bidi as late as possible as it modifies e.g. graphicx
-  $if(latex-dir-rtl)$
-  \usepackage[RTLdocument]{bidi}
-  $else$
-  \usepackage{bidi}
-  $endif$
-\fi
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \TeXXeTstate=1
-  \newcommand{\RL}[1]{\beginR #1\endR}
-  \newcommand{\LR}[1]{\beginL #1\endL}
-  \newenvironment{RTL}{\beginR}{\endR}
-  \newenvironment{LTR}{\beginL}{\endL}
-\fi
-$endif$
 
-% set default figure placement to htbp
+\usepackage{listings}
+% https://github.com/jgm/pandoc/issues/4716
+% lstinline 对数学模式存在 bug，等修复后可以改为如下方式
+% \newcommand{\passthrough}[1]{#1}
+\newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}} 
+
+
+% 感谢 AlexaraWu 的指导 https://github.com/sjtug/SJTUThesis/issues/343
+% 兼容 Bookdown 定理等框架
+% 重新定义定理环境
+\usepackage{amsthm}
 \makeatletter
-\def\fps@figure{htbp}
+\theoremstyle{plain}
+  \newtheorem{theorem}{\sjtu@label@thm~}[chapter]
+  \newtheorem{lemma}[theorem]{\sjtu@label@lem~}
+  \newtheorem{proposition}[theorem]{\sjtu@label@prop~}
+  \newtheorem{corollary}[theorem]{\sjtu@label@cor~}
+\theoremstyle{definition}
+  \newtheorem{definition}{\sjtu@label@defn~}[chapter]
+  \newtheorem{exercise}{练习}[chapter]
+  \newtheorem{conjecture}{\sjtu@label@conj~}[chapter]
+  \newtheorem{example}{\sjtu@label@exmp~}[chapter]
+\theoremstyle{remark}
+  \newtheorem{remark}{\sjtu@label@rem~}
+  \newtheorem*{solution}{\bfseries{解答}}
 \makeatother
 
-$for(header-includes)$
-$header-includes$
-$endfor$
+% https://tex.stackexchange.com/questions/154570/itemize-environment-within-a-tabular-environment/154577
+% 添加各类消息框
+\newenvironment{rmdblock}[1]
+  {
+  \begin{table}[!htpb]
+  \begin{tabular}{|cc|}
+  \hline \quad \quad \quad &
+  \begin{minipage}{.88\textwidth}
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{figure/bookdown/#1}}
+    }
+  }
+  \setlength{\fboxsep}{1em}
+  \begin{kframe}
+  \item
+  }
+  {
+  \end{kframe}
+  \end{itemize}
+  \end{minipage}
+  \\
+  \hline
+  \end{tabular}
+  \end{table}
+  }
+\newenvironment{rmdnote}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmdcaution}
+  {\begin{rmdblock}{caution}}
+  {\end{rmdblock}}
+\newenvironment{rmdimportant}
+  {\begin{rmdblock}{important}}
+  {\end{rmdblock}}
+\newenvironment{rmdtip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}
+\newenvironment{rmdwarning}
+  {\begin{rmdblock}{warning}}
+  {\end{rmdblock}}
 
 \begin{document}
 
-%% 无编号内容：中英文论文封面、授权页
+$if(cover-image)$
+  \cleardoublepage
+  \thispagestyle{empty}
+  \begin{center}
+    \ThisTileWallPaper{\paperwidth}{\paperheight}{$cover-image$}
+  \end{center}
+  \cleardoublepage
+$endif$
+
 $if(title)$
 \title{$title$}
 $endif$
@@ -241,49 +253,26 @@ $if(englishdate)$
 $endif$
 \maketitle
 
-$if(abstract)$
-\begin{abstract}
-$abstract$
-\end{abstract}
-$endif$
+\makeatletter
+\ifsjtu@submit\relax
+	\includepdf{handed_pdf/original.pdf}
+	\cleardoublepage
+	\includepdf{handed_pdf/authorization.pdf}
+	\cleardoublepage
+\else
+\ifsjtu@review\relax
+% exclude the original claim and authorization
+\else
+	\makeDeclareOriginal
+	\makeDeclareAuthorization
+\fi
+\fi
+\makeatother
 
-$for(include-before)$
-$include-before$
-
-$endfor$
-$if(toc)$
-{
-\setcounter{tocdepth}{$toc-depth$}
-\tableofcontents
-}
-$endif$
-$if(lot)$
-\listoftables
-$endif$
-$if(lof)$
-\listoffigures
-$endif$
 $body$
 
-$if(natbib)$
-$if(bibliography)$
-$if(biblio-title)$
-$if(book-class)$
-\renewcommand\bibname{$biblio-title$}
-$else$
-\renewcommand\refname{$biblio-title$}
-$endif$
-$endif$
-\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+\backmatter	% 文后无编号部分 
 
-$endif$
-$endif$
-$if(biblatex)$
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
-
-$endif$
-$for(include-after)$
-$include-after$
-
-$endfor$
+%% 参考资料
+\printbibliography[heading=bibintoc]
 \end{document}

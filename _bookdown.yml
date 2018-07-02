@@ -1,12 +1,4 @@
-book_filename: deepin-bible
+book_filename: bookdown
 rmd_subdir: TRUE
-clean: [packages.bib, bookdown.bbl]
+clean: [bib/book.bib, bib/packages.bib]
 delete_merged_file: TRUE
-language:
-  label:
-    fig: "图 "
-    tab: "表 "
-  ui:
-    edit: "编辑"
-    chapter_name: ["第 ", " 章"]
-

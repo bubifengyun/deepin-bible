@@ -4,6 +4,6 @@
 # 自动生成 R 包的参考文献
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
+), 'bib/packages.bib')
 ```
 

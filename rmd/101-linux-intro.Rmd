@@ -1,4 +1,11 @@
 \mainmatter
+\pagestyle{main}
+
+\partquote{春江水暖鸭先知}{苏轼}
+\partintro{
+这里需要写点啥的。
+}
+# (PART) Linux 入门 {#part:intro -}
 
 # GNU/Linux 操作系统简介 {#linux-intro}
 

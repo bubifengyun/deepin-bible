@@ -1,5 +1,5 @@
 --- 
-title: "深度易经 Deepin Bible 交大 \LaTeX 模板"
+title: "深度易经\\ Deepin Bible"
 englishtitle: "Deepin Bible"
 author: "深度操作系统爱好者"
 englishauthor: "LiTianci"
@@ -15,7 +15,7 @@ advisor: "张三"
 major: "通信与信息系统"
 defenddate: "`r Sys.Date()`"
 englishmajor: "CCTV"
-bibliography: [book.bib, packages.bib]
+bibliography: [bib/book.bib, bib/packages.bib]
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes

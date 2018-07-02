@@ -103,8 +103,8 @@
 国人挚爱。可以视频。就不废话了。命令行安装。
 
 ```bash
-$ sudo apt-get update
-$ sudo apt-get install deepin.com.qq.im
+$\$$ sudo apt-get update
+$\$$ sudo apt-get install deepin.com.qq.im
 ```
 
 ### 深度截图
@@ -144,7 +144,7 @@ $ sudo apt-get install deepin.com.qq.im
 大家可以通过更新系统以获取深度截图V4.0，或者直接在深度商店搜索下载。也可以采用命令行安装。
 
 ```bash
-$ sudo apt-get install deepin-screenshot
+$\$$ sudo apt-get install deepin-screenshot
 ```
 
 ### 网易云音乐
@@ -200,7 +200,7 @@ $ sudo apt-get install deepin-screenshot
 深度操作系统是一个致力于为全球用户提供美观易用、安全可靠的Linux发行版。建立完善的生态系统，打造更多的原生应用，给用户更好的体验，一直都是我们前进的方向。此次和网易云音乐合作，给Linux平台下的用户也带来高品质的在线音乐享受，而后续我们将不断努力开拓更多更好的应用。可以采用命令行安装。
 
 ```bash
-$ sudo apt-get install netease-cloud-music
+$\$$ sudo apt-get install netease-cloud-music
 ```
 
 ### 深度系统监视器
@@ -238,7 +238,7 @@ $ sudo apt-get install netease-cloud-music
 大家可以通过更新系统以获取深度系统监视器V1.0，或者直接在深度商店搜索下载。也可以采用命令行安装。
 
 ```bash
-$ sudo apt-get install deepin-system-monitor -y
+$\$$ sudo apt-get install deepin-system-monitor -y
 ```
 
 ### 深度无线投屏
@@ -268,5 +268,5 @@ $ sudo apt-get install deepin-system-monitor -y
 大家可以通过深度商店搜索下载获取深度演示助手V1.0。或者采用命令行安装。
 
 ```bash
-$ sudo apt-get install deepin-presentation-assistant -y
+$\$$ sudo apt-get install deepin-presentation-assistant -y
 ```
