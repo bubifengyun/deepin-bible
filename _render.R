@@ -18,7 +18,7 @@ for (fmt in formats) {
   res = bookdown:::Rscript(c('-e', shQuote(cmd)))
   if (res != 0) stop('Failed to compile the book to ', fmt)
   if (!travis && fmt == 'bookdown::epub_book')
-    bookdown::calibre('_book/bookdown.epub', 'mobi')
+    bookdown::calibre('_book/deepin-bible.epub', 'mobi')
 }
 
 r = '<body onload="window.location = \'https://bookdown.org/yihui\'+location.pathname">'
@@ -38,6 +38,6 @@ for (f in list.files('_book', '[.]html$', full.names = TRUE)) {
   writeLines(x, f)
 }
 
-if (length(formats) > 1) bookdown::publish_book()
+# if (length(formats) > 1) bookdown::publish_book()
 
 setwd(owd)

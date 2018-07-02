@@ -1,4 +1,4 @@
-book_filename: bookdown
+book_filename: deepin-bible
 rmd_subdir: TRUE
 clean: [bib/book.bib, bib/packages.bib]
 delete_merged_file: TRUE

@@ -2,7 +2,7 @@ pdf:
 	Rscript _render.R "bookdown::pdf_book"
 
 gitbook:
-	Rscript --quiet _render.R "bookdown::gitbook"
+	Rscript _render.R "bookdown::gitbook"
 
 all:
-	Rscript --quiet _render.R
+	Rscript _render.R
