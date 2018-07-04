@@ -1,5 +1,6 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
+\usepackage[export]{adjustbox}
 \usepackage{etoc} 
 % 参考 ctexbook.cls 及
 % http://www.latextemplates.com/template/the-legrand-orange-book
@@ -25,7 +26,8 @@
 \usepartintrotrue
 \newcommand{\thepartintro}{}
 \newcommand{\partintro}[1]{\ifusepartintro\renewcommand{\thepartintro}{#1}\fi}
-
+\newlength\ocreypos
+\setlength\ocreypos{.35\paperheight}
 % numbered part in the table of contents
 \def\@part[#1]#2{%
   \ifnum \c@secnumdepth >-2\relax
@@ -52,15 +54,16 @@
 \begin{tikzpicture}[remember picture,overlay]%
 \node at (current page.north west){\begin{tikzpicture}[remember picture,overlay]%	
 \fill[ocre!20](0cm,0cm) rectangle (\paperwidth,-\paperheight);
-\node[anchor=north] at (7cm,-3.25cm){\color{ocre!40}\fontsize{88}{40}\sffamily\bfseries\CTEX@partname};
-\node[anchor=north east] at (\paperwidth-1cm,-9.25cm){\color{ocre!40}\fontsize{66}{30}\sffamily\bfseries\CTEX@part@titleformat{#2}};
-\node[anchor=north west] at (2cm,-12.25cm){\ifusepartquote\parbox[t][][t]{\paperwidth-4cm}{\begin{quote}
+\node[anchor=north] at (8cm,-3.75cm){\color{ocre!40}\fontsize{88}{40}\sffamily\bfseries\CTEX@partname};
+\node[anchor=south east] at (\paperwidth-2cm,-\ocreypos+0.5cm){\color{ocre!40}\fontsize{44}{20}\sffamily\bfseries\CTEX@part@titleformat{#2}};
+\fill[ocre!40](0cm,-\ocreypos) rectangle (\paperwidth,-\ocreypos-0.1cm);
+\node[anchor=north west] at (2cm,-\ocreypos-0.5cm){\ifusepartquote\parbox[t][][t]{\paperwidth-4cm}{\begin{quote}
 `` \thepartquote ''
 
 \VA{------ \thepartquoteauthor}{}
 \end{quote}}\fi};
-\node[anchor=north west] at (1cm,-16cm){\ifusepartintro\parbox[t][][t]{\paperwidth/2-1.5cm}{\quad\quad\thepartintro}\fi};
-\node[anchor=north east] at (\paperwidth-1cm,-16cm){\parbox[t][][t]{\paperwidth/2-1.5cm}{
+\node[anchor=south west] at (1cm,-\paperheight+1cm){\ifusepartintro\parbox[t][][t]{\paperwidth/2-1.5cm}{\quad\quad\thepartintro}\fi};
+\node[anchor=south east] at (\paperwidth-1cm,-\paperheight+1cm){\parbox[t][][t]{\paperwidth/2-1.5cm}{
 \etocsettocstyle{\renewcommand\contentsname{\null}}{}
 \etocsetnexttocdepth{0} % 目录层次到章
 \localtableofcontents
@@ -154,7 +157,7 @@ $endif$
   \begin{itemize}
   \renewcommand{\labelitemi}{
     \raisebox{-.7\height}[0pt][0pt]{
-      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{figure/bookdown/#1}}
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/bookdown/#1}}
     }
   }
   \setlength{\fboxsep}{1em}
@@ -186,15 +189,36 @@ $endif$
   {\begin{rmdblock}{warning}}
   {\end{rmdblock}}
 
-% https://tex.stackexchange.com/questions/30312/shrink-figure-only-when-necessary
-% 修复 Markdown 图片格式过大的问题。
-\usepackage[export]{adjustbox}
-\let\oldincludegraphics\includegraphics
-\renewcommand\includegraphics[2][]{%
-\begin{adjustbox}{max size={\textwidth}{\textheight}}
-\oldincludegraphics[#1]{#2}
-\end{adjustbox}
+\newcommand\writeby[1]{\rightline{------ #1}}
+
+\makeatletter
+% 实现附录按甲乙丙丁排序，但是仅限于十个以内。否则，报错。
+% https://tex.stackexchange.com/questions/219711/definition-with-roman-counter-value
+\newcommand\tiangani{甲}
+\newcommand\tianganii{乙}
+\newcommand\tianganiii{丙}
+\newcommand\tianganiv{丁}
+\newcommand\tianganv{戊}
+\newcommand\tianganvi{己}
+\newcommand\tianganvii{庚}
+\newcommand\tianganviii{辛}
+\newcommand\tianganix{壬}
+\newcommand\tianganx{癸}
+\newcommand*\Tiangan[1]{\csname tiangan\romannumeral\value{#1}\endcsname}
+% https://latex.org/forum/viewtopic.php?t=2674
+\let\oldappendix\appendix
+\renewcommand\appendix{%
+  \oldappendix
+  \renewcommand{\CTEX@prechapter}{附录}
+  \renewcommand{\CTEX@thechapter}{\Tiangan{chapter}}
+  \renewcommand{\thechapter}{\Tiangan{chapter}}
 }
+\makeatother
+
+% 增加索引功能
+\usepackage{makeidx}
+\makeindex
+\renewcommand{\indexname}{索引}
 
 \begin{document}
 
@@ -207,82 +231,40 @@ $if(cover-image)$
   \cleardoublepage
 $endif$
 
+
+% https://tex.stackexchange.com/questions/30312/shrink-figure-only-when-necessary
+% 修复 Markdown 图片格式过大的问题。
+% 需要\usepackage[export]{adjustbox}
+\let\oldincludegraphics\includegraphics
+\renewcommand\includegraphics[2][]{%
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\oldincludegraphics[#1]{#2}
+\end{adjustbox}
+}
+
 $if(title)$
 \title{$title$}
+$endif$
+$if(englishtitle)$
+\englishtitle{$englishtitle$}
 $endif$
 $if(author)$
 \author{$author$}
 $endif$
-$if(advisor)$
-\advisor{$advisor$}
+$if(publisher)$
+\publisher{$publisher$}
 $endif$
-$if(coadvisor)$
-\coadvisor{$coadvisor$}
-$endif$
-$if(defenddate)$
-\defenddate{$defenddate$}
-$endif$
-$if(school)$
-\school{$school$}
-$endif$
-$if(institute)$
-\institute{$institute$}
-$endif$
-$if(studentnumber)$
-\studentnumber{$studentnumber$}
-$endif$
-$if(major)$
-\major{$major$}
-$endif$
-
-$if(englishtitle)$
-\englishtitle{$englishtitle$}
-$endif$
-$if(englishauthor)$
-\englishauthor{\textsc{$englishauthor$}}
-$endif$
-$if(englishadvisor)$
-\englishadvisor{Prof. \textsc{$englishadvisor$}}
-$endif$
-$if(englishcoadvisor)$
-\englishcoadvisor{Prof. \textsc{$englishcoadvisor$}}
-$endif$
-$if(englishschool)$
-\englishschool{$englishschool$}
-$endif$
-$if(englishinstitute)$
-\englishinstitute{\textsc{$englishinstitute$} \\
-  \textsc{Shanghai Jiao Tong University} \\
-  \textsc{Shanghai, P.R.China}}
-$endif$
-$if(englishmajor)$
-\englishmajor{$englishmajor$}
-$endif$
-$if(englishdate)$
-\englishdate{$englishdate$}
+$if(date)$
+\date{$date$}
 $endif$
 \maketitle
-
-\makeatletter
-\ifsjtu@submit\relax
-	\includepdf{handed_pdf/original.pdf}
-	\cleardoublepage
-	\includepdf{handed_pdf/authorization.pdf}
-	\cleardoublepage
-\else
-\ifsjtu@review\relax
-% exclude the original claim and authorization
-\else
-	\makeDeclareOriginal
-	\makeDeclareAuthorization
-\fi
-\fi
-\makeatother
+\makeDeclareAuthorization
 
 $body$
 
 \backmatter	% 文后无编号部分 
 
+\printindex
 %% 参考资料
 \printbibliography[heading=bibintoc]
 \end{document}

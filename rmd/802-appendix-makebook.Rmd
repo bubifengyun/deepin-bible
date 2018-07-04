@@ -1,0 +1,156 @@
+# 如何制作本书 {#chap:makebook}
+
+## 准备工作
+
+本模板使用 bookdown 实现了由 R Markdown （Bookdown） -> \LaTeX -> PDF 的一系列转换，其中用到的依赖有：
+
+- bookdown
+- pandoc
+- Tex
+
+需要安装这些软件，才可以使用。
+
+### Linux 下使用
+
+下面以深度操作系统15.5版本为例说明。安装过程中，请确保当前 `rstudio` 的版本高于 1.0.0, `texlive` 为2015年及之后的版本， `pandoc` 的版本高于 2.0.0。
+
+```{.bash numbers=none}
+$\$$ sudo apt-get install r-base r-base-dev \
+rstudio texlive-full pandoc make
+```
+
+如果不能满足，请参考相关软件官网，下载最新版本。
+
+### Windows 下使用
+
+略
+
+### 苹果操作系统下使用
+
+略
+
+## 模板选项 {#intro:options}
+
+sjtuthesis-rmd 提供了一些常用选项，可以组合使用，在 *./index.Rmd* 文件中配置。具体配置方法，见后文。
+这些选项包括：
+
+- 学位类型：bachelor(学位)、master(硕士)、doctor(博士)，是必选项。
+- 中文字体：fandol(Fandol 开源字体)、windows(Windows 系统下的中文字体)、mac(macOS 系统下的华文字体)、ubuntu(Ubuntu 系统下的文泉驿和文鼎字体)、adobe(Adobe 公司的中文字体)、founder(方正公司的中文字体)，默认根据操作系统自动配置。
+- 英文模版：使用english选项启用英文模版。
+- 盲审选项：使用review选项后，论文作者、学号、导师姓名、致谢、发表论文和参与项目将被隐去。
+
+## 编译模板
+
+模板默认使用GNUMake构建，后续如无特殊说明，默认执行命令的文件夹以及当前文件夹均为本模板的根目录。
+
+```{.bash numbers=none}
+$\$$ make
+```
+
+在已经安装 RStudio 的前提下，也可手动编译。打开 RStudio 软件，在弹出的界面，左上角点击 File->Open Project，选中 *./SJTUThesis-Rmd.Rproj* 文件打开，点击右上角靠下的一栏，有个 `Build` 格，会出现 `Build Book` 等按钮。
+点击 `Build Book` 就会生成 PDF 书籍了，位于 *./\_book/sjtu-thesis-rmd.pdf* 。
+
+如果需要查看字数，先生成文件，然后执行，
+
+```{.bash numbers=none}
+$\$$ make wordcount
+```
+
+## 文件布局
+
+使用 `tree` 命令所得。
+```{.block2 caption="模板文件布局" label=intro:folder numbers=none}
+├── bib
+│   └── thesis.bib
+├── _book
+│   ├── sjtu-thesis-rmd.pdf
+│   └── sjtu-thesis-rmd.tex
+├── _bookdown_files
+├── _bookdown.yml
+├── figure
+│   ├── example
+│   │   ├── flow_chart.tex
+│   │   ├── sjtulogo.eps
+│   │   ├── sjtulogo.jpg
+│   │   └── sjtulogo.png
+│   ├── sjtubadge.pdf
+│   ├── sjtubanner.pdf
+│   └── sjtulogo.pdf
+├── handed_pdf
+│   ├── authorization.pdf
+│   └── original.pdf
+├── index.Rmd
+├── tex
+│   ├── ack.tex
+│   ├── content.tex
+│   ├── end_english_abstract.tex
+│   ├── patents.tex
+│   ├── projectsreview.tex
+│   ├── projects.tex
+│   ├── pubreview.tex
+│   ├── pub.tex
+│   └── template.tex
+├── Makefile
+├── _output.yml
+├── README.md
+├── _render.R
+├── rmd
+│   ├── 000-abstract.Rmd
+│   ├── 001-symbol.Rmd
+│   ├── 003-author.Rmd
+│   ├── 101-intro.Rmd
+│   ├── 102-chapters.Rmd
+│   ├── 103-latex.Rmd
+│   ├── 104-rmarkdown.Rmd
+│   ├── 105-example.Rmd
+│   ├── 601-appendix-bookdown.Rmd
+│   ├── 602-appendix-tale.Rmd
+│   ├── 603-appendix-history.Rmd
+│   └── 604-appendix-r-diagram.Rmd
+├── sjtuthesis.cfg
+├── sjtuthesis.cls
+└── SJTUThesis-Rmd.Rproj
+```
+
+## 主要文件介绍
+
+### \LaTeX 模板文件
+
+格式控制文件控制着论文的表现形式，包括 *./sjtuthesis.cfg* 和 *./sjtuthesis.cls*。
+其中，“cls”控制论文主体格式，“cfg”为配置文件。上述文件全部来自[上海交通大学学位论文 \LaTeX 模板](https://github.com/sjtug/SJTUThesis)
+
+### 各章源文件
+
+主要位于 *./rmd/* 文件夹。由于现阶段部分功能实现不全，暂且把部分内容以 \LaTeX 形式存放在 *./tex/* 文件夹下。
+
+- 中英文摘要(*./rmd/000-abstract.Rmd*)，符号表(*./rmd/001-symbol.Rmd*)等。前言(frontmatter)的其他部分，中英文封面、原创性声明、授权信息在sjtuthesis.cls中定义，不单独分离为 Rmd 文件。
+- 目录文件(*./tex/content.tex*)，设置目录内容。如果不需要图片、算法等的目录，可以修改该文件。
+- 模板文件(*./tex/template.tex*)，统筹最终生成的 *\_book/sjtu-thesis-rmd.tex* 内容。
+- 正文(mainmatter)，是文章的主体，位于 *./rmd/* 文件夹下，基本用 Rmarkdown 实现，部分不容易实现的，照搬 \LaTeX 原文，均在 *xxx.Rmd* 文件内。
+- 附录(*./rmd/xxx-appendix-name.Rmd*)，类似正文，使用 Rmarkdown 实现，部分内容用 \LaTeX 实现，均在 *xxx.Rmd* 文件内。
+- 致谢(*./tex/ack.tex*)、攻读学位论文期间发表的学术论文目录(*./tex/pub.tex*)、个人简历(*./tex/resume.tex*)组成附录后的部分(backmatter)。这部分能力所限，未能实现从 \LaTeX 到 Rmarkdown 的转换，仍旧保留为 \LaTeX 格式。参考文献列表由 bibtex 插入，不作为一个单独的文件。
+
+### 配置文件
+
+主要为 *./index.Rmd* 文件，另外两个配置文件(*./\_bookdown.yml*、*./\_output.yml*)没有特殊需求不需要更改。
+
+对于 *./index.Rmd* 文件，论文题目、作者等信息直接更改为自己的即可。对第\ref{intro:options}节提到的论文选项，比如学位类型、英文模板、盲审选项、最终提交等可以放在 `classoption` 的 `[]` 内。比如 `classoption: [doctor, openright, twoside， submit]` ，就表示博士论文的提交版本。
+
+### 图片文件夹figure {#intro:fig}
+
+figure文件夹放置了需要插入文档中的图片文件(支持PNG/JPG/PDF/EPS格式的图片)，可以在按照章节划分子目录。
+模板文件中使用`\graphicspath`命令定义了图片存储的顶层目录，在插入图片时，顶层目录名“figure”可省略。
+
+### 参考文献数据库bib {#intro:bib}
+
+目前参考文件数据库目录只存放一个参考文件数据库 *./bib/thesis.bib*。
+关于参考文献引用，可参考第\ref{chap:latex}章中的例子。
+
+### 辅助文件
+
+- *./SJTUThesis-Rmd.Rproj* 项目文件，方便使用 rstudio 打开，如果仅使用 `make`，可以不要。
+- *./\_render.R* 渲染文件，复制自[谢益辉Bookdown中文模板](https://github.com/yihui/bookdown-chinese)，致谢。
+- *./Makefile* `make` 的文件，综合[上海交通大学学位论文 \LaTeX 模板](https://github.com/sjtug/SJTUThesis)和[谢益辉Bookdown中文模板](https://github.com/yihui/bookdown-chinese)。
+- *./handed_pdf/* 复制自[上海交通大学学位论文 \LaTeX 模板](https://github.com/sjtug/SJTUThesis)手写授权。
+- *./\_book/* 最终生成文件所在文件夹。
+- *./\_bookdown\_files/* 过程中生成的文件所在文件夹。

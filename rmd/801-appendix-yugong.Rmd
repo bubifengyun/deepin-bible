@@ -1,8 +1,6 @@
-# 愚公移山 {#yugong}
+# 愚公移山 {#chap:yugong}
 
-<p style="text-align: right;">
-———— 先秦 列御寇 
-</p>
+\writeby{先秦 \quad 列御寇}
 
 太行、 王屋二山， 方七百里， 高万仞， 本在冀州之南， 河阳之北。
 

@@ -1,7 +1,0 @@
-\partquote{春江水暖鸭先知}{苏轼}
-\partintro{
-这里需要写点啥的。
-}
-# (PART) 其他部分 {#part:others -}
-
-\tianganappendix

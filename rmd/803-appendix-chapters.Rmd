@@ -1,0 +1,104 @@
+# 各章格式说明 {#chap:chapters}
+
+Bookdown 编译各 `Rmd` 文件时，是按照文件名的字母排序拼接在一起的，故而我们不需要专门写一个文件，类似 \LaTeX 模板的 `thesis.tex` 文件，但是也要求文件名需要特殊处理才可以做到有序。本模板的文件名采用如下命名方式， *xxx-name.Rmd*。其中 `xxx` 表示从 `000` 到 `999`，用于排序。`name` 是对应章节的名字。一章一个文件。
+
+由于自身水平所限，部分格式实现起来费劲，就采用直接书写 \LaTeX 代码的形式实现了。
+
+## 摘要
+
+摘要文件需要放在除了扉页的最开头位置。由于扉页等已经在模板中处理生成，故摘要需要放在最开头，命名为 *./rmd/000-abstract.Rmd*。
+
+```{.block2 caption="摘要代码框架示例" label=chapters:abstract}
+\frontmatter
+\pagestyle{main}
+
+\abstract
+
+上海交通大学是我国历史最悠久的高等学府之一。
+
+\keywords{\large 上海交大 \quad 饮水思源 \quad 爱国荣校}
+
+\englishabstract
+
+An imperial edict issued in 1896 by Emperor Guangxu, established Nanyang Public School in Shanghai.
+
+\englishkeywords{\large SJTU, Thesis, Rmarkdown/Bookdown template}
+
+\include{tex/content}
+```
+**解释**
+
+1. 第1、2行，表示下面属于论文前言部分，采用**罗马数字对前言编号**，页面格式属于正文格式。
+2. 第4、10行，表示下面是中英文的摘要部分。
+3. 第16行，表示接下来为目录部分。
+4. 摘要全文属于 \LaTeX 原文复制，局部改动的方法实现。为了减少文件个数，把文件格式以及目录也放在该文件了，但也造成了文件不专用的问题。请根据爱好，自行斟酌。
+
+## 摘要后的部分章节
+
+摘要后的部分章节，属于标准的 Markdown 文件，代码框架示例如代码\ref{chapters:frontword：nonhead}所示。
+
+```{.block2 caption="前言后文代码框架示例" label=chapters:frontword：nonhead}
+# 主要符号对照表
+
+\begin{longtable}{rl}
+$\$$\epsilon$\$$     & 介电常数 \\
+ $\$$\mu$\$$ 		& 磁导率 \\
+\end{longtable}
+```
+**解释**
+
+1. 第1行，标准 Markdown 语句，表示这是一章。
+2. 第3-6行，该章的具体内容，本章直接复制的 \LaTeX 源码，也可用使用 Markdown 书写。
+
+## 正文第一章
+
+```{.block2 caption="正文第一章代码框架示例" label=sec:mainpage:head}
+\mainmatter
+\pagestyle{main}
+
+# 这是什么 {#chap:intro}
+
+这是上海交通大学(非官方)学位论文 Bookdown 模板。
+```
+**解释**
+
+1. 第1、2行，表示下面属于论文正文部分，采用**阿拉伯数字对正文编号**，页面格式属于正文格式。
+2. 第4行及以后，属于标准的 Markdown 内容。
+
+## 正文后续章节
+
+框架格式类似摘要后的文件，如代码\ref{chapters:frontword：nonhead}所示，略。
+
+## 全文总结
+
+全文总结比较特殊，没有编入章节序号，采用如下方式。
+
+```{.block2 caption="全文总结代码框架示例" label=sec:summary}
+\summary
+
+这里是全文总结内容。
+```
+**解释**
+
+1. 第1行，表示下面为全文总结部分。
+2. 第3行及以后，书写全文总结内容，可以使用 \LaTeX 或 Markdown 书写。
+
+## 附录第一章
+
+```{.block2 caption="附录代码框架示例" label=sec:appendix:head}
+\appendix
+
+# bookdown 入门简介 {#bookdown-intro}
+```
+**解释**
+
+1. 第1行，表示下面属于论文附录部分，采用**英文字母对附录编号**。
+2. 第3行及以后，属于标准的 Markdown 内容。
+
+## 附录后续章节
+
+框架格式类似摘要后的文件，如代码\ref{chapters:frontword：nonhead}所示，略。
+
+## 后缀部分
+
+相关代码为 \LaTeX 形式，位于 *./tex/* 文件夹下，请参考[上海交通大学学位论文 \LaTeX 模板](https://github.com/sjtug/SJTUThesis)。

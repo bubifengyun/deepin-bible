@@ -83,7 +83,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{listings}
 \RequirePackage{textcomp}
-\RequirePackage[xetex, bookmarksnumbered, colorlinks, urlcolor=black, linkcolor=black, citecolor=black, plainpages=false, pdfstartview=FitH]{hyperref}
+\RequirePackage[xetex, bookmarksnumbered, colorlinks, urlcolor=blue, linkcolor=black, citecolor=blue, plainpages=false, pdfstartview=FitH]{hyperref}
 \RequirePackage{longtable}
 \RequirePackage[perpage, bottom]{footmisc}
 \RequirePackage[inline]{enumitem}
@@ -192,7 +192,7 @@
 \renewcommand{\labelitemi}{\ensuremath{\bullet}}
 
 %% Graphic path & file extension
-\graphicspath{{fig/}{figure/}{figures/}{logo/}{logos/}{graph/}{graphs}}
+\graphicspath{{images/}{fig/}{figure/}{figures/}{logo/}{logos/}{graph/}{graphs}}
 \DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.jpeg}
 
 % Caption setting in caption and bicaption pacakge
@@ -347,12 +347,7 @@
 
 \renewcommand\maketitle{%
   \pdfbookmark[0]{\sjtu@titlepage}{titlepage}
-  \ifsjtu@bachelor
-    \makechinesetitle@bachelor
-  \else
-    \makechinesetitle
-    \makeenglishtitle
-  \fi
+  \makechinesetitle
 }
 
 \newcommand\classification[1]{\def\sjtu@value@classification{#1}}
@@ -369,41 +364,25 @@
 \newcommand\defenddate[1]{\def\sjtu@value@defenddate{#1}}
 \newcommand\institute[1]{\def\sjtu@value@institute{#1}}
 \newcommand\chairman[1]{\def\sjtu@value@chairman{#1}}
+\newcommand\publisher[1]{\def\sjtu@value@publisher{#1}}
+\renewcommand\date[1]{\def\sjtu@value@date{#1}}
 
 % “绘制”中文标题页
 \newcommand\makechinesetitle{%
   \cleardoublepage
   \thispagestyle{empty}
   \begin{center}
-  {\songti\zihao{-3}\sjtu@label@statement}
-  \vskip\stretch{1}
-  {\heiti\zihao{3}\sjtu@value@chinesetitle}
-  \vskip\stretch{1}
-  {\fangsong\zihao{4}}
-  \def\tabcolsep{1pt}
-  \def\arraystretch{1.5}
-  \begin{tabular}{>{\begin{CJKfilltwosides}{4\ccwd}\heiti}r<{\end{CJKfilltwosides}}l}
-    \ifsjtu@review
-      \sjtu@label@author        & \underline{\makebox[150pt]{}} \\
-      \sjtu@label@studentnumber & \underline{\makebox[150pt]{}} \\
-      \sjtu@label@advisor       & \underline{\makebox[150pt]{}} \\ 
-      \ifx\sjtu@value@coadvisor\undefined\else
-        \sjtu@label@coadvisor     & \underline{\makebox[150pt]{}} \\ 
-      \fi
-    \else
-      \sjtu@label@author        & \underline{\makebox[150pt]{\sjtu@value@author}} \\
-      \sjtu@label@studentnumber & \underline{\makebox[150pt]{\sjtu@value@studentnumber}} \\
-      \sjtu@label@advisor       & \underline{\makebox[150pt]{\sjtu@value@advisor}} \\ 
-      \ifx\sjtu@value@coadvisor\undefined\else
-        \sjtu@label@coadvisor     & \underline{\makebox[150pt]{\sjtu@value@coadvisor}} \\ 
-      \fi
-    \fi
-      \sjtu@label@major         & \underline{\makebox[150pt]{\sjtu@value@major}} \\
-      \sjtu@label@defenddate    & \underline{\makebox[150pt]{\sjtu@value@defenddate}}
-  \end{tabular}
+  \vskip\stretch{8}
+  {\heiti\zihao{1}\sjtu@value@englishtitle}
+  \vskip 20pt
+  {\heiti\zihao{1}\sjtu@value@chinesetitle}
+  \vskip 20pt
+  {\fangsong\zihao{4}\rightline{编者\quad\quad\sjtu@value@author}}
+  \vskip\stretch{30}
+  {\heiti\zihao{4}{\sjtu@value@publisher}}
   \end{center}
-  \vskip \stretch{0.5}
-  \cleardoublepage
+
+  ~\vfill
 }
 
 % English Title Page
@@ -511,19 +490,24 @@
 
 % 授权声明
 \newcommand\makeDeclareAuthorization{%
-  \cleardoublepage
-  \thispagestyle{empty}
-  \begin{center}
-    {\zihao{3}\bfseries\heiti \sjtu@value@school} \\
-    {\zihao{3}\bfseries\heiti \sjtu@label@authorization}
-  \end{center}
-  \vskip 10pt
-  {\par\zihao{-4}\sjtu@label@authorizationcontent\par}
-  \vskip 60pt
-  \sjtu@label@authorsign\hrulefill\hspace{3em}\sjtu@label@Supervisorsign\hrulefill
-  \vskip 15pt
-  \sjtu@label@originalDate\hfill\hspace{3em}\sjtu@label@originalDate
-  \cleardoublepage
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+\thispagestyle{empty}
+
+\noindent 版权 \copyright\ 2018 \author\\ % Copyright notice
+
+\noindent \textsc{\sjtu@value@publisher}\\ % Publisher
+
+\noindent \textsc{\url{https://github.com/bubifengyun/deepin-bible}}\\ % URL
+
+\noindent 版权采用 Creative Commons Attribution-NonCommercial 3.0 Unported License，内容见http://creativecommons.org/licenses/by-nc/3.0。共享版权，商业用途请联系我们。\\ % License information
+
+\noindent \textit{\sjtu@value@publisher 于 \sjtu@value@date} % Printing/edition date
+~\vfill
 }
 
 % fancyhdr页眉页脚设置
@@ -570,14 +554,14 @@
   %% 双面打印页眉页脚
     \fancypagestyle{front}{%
       \fancyhf{}
-      \fancyhead[LO,RE]{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}
+      \fancyhead[LO,RE]{\small\kaishu\sjtu@value@chinesetitle}
       \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
       \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
       \renewcommand{\headheight}{32pt}
     }
     \fancypagestyle{main}{%
       \fancyhf{}
-      \fancyhead[LO,RE]{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}
+      \fancyhead[LO,RE]{\small\kaishu\sjtu@value@chinesetitle}
       \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
       \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
       \renewcommand{\headheight}{32pt}
@@ -586,14 +570,14 @@
   %% 单面打印页眉页脚
     \fancypagestyle{front}{%
       \fancyhf{}
-      \fancyhead[L]{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}
+      \fancyhead[L]{\small\kaishu\sjtu@value@chinesetitle}
       \fancyhead[R]{\nouppercase{\sjtu@fancyhead\leftmark}}
       \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
       \renewcommand{\headheight}{32pt}
     }
     \fancypagestyle{main}{%
       \fancyhf{}
-      \fancyhead[L]{\small\kaishu\sjtu@value@school\sjtu@value@chinesedegree\sjtu@label@thesis}
+      \fancyhead[L]{\small\kaishu\sjtu@value@chinesetitle}
       \fancyhead[R]{\nouppercase{\sjtu@fancyhead\leftmark}}
       \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
       \renewcommand{\headheight}{32pt}
@@ -616,26 +600,6 @@
   \@mainmattertrue
   \pagestyle{main}
   \pagenumbering{arabic}
-}
-% https://tex.stackexchange.com/questions/219711/definition-with-roman-counter-value
-\newcommand\tiangani{甲}
-\newcommand\tianganii{乙}
-\newcommand\tianganiii{丙}
-\newcommand\tianganiv{丁}
-\newcommand\tianganv{戊}
-\newcommand\tianganvi{己}
-\newcommand\tianganvii{庚}
-\newcommand\tianganviii{辛}
-\newcommand\tianganix{壬}
-\newcommand\tianganx{癸}
-\newcommand*\Tiangan[1]{\csname tiangan\romannumeral\value{#1}\endcsname}
-
-% https://latex.org/forum/viewtopic.php?t=2674
-\newcommand\tianganappendix{%
-  \appendix
-  \renewcommand{\CTEX@prechapter}{附录}
-  \renewcommand{\CTEX@thechapter}{\Tiangan{chapter}}
-  \renewcommand{\thechapter}{\Tiangan{chapter}}
 }
 
 % 中英文摘要

@@ -1,20 +1,49 @@
+```{r setup, include=FALSE}
+
+# 为了让日期显示为英文
+locale = Sys.setlocale(category = "LC_TIME", locale = 'en_US.UTF-8')
+
+options(
+  htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4
+)
+
+# 填上你需要用到的包
+if (!length(getOption('repos'))) options(repos = c(CRAN = 'https://cran.rstudio.com'))
+lapply(c('DT', 'citr', 'formatR', 'svglite', 'webshot'), function(pkg) {
+  if (system.file(package = pkg) == '') install.packages(pkg)
+})
+
+# 生成依赖包
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown', 'htmlwidgets', 'webshot', 'DT',
+  'miniUI', 'tufte', 'servr', 'citr', 'rticles'
+), 'bib/packages.bib')
+
+# 支持图片标题双语言，为了排版优化，强制加入 \centering
+# https://github.com/yihui/knitr/issues/1554
+library(knitr)
+knit_hooks$set(plot = function(x, options) {
+  if(!is.null(options$bicap)){
+    paste("\\begin{figure}[!htp]",
+        "\n\\centering",
+        hook_plot_tex(x, options), 
+        "\n\\bicaption{", options$bicap[1], "}{",options$bicap[2],"}", 
+        "\n\\end{figure}", sep = "")
+  }
+  else{
+    hook_plot_tex(x, options)
+  }
+})
+
+```
 --- 
-title: "深度易经\\ Deepin Bible"
+title: "深度易经"
 englishtitle: "Deepin Bible"
 author: "深度操作系统爱好者"
-englishauthor: "LiTianci"
-englishadvisor: "ZhiCheng"
-englishinstitute: "Deepin Test Team"
-englishdate: "`r Sys.Date()`"
-date: "`r Sys.Date()`"
+date: "`r format(Sys.Date(),format='%Y年%m月%d日')`"
 documentclass: sjtuthesis
 classoption: [doctor, openright, twoside]
-studentnumber: 1111
 school: "上海交通大学"
-advisor: "张三"
-major: "通信与信息系统"
-defenddate: "`r Sys.Date()`"
-englishmajor: "CCTV"
 bibliography: [bib/book.bib, bib/packages.bib]
 biblio-style: apalike
 link-citations: yes
@@ -24,18 +53,8 @@ lof: yes
 site: bookdown::bookdown_site
 description: "深度操作系统的简单介绍"
 github-repo: bubifengyun/deepin-bible
+href2footnote: yes
 cover-image: images/cover.jpg
+publisher: 尚未出版
 ---
 
-```{r setup, include=FALSE}
-options(
-  htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4
-)
-
-# 填上你需要用到的包，如 c('ggplot2', 'dplyr')
-
-c('ggplot2', 'dplyr', 'diagram')
-lapply(c(), function(pkg) {
-  if (system.file(package = pkg) == '') install.packages(pkg)
-})
-```
