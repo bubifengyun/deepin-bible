@@ -186,6 +186,16 @@ $endif$
   {\begin{rmdblock}{warning}}
   {\end{rmdblock}}
 
+% https://tex.stackexchange.com/questions/30312/shrink-figure-only-when-necessary
+% 修复 Markdown 图片格式过大的问题。
+\usepackage[export]{adjustbox}
+\let\oldincludegraphics\includegraphics
+\renewcommand\includegraphics[2][]{%
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\oldincludegraphics[#1]{#2}
+\end{adjustbox}
+}
+
 \begin{document}
 
 $if(cover-image)$
