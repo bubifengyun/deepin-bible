@@ -1,0 +1,31 @@
+# 常见问题 {#chap:faqs}
+
+```{block2, type='question'}
+如何修改`rm`命令，让删除的文件去回收站？
+```
+
+\BeginKnitrBlock{answer}
+ 文件被删且难以恢复，想必很多人都曾经遇到过。参考[这里](https://bbs.deepin.org/forum.php?mod=redirect&goto=findpost&ptid=159778&pid=487081&fromuid=16639)。具体做法如下。
+
+```{.bash  numbers=none}
+$\$$ sudo apt install trash-cli
+$\$$ gedit ~/.bashrc
+```
+
+打开文件，在末尾加上，`alias rm='trash-put'`，保存退出。运行如下命令。
+
+```{.bash  numbers=none}
+$\$$ source .bashrc
+```
+
+重启终端即可。想用原生的 `rm`，则为 `\rm`。当然这样也有弊端，详细说明见[这里](https://bbs.deepin.org/forum.php?mod=redirect&goto=findpost&ptid=159778&pid=487121&fromuid=16639)。
+
+\EndKnitrBlock{answer}
+
+```{block2, type='question'}
+如何修改`rm`命令，让删除的文件去回收站？
+```
+
+\BeginKnitrBlock{answer}
+你为啥长得这么帅
+\EndKnitrBlock{answer}

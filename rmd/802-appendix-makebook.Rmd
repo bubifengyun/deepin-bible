@@ -7,6 +7,7 @@
 - bookdown
 - pandoc
 - Tex
+- zhmakeindex (尚未包含到texlive）
 
 需要安装这些软件，才可以使用。
 
@@ -20,6 +21,23 @@ rstudio texlive-full pandoc make
 ```
 
 如果不能满足，请参考相关软件官网，下载最新版本。
+
+下面安装 zhmakeindex 用于产生中文索引，如果不需要中文索引，跳过下面这些操作，并注释掉 *./latex/template.tex* 中 `zhmakeindex` 相关的语句
+
+```block2
+\usepackage{zhmakeindex}
+\zhmakeindex
+\printindex
+```
+ 
+参考网页：https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages
+
+```{.bash numbers=none}
+$ wget http://mirrors.ctan.org/indexing/zhmakeindex.zip
+$ 接下来我也不会做
+```
+
+想把这个功能做出了，但是难啊。
 
 ### Windows 下使用
 

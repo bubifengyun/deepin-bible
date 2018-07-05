@@ -1,7 +1,7 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
 \usepackage[export]{adjustbox}
-\usepackage{etoc} 
+\usepackage{etoc}
 % 参考 ctexbook.cls 及
 % http://www.latextemplates.com/template/the-legrand-orange-book
 % https://tex.stackexchange.com/questions/48900/two-independent-tocs
@@ -58,12 +58,12 @@
 \node[anchor=south east] at (\paperwidth-2cm,-\ocreypos+0.5cm){\color{ocre!40}\fontsize{44}{20}\sffamily\bfseries\CTEX@part@titleformat{#2}};
 \fill[ocre!40](0cm,-\ocreypos) rectangle (\paperwidth,-\ocreypos-0.1cm);
 \node[anchor=north west] at (2cm,-\ocreypos-0.5cm){\ifusepartquote\parbox[t][][t]{\paperwidth-4cm}{\begin{quote}
-`` \thepartquote ''
+\quad\quad`` \thepartquote ''
 
 \VA{------ \thepartquoteauthor}{}
 \end{quote}}\fi};
-\node[anchor=south west] at (1cm,-\paperheight+1cm){\ifusepartintro\parbox[t][][t]{\paperwidth/2-1.5cm}{\quad\quad\thepartintro}\fi};
-\node[anchor=south east] at (\paperwidth-1cm,-\paperheight+1cm){\parbox[t][][t]{\paperwidth/2-1.5cm}{
+\node[anchor=south west] at (2cm,-\paperheight+2cm){\ifusepartintro\parbox[t][][t]{\paperwidth/2-2.5cm}{\quad\quad\thepartintro}\fi};
+\node[anchor=south east] at (\paperwidth-2cm,-\paperheight+2cm){\parbox[t][][t]{\paperwidth/2-2.5cm}{
 \etocsettocstyle{\renewcommand\contentsname{\null}}{}
 \etocsetnexttocdepth{0} % 目录层次到章
 \localtableofcontents
@@ -73,6 +73,7 @@
 \@endpart}
 \makeatother
 
+% 加入封面
 $if(cover-image)$
 \usepackage{wallpaper}
 $endif$
@@ -146,6 +147,56 @@ $endif$
   \newtheorem*{solution}{\bfseries{解答}}
 \makeatother
 
+\makeatletter
+% Boxed/framed environments
+\newtheoremstyle{ocrenumbox}% % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% % Body font
+{}% Indent amount
+{\small\bf\sffamily\color{ocre}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\color{ocre}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+
+
+% Defines the theorem text style for each type of theorem to one of the three styles above
+\theoremstyle{ocrenumbox}
+  \newtheorem{questionT}{}[chapter]
+\theoremstyle{plain}
+  \newtheorem*{answerT}{答}
+\makeatother
+
+%----------------------------------------------------------------------------------------
+%	DEFINITION OF COLORED BOXES
+%----------------------------------------------------------------------------------------
+
+\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+
+% Exercise box	  
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+backgroundcolor=ocre!10,
+linecolor=ocre,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt]{qBox}	
+
+% Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
+
+\newenvironment{question}{\begin{qBox}\begin{questionT}}{\end{questionT}\end{qBox}}	
+\newenvironment{answer}{\begin{answerT}}{\hfill{\color{ocre}\ensuremath{\blacksquare}}\end{answerT}}%
+
+
 % https://tex.stackexchange.com/questions/154570/itemize-environment-within-a-tabular-environment/154577
 % 添加各类消息框
 \newenvironment{rmdblock}[1]
@@ -189,6 +240,7 @@ $endif$
   {\begin{rmdblock}{warning}}
   {\end{rmdblock}}
 
+% 增加每章作者
 \newcommand\writeby[1]{\rightline{------ #1}}
 
 \makeatletter
@@ -216,9 +268,9 @@ $endif$
 \makeatother
 
 % 增加索引功能
-\usepackage{makeidx}
-\makeindex
-\renewcommand{\indexname}{索引}
+%\usepackage{zh­makein­dex}
+%\zh­makein­dex
+
 
 \begin{document}
 
@@ -233,6 +285,8 @@ $endif$
 
 
 % https://tex.stackexchange.com/questions/30312/shrink-figure-only-when-necessary
+% https://stackoverflow.com/questions/1565988/making-a-small-modification-to-a-latex-environment
+% https://tex.stackexchange.com/questions/116670/duplicating-environments
 % 修复 Markdown 图片格式过大的问题。
 % 需要\usepackage[export]{adjustbox}
 \let\oldincludegraphics\includegraphics
@@ -264,7 +318,8 @@ $body$
 
 \backmatter	% 文后无编号部分 
 
-\printindex
+% 索引
+%\printindex
 %% 参考资料
 \printbibliography[heading=bibintoc]
 \end{document}

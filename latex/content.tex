@@ -1,4 +1,7 @@
 % 目录、插图目录、表格目录
+% https://latex.org/forum/viewtopic.php?t=7734
+% 解决包 etoc,tocloft 冲突导致阅读器上没有目录的问题
+\pdfbookmark[0]{\contentsname}{contents}
 \tableofcontents
 \listoffigures
 \addcontentsline{toc}{chapter}{\listfigurename}     % 将插图目录加入全文目录

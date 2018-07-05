@@ -18,11 +18,15 @@
 
 如下图所示，创建账户是非常简单的，打开设置侧栏，找到账户相关的那一部分，点击创建账户，进入到下图，填上用户名和密码等需要的数据，就可以了。
 ![图形方式创建账户](images/manager-user-account-01.png)
+
+
 ![图形方式创建账户](images/manager-user-account-02.png)
 
 如果需要更改头像、设置全名、更改密码、设置是否自动登录免密码登录，可以选中需要修改的账户，点击进去就可以啦。
 
 ![图形方式配置账户](images/manager-user-account-03.png)
+
+
 ![图形方式配置账户](images/manager-user-account-04.png)
 
 图形方式默认创建的账户是普通账户，比如是 `phptester` 账户，在 */etc/passwd*,*/etc/group* 会出现 `phptester` 相关的信息。有兴趣的读者，可以先去看看上述俩文件，后面还会对这俩文件作进一步的讲解。

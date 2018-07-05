@@ -372,12 +372,12 @@
   \cleardoublepage
   \thispagestyle{empty}
   \begin{center}
-  \vskip\stretch{8}
+  \vskip\stretch{12}
   {\heiti\zihao{1}\sjtu@value@englishtitle}
   \vskip 20pt
   {\heiti\zihao{1}\sjtu@value@chinesetitle}
   \vskip 20pt
-  {\fangsong\zihao{4}\rightline{编者\quad\quad\sjtu@value@author}}
+  {\fangsong\zihao{4}{\sjtu@value@author \quad\quad 编著}}
   \vskip\stretch{30}
   {\heiti\zihao{4}{\sjtu@value@publisher}}
   \end{center}
@@ -498,7 +498,7 @@
 
 \thispagestyle{empty}
 
-\noindent 版权 \copyright\ 2018 \author\\ % Copyright notice
+\noindent 版权 \copyright\ 2018 \sjtu@value@author\\ % Copyright notice
 
 \noindent \textsc{\sjtu@value@publisher}\\ % Publisher
 
