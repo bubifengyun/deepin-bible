@@ -10,6 +10,7 @@
 # GNU/Linux 操作系统简介 {#linux-intro}
 
 通过阅读本章，你将会了解到以下几项内容。
+
 - Linux 使用范围。
 - Linux 发展简史以及 GPL 协议。
 - 如何学习 Linux。

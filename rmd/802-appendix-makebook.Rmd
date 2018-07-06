@@ -30,14 +30,39 @@ rstudio texlive-full pandoc make
 \printindex
 ```
  
-参考网页：https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages
+谢谢，我已经找到了编译好的 bin 文件。但是使用必应和百度搜索了一下，仅仅找到这么两个网页提到 
 
-```{.bash numbers=none}
-$ wget http://mirrors.ctan.org/indexing/zhmakeindex.zip
-$ 接下来我也不会做
+- http://www.ituring.com.cn/article/207412
+- https://www.zhihu.com/question/51727820
+- http://bbs.ctex.org/forum.php?mod=viewthread&tid=78544
+- http://bbs.ctex.org/forum.php?mod=viewthread&tid=77913
+- https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages
+
+我根据上述网页，参考这里。想把 zhmakeindex 安装到 linux_x64 的 texlive 2018 安装目录下。
+
+```
+sudo cp bin/linux_x64/zhmakeindex /usr/local/texlive/2018/bin/x86_64-linux/
+sudo cp doc /usr/local/texlive/2018/texmf-dist/doc/support/zhmakeindex -r
+sudo ln -s /usr/local/texlive/2018/bin/x86_64-linux/zhmakeindex /usr/local/bin/
 ```
 
-想把这个功能做出了，但是难啊。
+不知道我的理解对不对，把可执行文件和doc下文件放到这里了。然后检测安装情况
+
+```
+$ kpsewhich zhmakeindex
+$ tlmgr info zhmakeindex
+下面是输出
+tlmgr: cannot find package zhmakeindex, searching for other matches:
+
+Packages containing `zhmakeindex' in their title/description:
+
+Packages containing files matching `zhmakeindex':
+```
+
+貌似安装 zhmakeindex 包就是一个问题。怎么在 latex 下使用，还在摸索中。一直没有搜索到有`\usepackage{zhmakeindex}` 这样的语句。说明， zhmakeindex 还不能作为“正常的包”来用。特来请教这两个问题，一是如何安装 zhmakeindex并检测安装成功，一是如何在LaTeX下使用，我打算继续读这个源码，看看有没有收获，谢谢。
+
+接下来我也不会做。
+想把这个功能做出来，但是难啊。
 
 ### Windows 下使用
 
