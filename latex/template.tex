@@ -60,7 +60,7 @@
 \node[anchor=north west] at (2cm,-\ocreypos-0.5cm){\ifusepartquote\parbox[t][][t]{\paperwidth-4cm}{\begin{quote}
 \quad\quad`` \thepartquote ''
 
-\VA{------ \thepartquoteauthor}{}
+\VA{------ \quad\thepartquoteauthor}{}
 \end{quote}}\fi};
 \node[anchor=south west] at (2cm,-\paperheight+2cm){\ifusepartintro\parbox[t][][t]{\paperwidth/2-2.5cm}{\quad\quad\thepartintro}\fi};
 \node[anchor=south east] at (\paperwidth-2cm,-\paperheight+2cm){\parbox[t][][t]{\paperwidth/2-2.5cm}{
@@ -172,9 +172,9 @@ $endif$
 %	DEFINITION OF COLORED BOXES
 %----------------------------------------------------------------------------------------
 
-\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+\RequirePackage[framemethod=default]{mdframed} % Required for question boxes
 
-% Exercise box	  
+% Question box	  
 \newmdenv[skipabove=7pt,
 skipbelow=7pt,
 rightline=false,
@@ -268,9 +268,22 @@ linewidth=4pt]{qBox}
 \makeatother
 
 % 增加索引功能
-%\usepackage{zh­makein­dex}
-%\zh­makein­dex
 
+% https://tex.stackexchange.com/questions/144494/index-will-not-show-up-in-table-of-contents
+% \usepackage{tocbibind} % 该功能导致页面混乱，最后删除。
+% https://mirror.hmc.edu/ctan/macros/latex/contrib/imakeidx/imakeidx.pdf
+% https://tex.stackexchange.com/questions/238321/indexing-numbers-of-different-types
+\usepackage[makeindex]{imakeidx}
+% 采用中英文合并排序的方式
+% https://tex.stackexchange.com/questions/147578/how-to-make-index-with-alphabetic-order
+\makeindex[title=索引,columns=2,intoc=true,columnseprule=true,options=-s imakeidx.ist]
+% 下面用于解决页眉丢失问题。
+% https://tex.stackexchange.com/questions/356094/index-and-fancyhydr
+\indexsetup{
+  othercode={%
+    \thispagestyle{main}%
+  }
+}
 
 \begin{document}
 
@@ -320,7 +333,8 @@ $body$
 \backmatter	% 文后无编号部分 
 
 % 索引
-%\printindex
+\printindex
+
 %% 参考资料
 \printbibliography[heading=bibintoc]
 \end{document}

@@ -4,7 +4,7 @@
 
 作为普通人，使用电脑除了窗口图形界面外，还有个叫终端的字符界面。Linux 中通过在终端敲击字符跟电脑交互，这玩意就叫做 shell，并且相比图形界面（Graphic User Interfaces, GUI），通常 shell 功能更加强大。
 
-深度系统默认采用的 shell 是 `bash`（Bourne Again Shell），继承兼容于 UNIX 早期的 Bourne shell （作者：Stephen Bourne, 命令名为 `sh`）。曾经有一段时间深度默认 shell 是 `zsh`，经群众投票又改回 `bash`了，其实那次投票是我发起的。
+深度系统默认采用的 shell\index{shell}是 `bash`（Bourne Again Shell），继承兼容于 UNIX 早期的 Bourne shell （作者：Stephen Bourne, 命令名为 `sh`）。曾经有一段时间深度默认 shell 是 `zsh`，经群众投票又改回 `bash`了，其实那次投票是我发起的。
 
 除此之外，类 UNIX 系统还有其他的一些 shell,比如 `ksh`,`csh`,`tcsh`，有兴趣的可以查相关资料，这里不说了。
 
@@ -22,9 +22,9 @@
 
 ## 深度操作系统下 shell 简介
 
-按照《Linux Bible》的说法，有三种方式打开 shell 操作界面，分别叫shell提示符（shell prompt），终端窗口（Terminal window），和虚拟控制台（virtual console）。我感觉深度操作系统就后面两种，第一种说是登录的时候出现的那种字符界面，不太容易遇到，暂且跳过。
+按照《Linux Bible》的说法，有三种方式打开 shell 操作界面，分别叫shell提示符（shell prompt）\index{shell}，终端窗口（Terminal window），和虚拟控制台（virtual console）。我感觉深度操作系统就后面两种，第一种说是登录的时候出现的那种字符界面，不太容易遇到，暂且跳过。
 
-深度操作系统登录后，进入桌面，按下 `Ctrl + Alt + T` 或者 `F4` 会弹出深度终端窗口，这个软件在第三章已经作了介绍。可用于 shell 练习。对于虚拟控制台，可以通过按下 `Ctrl + Alt + Fi` 其中 `Fi` 表示 `F1,F2,...,F6`。分别弹出六个虚拟控制台，详情见后面叙述。
+深度操作系统登录后，进入桌面，按下 `Ctrl + Alt + T` 或者 `F4` 会弹出深度终端窗口，这个软件在第三章已经作了介绍。可用于 shell\index{shell} 练习。对于虚拟控制台，可以通过按下 `Ctrl + Alt + Fi` 其中 `Fi` 表示 `F1,F2,...,F6`。分别弹出六个虚拟控制台，详情见后面叙述。
 
 下面以深度终端窗口为例来说明。
 

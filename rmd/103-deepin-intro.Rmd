@@ -1,8 +1,8 @@
-# 深度操作系统简介 {#deepin-intro}
+# 深度操作系统\index{深度操作系统}简介 {#deepin-intro}
 
 摘自：[深度商业官网](https://www.deepin.com/)、[深度社区官网](https://www.deepin.org/)。已获[许可](https://bbs.deepin.org/forum.php?mod=viewthread&tid=39632&page=10#pid377474)。
 
-## 深度科技简介
+## 深度科技简介\index{深度科技}
 
 武汉深之度科技有限公司（简称：深度科技）成立于2011年，是专注基于Linux的国产操作系统研发与服务的商业公司。
 

@@ -38,31 +38,131 @@ rstudio texlive-full pandoc make
 - http://bbs.ctex.org/forum.php?mod=viewthread&tid=77913
 - https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages
 
-我根据上述网页，参考这里。想把 zhmakeindex 安装到 linux_x64 的 texlive 2018 安装目录下。
 
-```
-sudo cp bin/linux_x64/zhmakeindex /usr/local/texlive/2018/bin/x86_64-linux/
-sudo cp doc /usr/local/texlive/2018/texmf-dist/doc/support/zhmakeindex -r
-sudo ln -s /usr/local/texlive/2018/bin/x86_64-linux/zhmakeindex /usr/local/bin/
-```
-
-不知道我的理解对不对，把可执行文件和doc下文件放到这里了。然后检测安装情况
-
-```
-$ kpsewhich zhmakeindex
-$ tlmgr info zhmakeindex
-下面是输出
-tlmgr: cannot find package zhmakeindex, searching for other matches:
-
-Packages containing `zhmakeindex' in their title/description:
-
-Packages containing files matching `zhmakeindex':
-```
-
-貌似安装 zhmakeindex 包就是一个问题。怎么在 latex 下使用，还在摸索中。一直没有搜索到有`\usepackage{zhmakeindex}` 这样的语句。说明， zhmakeindex 还不能作为“正常的包”来用。特来请教这两个问题，一是如何安装 zhmakeindex并检测安装成功，一是如何在LaTeX下使用，我打算继续读这个源码，看看有没有收获，谢谢。
 
 接下来我也不会做。
 想把这个功能做出来，但是难啊。
+
+#### texlive 2018 的安装
+
+下载 *texlive2018.iso* [文件](https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/Images/)，到某个文件夹 *~/Downloads/texlive2018.iso*，创建临时文件夹 texlive，用于挂载下载的文件。
+
+```{.bash numbers=none}
+$\$$ mkdir ~/texlive
+$\$$ sudo mount ~/Downloads/texlive2018.iso ~/texlive
+```
+
+进入 texlive 文件夹，开始安装，选项如下。
+
+```{.bash numbers=none}
+$\$$ cd ~/texlive
+$\$$ sudo ./install-tl
+```
+
+会弹出如下信息，
+
+```{.block2 numbers=none}
+
+ <O> options:
+   [ ] use letter size instead of A4 by default
+   [X] allow execution of restricted list of programs via \write18
+   [X] create all format files
+   [X] install macro/font doc tree
+   [X] install macro/font source tree
+   [ ] create symlinks to standard directories
+   [X] after install, use tlnet on CTAN for package updates
+
+ <V> set up for portable installation
+
+Actions:
+ <I> start installation to hard disk
+ <P> save installation profile to 'texlive.profile' and exit
+ <H> help
+ <Q> quit
+
+Enter command: O
+
+```
+
+出现如下情况
+
+```{.block2 numbers=none}
+===============================================================================
+Options customization:
+
+ <P> use letter size instead of A4 by default: [ ]
+ <E> execution of restricted list of programs: [X]
+ <F> create all format files:                  [X]
+ <D> install font/macro doc tree:              [X]
+ <S> install font/macro source tree:           [X]
+ <L> create symlinks in standard directories:  [ ]
+            binaries to: 
+            manpages to: 
+                info to: 
+ <Y> after installation, get package updates from CTAN: [X]
+
+Actions: (disk space required: 5381 MB)
+ <R> return to main menu
+ <Q> quit
+
+Enter command: L
+New value for binary directory [/usr/local/bin]: 敲Enter键
+New value for man directory    [/usr/local/man]: 敲Enter键
+New value for info directory   [/usr/local/info]: 敲Enter键
+```
+
+类似如此结果，
+
+```{.block2 numbers=none}
+
+上面略去一部分文件
+<L> create symlinks in standard directories:  [X]
+            binaries to: /usr/local/bin
+            manpages to: /usr/local/man
+                info to: /usr/local/info
+ <Y> after installation, get package updates from CTAN: [X]
+
+Actions: (disk space required: 5381 MB)
+ <R> return to main menu
+ <Q> quit
+
+Enter command: R
+
+```
+
+接着回到主界面
+
+```{.block2 numbers=none}
+Actions:
+ <I> start installation to hard disk
+ <P> save installation profile to 'texlive.profile' and exit
+ <H> help
+ <Q> quit
+
+Enter command: I
+
+```
+
+输入 I 开始安装。成功后，弹出类似下文的界面
+
+```{.block2 numbers=none}
+Welcome to TeX Live!
+
+
+See /usr/local/texlive/2018/index.html for links to documentation.
+The TeX Live web site (http://tug.org/texlive/) contains any updates and
+corrections. TeX Live is a joint project of the TeX user groups around the
+world; please consider supporting it by joining the group best for you. The
+list of groups is available on the web at http://tug.org/usergroups.html.
+
+
+Add /usr/local/texlive/2018/texmf-dist/doc/man to MANPATH.
+Add /usr/local/texlive/2018/texmf-dist/doc/info to INFOPATH.
+Most importantly, add /usr/local/texlive/2018/bin/x86_64-linux
+to your PATH for current and future sessions.
+
+Logfile: /usr/local/texlive/2018/install-tl.log
+```
 
 ### Windows 下使用
 

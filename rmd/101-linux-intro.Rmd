@@ -1,13 +1,4 @@
-\mainmatter
-\pagestyle{main}
-
-\partquote{春江水暖鸭先知}{苏轼}
-\partintro{
-这里需要写点啥的。
-}
-# (PART) Linux 入门 {#part:intro -}
-
-# GNU/Linux 操作系统简介 {#linux-intro}
+# GNU/Linux 操作系统简介 {#chap:linux-intro}
 
 通过阅读本章，你将会了解到以下几项内容。
 

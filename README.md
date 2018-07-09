@@ -38,7 +38,7 @@ $ sudo apt-get install texlive-full
 
 ### 4、安装 pandoc 软件
 
-这个系统自带的版本就可以了。
+版本需要高于 2.0.0，最好下载[最新版本](https://github.com/jgm/pandoc/releases)。
 
 ```bash
 $ sudo apt-get install pandoc
@@ -83,11 +83,7 @@ devtools::install_github('yihui/rmini')
 - 管理员手册
 - 服务器用户
 - 网站安全
-- 附录 关于怎么编辑本书，以及本书相关的一些操作
-
-编写规范。
-
-- 图片命名不含中文，因为生成的适合无法识别中文。
+- 附录 关于怎么编辑本书，以及本书相关的一些操
 
 ## 四、下一步打算
 
@@ -124,7 +120,7 @@ $ git push gitee master
 - @yihui ,在其 https://github.com/yihui/bookdown-chinese 基础上修改完善的。
 - @deepin 操作系统
 
-有兴趣的同学，欢迎在 issue 上发表建议，或者直接推送。谢谢。
+有兴趣的同学，欢迎在 [issue](https://github.com/bubifengyun/deepin-bible/issues) 上发表建议，或者直接推送。谢谢。
 
 ## 六、版权
 
@@ -133,4 +129,4 @@ $ git push gitee master
 
 ## 七、下载本书
 
-你可以在 [github](https://github.com/bubifengyun/deepin-bible/blob/master/_book/deepin-bible.pdf) ，或者 [码云](https://gitee.com/bubifengyun/deepin-bible/raw/master/_book/deepin-bible.pdf)下载 PDF 文件。
+你可以在 [github](https://github.com/bubifengyun/deepin-bible/releases) 下载 PDF 文件。
