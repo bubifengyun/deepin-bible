@@ -1,4 +1,4 @@
-# 愚公移山 {#chap:yugong}
+# \index{愚公移山}愚公移山 {#chap:yugong}
 
 \writeby{先秦 \quad 列御寇}
 

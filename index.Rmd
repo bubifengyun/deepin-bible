@@ -3,8 +3,31 @@
 # 为了让日期显示为英文
 locale = Sys.setlocale(category = "LC_TIME", locale = 'en_US.UTF-8')
 
+if (system.file(package = 'tinytex') == '' || packageVersion("tinytex") < '0.6.4')
+  devtools::install_github('yihui/tinytex')
+
+localSystem = R.Version()$system
+if (grepl('linux', localSystem)){
+  if (grepl('64', localSystem)) 
+    zhmakeindex = './bin/linux_x64/zhmakeindex'
+  else
+    zhmakeindex = './bin/linux_x86/zhmakeindex'
+} else if (grepl('windows', localSystem)){
+  if (grepl('64', localSystem)) 
+    zhmakeindex = './bin/windows_x64/zhmakeindex.exe'
+  else
+    zhmakeindex = './bin/windows_x86/zhmakeindex.exe'
+} else if (grepl('darwin', localSystem)){
+  if (grepl('64', localSystem)) 
+    zhmakeindex = './bin/darwin_x64/zhmakeindex'
+  else
+    zhmakeindex = './bin/darwin_x86/zhmakeindex'
+} else {
+  zhmakeindex = 'makeindex'#不存在zhmakeindex
+}
+
 options(
-  htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4
+  htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4, tinytex.makeindex =  zhmakeindex, tinytex.makeindex.args = c('-s', 'imakeidx.ist')
 )
 
 # 填上你需要用到的包

@@ -268,16 +268,16 @@ linewidth=4pt]{qBox}
 \makeatother
 
 % 增加索引功能
-
 % https://tex.stackexchange.com/questions/144494/index-will-not-show-up-in-table-of-contents
-% \usepackage{tocbibind} % 该功能导致页面混乱，最后删除。
 % https://mirror.hmc.edu/ctan/macros/latex/contrib/imakeidx/imakeidx.pdf
 % https://tex.stackexchange.com/questions/238321/indexing-numbers-of-different-types
-\usepackage[makeindex]{imakeidx}
+\usepackage[texindy]{imakeidx}
 % 采用中英文合并排序的方式
 % https://tex.stackexchange.com/questions/147578/how-to-make-index-with-alphabetic-order
-\makeindex[title=索引,columns=2,intoc=true,columnseprule=true,options=-s imakeidx.ist]
+% https://tex.stackexchange.com/questions/199211/differences-between-xindy-and-makeindex
+\makeindex[title=索引,columns=2,intoc=true,columnseprule=true]
 % 下面用于解决页眉丢失问题。
+% \usepackage{tocbibind} % 该功能导致页面混乱，最后删除。
 % https://tex.stackexchange.com/questions/356094/index-and-fancyhydr
 \indexsetup{
   othercode={%

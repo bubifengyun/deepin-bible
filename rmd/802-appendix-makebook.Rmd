@@ -25,23 +25,42 @@ rstudio texlive-full pandoc make
 下面安装 zhmakeindex 用于产生中文索引，如果不需要中文索引，跳过下面这些操作，并注释掉 *./latex/template.tex* 中 `zhmakeindex` 相关的语句
 
 ```block2
-\usepackage{zhmakeindex}
-\zhmakeindex
+\usepackage[texindy]{imakeidx}
+\makeindex[title=索引,columns=2,intoc=true,columnseprule=true]
+\indexsetup{
+  othercode={%
+    \thispagestyle{main}%
+  }
+}
 \printindex
 ```
+
+以及删除 *./index.Rmd* 中 `zhmakeindex` 相关的语句
+
+```block2
+, tinytex.makeindex =  'zhmakeindex', tinytex.makeindex.args = c('-s', 'imakeidx.ist')
+```
  
-谢谢，我已经找到了编译好的 bin 文件。但是使用必应和百度搜索了一下，仅仅找到这么两个网页提到 
+下面介绍怎么安装 `zhmakeindex`，到[这里](https://ctan.org/pkg/zhmakeindex)或者直接点击[下载](http://mirrors.ctan.org/indexing/zhmakeindex.zip)，下载可执行文件。解压缩后，有如下文件夹。根据需要放到系统能够找到的地方。比如 `$ sudo cp ./bin/linux_x64/zhmakeindex /usr/local/bin/`
 
-- http://www.ituring.com.cn/article/207412
-- https://www.zhihu.com/question/51727820
-- http://bbs.ctex.org/forum.php?mod=viewthread&tid=78544
-- http://bbs.ctex.org/forum.php?mod=viewthread&tid=77913
-- https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages
+```{.block2 numbers=none}
+├── bin
+│   ├── darwin_x64
+│   │   └── zhmakeindex
+│   ├── darwin_x86
+│   │   └── zhmakeindex
+│   ├── linux_x64
+│   │   └── zhmakeindex
+│   ├── linux_x86
+│   │   └── zhmakeindex
+│   ├── windows_x64
+│   │   └── zhmakeindex.exe
+│   └── windows_x86
+│       └── zhmakeindex.exe
 
+```
 
-
-接下来我也不会做。
-想把这个功能做出来，但是难啊。
+为了方便大家简单操作，本文自带了 `zhmakeindex` 软件。其中索引有个坑，见[这里](https://github.com/jgm/pandoc/issues/4762)，也就是对于文章标题索引时不可以放在标题末尾。
 
 #### texlive 2018 的安装
 
@@ -203,56 +222,7 @@ $\$$ make wordcount
 
 使用 `tree` 命令所得。
 ```{.block2 caption="模板文件布局" label=intro:folder numbers=none}
-├── bib
-│   └── thesis.bib
-├── _book
-│   ├── sjtu-thesis-rmd.pdf
-│   └── sjtu-thesis-rmd.tex
-├── _bookdown_files
-├── _bookdown.yml
-├── figure
-│   ├── example
-│   │   ├── flow_chart.tex
-│   │   ├── sjtulogo.eps
-│   │   ├── sjtulogo.jpg
-│   │   └── sjtulogo.png
-│   ├── sjtubadge.pdf
-│   ├── sjtubanner.pdf
-│   └── sjtulogo.pdf
-├── handed_pdf
-│   ├── authorization.pdf
-│   └── original.pdf
-├── index.Rmd
-├── tex
-│   ├── ack.tex
-│   ├── content.tex
-│   ├── end_english_abstract.tex
-│   ├── patents.tex
-│   ├── projectsreview.tex
-│   ├── projects.tex
-│   ├── pubreview.tex
-│   ├── pub.tex
-│   └── template.tex
-├── Makefile
-├── _output.yml
-├── README.md
-├── _render.R
-├── rmd
-│   ├── 000-abstract.Rmd
-│   ├── 001-symbol.Rmd
-│   ├── 003-author.Rmd
-│   ├── 101-intro.Rmd
-│   ├── 102-chapters.Rmd
-│   ├── 103-latex.Rmd
-│   ├── 104-rmarkdown.Rmd
-│   ├── 105-example.Rmd
-│   ├── 601-appendix-bookdown.Rmd
-│   ├── 602-appendix-tale.Rmd
-│   ├── 603-appendix-history.Rmd
-│   └── 604-appendix-r-diagram.Rmd
-├── sjtuthesis.cfg
-├── sjtuthesis.cls
-└── SJTUThesis-Rmd.Rproj
+dd
 ```
 
 ## 主要文件介绍
