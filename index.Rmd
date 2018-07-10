@@ -8,7 +8,9 @@ if (system.file(package = 'tinytex') == '' || packageVersion("tinytex") < '0.6.4
 
 localSystem = R.Version()$system
 if (grepl('linux', localSystem)){
-  if (grepl('64', localSystem)) 
+  if (system('hash zhmakeindex 2>/dev/null') == 0) {
+    zhmakeindex = 'zhmakeindex'#存在zhmakeindex
+  } else if (grepl('64', localSystem)) 
     zhmakeindex = './bin/linux_x64/zhmakeindex'
   else
     zhmakeindex = './bin/linux_x86/zhmakeindex'
@@ -23,11 +25,11 @@ if (grepl('linux', localSystem)){
   else
     zhmakeindex = './bin/darwin_x86/zhmakeindex'
 } else {
-  zhmakeindex = 'makeindex'#不存在zhmakeindex
+  zhmakeindex = 'makeindex'#其他操作系统不存在zhmakeindex
 }
 
 options(
-  htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4, tinytex.makeindex =  zhmakeindex, tinytex.makeindex.args = c('-s', 'imakeidx.ist')
+  htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4, tinytex.makeindex =  zhmakeindex, tinytex.makeindex.args = '-s imakeidx.ist'
 )
 
 # 填上你需要用到的包
