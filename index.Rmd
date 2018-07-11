@@ -31,18 +31,8 @@ options(
 )
 
 # 填上你需要用到的包
-<<<<<<< HEAD
-if (!length(getOption('repos')))
-  local({r <- getOption("repos")
-    r["CRAN"] <- "https://cran.rstudio.com/" 
-    options(repos=r)
-  })
-
-lapply(c('DT', 'citr', 'formatR', 'svglite', 'webshot', 'devtools', 'bookdown'), function(pkg) {
-=======
 
 lapply(c('DT', 'citr', 'formatR', 'svglite', 'webshot', 'devtools'), function(pkg) {
->>>>>>> 2488396249f05aa1c824dd4152cfe961abf85473
   if (system.file(package = pkg) == '') install.packages(pkg)
 })
 
@@ -94,8 +84,4 @@ github-repo: bubifengyun/deepin-bible
 href2footnote: yes
 cover-image: images/cover.jpg
 publisher: 尚未出版
-<<<<<<< HEAD
 ---
-=======
----
->>>>>>> 2488396249f05aa1c824dd4152cfe961abf85473
