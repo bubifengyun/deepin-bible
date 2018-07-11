@@ -11,3 +11,13 @@
 也有深度科技公司，谢谢他们给提供了这么好的一个操作系统。
 
 也要谢谢各位支持我的好友、网友和亲人。给了我很大的动力，让我开启这个活动。能不能坚持下去，相信自己。
+
+如果您也想感谢这份模板的话，可以捐款支持本人工作。如果钱少，就刷个支付宝红包二维码在消费的时候支持一下；如果您想直接捐款，可以直接扫支付宝里的付款，多少随意。谢谢。
+
+\begin{figure}[!htp]
+  \centering
+  \includegraphics[width=.4\linewidth-1cm]{images/zhifubaohongbao.png}
+  \hspace{1cm}
+  \includegraphics[width=.4\linewidth-1cm]{images/zhifubaozhifu.png}
+  \label{fig:zhifubao}
+\end{figure}
