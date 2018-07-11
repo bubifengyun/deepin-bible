@@ -2,6 +2,13 @@ quiet = "--quiet" %in% commandArgs(FALSE)
 formats = commandArgs(TRUE)
 travis = !is.na(Sys.getenv('CI', NA))
 
+# install bookdown
+local({r <- getOption("repos")
+  r["CRAN"] <- "https://cran.rstudio.com/" 
+  options(repos=r)
+})
+if (system.file(package = 'bookdown') == '') install.packages('bookdown')
+
 src = (function() {
   attr(body(sys.function()), 'srcfile')
 })()$filename
