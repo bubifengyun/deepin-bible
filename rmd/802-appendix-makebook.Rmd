@@ -13,7 +13,7 @@
 
 ### Linux 下使用
 
-下面以深度操作系统15.5版本为例说明。安装过程中，请确保当前 `rstudio` 的版本高于 1.0.0, `texlive` 为2015年及之后的版本， `pandoc` 的版本高于 2.0.0。
+下面以深度操作系统15.5版本为例说明。安装过程中，请确保当前 `rstudio` 的版本高于 1.0.0, `texlive` 为2018年的版本， `pandoc` 的版本高于 2.0.0。
 
 ```{.bash numbers=none}
 $\$$ sudo apt-get install r-base r-base-dev \

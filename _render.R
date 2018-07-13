@@ -3,9 +3,10 @@ formats = commandArgs(TRUE)
 travis = !is.na(Sys.getenv('CI', NA))
 
 # install bookdown
-local({r <- getOption("repos")
-  r["CRAN"] <- "https://cran.rstudio.com/" 
-  options(repos=r)
+local({
+  r = getOption('repos')
+  if (!length(r) || all(r['CRAN'] == '@CRAN@')) r['CRAN'] = 'https://cran.rstudio.com' 
+  options(repos = r)
 })
 if (system.file(package = 'bookdown') == '') install.packages('bookdown')
 
