@@ -1,3 +1,9 @@
 # 教育学习用的 Linux {#education-intro}
 
-摘自：[深度商业官网](https://www.deepin.com/)、[深度社区官网](https://www.deepin.org/)。
+参考网页：
+
+- https://www.linux.com/news/best-linux-tools-teachers-and-students
+- https://linux.cn/article-9722-1.html
+
+## 引言
+

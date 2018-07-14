@@ -217,6 +217,11 @@ $\$$ make
 ```{.bash numbers=none}
 $\$$ make wordcount
 ```
+本书编译时的软件版本信息。
+
+```{r echo=FALSE}
+sessionInfo()
+```
 
 ## 文件布局
 
