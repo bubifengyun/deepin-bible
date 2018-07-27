@@ -24,11 +24,13 @@
 
 ## Linux 哲学
 
-参考这里：
+参考：
 
 - http://s3.eurecom.fr/~balzarot/softdev/material/0_2_unix_philosophy.pdf
 
-http://s3.eurecom.fr/~balzarot/softdev/material/0_2_unix_philosophy.pdf
+### 关于 Unix 哲学核心
+
+英语原文，
 
 > This is the UNIX philosophy: 
 >
@@ -37,6 +39,22 @@ http://s3.eurecom.fr/~balzarot/softdev/material/0_2_unix_philosophy.pdf
   - Write programs to handle **text streams**,   because that is a universal interface.
 >
 > --- Doug McIlroy
+
+汉语译文，
+
+> 这是UNIX哲学：
+>
+> - 程序，应当只做**一件事**，且要**做好**。
+  - 程序，应当能够**协作**。
+  - 程序，应当能够处理**文本流**，因为文本流是通用接口。
+>
+> --- Doug McIlroy
+
+谈谈我自己的看法，
+
+### Unix 哲学指导编程
+
+
 
 ## 如何提高自己的 Linux 技术
 
