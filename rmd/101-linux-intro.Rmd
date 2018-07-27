@@ -22,6 +22,21 @@
 ## Linux 发行版的出现
 
 
+## Linux 哲学
+
+参考这里：
+
+- http://s3.eurecom.fr/~balzarot/softdev/material/0_2_unix_philosophy.pdf
+
+http://s3.eurecom.fr/~balzarot/softdev/material/0_2_unix_philosophy.pdf
+
+> This is the UNIX philosophy: 
+>
+> - Write programs that do **one thing** and do **it well**. 
+  - Write programs to **work together**. 
+  - Write programs to handle **text streams**,   because that is a universal interface.
+>
+> --- Doug McIlroy
 
 ## 如何提高自己的 Linux 技术
 

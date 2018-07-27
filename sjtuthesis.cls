@@ -83,6 +83,7 @@
 \RequirePackage{xcolor}
 \RequirePackage{listings}
 \RequirePackage{textcomp}
+\PassOptionsToPackage{hyphens}{url}
 \RequirePackage[xetex, bookmarksnumbered, colorlinks, urlcolor=blue, linkcolor=black, citecolor=blue, plainpages=false, pdfstartview=FitH]{hyperref}
 \RequirePackage{longtable}
 \RequirePackage[perpage, bottom]{footmisc}
