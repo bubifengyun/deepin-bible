@@ -1,4 +1,4 @@
-# 教育学习用的 Linux {#education-intro}
+# 教学用的 Linux 软件{#education-intro}
 
 参考网页：
 
@@ -7,3 +7,32 @@
 
 ## 引言
 
+邓公当年曾说“计算机的普及要从娃娃做起。”其实深度操作系统的普及也可以从娃娃抓起。电脑的应用，更多的在于顺手的软件，教育方面也不例外。本章参考网上部分资料，介绍一些方便教学的软件。
+
+## 笔记
+
+毛主席的一个读书习惯“不动笔墨不读书”，既然要学习肯定是要做笔记的。GNU/Linux 操作系统下的笔记还是有很多种的，比如[为知笔记](http://www.wiz.cn/)、[leanote](http://leanote.org/)、[QOwnNotes](http://www.qownnotes.org/)、[BasKet Note Pads](http://basket.kde.org)、深度官方使用的[石墨文档](https://shimo.im/)等，更多软件可以参考深度商店的**办公学习**软件列表。当然也有一些便笺软件，比如 Xpad 。读者可以根据自己情况选择需要的软件，下面以 leanote 和 Xpad 为例进行介绍。
+
+### leanote
+
+### Xpad 便笺
+
+在深度商店里搜索 `xpad`，找到该软件，点击安装即可。
+
+## 课堂工具
+
+### iTalc
+
+### aTutor
+
+### Moodle
+
+## 文献写作工具
+
+### bookdown
+
+### VuFind
+
+### Calibre
+
+### CAJViewer
