@@ -15,15 +15,68 @@
 
 ### leanote
 
+`leanote` 又称蚂蚁笔记，在深度商店里搜索 `leanote`, 如下图\@ref(fig:leanote-install)所示，点击安装，等待安装完成，点击打开即可。
+
+```{r leanote-install, fig.align='center', echo=FALSE, out.width='100%', fig.show='hold', fig.cap='leanote 软件安装'}
+knitr::include_graphics('images/education-leanote-install.png')
+```
+
+安装完成后，注册登录，就可以使用了。本人试用界面如图\@ref(fig:leanote-use)。该笔记软件跟其他很多笔记软件类似，可以离线在线使用，甚至自建服务器。能够满足日常需要了。
+
+```{r leanote-use, fig.align='center', echo=FALSE, out.width='100%', fig.show='hold', fig.cap='leanote 使用界面'}
+knitr::include_graphics('images/education-leanote-use.png')
+```
+
 ### Xpad 便笺
 
-在深度商店里搜索 `xpad`，找到该软件，点击安装即可。
+在深度商店里搜索 `xpad`，找到该软件，点击安装即可。安装成功后，按下 `win` 键或者鼠标点击左下角**启动器**按钮，弹出软件列表界面。如图\@ref(fig:xpad-smallscreen) 或者 图\@ref(fig:xpad-fullscreen)所示
+
+```{r xpad-smallscreen, fig.align='center', echo=FALSE, out.width='61.8%', fig.show='hold', fig.cap='小号版软件列表'}
+knitr::include_graphics('images/education-xpad-search-smallscreen.png')
+```
+
+```{r xpad-fullscreen, fig.align='center', echo=FALSE, out.width='100%', fig.show='hold', fig.cap='全屏版软件列表'}
+knitr::include_graphics('images/education-xpad-search-fullscreen.png')
+```
+
+在上述界面中，都有搜索框，可以在搜索框里输入 `xpad` 查找。找到后，点击图标，就会打开类似图\@ref(fig:xpad-start)的界面，跟 win7 便签很类似。
+
+```{r xpad-start, fig.align='center', echo=FALSE, out.width='61.8%', fig.show='hold', fig.cap='Xpad 初始界面'}
+knitr::include_graphics('images/education-xpad-start.png')
+```
+
+Xpad 初始界面不一定符合用户习惯，可以自定义配置。在界面上右击，会弹出如图\@ref(fig:xpad-rightclick)列表，选择**Preferences**(首选项)，进行配置。
+
+```{r xpad-rightclick, fig.align='center', echo=FALSE, out.width='61.8%', fig.show='hold', fig.cap='Xpad 右键列表'}
+knitr::include_graphics('images/education-xpad-rightclick.png')
+```
+为了方便，对弹出的界面图\@ref(fig:xpad-setwin)，我做了如下配置，勾选了**View >> Show Window Decorations**用于显示窗口，以及 **Startup >> Start Xpad automatically after login**开机自启动。
+
+```{r xpad-setwin, fig.align='center', echo=FALSE, out.width='61.8%', fig.show='hold', fig.cap='Xpad 配置页面'}
+knitr::include_graphics('images/education-xpad-setwin.png')
+```
+
+如果需要删除某个便签，选中按下 **Shift + Delete** 键即可。
 
 ## 课堂工具
 
-### iTalc
+对于课堂工具，本章主要介绍师生屏幕广播软件，功能类似 Windows 下的 **红蜘蛛多媒体网络教室软件**以及。
 
-### aTutor
+### Veyon
+
+该软件[开源](https://github.com/veyon/veyon/)，[官网](https://veyon.io/)能够下载 Window 和 Linux 版本的[安装包](https://veyon.io/download/)。主要功能允许教师查看学生桌面上发生了什么，控制他们的桌面，锁定他们的桌面，对桌面演示，打开或关闭桌面，向学生桌面发送文本消息等等。安装方式如下，
+
+```bash
+$\$$ sudo apt-get install veyon -y
+```
+
+下面简要介绍如何使用，详细内容请参考[官网文档](https://veyon.io/docs/)。
+
+后面有能力做再完成。
+
+### AContent 
+AContent 是 aTutor 的一个加强包，能够创建和管理在线考试和测验，分享教学资料等。
+[下载地址](http://www.atutor.ca/acontent/downloads.php)
 
 ### Moodle
 
