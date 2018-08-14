@@ -23,9 +23,9 @@ $\$$ source .bashrc
 \EndKnitrBlock{answer}
 
 ```{block2, type='question'}
-如何修改`rm`命令，让删除的文件去回收站？
+文章标题索引时不可以放在标题末尾
 ```
 
 \BeginKnitrBlock{answer}
-你为啥长得这么帅
+索引有个坑，见[这里](https://github.com/jgm/pandoc/issues/4762)
 \EndKnitrBlock{answer}

@@ -74,9 +74,14 @@ $\$$ sudo apt-get install veyon -y
 
 后面有能力做再完成。
 
-### AContent 
-AContent 是 aTutor 的一个加强包，能够创建和管理在线考试和测验，分享教学资料等。
-[下载地址](http://www.atutor.ca/acontent/downloads.php)
+### AContent
+
+AContent 是 [aTutor](https://github.com/atutor?tab=repositories) 的一个加强包，能够创建和管理在线考试和测验，分享教学资料等。
+
+- [下载地址](https://atutor.github.io/acontent/downloads.html)
+- [github源码](https://github.com/atutor/AContent)
+
+安装方法如下，
 
 ### Moodle
 

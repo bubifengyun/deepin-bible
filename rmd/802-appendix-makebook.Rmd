@@ -7,7 +7,6 @@
 - bookdown
 - pandoc
 - Tex
-- zhmakeindex (尚未包含到texlive）
 
 需要安装这些软件，才可以使用。
 
@@ -21,46 +20,6 @@ rstudio texlive-full pandoc make
 ```
 
 如果不能满足，请参考相关软件官网，下载最新版本。
-
-下面安装 zhmakeindex 用于产生中文索引，如果不需要中文索引，跳过下面这些操作，并注释掉 *./latex/template.tex* 中 `zhmakeindex` 相关的语句
-
-```block2
-\usepackage[texindy]{imakeidx}
-\makeindex[title=索引,columns=2,intoc=true,columnseprule=true]
-\indexsetup{
-  othercode={%
-    \thispagestyle{main}%
-  }
-}
-\printindex
-```
-
-以及删除 *./index.Rmd* 中 `zhmakeindex` 相关的语句
-
-```block2
-, tinytex.makeindex =  'zhmakeindex', tinytex.makeindex.args = c('-s', 'imakeidx.ist')
-```
- 
-下面介绍怎么安装 `zhmakeindex`，到[这里](https://ctan.org/pkg/zhmakeindex)或者直接点击[下载](http://mirrors.ctan.org/indexing/zhmakeindex.zip)，下载可执行文件。解压缩后，有如下文件夹。根据需要放到系统能够找到的地方。比如 `$ sudo cp ./bin/linux_x64/zhmakeindex /usr/local/bin/`
-
-```{.block2 numbers=none}
-├── bin
-│   ├── darwin_x64
-│   │   └── zhmakeindex
-│   ├── darwin_x86
-│   │   └── zhmakeindex
-│   ├── linux_x64
-│   │   └── zhmakeindex
-│   ├── linux_x86
-│   │   └── zhmakeindex
-│   ├── windows_x64
-│   │   └── zhmakeindex.exe
-│   └── windows_x86
-│       └── zhmakeindex.exe
-
-```
-
-为了方便大家简单操作，本文自带了 `zhmakeindex` 软件。其中索引有个坑，见[这里](https://github.com/jgm/pandoc/issues/4762)，也就是对于文章标题索引时不可以放在标题末尾。
 
 #### texlive 2018 的安装
 
