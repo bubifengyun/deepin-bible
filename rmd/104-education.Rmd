@@ -81,9 +81,19 @@ AContent 是 [aTutor](https://github.com/atutor?tab=repositories) 的一个加�
 - [下载地址](https://atutor.github.io/acontent/downloads.html)
 - [github源码](https://github.com/atutor/AContent)
 
-安装方法如下，
+安装方法从略。
 
 ### Moodle
+
+比较推荐这个，本人打算在此基础上修改做一个教学评价系统。
+
+- [官网](https://moodle.org/)
+- [github源码](https://github.com/moodle/moodle)
+- [百度百科](https://baike.baidu.com/item/moodle)
+
+下面介绍本人运行 moodle 的操作记录。
+
+
 
 ## 文献写作工具
 

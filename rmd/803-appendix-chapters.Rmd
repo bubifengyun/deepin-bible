@@ -1,104 +1,89 @@
 # 各章格式说明 {#chap:chapters}
 
-Bookdown 编译各 `Rmd` 文件时，是按照文件名的字母排序拼接在一起的，故而我们不需要专门写一个文件，类似 \LaTeX 模板的 `thesis.tex` 文件，但是也要求文件名需要特殊处理才可以做到有序。本模板的文件名采用如下命名方式， *xxx-name.Rmd*。其中 `xxx` 表示从 `000` 到 `999`，用于排序。`name` 是对应章节的名字。一章一个文件。
+Bookdown 编译各 `Rmd` 文件时，是按照文件名的字母排序拼接在一起的，故而我们不需要专门写一个文件来组织各章节，但是为了更好的利用这一排序规则，需要对文件名稍作调整。本模板的文件名采用如下命名方式， `xxx-name.Rmd`。其中 `xxx` 表示从 `000` 到 `999`，第一位表示第几部分，后两位如果为 `00` 表示该部分的简介，如果是其他数字则表示章节。`name` 是对应章节的名字。一章一个文件。
 
 由于自身水平所限，部分格式实现起来费劲，就采用直接书写 \LaTeX 代码的形式实现了。
 
-## 摘要
+## 章：前言
 
-摘要文件需要放在除了扉页的最开头位置。由于扉页等已经在模板中处理生成，故摘要需要放在最开头，命名为 *./rmd/000-abstract.Rmd*。
+前言作为一章，不属于书主体内容，位于本书开头，需要一些特殊设定。命名为*./rmd/000-intro.Rmd*。 样式如下， 
 
-```{.block2 caption="摘要代码框架示例" label=chapters:abstract}
+```{.block2 caption="前言示例" label=chapters:intro}
 \frontmatter
 \pagestyle{main}
 
-\abstract
+# 前言
 
-上海交通大学是我国历史最悠久的高等学府之一。
+为什么要写这本书呢？起源于去武汉参观辛亥革命博物馆。
 
-\keywords{\large 上海交大 \quad 饮水思源 \quad 爱国荣校}
-
-\englishabstract
-
-An imperial edict issued in 1896 by Emperor Guangxu, established Nanyang Public School in Shanghai.
-
-\englishkeywords{\large SJTU, Thesis, Rmarkdown/Bookdown template}
-
-\include{tex/content}
+\include{latex/content}
 ```
 **解释**
 
-1. 第1、2行，表示下面属于论文前言部分，采用**罗马数字对前言编号**，页面格式属于正文格式。
-2. 第4、10行，表示下面是中英文的摘要部分。
-3. 第16行，表示接下来为目录部分。
-4. 摘要全文属于 \LaTeX 原文复制，局部改动的方法实现。为了减少文件个数，把文件格式以及目录也放在该文件了，但也造成了文件不专用的问题。请根据爱好，自行斟酌。
+1. 第1、2行，表示下面属于前言部分，采用**罗马数字对前言编号**，页面格式属于正文格式。
+2. 第4、6行，表示前言内容。
+3. 第8行，表示接下来为目录部分。
+4. 为了减少文件个数，把文件格式以及目录也放在该文件了，但也造成了文件不专用的问题。请根据爱好，自行斟酌。
 
-## 摘要后的部分章节
+## 前言后的部分章节
 
-摘要后的部分章节，属于标准的 Markdown 文件，代码框架示例如代码\ref{chapters:frontword：nonhead}所示。
+前言后的部分章节，属于标准的 Markdown 文件，框架示例如代码\ref{chapters:frontword：nonhead}所示。
 
-```{.block2 caption="前言后文代码框架示例" label=chapters:frontword：nonhead}
-# 主要符号对照表
+```{.block2 caption="前言后文示例" label=chapters:frontword：nonhead}
+# 作者简介 {#author}
 
-\begin{longtable}{rl}
-$\$$\epsilon$\$$     & 介电常数 \\
- $\$$\mu$\$$ 		& 磁导率 \\
-\end{longtable}
+这将是是一群深度操作系统爱好者的杰作！！！
 ```
 **解释**
 
 1. 第1行，标准 Markdown 语句，表示这是一章。
-2. 第3-6行，该章的具体内容，本章直接复制的 \LaTeX 源码，也可用使用 Markdown 书写。
+2. 第3行，该章的具体内容，可以使用 \LaTeX 或 Markdown 格式书写。
 
-## 正文第一章
+## 部分：第一部分简介
 
-```{.block2 caption="正文第一章代码框架示例" label=sec:mainpage:head}
+```{.block2 caption="第一部分简介示例" label=sec:mainpage:firstparthead}
 \mainmatter
 \pagestyle{main}
 
-# 这是什么 {#chap:intro}
+\partquote{合抱之木，生于毫末；九层之台，起于垒土；千里之行，始于足下。}{老 \quad 子}
 
-这是上海交通大学(非官方)学位论文 Bookdown 模板。
+\partintro{
+\quad\quad “话说天下大势，分久必合，合久必分”。
+}
+
+# (PART) Linux 及 Deepin 入门 {#part:intro -}
 ```
 **解释**
 
-1. 第1、2行，表示下面属于论文正文部分，采用**阿拉伯数字对正文编号**，页面格式属于正文格式。
-2. 第4行及以后，属于标准的 Markdown 内容。
+1. 第1、2行，表示下面属于本文正文部分，采用**阿拉伯数字对正文编号**，页面格式属于正文格式。
+2. 第4行，用于添加第一部分简介的名言警句。
+3. 第6-8行，表示第一部分简介的具体内容。
+4. 第10行，表示第一部分名称为**Linux 及 Deepin 入门**，标签为 `part:intro`。
 
-## 正文后续章节
+## 各部分内部的章
 
-框架格式类似摘要后的文件，如代码\ref{chapters:frontword：nonhead}所示，略。
+框架格式类似前言后的文件，如代码\ref{chapters:frontword：nonhead}所示，略。
 
-## 全文总结
+## 部分：附录及其他
 
-全文总结比较特殊，没有编入章节序号，采用如下方式。
+```{.block2 caption="附录及其他部分框架示例" label=sec:appendix:head}
+\partquote{这只是万里长征走完了第一步，以后的路程更长，工作更伟大，更艰苦。务必使同志们继续地保持谦虚、谨慎、不骄不躁的作风，务必使同志们继续地保持艰苦奋斗的作风。}{毛泽东}
+\partintro{
+\quad\quad 附录及其他部分，首先引用了中国的一篇古文《愚公移山》，目的是告诉自己要坚持坚持再坚持；其次讲述了本书的制作步骤，方便后来人对模板进行改编和再创作；再次介绍了本书的大致框架设计，提醒需要注意的问题；再次列举了写作中常见的 \LaTeX 和 Bookdown 编写的示例；最后是常见问题解答以及本书的大事记。
+}
+# (PART) 附录及其他 {#part:others -}
 
-```{.block2 caption="全文总结代码框架示例" label=sec:summary}
-\summary
-
-这里是全文总结内容。
+# (APPENDIX) 附录 {#chap:appendix -} 
 ```
 **解释**
 
-1. 第1行，表示下面为全文总结部分。
-2. 第3行及以后，书写全文总结内容，可以使用 \LaTeX 或 Markdown 书写。
+1. 第1-3行，同框架示例\ref{sec:mainpage:firstparthead} 的介绍。
+1. 第4行，表示下面属于论文附录部分，采用**天干顺序对附录编号**。
 
-## 附录第一章
+## 附录内部各章
 
-```{.block2 caption="附录代码框架示例" label=sec:appendix:head}
-\appendix
-
-# bookdown 入门简介 {#bookdown-intro}
-```
-**解释**
-
-1. 第1行，表示下面属于论文附录部分，采用**英文字母对附录编号**。
-2. 第3行及以后，属于标准的 Markdown 内容。
-
-## 附录后续章节
-
-框架格式类似摘要后的文件，如代码\ref{chapters:frontword：nonhead}所示，略。
+框架格式类似前言后的文件，如代码\ref{chapters:frontword：nonhead}所示，略。
 
 ## 后缀部分
 
-相关代码为 \LaTeX 形式，位于 *./tex/* 文件夹下，请参考[上海交通大学学位论文 \LaTeX 模板](https://github.com/sjtug/SJTUThesis)。
+相关代码为 \LaTeX 形式，包括索引和参考文献等，由模板自动生成，不用关心。
