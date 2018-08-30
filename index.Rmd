@@ -3,6 +3,8 @@
 # 为了让日期显示为英文
 localedate = Sys.setlocale(category = "LC_TIME", locale = 'en_US.UTF-8')
 
+# 添加索引引擎 zhmakeindex
+
 localSystem = R.Version()$system
 
 if (grepl('linux', localSystem)){
@@ -43,6 +45,7 @@ if (system.file(package = 'tinytex') == '' || packageVersion("tinytex") < '0.6.4
   devtools::install_github('yihui/tinytex')
 
 # 生成依赖包
+
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown', 'htmlwidgets', 'webshot', 'DT',
   'miniUI', 'tufte', 'servr', 'citr', 'rticles'
