@@ -37,7 +37,4 @@
 
 如果您感觉这本书对您有帮助，希望更加完善，也可用捐助本书。如果您手头不宽裕，可以刷个支付宝红包，默默支持一下；如果您认为值得投入，也可用直接捐款，谢谢。
 
-<body>
-    <div style="float:left;"><img src="images/zhifubaohongbao.png" hspace="10" /></div>
-    <div style="float:right"><img src="images/zhifubaozhifu.png" hspace="10" /></div>
-</body>
+![](images/zhifubaohongbao.png) ![](images/zhifubaozhifu.png)
