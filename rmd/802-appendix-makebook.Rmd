@@ -119,7 +119,7 @@ images 文件夹放置了需要插入文档中的图片文件(支持PNG/JPG/PDF/
 ### 参考文献数据库bib {#intro:bib}
 
 目前参考文件数据库目录只存放一个参考文件数据库 *./bib/book.bib*，而 *./bib/packages.bib* 是书籍编译参考的包信息。
-关于参考文献引用，可参考第\@ref(chap:latex)章中的例子。
+关于参考文献引用，可参考附录\@ref(chap:latex)中的例子。
 
 ### 辅助文件
 
