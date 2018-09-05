@@ -116,7 +116,7 @@
 algo(算法)，thm(定理)，lem(引理)，prop(命题)，cor(推论)，defn(定义)，conj(猜想)，exmp(例)，rem(注)，case(情形)，
 bthm(断言定理)，blem(断言引理)，bprop(断言命题)，bcor(断言推论)。
 amsmath还提供了一个proof(证明)的环境。
-这里举一个“定理”和“证明”的例子。
+这里举一个\cqh 定理\cqt 和\cqh 证明\cqt 的例子。
 \begin{thm}[留数定理]
 \label{thm:res}
   假设$U$是复平面上的一个单连通开子集，$a_1,\ldots,a_n$是复平面上有限个点，$f$是定义在$U\backslash \{a_1,\ldots,a_n\}$上的全纯函数，
@@ -151,11 +151,11 @@ amsmath还提供了一个proof(证明)的环境。
   \end{proof}
 \end{thm}
 
-上面的公式例子中，有一些细节希望大家注意。微分号d应该使用“直立体”也就是用mathrm包围起来。
+上面的公式例子中，有一些细节希望大家注意。微分号d应该使用\cqh 直立体\cqt 也就是用mathrm包围起来。
 并且，微分号和被积函数之间应该有一段小间隔，可以插入\verb+\,+得到。
 斜体的$d$通常只作为一般变量。
-i,j作为虚数单位时，也应该使用“直立体”为了明显，还加上了粗体，例如\verb+\mathbf{i}+。斜体$i,j$通常用作表示“序号”。
-其他字母在表示常量时，也推荐使用“直立体”譬如，圆周率$\uppi$（需要upgreek宏包），自然对数的底$\mathrm{e}$。
+i,j作为虚数单位时，也应该使用\cqh 直立体\cqt 为了明显，还加上了粗体，例如\verb+\mathbf{i}+。斜体$i,j$通常用作表示\cqh 序号\cqt 。
+其他字母在表示常量时，也推荐使用\cqh 直立体\cqt 譬如，圆周率$\uppi$（需要upgreek宏包），自然对数的底$\mathrm{e}$。
 不过，我个人觉得斜体的$e$和$\pi$很潇洒，在不至于引起混淆的情况下，我也用这两个字母的斜体表示对应的常量。
 
 
@@ -168,7 +168,7 @@ i,j作为虚数单位时，也应该使用“直立体”为了明显，还加�
 \XeTeX 可以很方便地插入PDF、PNG、JPG格式的图片。
 
 插入PNG/JPG的例子如\ref{fig:SRR}所示。
-这两个水平并列放置的图共享一个“图标题”(table caption)，没有各自的小标题。
+这两个水平并列放置的图共享一个\cqh 图标题\cqt (table caption)，没有各自的小标题。
 
 \begin{figure}[!htp]
   \centering
@@ -359,7 +359,7 @@ i,j作为虚数单位时，也应该使用“直立体”为了明显，还加�
 按照教务处的要求，参考文献外观应符合国标GBT7714的要求\footnote{\url{http://www.cces.net.cn/guild/sites/tmxb/Files/19798_2.pdf}}。
 在模板中，表现形式的控制逻辑通过biblatex-gb7714-2015包实现\footnote{\url{https://www.ctan.org/pkg/biblatex-gb7714-2015}}，基于{Bib\LaTeX}管理文献。在目前的多数TeX发行版中，可能都没有默认包含biblatex-gb7714-2015，需要手动安装。
 
-正文中引用参考文献时，用\verb+\cite{key1,key2,key3...}+可以产生“上标引用的参考文献”，
+正文中引用参考文献时，用\verb+\cite{key1,key2,key3...}+可以产生\cqh 上标引用的参考文献\cqt ，
 如\cite{Meta_CN,chen2007act,DPMG}。
 使用\verb+\parencite{key1,key2,key3...}+则可以产生水平引用的参考文献，例如\parencite{JohnD,zhubajie,IEEE-1363}。
 请看下面的例子，将会穿插使用水平的和上标的参考文献：关于书的\parencite{Meta_CN,JohnD,IEEE-1363}，关于期刊的\cite{chen2007act,chen2007ewi}，
@@ -369,7 +369,7 @@ i,j作为虚数单位时，也应该使用“直立体”为了明显，还加�
 总结一些注意事项：
 \begin{itemize}
 \item 参考文献只有在正文中被引用了，才会在最后的参考文献列表中出现；
-\item 参考文献“数据库文件”bib是纯文本文件，请使用UTF-8编码，不要使用GBK编码；
+\item 参考文献\cqh 数据库文件\cqt bib是纯文本文件，请使用UTF-8编码，不要使用GBK编码；
 \item 参考文献条目中默认通过date域输入时间。兼容使用year域时会产生编译warning，可忽略。
 \end{itemize}
 

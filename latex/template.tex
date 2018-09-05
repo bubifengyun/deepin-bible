@@ -205,7 +205,7 @@ linewidth=4pt]{qBox}
 % Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
 
 \newenvironment{question}{\begin{qBox}\begin{questionT}}{\end{questionT}\end{qBox}}	
-\newenvironment{answer}{\begin{answerT}}{\hfill{\color{ocre}\ensuremath{\blacksquare}}\end{answerT}}%
+\newenvironment{answer}{\begin{answerT}}{\newline\rightline{\color{ocre}\ensuremath{\blacksquare}}\end{answerT}}%
 
 
 % https://tex.stackexchange.com/questions/154570/itemize-environment-within-a-tabular-environment/154577
@@ -265,6 +265,10 @@ linewidth=4pt]{qBox}
 
 % 增加每章作者
 \newcommand\writeby[1]{\rightline{------ #1}}
+
+% 解决双引号不一致的问题。
+\newcommand\cqh{“}
+\newcommand\cqt{”}
 
 \makeatletter
 % 实现附录按甲乙丙丁排序，但是仅限于十个以内。否则，报错。
