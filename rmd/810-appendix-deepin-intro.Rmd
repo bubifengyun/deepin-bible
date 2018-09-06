@@ -1,0 +1,94 @@
+# 操作系统安装延伸阅读 {#install-further-read}
+
+## 计算机引导过程
+
+### 传统 BIOS 引导
+
+所谓 BIOS 或 Basic Input-Output System, 就是开机时第一个被执行的程序，又名固件。一般来说它储存在主板上的一块闪存中，与硬盘彼此独立。
+
+BIOS 被启动后，会按启动顺序加载磁盘的前 512 字节，即主引导记录，前 440 字节包含某个启动引导器，像 GRUB、Syslinux 和 LILO 之类的第一启动阶段代码。因为空间太小了，后续的启动代码保存在磁盘上，最后启动引导器又通过「链式引导」，或是直接加载内核，以加载一个操作系统。
+
+整个过程如下：
+
+开机时加电自检。 加电自检后，BIOS 初始化一些必要的硬件以准备引导，比如硬盘和键盘等。 BIOS 执行在「BIOS 硬盘顺序」中的第一块硬盘上的前 440 字节代码，即主引导记录。 MBR 接管后，执行它之后的第二阶段代码，如果后者存在的话，它一般就是启动引导器。 第二阶段代码会读取它的支持文件和配置文件。
+
+### UEFI 引导
+
+UEFI 不仅能读取分区表，还能自动支持文件系统。所以它不像 BIOS，已经没有仅仅 440 字节可执行代码即 MBR 的限制了，它完全用不到 MBR。
+
+UEFI 主流都支持 MBR 和 GPT 分区表。Apple-Intel Macs 上的 EFI 还支持 Apple 专用分区表。绝大部分 UEFI 固件支持软盘上的 FAT12，硬盘上的 FAT16、FAT32 文件系统，以及 CD/DVDs 的 IS09660 和 UDF。Intel Macs 的 EFI 还额外支持 HFS/HFS+ 文件系统。
+
+不管第一块上有没有 MBR，UEFI 都不会执行它。相反，它依赖分区表上的一个特殊分区，叫 EFI 系统分区，里面有 UEFI 所要用到的一些文件。计算机供应商可以在 <EFI 系统分区>/EFI//文件夹里放官方指定的文件，还能用固件或它的 shell，即 UEFI shell，来启动引导程序。EFI 系统分区一般被格式化成 FAT32，或比较非主流的 FAT16。
+
+### UEFI 的多重引导
+
+因为每个操作系统或者提供者都可以维护自己的 EFI 系统分区中的文件，同时不影响其他系统，所以 UEFI 的多重启动只是简单的运行不同的UEFI 程序，对应于特定操作系统的引导程序。这避免了依赖 chainloading 机制（通过一个启动引导程序加载另一个引导程序，来切换操作系统）。
+
+UEFI 引导的过程如下：
+
+- 系统开机 - 上电自检（Power On Self Test 或 POST）。
+- UEFI 固件被加载，并由它初始化启动要用的硬件。
+- 固件读取其引导管理器以确定从何处（比如，从哪个硬盘及分区）加载哪个 UEFI 应用。
+- 固件按照引导管理器中的启动项目，加载UEFI 应用。
+- 已启动的 UEFI 应用还可以启动其他应用（对应于 UEFI shell 或 rEFInd 之类的引导管理器的情况）或者启动内核及initramfs（对应于GRUB之类引导器的情况），这取决于 UEFI 应用的配置。
+
+## 常见 BIOS 设置
+
+### 常见启动引导器
+
+BIOS 或 UEFI 加载并初始化硬件完成后，会启动的一个启动引导器来接管硬件设备，引导操作系统启动的工作将有启动引导器来完成。
+
+引导程序引导方式及程序视应用机型种类而不同。例如在普通的个人电脑上，引导程序通常分为两部分：第一阶段引导程序位于主引导记录（MBR），用以引导位于某个分区上的第二阶段引导程序，如 NTLDR、BOOTMGR 和 GNU GRUB 等。
+
+### NTLDR/BOOTMGR
+
+NTLDR（NT loader 的缩写）是微软的Windows NT系列操作系统（包括Windows XP和Windows Server 2003）的引导程序。
+
+NTLDR 可以从硬盘以及 CD-ROM、优盘等移动存储器运行并引 Windows NT 系统的启动。如果要用 NTLDR 启动其他操作系统，则需要将该操作系统所使用的启动扇区代码保存为一个文件，NTLDR 可以从这个文件加载其它引导程序。
+
+NTLDR 主要由两个文件组成，这两个文件必须放在系统分区（大多数情况下都是C盘）：
+
+NTLDR，这是引导程序本身 boot.ini，这是引导程序的配置文件 当 boot.ini 丢失时，NTLDR 会启动第一块硬盘第一个分区上的 /Windows 目录中的系统。 bootmgr (Windows Boot Manager) 是从 Windows Vista 开始引进的新一代开机管理程序，用以替换 NTLDR 。
+
+当电脑运行完 POST (Power On Self Test) 后，传统型 BIOS 会根据引导扇区查找开机硬盘中标记\cqh 引导\cqt 分区下的 bootmgr 文件；若是 UEFI 则是 bootmgr.efi 文件，接着管理程序会读取开机配置数据库 BCD (Boot Configuration Database) 内的引导数据，接着根据其中的数据加载与默认或用户所选择的操作系统。
+
+### GNU GRUB 及其使用
+
+GNU GRUB（简称“GRUB”）是一个来自 GNU 项目的启动引导程序。GRUB 是多启动规范的实现，它允许用户可以在计算机内同时拥有多个操作系统，并在计算机启动时选择希望运行的操作系统。GRUB 可用于选择操作系统分区上的不同内核，也可用于向这些内核传递启动参数。
+
+GRUB Legacy / GURB2
+
+新的GRUB2（GRUB第二版）為GRUB的重写版本，它是GRUB的大革新。GRUB2对Linux系統做了更多的优化，支持更多的功能，如动态的载入模块（而在之前的GRUB中，新增或刪除模块要重新编译GRUB）等。GRUB2的版本号为0.98或更高；旧的GRUB的版本号则为0.97或更低，也被称为“GRUB Legacy”或“GRUB1”等。GRUB2的配置、命令等较GRUB Legacy有一定的不同。
+
+GRUB2 的配置文件
+
+GRUB2 配置文件的文件名和位置随系统的不同而不同；常见为/boot/grub/grub.conf。
+
+修改GRUB的配置文件后，不必把GRUB重新安装到MBR或者某个分区中。在Linux中，“grub-install”命令是用来把GRUB的步骤1安装到MBR或者分区中的。GRUB的配置文件、步骤2以及其它文件必须安装到某个可用的分区中。如果这些文件或者分区不可用，步骤1将把用户留在命令行界面。
+
+除了硬盘外，GRUB也可安装到光盘、软盘和优盘等移动介质中，这样就可以带起一台无法从硬盘启动的系统。
+
+使用 GRUB Shell
+
+## LINUX 启动过程
+
+### VMLINUZ
+
+- vmlinux：一个非压缩的，静态链接的，可执行的，不能bootable的Linux kernel文件。是用来生成vmlinuz的中间步骤。
+- vmlinuz：一个压缩的，能bootable的Linux kernel文件。vmlinuz是Linux kernel文件的历史名字，它实际上就是zImage或bzImage。
+- zImage： 仅适用于640k内存的Linux kernel文件。
+- bzImage： Big zImage，适用于更大内存的Linux kernel文件。
+
+对于目前的 Linux 桌面系统，vmlinuz 实际上即 bzImage kernel 文件。
+
+### INITRD
+
+initrd 的英文含义是 initialized RAM disk，就是由 bootloader 初始化的内存盘。在 linux内核启动前， bootloader 会将存储介质中的 initrd 文件加载到内存，内核启动时会在访问真正的根文件系统前先访问该内存中的 initrd 文件系统。
+
+initrd 分 image-initrd 及 cpio-initrd 两种。
+
+2.4 及以前的内核只支持 image-initrd，其核心文件是/linuxrc。 2.6 及以后的内核两种格式的 initrd 都支持，并且目前的 Linux 发行版使用的几乎都是 cpio-initrd，其核心文件是/init。 在 bootloader 配置了 initrd 的情况下，内核启动被分成了两个阶段，第一阶段先执行 initrd 文件系统中的/init(或早期的/linuxrc)，完成加载驱动模块等任务，第二阶段才会挂载真正的根文件系统中，并且 chroot 到真正的根文件系统 （例如硬盘上的某个分区）来完成系统的启动。
+
+转载网页：
+
+- http://wiki.deepin.org/wiki/DEEPIN_%E6%A1%8C%E9%9D%A2%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%A6%82%E8%BF%B0

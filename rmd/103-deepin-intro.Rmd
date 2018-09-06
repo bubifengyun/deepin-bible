@@ -1,96 +1,251 @@
 # 深度操作系统\index{深度操作系统}简介 {#deepin-intro}
 
+通过阅读本章，你将会了解到以下几项内容。
+
+- 武汉深之度科技有限公司简介
+- 深度操作系统的安装
+- 深度桌面使用
+- 深度桌面常用软件
+
+http://wiki.deepin.org/wiki/DEEPIN_%E6%A1%8C%E9%9D%A2%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%A6%82%E8%BF%B0
+
 摘自：[深度商业官网](https://www.deepin.com/)、[深度社区官网](https://www.deepin.org/)。已获[许可](https://bbs.deepin.org/forum.php?mod=viewthread&tid=39632&page=10#pid377474)。
 
 ## 深度科技简介\index{深度科技}
 
-武汉深之度科技有限公司（简称：深度科技）成立于2011年，是专注基于Linux的国产操作系统研发与服务的商业公司。
+**武汉深之度科技有限公司**
+
+武汉深之度科技有限公司（以下简称深度科技）成立于 2011 年，是专注基于 Linux 的国产操作系统研发与服务的商业公司。
 
 作为国内顶尖的操作系统研发团队，深度科技以提供安全可靠、美观易用的国产操作系统与开源解决方案为目标，拥有操作系统研发、行业定制、国际化、迁移和适配、交互设计、支持服务与培训等多方面专业人才，能够满足不同用户和应用场景对操作系统产品的广泛需求。
 
-![深度公司图片](images/about-us_img-2.jpg)
+```{r deepin-inc, fig.show='hold', fig.cap='武汉深之度科技有限公司标志', echo=FALSE}
+knitr::include_graphics("about-us_content_logo.jpg")
+```
 
-深度科技作为国产操作系统生态的打造者，不但与各芯片、整机、中间件、数据库等厂商结成了紧密合作关系，还与360、金山、网易、搜狗等企业联合开发了多款符合中国用户需求的应用软件。深度科技的操作系统产品，已通过了公安部安全操作系统认证、工信部国产操作系统适配认证、入围国管局中央集中采购名录，并在国内党政军、金融、运营商、教育等客户中得到了广泛应用。
+深度科技作为国产操作系统生态的打造者，不但与各芯片、整机、中间件、数据库等厂商结成了紧密合作关系，还与 360、金山、网易、搜狗等企业联合开发了多款符合中国用户需求的应用软件。深度科技的操作系统产品，已通过了公安部安全操作系统认证、工信部国产操作系统适配认证、入围国管局中央集中采购名录，并在国内党政军、金融、运营商、教育等客户中得到了广泛应用。
 
-截止到2016年，深度操作系统下载超过5000万次，提供32种不同的语言版本，以及遍布六大洲28个国家84个镜像站点的升级服务。在全球开源操作系统排行榜上，深度操作系统已跃居前十名，也是排名最高的中国操作系统产品。
+截止到 2015 年，深度操作系统下载超过 4000 万次，提供 30 种不同的语言版本，以及遍布六大洲的 70 多个镜像站点的升级服务。在全球开源操作系统排行榜上，深度操作系统长期保持前 20 名，也是排名最高的中国操作系统产品。
+
 未来，深度科技将继续秉承开源和创新精神，以操作系统的自主可控替代为契机，争取在三年内成为中国市场主要操作系统供应商，五年后成为具备国际影响力的主流操作系统厂商。
+
+**深度操作系统项目**
+
+深度操作系统 是一个致力于为全球用户提供美观易用、安全可靠体验的 Linux 发行版。它不仅仅对最优秀的开源产品进行集成和配置，还基于 Qt 技术开发了深度桌面环境和深度控制中心，并且开发了一系列面向日常使用的深度特色应用如深度商店、深度截图、深度音乐、深度影院等。深度操作系统非常注重易用的体验和美观的设计，对于大多数用户来说，它易于安装和使用，能够很好的代替 Windows 系统进行工作与娱乐。
+
+```{r deepin-os, fig.show='hold', fig.cap='深度操作系统桌面', echo=FALSE}
+knitr::include_graphics("en_about-us_content_sys.jpg")
+```
+
+深度操作系统的历史可以追溯到 2004 年，其前身 Hiweed Linux 是中国第一个基于Debian的本地化版本。在 2008 年更名为深度操作系统，2011 年获得商业投资，已经建立起国内少有的拥有员工数十人专注于桌面 Linux 发行版的团队。深度操作系统与Sogou, WPS, Maxthon 等合作伙伴进行了多方位合作，共同打造基于 Linux 系统的生态系统。同时，我们还在努力解决迁移 Windows 平台软件带来的各种兼容性问题，以便用户平滑的过渡到开放安全的 Linux 平台上来。
+
+对个人用户来说，使用深度操作系统不但完全免除了购买费用，而且不会被流行的各种病毒和木马感染。对于政府和企业用户，由于源代码开放可控，绝无后门隐患，安全性也更有保障，大大降低了维护代价和购买防护软件的费用。
+
+近年来，深度操作系统发展迅速，获得全球40多个国家用户的支持，累计下载量数千万次，并成为在Distrowatch 上排名最高的中国 Linux 操作系统发行版。
+
+非常欢迎您尝试深度操作系统作为您工作和生活的伙伴，作为中国鲜少地专注于桌面操作系统的团队，我们相信它将给您带来完全不同的体验！
 
 注：深度论坛网友 [licardo](https://bbs.deepin.org/forum.php?mod=viewthread&tid=145309&page=1#pid378170) 建议，`国产操作系统` 改为 `国内发行版`。深以为然。但是考虑到转帖的别人的文章，就保留不变了，特此说明。
 
-## 使用人群
+## 深度操作系统的安装
 
-### 程序员
+### 安装方案
 
-作为一个写过代码的人，用深度 Linux 感觉自己的电脑就是自己的。可以尽情写代码，不受各种弹窗的干扰。四个桌面，开发网站时，左右逢源，一个放置待测试网页，一个放置 vim + 源代码，一个 vscode 做笔记，一个打开浏览器查询各种资料。
+**全新安装 DEEPIN 单系统**
 
-### 文员
+所谓安装 deepin 单系统，即计算机上不保留其他操作系统，并且使用单独的分区格式化后安装 deepin。
 
-我感觉对于办公的最基本的需求，搜狗输入法和 WPS 是提供了的。
+准备工作：
 
-### 游戏爱好者
+- 如果是全新的电脑，或者硬盘中的文件数据均已备份无需保留，则直接使用光盘或优盘启动电脑进入安装操作即可。
+- 如果电脑中已有文件数据，则可以在现有系统（如 Windows）下将文件移动或备份，留出至少一个20G的空白分区；或者使用磁盘工具（推荐分区助手，下载地址）并选择一个剩余空间合适的分区进行大小调整，使磁盘中有20G以上的未分配空间或空白分区。
 
-深度自带 steam 游戏平台，好多游戏可以畅玩。快来玩玩吧。
+**与 WINDOWS 共存安装双/多系统**
 
-## 深度桌面使用
+在计算机上已经安装后 Windows 操作系统的情况下，如果想要保留已有 Windows 系统，则可安装双/多系统，实现 deepin 与 Windows 的共存。
 
-（本节仿照《Linux Bible》第二章内容书写。）
+与全新安装一样的，保证磁盘上有20G以上的未分配空间或空白分区即可。
+
+### 安装环境
+
+请确保您的电脑满足以下的配置要求，如果您的电脑配置低于以下的要求，将无法完美的体验深度操作系统：
+
+- 处理器：Intel Pentium IV 2GHz 或更快的处理器
+- 内存：至少 2G 内存(RAM)，4G 以上是达到更好性能的推荐值
+- 硬盘：至少 10 GB 的空闲空间
+
+同时，您还需要一张光盘以及光驱，如果您的电脑无光驱设备，可登录深度科技官方网站下载镜像文件并制作优盘启动盘。
+
+### 启动优盘的制作
+
+请使用深度科技团队开发的[深度启动盘软件制作工具](https://www.deepin.org/original/deepin-boot-maker/)制作启动优盘，你也可使用压缩软件打开[深度操作系统镜像](https://www.deepin.org/download/)提取。
+
+请根据自己**操作系统类型**的不同，选择**对应操作系统的启动盘制作工具**。将优盘插入电脑后，运行深度启动盘制作工具，选择深度操作系统镜像开始制作启动盘，制作期间请不要移除优盘，制作完成请选择重启电脑。
+
+注意：
+
+- 制作前请提前转移优盘中重要数据，制作时可能会清除优盘所有数据；
+- 制作前建议讲优盘格式化为FAT32格式，以提高识别率；
+- 部分优盘实则为移动硬盘，因此无法识别，请更换为正规优盘；
+- 优盘容量大小不得小于8G，否则无法成功制作启动盘；
+- 制作过程中请不要触碰优盘，以免因为写入不全导致制作失败。
+
+### 安装过程
+
+一般情况下电脑默认是从硬盘启动，因此，在使用光盘（优盘）安装系统之前，您需要先进入电脑的BIOS界面将光盘（优盘）设置为第一启动项。
+
+台式机一般为 Delete 键、笔记本一般为 F2  或 F10 或 F12 键，即可进入 BIOS 设置界面。
+
+您只需在享受一杯咖啡的时间，便可完成系统的安装。
+
+1、将深度操作系统光盘（优盘）插入电脑光驱（USB接口）中。
+
+2、启动电脑，将光盘（优盘）设置为第一启动项。
+
+3、进入安装界面，选择需要安装的语言。
+
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{deepin-installer1.png}
+\captionof{figure}{安装界面}
+\label{deepin-installer1}
+\end{center}
+\end{minipage}}
+
+4、进入账户界面，输入系统用户名和密码。
+
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{deepin-installer2.png}
+\captionof{figure}{账户界面}
+\label{deepin-installer2}
+\end{center}
+\end{minipage}}
+
+5、点击**下一步**。
+
+6、选择文件格式、挂载点、分配空间等。
+
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{deepin-installer3.png}
+\captionof{figure}{磁盘挂载界面}
+\label{deepin-installer3}
+\end{center}
+\end{minipage}}
+
+\begin{longtable}{|L{1in}|L{1.2in}|L{1.2in}|L{1.9in}|}
+\caption{\label{tab:mount}文件挂载说明} \\ \hline
+\centerline{\textbf{挂载点}} & \centerline{\textbf{挂载点中文名}} & \centerline{\textbf{文件系统}} & \centerline{\textbf{大小}} \\
+\hline
+\rowcolor{LightCyan}
+/ 	    &   根分区（必选） 	&    EXT4（推荐）     &   最少10G \\
+/home 	&    家目录（推荐） &	 EXT4（推荐）     &	    最少10G \\
+\rowcolor{LightCyan}
+swap 	&    交换分区（可选）&    不设置         &     4G内存以下分配2G，\newline 4G以上可不分配 \\
+\hline
+\end{longtable}
+
+7、点击**安装**。
+
+8、在弹出的确认安装窗口中，点击**确定**。
+
+9、将开始自动安装深度操作系统。
+
+安装视频见：https://www.bilibili.com/video/av16993752/
+
+想对安装过程有更多理解，可以阅读附录\@ref(install-further-read)，或者网上搜索相关教程。
+
+## 桌面使用
+
+其实深度系统自带一套学习指南**深度帮助手册**。可以按下**Super**键，也即一般电脑上微软标志的那个键，或者苹果电脑上的花键。在搜索里输入\cqh 深度帮助手册\cqt 就能够找到。打开后，可以自学很多知识，本书摘录其中部分内容。
+
+还有另外一套帮助工具，**欢迎**，同上，打开后，可以直接设置相关的选项。
 
 ### 开机
 
 如果你使用过 Windows 操作系统，那么使用深度桌面操作系统也不是难事。这里主要讲社区版深度桌面操作系统。
-开机登录后，点击 Windows 键会弹出如下界面。
+开机登录后，点击**Super**键会弹出如下界面。
 
-![启动项](images/deepin-desktop-1.jpg)
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{deepin-desktop-1.jpg}
+\captionof{figure}{启动项}
+\label{deepin-desktop-1}
+\end{center}
+\end{minipage}}
 
 你可以对所需要的软件进行搜索。直接点击软件图标，就可以打开软件了。分类放置的软件。在任务栏驻留的软件打开时，还会有动画显示。
 
-![任务栏打开软件动画](images/deepin-desktop-2.jpg)
-
-**深度文件管理器**
-
-双击桌面上的计算机图标，会弹出深度文件管理器，用于打开各类文件。
-
-![文件管理器](images/project-filemanager-1.png)
-
-![文件管理器](images/project-filemanager-2.png)
-
-![文件管理器](images/project-filemanager-3.png)
-
-可以使用 Super + 左右箭头 或者 Super + S 切换桌面，Alt + tab, Super + W 切换窗口。
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{deepin-desktop-2.jpg}
+\captionof{figure}{任务栏打开软件动画}
+\label{deepin-desktop-2}
+\end{center}
+\end{minipage}}
 
 ### 关机
 
 同时按 Ctrl + Alt + Delete，或者点击右下角关机按钮，就会弹出关机界面，如下图所示。
 
-![关机](images/shutdown.png)
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{shutdown.png}
+\captionof{figure}{关机}
+\label{shutdown}
+\end{center}
+\end{minipage}}
 
 ### 控制中心-系统设置
 
 点击任务栏，或者鼠标滑向桌面右下角几次，会在右侧出现控制中心面板。如下图所示。
 
-![控制中心](images/deepin-desktop-setting-1.jpg)
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{deepin-desktop-setting-1.jpg}
+\captionof{figure}{控制中心}
+\label{deepin-desktop-setting}
+\end{center}
+\end{minipage}}
 
-首页展示快速入口、常用快捷设置等，让操作更加方便和快捷；天气详情、通知中心通过插件展示，今后会开放插件接口，让您可以更多的参与定制。
+首页展示快速入口、常用快捷设置等，让操作更加方便和快捷；天气详情、通知中心通过插件展示，今后会开放插件接口，让您可以更多的参与定制。有兴趣的话，可以点开逐步试试。
 
 ### 开机自启动
 
-一些软件需要开机自启动，比如 QQ 还有一些保护眼睛的软件，比如定时休息的 workrave， 减少蓝光的 red-shift。点击 Super （Windows）键，弹出所有的软件图标，看中要开机自启动的，右击选择开机启动。
+一些软件需要开机自启动，比如 QQ 还有一些保护眼睛的软件，比如定时休息的 workrave， 减少蓝光的 red-shift。点击 **Super**键，弹出所有的软件图标，看中要开机自启动的，右击选择开机启动。
 
-![开机自启动](images/boot-auto.png)
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{boot-auto.png}
+\captionof{figure}{开机自启动}
+\label{boot-auto}
+\end{center}
+\end{minipage}}
+
+### 常用快捷键
+
+常用快捷键类似微软 Windows 操作系统，还可以自己定制快捷键。详情请参考**控制中心** $->$ **键盘和语言** $->$ **快捷键**。
 
 ### 安装软件
 
 使用电脑，不可避免的要用到很多软件。深度商店为您解忧愁，方便您查找并安装相关的软件。当然除了深度商店，您还可以使用命令行安装软件，关于命令行安装软件的介绍详见后面章节。
 
-![深度商店](images/deepin-store-1.png)
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{deepin-store-1.png}
+\captionof{figure}{深度商店}
+\label{deepin-store}
+\end{center}
+\end{minipage}}
 
 ### 卸载软件
 
 按 windows 键，弹出的软件，右击选择卸载。或者命令行，这里就不介绍了，在后面详细说明。
 
-## 深度桌面常用的几款软件
+## 深度桌面常用软件
 
-下面这些软件，非常适合普通人使用了。特摘抄下来。
+打开深度商店，会有很多常用软件推荐，另外在官网[深度原创应用](https://www.deepin.org/original/)有深度大量原创好用的软件，在官网[深度合作应用](https://www.deepin.org/cooperative/)等也有几个非常杰出的软件，下面介绍几款。
 
 ### 搜狗输入法
 
@@ -100,7 +255,7 @@
 
 ### QQ
 
-国人挚爱。可以视频。就不废话了。命令行安装。
+国人挚爱。可以视频。就不废话了。系统默认自带，如果没有，命令行安装。
 
 ```bash
 $\$$ sudo apt-get update
@@ -109,39 +264,17 @@ $\$$ sudo apt-get install deepin.com.qq.im
 
 ### 深度截图
 
-![深度截图中文版](images/deepin-screenshot-1.jpg)
-
 深度截图是深度科技团队开发的一款精巧截图应用，它具有智能窗口识别、快捷键支持、图片编辑、延迟截图、智能保存、调节图像分辨率等功能。
-深度截图V4.0作为系统预装的截图工具，继承沿用了之前版本的大部分功能，对代码进行了重构和优化，截图打开速度真正做到秒开。全新设计了截图工具栏和选取框，新增直接截取右键菜单界面等功能。
 
-**重构优化，速度秒开**
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{deepin-screenshot-3.jpg}
+\captionof{figure}{深度截图中文版}
+\label{deepin-screenshot}
+\end{center}
+\end{minipage}}
 
-采用C++重构代码，提升打开截图启动速度，优化性能和交互体验，从此告别打开慢、截图卡死的现象，真正做到秒开。
-
-![深度截图中文版](images/deepin-screenshot-2.jpg)
-
-**统一选框，白色主题**
-
-优化选取框控件，统一系统界面交互和显示；默认将工具栏变换成白色主题，操作更加清晰明了。
-
-![深度截图中文版](images/deepin-screenshot-3.jpg)
-
-**右键截取，一键即达**
-
-除了全屏截图、窗口截图、延时截图之外，本次新增右键菜单界面直接截图。无需设置延时后操作等待截取，只需一键便可截取右键菜单界面。
-
-![深度截图中文版](images/deepin-screenshot-4.jpg)
-
-**化繁为简，效率为王**
-
-打开深度截图后，按下F1键直接调用帮助手册，简化旧版本调用帮助的交互。专注截图操作，取消分享功能，提高效率和避免出现问题。
-
-![深度截图中文版](images/deepin-screenshot-5.jpg)
-
-
-**轻松下载，简单更新**
-
-大家可以通过更新系统以获取深度截图V4.0，或者直接在深度商店搜索下载。也可以采用命令行安装。
+深度截图也是系统默认自带的，如果没有，直接在深度商店搜索下载，也可以采用命令行安装。
 
 ```bash
 $\$$ sudo apt-get install deepin-screenshot
@@ -149,55 +282,17 @@ $\$$ sudo apt-get install deepin-screenshot
 
 ### 网易云音乐
 
-![网易云音乐](images/netease-cloud-music-1.jpg)
-
 为了带来更好的音乐体验，实现对音乐高品质的追求，经过网易云音乐与深度科技团队长达半年多的联合开发，大家期待已久的网易云音乐正式登陆Linux平台！
 
-网易云音乐是一款专注于发现与分享的音乐产品，依托专业音乐人、DJ、好友推荐及社交功能，为用户打造全新的音乐生活。
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{netease-cloud-music-3.jpg}
+\captionof{figure}{网易云音乐}
+\label{netease-cloud-music}
+\end{center}
+\end{minipage}}
 
-**时尚界面 传承最新设计**
-
-完美继承了Windows版本的最新界面风格和功能，不同的平台，同样的用户体验。
-
-![网易云音乐](images/netease-cloud-music-2.jpg)
-
-**千万曲库 首首超高品质**
-
-网易云音乐拥有广袤的曲库，囊括千万首320Kbps超品质音乐，让你随时沉醉在美妙的音乐层次中。
-
-![网易云音乐](images/netease-cloud-music-3.jpg)
-
-**明星入驻 亲自推荐音乐**
-
-过千名大牌明星、专业音乐人、DJ进驻，专业的私房“歌单”和音乐推荐，格调顿现。
-
-![网易云音乐](images/netease-cloud-music-4.jpg)
-
-**轻松社交 引发内心共鸣**
-
-你可以关注明星、DJ和好友，浏览他们的动态、收藏和分享；还可以通过其他人的评论体会歌曲中的故事和感受。
-
-![网易云音乐](images/netease-cloud-music-5.jpg)
-
-**平台互通 歌单实时同步**
-
-用户只需一个帐号，无论在哪个版本上收藏歌曲或创建歌单，只要连上网络，便可立即同步自己的数据信息，随时随地畅享好音乐。
-
-![网易云音乐](images/netease-cloud-music-6.jpg)
-
-**个性推荐 打造私人定制**
-
-网易云音乐采用独一无二的算法，轻易邂逅那些你未听过又很喜欢的歌。【个性化推荐】和【私人FM】，比你更了解你。同时也是首个以“歌单”为核心架构的音乐产品，一步轻松创建“歌单”，音乐分享又容易又有趣。
-
-![网易云音乐](images/netease-cloud-music-7.jpg)
-
-**轻松获取 开启音乐之旅**
-
-深度操作系统用户可运行深度商店，搜索“网易云音乐 ”进行安装体验，非深度操作系统用户可前往网易云音乐官网下载Linux客户端安装体验。
-
-![网易云音乐](images/netease-cloud-music-8.jpg)
-
-深度操作系统是一个致力于为全球用户提供美观易用、安全可靠的Linux发行版。建立完善的生态系统，打造更多的原生应用，给用户更好的体验，一直都是我们前进的方向。此次和网易云音乐合作，给Linux平台下的用户也带来高品质的在线音乐享受，而后续我们将不断努力开拓更多更好的应用。可以采用命令行安装。
+深度操作系统用户可运行深度商店，搜索\cqh 网易云音乐 \cqt 进行安装体验，非深度操作系统用户可前往网易云音乐官网下载Linux客户端安装体验。另外，您也可以命令行安装。
 
 ```bash
 $\$$ sudo apt-get install netease-cloud-music
@@ -205,37 +300,17 @@ $\$$ sudo apt-get install netease-cloud-music
 
 ### 深度系统监视器
 
-深度家族又添加了一个新成员，**深度系统监视器**V1.0正式发布啦！
-
-![深度系统监视器](images/deepin-system-monitor-1.jpg)
-
 深度系统监视器是深度科技团队打造一款直观易用的系统监视器应用，它可以实时监控处理器状态、内存占用率、网络上传下载速度；还可以管理您的系统进程和应用进程，支持搜索进程和强制结束进程。
 
-**黑白主题，简洁直观**
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{deepin-system-monitor-2.jpg}
+\captionof{figure}{深度系统监视器}
+\label{deepin-system-monitor}
+\end{center}
+\end{minipage}}
 
-集成黑白两种主题，用户可以自由切换；统一设计界面，布局更加简洁直观，实时动态显示处理器、内存、网络占用率以及进程列表等信息。
-
-![深度系统监视器](images/deepin-system-monitor-2.jpg)
-
-**标签显示，快速定位**
-
-通过标签分类的方式显示：应用程序进程、我的进程和所有进程，快速切换自己想要的进程显示；同时应用程序进程名称国际化处理，进程名称一目了然。当需要快速定位到某个进程时，可以快速搜索定位。
-
-![深度系统监视器](images/deepin-system-monitor-3.jpg)
-
-**列表展示，高效右键**
-
-系统的进程采用列表方式展示，可以自定义处理器、内存、磁盘写入、磁盘读取、下载、上传、进程号是否显示，还可以根据列表排序显示；同时对进程还可以右键菜单快速操作。
-
-![深度系统监视器](images/deepin-system-monitor-4.jpg)
-
-**捕捉窗口，即点即“杀”**
-
-当在使用系统的过程，不知道进程的ID或者想直接结束某个应用进程，只需点击菜单中强制结束进程选项，自动采用红色透明遮框捕捉窗口，点击即可结束进程。
-
-![深度系统监视器](images/deepin-system-monitor-5.jpg)
-
-大家可以通过更新系统以获取深度系统监视器V1.0，或者直接在深度商店搜索下载。也可以采用命令行安装。
+系统默认自带，如果没有，可以深度商店搜索下载，也可命令行安装。
 
 ```bash
 $\$$ sudo apt-get install deepin-system-monitor -y
@@ -243,30 +318,23 @@ $\$$ sudo apt-get install deepin-system-monitor -y
 
 ### 深度无线投屏
 
-深度家族又添加了一个新成员，深度演示助手V1.0正式发布啦！
-
 深度演示助手是一款用于手机内容分享的演示工具。它支持照片分享功能，分享时可以对照片进行旋转、标记、聚焦等操作。甚至还可以直接将手机屏幕投射到电脑上，视频、游戏都轻松分享。另外还支持幻灯片远程控制，让您在演示幻灯片时无拘无束。
 
-**无线投射，大屏享受**
+\leftline{\begin{minipage}{\linewidth}
+\begin{center}
+\includegraphics{deepin-presentation-assistant-1.png}
+\captionof{figure}{深度无线投屏}
+\label{deepin-presentation-assistant}
+\end{center}
+\end{minipage}}
 
-完美将小屏幕投射到大屏幕上，在投影仪等设备上看电影、玩游戏时感受大屏上面带来的视觉体验。
-
-![无线投屏](images/deepin-presentation-assistant-1.png)
-
-**PPT演示，快人一步**
-
-手机即是PPT遥控器，自动检测识别电脑端是否存在打开PPT文件。不仅是翻页工具，更能掌控全场，从此演示快人一步。
-
-![无线投屏](images/deepin-presentation-assistant-2.png)
-
-**照片分享，尽情涂鸦**
-
-让真实的生活完美展现，快速分享手机上的照片到大屏幕，还可以对照片进行涂鸦、编辑等处理。
-
-![无线投屏](images/deepin-presentation-assistant-3.png)
-
-大家可以通过深度商店搜索下载获取深度演示助手V1.0。或者采用命令行安装。
+系统默认自带，如果没有，可以深度商店搜索下载，也可命令行安装。
 
 ```bash
 $\$$ sudo apt-get install deepin-presentation-assistant -y
 ```
+
+## 总结
+
+本章简要介绍了深度科技公司及深度操作系统的部分内容，并对桌面常用的一些操作和常用的若干软件做了简单描述。如果需要对深度操作系统的框架了解更多，可以阅读官网[架构设计](https://www.deepin.org/developer-community/architectural-design/)，或者更进一步阅读[源代码](https://github.com/linuxdeepin)。
+

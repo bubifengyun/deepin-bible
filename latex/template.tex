@@ -2,6 +2,16 @@
 
 \usepackage[export]{adjustbox}
 \usepackage{etoc}
+
+% 为表格隔行涂色
+\usepackage{colortbl}
+\definecolor{Gray}{gray}{0.9}
+\definecolor{LightCyan}{rgb}{0.88,1,1}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}m{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}m{#1}}
+
 % 参考 ctexbook.cls 及
 % http://www.latextemplates.com/template/the-legrand-orange-book
 % https://tex.stackexchange.com/questions/48900/two-independent-tocs
