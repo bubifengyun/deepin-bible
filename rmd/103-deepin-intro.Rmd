@@ -1,5 +1,6 @@
 # 深度操作系统\index{深度操作系统}简介 {#deepin-intro}
 
+*本章打算重构，安装操作系统后移，把系统结构转移到这里来。*
 通过阅读本章，你将会了解到以下几项内容。
 
 - 武汉深之度科技有限公司简介
@@ -7,9 +8,7 @@
 - 深度桌面使用
 - 深度桌面常用软件
 
-http://wiki.deepin.org/wiki/DEEPIN_%E6%A1%8C%E9%9D%A2%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%A6%82%E8%BF%B0
-
-摘自：[深度商业官网](https://www.deepin.com/)、[深度社区官网](https://www.deepin.org/)。已获[许可](https://bbs.deepin.org/forum.php?mod=viewthread&tid=39632&page=10#pid377474)。
+摘自：[深度商业官网](https://www.deepin.com/)、[深度社区官网](https://www.deepin.org/)及[深度百科](http://wiki.deepin.org/wiki/DEEPIN_%E6%A1%8C%E9%9D%A2%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E6%A6%82%E8%BF%B0)。已获[许可](https://bbs.deepin.org/forum.php?mod=viewthread&tid=39632&page=10#pid377474)。
 
 ## 深度科技简介\index{深度科技}
 
@@ -45,7 +44,7 @@ knitr::include_graphics("en_about-us_content_sys.jpg")
 
 非常欢迎您尝试深度操作系统作为您工作和生活的伙伴，作为中国鲜少地专注于桌面操作系统的团队，我们相信它将给您带来完全不同的体验！
 
-注：深度论坛网友 [licardo](https://bbs.deepin.org/forum.php?mod=viewthread&tid=145309&page=1#pid378170) 建议，`国产操作系统` 改为 `国内发行版`。深以为然。但是考虑到转帖的别人的文章，就保留不变了，特此说明。
+注：深度论坛网友 [licardo](https://bbs.deepin.org/forum.php?mod=viewthread&tid=145309&page=1#pid378170) 建议，\cqh\textbf{国产操作系统}\cqt 改为\cqh\textbf{国内发行版}\cqt 。深以为然。但是考虑到转帖的别人的文章，就保留不变了，特此说明。
 
 ## 深度操作系统的安装
 
