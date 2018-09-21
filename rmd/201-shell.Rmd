@@ -1,12 +1,21 @@
 # shell 用法简介 {#shell}
 
-## 引言
+通过阅读本章，你将会了解到以下几项内容。
+
+- 了解 Linux Shell
+- 打开 Shell 终端的方法
+- Bash 语法简介
+- Bash 自动补全和输入历史
+- 命令的拼接和拓展
+- 变量和简写
+- 如何使用理解帮助文档
+
 
 作为普通人，使用电脑除了窗口图形界面外，还有个叫终端的字符界面。Linux 中通过在终端敲击字符跟电脑交互，这玩意就叫做 shell，并且相比图形界面（Graphic User Interfaces, GUI），通常 shell 功能更加强大。
 
-深度系统默认采用的 shell\index{shell}是 `bash`（Bourne Again Shell），继承兼容于 UNIX 早期的 Bourne shell （作者：Stephen Bourne, 命令名为 `sh`）。曾经有一段时间深度默认 shell 是 `zsh`，经群众投票又改回 `bash`了，其实那次投票是我发起的。
+深度系统默认采用的 shell\index{shell}是 `bash`（Bourne Again Shell），继承兼容于 UNIX 早期的 Bourne shell （作者：Stephen Bourne， 命令名为 `sh`），当然两者还是有那么一点点不同的。曾经有一段时间深度默认 shell 是 `zsh`，经群众投票又改回 `bash`了，其实[那次投票](https://bbs.deepin.org/forum.php?mod=viewthread&tid=30976&extra=)是我发起的。
 
-除此之外，类 UNIX 系统还有其他的一些 shell,比如 `ksh`,`csh`,`tcsh`，有兴趣的可以查相关资料，这里不说了。
+除此之外，类 UNIX 系统还有其他的一些 shell，比如 `ksh`,`csh`,`tcsh`，`ash`，当然还有非常好用的 `zsh` 等，有兴趣的可以查相关资料。
 
 ## 用 shell 有啥好处？
 
@@ -24,29 +33,171 @@
 
 按照《Linux Bible》的说法，有三种方式打开 shell 操作界面，分别叫shell提示符（shell prompt）\index{shell}，终端窗口（Terminal window），和虚拟控制台（virtual console）。我感觉深度操作系统就后面两种，第一种说是登录的时候出现的那种字符界面，不太容易遇到，暂且跳过。
 
-深度操作系统登录后，进入桌面，按下 `Ctrl + Alt + T` 或者 `F4` 会弹出深度终端窗口，这个软件在第三章已经作了介绍。可用于 shell\index{shell} 练习。对于虚拟控制台，可以通过按下 `Ctrl + Alt + Fi` 其中 `Fi` 表示 `F1,F2,...,F6`。分别弹出六个虚拟控制台，详情见后面叙述。
+深度操作系统登录后，进入桌面，按下 `Ctrl + Alt + T` （或`F4`或`Alt + F2`打开终端雷神模式，这个版本不同有所变化）会弹出深度终端窗口，这个软件在第三章已经作了介绍。可用于 shell\index{shell} 练习。对于虚拟控制台，可以通过按下 `Ctrl + Alt + Fi` 其中 `Fi` 表示 `F1,F2,...,F6`，分别弹出六个虚拟控制台，对于不同的电脑，可能`Ctrl + Alt + F1` 或者`Ctrl + Alt + F7` 打开的是图形界面（GUI）。
 
 下面以深度终端窗口为例来说明。
 
 **打开深度终端的方式**
 
-- 快捷键的方式：按下 `Ctrl + Alt + T` 或者 `F4`，弹出深度终端。
+- 快捷键的方式：按下 `Ctrl + Alt + T` 或者 `F4` 或 `Alt + F2`，弹出深度终端。
 - 图形方式：按下 `super` 键，或者点击左下角的图标，会弹出已安装软件图标，找到深度终端的图标，点击即可。或者在最上面搜索框中搜索终端。
-- 鼠标右键：在桌面上，右击选择`在终端中打开`，也可以进入深度终端。
+- 鼠标右键：在桌面上，右击选择在终端中打开，也可以进入深度终端。
+
+打开终端后，右击窗口内部，选择设置，可以对终端的一些外观属性配置。
 
 **深度终端的显示说明**
 
-在每行命令行
+在每行命令行开头会如下显示，
 
 ```bash
 litianci@litianci-pc:~$\$$ 
 ```
+**解释**
 
-`$` 一般表示普通用户， `#` 一般表示 root 用户。
+1. `litianci@litianci-pc:~` 表示用户名和电脑名，并用`@`隔开，`:`后是当前工作目录`～`，`～`是主目录的意思，因为古老的键盘中`～`和`Home`是同一个按键，所以就用 `~`代替主目录了。
+1. `$` 默认表示普通用户， `#` 默认表示 root 根用户。
+1. 这个显示说明是可以修改的，见后文 \@ref() 小节。
+1. 在 `$` 或者 `#` 后输入相关的命令字符。
 
-**深度终端设置**
+`$` 表示正在用普通用户权限运行后面的命令，而 `#` 则表示正在使用 root 根用户的权限。通常只有涉及重大核心系统功能的地方才需要用到root根用户权限。根据放权的最小权限原则，在普通用户权限可做的事情，建议不要使用 root 根用户权限。
 
-按下 `Ctrl + Alt + T` 打开深度终端。如下图所示。
+## 牛刀小试
 
-![深度终端右键设置](images/shell-settings-1.png)
-![深度终端设置界面](images/shell-settings-2.png)
+下面命令行首标志 `$` 和 `#` 区分运行权限，其他显示信息略。输入结果行没有行首标志，每行会有序号方便区分。
+
+```bash
+$\$$ whoami
+litianci
+$\$$ who -H
+名称   线路       时间           备注
+litianci tty1         2018-09-20 09:07 (:0)
+$\$$ grep litianci /etc/passwd
+litianci:x:1000:1000::/home/litianci:/bin/bash
+```
+**解释**
+
+1. `whoami` 列出当前用户名
+1. `who -H` 列出信息更详细，`-H` 表示显示头部标题列，第二行显示当前登录用户名`litianci`，当前登录线路终端`tty1`，当前用户登录系统时间`2018-09-20 09:07`，以及备注`(:0)`，**该备注啥意思暂时没有找到，是不是图形界面的意思，待后续找资料。**
+1. 第6行，是在*/etc/passwd*文件内查找该用户，在第7行最后`/bin/bash`，表示该用户默认的shell类型。实际操作时请把`litianci`换成你的账户名。
+
+```bash
+$\$$ date
+2018年 09月 21日 星期五 16:45:08 CST
+$\$$ pwd
+/home/litianci
+$\$$ hostname
+litianci-PC
+$\$$ hostname -I
+192.168.43.45
+$\$$ ls
+Desktop  Documents  Downloads  Music  Pictures	Videos
+```
+**解释**
+
+1. `date` 命令，无选项无参数时，输出当前日期、星期、时间和时区。其中CST表示中国标准时区，也即东八区。不过CST这个简写有[歧义](https://blog.csdn.net/sjpljr/article/details/70169056)，代表如下几个时区，
+    - CST Central Standard Time (USA) UT-6:00
+    - CST Central Standard Time (Australia) UT 9:30
+    - CST China Standard Time UT 8:00
+    - CST Cuba Standard Time UT-4:00
+1. `pwd` 命令输出当前工作目录。
+1. `hostname` 命令，无选项无参数时输出本机名称，如果加选项`-I`，则输出本机IP地址。
+1. `ls` 命令列出当前目录下所有的可见文件及文件夹。
+
+## 命令语法结构
+
+为了丰富命令的功能，命令常常带多种选项及参数的，[这里](https://www.jb51.net/os/RedHat/518485.html)区分两个名称，
+
+- **选项(Options)：**是调整命令执行行为的开关，即，选项不同决定了命令的显示结果不同；
+- **参数(Arguments)：**是指命令的作用对象。
+
+### 选项(Options)
+
+选项分为长选项和短选项。下面示例中，`-l -a -t`就是短选项，
+
+```bash
+$\$$ ls -l -a -t
+$\$$ ls -lat
+```
+**解释**
+
+1. `-l`(long listing)，宽列，较长格式列出信息，`-a`(all)列出所有文件（夹），包括隐藏文件（夹），`-t`(time)按时间排序。
+1. **短选项**一般使用`-`短横线引导。也有不带`-`的，比如`ps aux`，这类叫BSD风格的选项。
+1. 当有多个短选项时，各选项之间使用空格隔开。
+1. 有些短选项可以组合，比如 `-l -a -t` 可以组合为`-lat`。
+1. 有些短选项需带参数，比如-L 512M，则不便跟其他短选项组合，但如果位于最后一个也是可以组合的。比如`tar cvf deepin-bible.tar ~/deepin-bible`，各选项说明见后面\@ref(shell:more-example)节解释。
+
+```bash
+$\$$ ls --hide=Desktop
+Documents  Downloads  Music  Pictures  Videos
+```
+
+**解释**
+
+1. `--hide=Desktop`，不列出 Desktop 这一文件夹。
+1. **长选项**一般使用`--`两个短横线引导，而且后接完整英文单词。
+1. 长选项通常不能组合。
+1. 长选项如果需要参数，一般用`=`，比如`--size=1G`。不过也有用空格隔开的，比如 `pandoc test.md --to latex`表示使用`pandoc`命令把*test.md*文件转化为`latex`格式。
+
+以上均为常见格式，具体使用方法，还需查看相关命令的帮助，比如`cmd --help`，获得正确用法。
+
+### 参数(Arguments)
+
+上面讲述选项有所介绍，通过空格或者等号传入参数，也有直接通过空格缀在命令后面的。比如，
+
+```bash
+$\$$ cd /media/litianci/data/
+```
+
+跳转到*/media/litianci/data/* 文件夹。
+
+### 更多例子{#shell:more-example}
+
+为了方便大家上手，再多介绍几个例子。
+
+```bash
+$\$$ tar cvf deepin-bible.tar ~/deepin-bible
+$\$$ uname
+$\$$ uname -a
+$\$$ date
+$\$$ date +'%Y-%m-%d'
+2018-09-21
+$\$$ date +'%A, %B %d, %Y'
+星期五, 九月 21, 2018
+$\$$ id
+uid=1000(litianci) gid=1000(litianci) 组=1000(litianci),7(lp),24(cdrom),27(sudo)
+$\$$ who -aH
+名称     线路       时间           空闲  进程号 备注   退出
+           系统引导 2018-09-21 15:54
+           运行级别 5 2018-09-21 07:54
+litianci + tty1         2018-09-21 07:55  旧��       3820 (:0)
+登录     tty2         2018-09-21 21:48             21868 id=tty2
+```
+**解释**
+
+1. 第1行命令，`c`(create)表示创建压缩文件，`v`(verbose)表示详细信息，`f`(file)表示创建的文件为`deepin-bible.tar`；这是典型的组合命令，而最后一个组合选项`f`带参数`deepin-bible.tar`。`~/deepin-bible`置于最后，为待压缩文件夹。这样本条命令实现了对文件夹的压缩。
+1. 第2、3行，`uname`命令，显示系统名字，`-a`(all)选项，表示显示系统所有信息。
+1. 第4、5、7行，输出不同格式的日期时间格式。详细说明可以参考`date --help`的说明。有兴趣的可以多试试。注意系统语言对显示结果的影响。
+1. 第9行，`id`，常用于核实自己账户编号信息。
+1. 第11行，`-a`表示显示较多信息，具体信息参考`who --help`说明。`-H`已经在前面说明，显示列标题。
+
+由于采用系统默认的中文，深度终端自作聪明的翻译，有些内容乱码。为了方便叙述，后面把终端显示改为英文的，也即在*~/.bashrc*文件加上所用语言选项，并执行。
+
+```bash
+$\$$ echo LANG=en_US >> ～/.bashrc
+$\$$ source ~/.bashrc
+```
+
+回头再看`who -aH`命令，就清爽了。当然需要你对英文有一定理解了。
+
+```bash
+$\$$ who -aH
+NAME       LINE         TIME         IDLE          PID COMMENT  EXIT
+           system boot  Sep 21 15:54
+           run-level 5  Sep 21 07:54
+litianci + tty1         Sep 21 07:55  old         3820 (:0)
+LOGIN      tty2         Sep 21 22:02             25289 id=tty2
+```
+
+## 找找命令文件在哪里
+
+相信大家都听说过**一切皆文件**的Unix哲学，其实很多命令都是可执行文件，是可以查看这部分命令的文件的。

@@ -255,6 +255,7 @@
   rulesepcolor=\color{red!20!green!20!blue!20},%代码块边框为淡青色
   keywordstyle=\color{blue!90}\bfseries, %代码关键字的颜色为蓝色，粗体
   showstringspaces=false,%不显示代码字符串中间的空格标记
+  escapeinside={\%*}{*)},% 支持LaTeX代码入框 https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
   stringstyle=\ttfamily, % 代码字符串的特殊格式
   keepspaces=true, %
   breakindent=22pt, %

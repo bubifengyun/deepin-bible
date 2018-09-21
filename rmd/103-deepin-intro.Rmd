@@ -337,3 +337,6 @@ $\$$ sudo apt-get install deepin-presentation-assistant -y
 
 本章简要介绍了深度科技公司及深度操作系统的部分内容，并对桌面常用的一些操作和常用的若干软件做了简单描述。如果需要对深度操作系统的框架了解更多，可以阅读官网[架构设计](https://www.deepin.org/developer-community/architectural-design/)，或者更进一步阅读[源代码](https://github.com/linuxdeepin)。
 
+## 附注
+
+有建议说要转载王勇的文章，有机会试试。

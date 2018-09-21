@@ -145,7 +145,11 @@ $endif$
 % https://github.com/jgm/pandoc/issues/4716
 % lstinline 对数学模式存在 bug，等修复后可以改为如下方式
 % \newcommand{\passthrough}[1]{#1}
-\newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}} 
+\newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}}
+
+% https://tex.stackexchange.com/questions/30845/how-to-redefine-lstinline-to-automatically-highlight-or-draw-frames-around-all/30851
+% https://www.spinics.net/lists/perfbook/msg00036.html
+% another renewcommand/lstinline
 
 
 % 感谢 AlexaraWu 的指导 https://github.com/sjtug/SJTUThesis/issues/343
@@ -213,9 +217,10 @@ rightmargin=0cm,
 linewidth=4pt]{qBox}	
 
 % Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
-
+% https://tex.stackexchange.com/questions/195774/how-to-right-align-any-line-or-word-in-a-paragraph-in-any-documentclass
+% 实现不管是否换行都居右，建议所有的 \hfill 换成 \hspace*{\fill}
 \newenvironment{question}{\begin{qBox}\begin{questionT}}{\end{questionT}\end{qBox}}	
-\newenvironment{answer}{\begin{answerT}}{\newline\rightline{\color{ocre}\ensuremath{\blacksquare}}\end{answerT}}%
+\newenvironment{answer}{\begin{answerT}}{\hspace*{\fill}{\color{ocre}\ensuremath{\blacksquare}}\end{answerT}}%
 
 
 % https://tex.stackexchange.com/questions/154570/itemize-environment-within-a-tabular-environment/154577
