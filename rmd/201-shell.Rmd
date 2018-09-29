@@ -1,4 +1,4 @@
-# shell 用法简介 {#shell}
+# shell 用法简介 {#chap:shell}
 
 通过阅读本章，你将会了解到以下几项内容。
 
@@ -29,7 +29,7 @@
 
 其实 Windows 下也有 DOS 和 CMD 这类字符操作界面，不过功能弱爆了， powershell 可能功能强大一些，有兴趣的可以查相关资料，这里不说了。
 
-## 深度操作系统下 shell 简介
+## 深度操作系统下 shell 简介{#shell:intro}
 
 按照《Linux Bible》的说法，有三种方式打开 shell 操作界面，分别叫shell提示符（shell prompt）\index{shell}，终端窗口（Terminal window），和虚拟控制台（virtual console）。我感觉深度操作系统就后面两种，第一种说是登录的时候出现的那种字符界面，不太容易遇到，暂且跳过。
 
@@ -61,7 +61,7 @@ litianci@litianci-pc:~$\$$
 
 `$` 表示正在用普通用户权限运行后面的命令，而 `#` 则表示正在使用 root 根用户的权限。通常只有涉及重大核心系统功能的地方才需要用到root根用户权限。根据放权的最小权限原则，在普通用户权限可做的事情，建议不要使用 root 根用户权限。
 
-## 牛刀小试
+### 牛刀小试
 
 下面命令行首标志 `$` 和 `#` 区分运行权限，其他显示信息略。输入结果行没有行首标志，每行会有序号方便区分。
 
@@ -103,7 +103,7 @@ Desktop  Documents  Downloads  Music  Pictures	Videos
 1. `hostname` 命令，无选项无参数时输出本机名称，如果加选项`-I`，则输出本机IP地址。
 1. `ls` 命令列出当前目录下所有的可见文件及文件夹。
 
-## 命令语法结构
+### 命令语法结构
 
 为了丰富命令的功能，命令常常带多种选项及参数的，[这里](https://www.jb51.net/os/RedHat/518485.html)区分两个名称，
 
@@ -246,4 +246,989 @@ cd 是 shell 内建
 
 ## 命令快捷编辑
 
-如果命令不足够快捷，那还不如鼠标点点点呢。提到编辑器，在 Linux 世界就跳不过编辑器之神(vim)和神之编辑器(emacs)的争论。在这里不探讨孰是孰非。而 bash 默认的编辑方式就是这两者之一的 emacs 模式。
+### 方便编辑的快捷键
+
+如果命令不足够快捷，那还不如鼠标点点点呢。提到编辑器，在 Linux 世界就跳不过编辑器之神(vim)和神之编辑器(emacs)的争论。在这里不探讨孰是孰非。而 bash 默认的编辑方式就是这两者之一的 emacs 模式。如果喜欢 vim 的编辑方式，也可用设置为 vim 模式。在 *~/.bashrc*文件末尾加上 `set -o vi`，下次启动终端的时候，就是 vi 模式了。所谓模式，也是为了方便编辑，提供一些快捷键等。我最喜欢用的快捷键，就是 `Ctrl+A`跳到行头，`Ctrl+E`跳到行尾和`Ctrl+L`清屏了。其他的都是键盘上下左右键切换，懒得记录这些快捷键。不过还是把这些快捷键列在下面吧。
+
+: 光标跳转快捷键说明\label{tab:cmd:skip-shortkey}
+
+快捷键          解释
+----         -------
+Ctrl+F       向前一个字符
+Ctrl+B       后退一个字符
+Alt+F        向前一个单词
+Alt+B        向后一个单词
+Ctrl+A       跳到该行行首
+Ctrl+E       跳到该行行尾
+Ctrl+L       清空屏幕内容
+
+**注:**清屏，只是把内容放到屏幕上方，并加入了很大一片空白，滚动鼠标还可以看到刚刚输出的内容。
+
+
+: 编辑快捷键说明\label{tab:cmd:edit-shortkey}
+
+快捷键          解释
+----         ------
+Ctrl+D       删除当前字符
+Backspace    删除前面字符
+Ctrl+T       前后字符换位
+Alt+T        前后单词换位
+Alt+U        当前单词大写
+Alt+L        当前单词小写
+Alt+C        选中字符大写
+Ctrl+V       插入特殊字符 
+
+**注:**每个快捷键具体动作，还需要多加练习记忆。对于插入特殊字符的，`Ctrl+V`比如插入表格键`Table`，则`Ctrl+V+Tab`,经测试不是那么回事。
+
+: 复制粘贴快捷键说明\label{tab:cmd:xc-shortkey}
+
+快捷键          解释
+----         ------
+Ctrl+K          剪切光标到行尾的全部字符，含光标所在字符
+Ctrl+U          剪切光标到行首的全部字符，不含光标所在字符
+Ctrl+W          剪切光标前到当前单词词首的字符，不含光标
+Alt+D           剪切光标后到当前单词词尾的字符，含光标
+Ctrl+Y          粘贴到光标前
+Alt+Y           循环显示刚刚剪切的内容，待你确定粘贴对象
+Ctrl+C          删除整行
+
+### 重输之前的命令
+
+参考网页：
+
+- https://blog.csdn.net/maplesky2017/article/details/78389068
+- https://www.cnblogs.com/5201351/articles/4208509.html
+
+bash 是会记录你已经输入命令的。使用`history`命令，可以查看相关内容。常见用法如下。
+
+- 上下键查看以前的命令（包括`Ctrl+N`、`Ctrl+P`快捷键）；
+- `history 8` 查看最近八条命令记录；
+- `history` 查看最近`$HISTSIZE`条命令记录
+- `!n` 调用第n条命令，n是一个正整数；
+- `!!` 调用上一条命令；
+- `!字符串` 调用最后一以该字符串开头的命令。
+
+本人感觉以上命令不太实用。除非你知道刚刚是啥命令，才方便操作。Matlab 软件的命令记录就很好查询。输入部分字符就可以把所有以该字符开头的命令记录一次列出。对于 bash，类似的功能非常鸡肋。在空行内按下快捷键`Ctrl+R`，输入部分字符，会查找相关命令记录，符合你需求，回车，就直接运行了。丝毫不给你重新编辑的机会，也无法上下翻阅，难用至极。另外还有快捷键`Ctrl+S`在深度操作系统下，不能用。另外两个`Alt+P`，`Alt+N`有心情的可以试试。如果哪位有好的用法，欢迎提供。
+
+默认记录1000条命令，但是事实上记录文件里记录的命令条数可能超过此数值。可以输入如下命令查看，
+
+```bash
+$\$$ echo $\$$HISTSIZE
+1000
+$\$$ echo $\$$HISTFILE
+/home/litianci/.bash_history
+```
+
+**解释**
+
+1. 第1行命令，查询命令记录条数，显示为1000。变量`$HISTSIZE`用于设置记录条数。
+1. 第3行命令，查看命令记录文件，本机为*/home/litianci/.bash_history*。
+
+如果我们想修改记录条数，或者记录文件，可以*/etc/profile*修改相应的变量。下面以修改记录条数为200进行讲解。
+
+```bash
+$\$$ sudo sed -i 's/^HISTSIZE=1000/HISTSIZE=200/' /etc/profile
+$\$$ source /etc/profile   #使其立即生效
+```
+
+上方命令使用的是`sed`输入的，您可以以其他方式，在文件*/etc/profile*加上一行`HISTSIZE=200`。并保存退出。
+
+````{block2, type='rmdcaution'}
+对于系统管理员来说，可能保存这些操作记录很危险。你可以设置零记录，或者把记录文件设置为垃圾箱。
+`HISTSIZE=0`，`HISTFILE=/dev/null`
+````
+
+### 自动补全
+
+参考网页：
+
+- https://blog.csdn.net/mycwq/article/details/52420330?utm_source=copy
+- http://www.techug.com/post/10-linux-completion-commands.html
+
+在Linux命令行下，输入字符后，按两次`Tab`键，shell就会列出以这些字符打头的所有可用命令。如果只有一个命令匹配到，按一次`Tab`键就自动将这个命令补全。比如，想更改密码，但只记得这个命令前几个字母是`pass`。这时候，按`Tab`键，`shell`就自动输出 `passwd` 命令，非常方便。
+
+有些发行版，比如`centos`最小化安装，常常只能补全命令名和文件名，则需要安装补全增强软件包`bash-completion`。而一般补全的内容有如下几种。
+
+- 命令（Command）别名（alias）和函数名（function）。常规字符输入，敲一两次`Tab`键即可。
+- 变量（Variable）。如果你输入了美元符号($), shell 会给你补全可能的变量。
+- 用户名（Username）。如果你输入了波浪符号(~), shell 会给你补全可能的用户名。`~username`表示该用户的主目录。
+- 主机名（Hostname）。如果你输入了邮箱符号(@), shell 会给你补全*/etc/hosts*文件里的主机名。
+
+## 命令连接与扩展
+
+前面 Unix 哲学讲\cqh 程序，应当能够**协作**\cqt 。命令**协作**靠的是元字符（metacharacter）功能。元字符有如下7个：`|`,`&`,`;`,`(`,`)`,`<`,`>`。
+
+### 匿名管道
+
+参考网页：
+
+- https://www.cnblogs.com/pengliangcheng/p/5211786.html
+- https://www.xuebuyuan.com/3234708.html
+- https://www.jb51.net/article/120741.htm
+
+管道字符`|`，意如其名，类似管道一样将管道入口的数据通过管道传递给管道出口。
+
+管道是为了解决进程间通信问题而存在，它可以让两个进程之间的数据进行传递，将一个进程的输出数据传递给另一个进程作为其输入数据。管道左边是数据给予方，管道右边是数据接收方。
+
+管道仅能处理经由前面一个指令传出的正确输出信息，也就是 standard output 的信息，对于stdandard error 信息没有直接处理能力。然后，传递给下一个命令，作为标准的输入 standard input。如下图所示，
+
+
+```{r shell-pipe, fig.show='hold', fig.cap='管道输出示意图', echo=FALSE}
+knitr::include_graphics("shell-pipe.png")
+```
+
+1. 管道命令只处理前一个命令正确输出，不处理错误输出
+2. 管道命令右边命令，必须能够接收标准输入流命令才行。
+
+
+```bash
+$\$$ ps aux | grep "ssh"
+litianci 11012  0.0  0.0  14660  1124 pts/0    S+   15:39   0:00 grep ssh
+```
+
+按一般想法，先执行了`ps`，得到输出后将输出数据传递给`grep`，这时候`grep`还没运行而`ps`已经运行完毕了，为什么还能统计到`grep`进程的信息呢？原因是管道实现的是进程间通信，两个进程之间存在交叉，在运行`ps`进程后开始收集进程信息，grep也已经开始并处于等待接收数据状态，当`ps`收集到任何数据后都将输出放入内存由管道传递给`grep`进行筛选。
+
+管道其本质是数据传递，管道左边的输出数据放入内存，由管道右边的进程读取。假如内存不足以完全存放输出数据，则管道左边的进程将一直等待，直到管道右边取出内存中一部分的数据以让管道左边的进程继续输出，而管道右边的进程在管道左边的进程启动后也立刻启动了，但是它一直处于等待状态，等待接收管道传递来的数据。
+
+也就是说，管道左右两边的进程运行几乎是没有先后顺序的。
+
+上述管道是指匿名管道。使用匿名管道的过程中，可能已经发现管道两边的进程是同属一个进程组的，也就是说管道左方的数据只能传递给管道右方的进程，其他任何进程都没法读取此数据。但除了匿名管道，还有命名管道，命名管道是将一个进程的数据存储到一个管道文件(fifo)中，其他进程可以读取该管道文件来读取其中的数据，也就是说不再限制数据读取方。关于命名管道，请参阅Linux/Unix操作系统内核或编程类的书籍，一般都会有详细的介绍。
+
+再来两个简单例子
+
+```bash
+$\$$ cat /etc/passwd | sort | less
+$\$$ gunzip < /usr/share/man/man1/grep.1.gz | nroff -c -man | less
+```
+
+**解释**
+
+1. 第1行命令，`cat` 命令显示文件*/etc/passwd*的内容，输出到`sort`命令进行排序，再送给`less`命令显示出来。
+1. 第2行命令，`gunzip` 命令解压缩*grep.1.gz*文件，送给`nroff`命令调整为适合阅读的格式，传递到`less`命令显示出来。
+
+### 重定向
+
+参考网页：
+
+- https://blog.csdn.net/u014536527/article/details/51010678
+
+最常见的标准输入（stdin）、标准输出（stdout）和标准错误输出（stderr）的文件描述符分别是0、1和2，其中0、1、2也可以认为是它们的数字代号。
+
+: 三个特殊的文件
+
+ 名称               程序        代号        符号
+-----           --------    --------    -------
+标准输入        /dev/stdin      0       <或<<
+标准输出        /dev/stdout     1       >或>>
+标准错误输出     /dev/stderr     2       2>或2>>
+
+`<`、`>`、`2>`实现的是覆盖功能，`>>`、`2>>`实现的是追加的功能，但是`<<`不是追加功能，而是表示此处生成文档(here document)，在后面cat和重定向配合的内容里有说明。此外，还有`<<<`，它表示此处字符串(here string)，也见下文。
+
+一般`-`都是表示旧工作文件夹；有时候，`-`也表示/dev/stdin，。如：
+
+```bash
+$\$$ cat /etc/fstab | cat -
+```
+
+脚本中常见`2>&1`和`&>`的符号，它们都表示将stdout和stderr都重定向到同一个地方去，即重定向所有输出内容。如最常见的`&> /dev/null`表示将stdout或stderr丢到/dev/null表示丢弃输出信息，反过来，将/dev/null重定向到某个文件则表示清空文件。
+
+```bash
+$\$$ cat /dev/null > ab.sh
+```
+
+除此，还有以下几种方法快速清空文件
+
+```bash
+$\$$ > ab.sh
+$\$$ : > ab.sh       # 或"true >ab.sh"，其实它们都等价于">ab.sh"
+$\$$ echo '' > ab.sh
+$\$$ truncate -s 0 ab.sh  # truncate命令用于收缩和扩展文件大小
+$\$$ dd if=/dev/null of=ab.sh
+```
+
+最后最重要的一点：在有重定向符号的语句中，命令执行之前已经将文件截断了。所以如果正在编辑一个文件并将编辑的结果重定向回这个文件将出现异常，因为截断后就没有合适的内容用于编辑。一个简单的示例如下：
+
+```bash
+$\$$ head a.log > a.log
+```
+
+有些时候直接使用`>`覆盖输出是比较危险的。可以使用`set -C`来设置如果输出重定向文件已经存在则不覆盖。使用`set +C`来取消`set -C`的效果。如果在设置了`set -C`时仍然想强制覆盖，可以使用`>|`代替`>`来重定向输出。同理错误输出也有此特性。
+
+```bash
+$\$$ set -C
+$\$$ cat flip >ttt.txt
+-bash: ttt.txt: cannot overwrite existing file
+$\$$ cat flip >| ttt.txt
+$\$$ set +C
+```
+
+接下来讲 `<<` 一篇字符串。类似 PHP 语言的 `<<<`功能
+
+```bash
+$\$$ cat >log1.txt <<EOF 
+> this is stdin character first!
+> EOF
+```
+
+**解释**
+
+1. 第1行，`<<EOF` 表示下面另起一行，开始输入一篇字符，这篇字符直到其中一行为EOF截止。其中EOF可以换成你喜欢的字符串，一般采用大写，最好不要弄出特殊字符来。
+1. 第2行，就是输入的那篇字符。后面还可以输入很多。
+1. 第3行，输入EOF，表示这篇字符结束。
+
+在bash中，`<<`和`<<<`是特殊重定向符号。`<<<` 表示的是其后字符串作为输入数据。
+
+```bash
+$\$$ cat <<< PATH
+```
+
+等价于
+
+```bash
+$\$$ echo PATH | cat
+```
+
+一般情况下，重定向要么将信息输入到文件中，要么输出到屏幕上，但是既想输出到屏幕又想输出到文件就比较麻烦。使用tee的双重定向功能可以实现该想法。
+
+```bash
+tee [-a] file
+```
+
+选项说明：
+
+- -a：默认是将输出覆盖到文件中，使用该选项将变为追加行为。
+- file：除了输出到标准输出中，还将输出到file中。如果file为"-"，则表示再输入一次到标准输出中。
+
+例如下面的代码，将a开头的文件内容全部保存到b.log，同时把副本交给后面的的cat，使用这个cat又将内容保存到了x.log。其中"-"代表前面的stdin。
+
+```bash
+$\$$ cat a* | tee b.log | cat - >x.log
+```
+
+还可以直接输出到屏幕：
+
+```bash
+$\$$ cat a* | tee b.log | cat
+```
+
+tee默认会使用覆盖的方式保存到文件，可以使用-a选项来追加到文件。如：
+
+```bash
+$\$$ cat a* | tee -a b.log | cat
+```
+
+### 重定向和管道的区别
+
+: 管道命令与重定向区别
+
++----------------------+------------------------------+
+|       管道            |            重定向             |
++======================+==============================+
+| 左边命令应该做到标准输出 |   左边的命令应该有标准输出(输入)  |
+| 右边命令应该接受标准输入 |     >（<） 右边只能是文件       |
++----------------------+------------------------------+
+| 管道触发两个子进程执行   |        在一个进程内执行        |
+| `|`两边的程序          |                              |
++----------------------+------------------------------+
+
+```bash
+$\$$ cat test.sh| grep -n 'echo' #"|"管道两边都必须是shell命令
+$\$$ grep -n 'echo' <test.sh #"重定向"符号，右边只能是文件（普通文件，文件描述符，文件设备）
+```
+
+下面两个也是等同的。
+
+```bash
+$\$$ (sed -n '1,$p'|grep -n 'echo')<test.sh 
+$\$$ #这个脚本比较有意思了。由于前面是管道，后面需要把test.sh内容重定向到 sed ，然后sed输出通过管道，输入给grep.需要将前面用"()"运算符括起来。在单括号内的命令，可以把它们看作一个象一个命令样。如果不加括号test.sh就是grep 的输入了。
+
+$\$$ sed -n '1,$p'<test.sh | grep -n 'echo'
+$\$$ #重定向运算符，在shell命令解析前，首先检查的（一个命令，执行前一定检查好它的输入，输出，也就是0,1,2 设备是否准备好），所以优先级会最高
+
+$\$$ sed -n '1,10p'<test.sh | grep -n 'echo' <testsh.sh
+$\$$ #哈哈，这个grep又接受管道输入，又有testsh.sh输入，那是不是2个都接收呢。刚才说了"<"运算符会优先，管道还没有发送数据前，grep绑定了testsh.sh输入，这样sed命令输出就被抛弃了。这里一定要小心使用
+```
+
+下面是输出重定向例子。
+
+```bash
+$\$$ #输出重定向
+$\$$ cat test.sh>test.txt
+$\$$ cat test.sh|tee test.txt &>/dev/null
+$\$$ 通过管道实现将结果存入文件,还需要借助命令tee，它会把管道过来标准输入写入文件test.txt ,然后将标准输入复制到标准输出(stdout),所以重定向到/dev/null 不显示输出
+$\$$ ">"输出重定向，往往在命令最右边，接收左边命令的，输出结果，重定向到指定文件。也可以用到命令中间。
+
+$\$$ ls test.sh test1.sh testsh.sh 2>err.txt | grep 'test'
+$\$$ 目录下面有：test,testsh文件，test1.sh不存在，因此将ls 命令错误输出输入到err.txt 正确输出，还会通过管道发送到grep命令。
+
+$\$$ ls test.sh test1.sh testsh.sh &>err.txt | grep 'test'
+$\$$ 这次打印结果是空，&代表正确与错误输出 都输入给err.txt，通过管道继续往下面传递数据为空,所以没有什么显示的
+$\$$ 同样">"输出重定向符，优先级也是先解析，当一个命令有这个字符，它就会与左边命令标准输出绑定。准备好了这些，就等待命令执行输出数据，它就开始接收
+```
+
+从上面例子可以看，重定向与管道在使用时候很多时候可以通用，其实，在shell里面，经常是【条条大路通罗马】的。一般如果是命令间传递参数，还是管道的好，如果处理输出结果需要重定向到文件，还是用重定向输出比较好。
+
+### 顺序执行
+
+顺序执行，类似C语言的`；`语法。逐条执行命令。
+
+```bash
+$\$$ date ; cat <<< LONGLONGJOB | cat - ; date
+2018年 09月 29日 星期六 17:16:12 CST
+LONGLONGJOB
+2018年 09月 29日 星期六 17:16:12 CST
+```
+
+**解释**
+
+1. 本命令实现了对程序耗时的计算。而分号`；`的优先级是低于管道的。最终送给`cat -`中`cat`的只有`LONGLONGJOB`。
+
+### 后台命令
+
+有些命令比较耗时，或者其他原因，我们希望他们运行在后台。就可以用如下方式。
+
+```bash
+$\$$ tar cf test.tar test &
+[1] 9355
+$\$$ 
+[1]+  已完成               tar cf test.tar test
+```
+
+**解释**
+
+1. 第1行，命令末尾加`&`即可让程序运行于后台。shell 会告诉该命令的进程号，示例中为`9355`；并且会为他编号。
+1. 第4行，命令运行介绍，shell 会告诉你已经完成了该后台命令。
+1. 在运行过程中，如果你不想让他终止，请不要关闭该 shell。
+
+### 命令扩展
+
+把命令输出结果作为另外一条命令的参数，也是常用的一项功能，可以用美元符号`$`和斜点（键盘左上角～键）`` ` ``，`$(command)` 和 `` `command` ``。
+
+```bash
+$\$$ vim -p $\$$(find ~ | grep deepin-bible.tex)
+```
+
+**解释**
+
+1. `find ~ `查找主目录所有文件，`grep deepin-bible.tex` 从前者找到文件名包含`deepin-bible.tex`的所有文件，vim 把找到的所有文件打开。
+
+### 简单数值计算
+
+使用`$[math expression]`的方式计算。
+
+```bash
+$\$$ echo "我今年$\$$[`date +%Y` - 1987]岁了。"
+我今年31岁了。
+```
+
+**解释**
+
+1. `` `date +%Y` ``输出今年年数2018，`$[2018 - 1987]`输出岁数。
+
+### 输出变量值
+
+一些变量的数值，可以通过`$Var`输出。
+
+```bash
+$\$$ echo $\$$PATH
+```
+
+## Shell 变量（Variables）
+
+参考网页：
+
+- https://blog.csdn.net/apollon_krj/article/details/70148022
+
+变量分为全局变量(环境变量)和局部变量(本地变量) 。环境变量可以在定义它们的shell及其派生出来的任意子进程的shell中使用。局部变量只能在定义它们的函数/脚本中使用。还有一些变量是用户创建的，其他的则是专用的shell变量，比如系统变量`$0`等。
+
+**全局变量(环境变量)**
+
+环境变量可用于定义shell的运行环境，环境变量可以在配置文件中定义与修改，也可以在命令行中设置，但是命令行中的修改操作在终端重启时就会丢失，因此最好在配置文件中修改（用户家目录的“.bash_profile“文件或者全局配置“/etc/profile”、“/etc/bashrc”文件或者“/etc/profile.d”文件中定义。）将环境变量放在profile文件中，每次用户登录时这些变量值将被初始化。比如HOME、USER、SHELL、UID等再用户登录之前就已经被/bin/login程序设置好了。
+
+摘自《Linux Bible》
+常见系统环境变量：
+
+Variable Description
+BASH This contains the full pathname of the bash command. This is usually /bin/
+bash.
+BASH_VERSION This is a number representing the current version of the bash command.
+EUID This is the effective user ID number of the current user. It is assigned when
+the shell starts, based on the user’s entry in the /etc/passwd fle.
+FCEDIT If set, this variable indicates the text editor used by the fc command to edit
+history commands. If this variable isn’t set, the vi command is used.
+HISTFILE This is the location of your history fle. It is typically located at $HOME/.
+bash_history.
+HISTFILESIZE This is the number of history entries that can be stored. After this number is
+reached, the oldest commands are discarded. The default value is 1000.
+HISTCMD This returns the number of the current command in the history list.
+HOME This is your home directory. It is your current working directory each time
+you log in or type the cd command with any options.
+HOSTTYPE This is a value that describes the computer architecture on which the Linux
+system is running. For Intel-compatible PCs, the value is i386, i486, i586,
+i686, or something like i386-linux. For AMD 64-bit machines, the value is
+x86_64.
+MAIL This is the location of your mailbox fle. The fle is typically your username in
+the /var/spool/mail directory.
+OLDPWD This is the directory that was the working directory before you changed to
+the current working directory.
+OSTYPE This name identifes the current operating system. For Fedora Linux, the
+OSTYPE value is either linux or linux-gnu, depending on the type of shell
+you are using. (Bash can run on other operating systems as well.)
+PATH This is the colon-separated list of directories used to fnd commands that
+you type. The default value for regular users varies for different distributions, but typically includes the following: /bin:/usr/bin:/usr/local/
+bin:/usr/bin/X11:/usr/X11R6/bin:~/bin. You need to type the full
+path or a relative path to a command you want to run that is not in your
+PATH. For the root user, the value also includes /sbin, /usr/sbin, and
+/usr/local/sbin.
+PPID This is the process ID of the command that started the current shell (for
+example, the Terminal window containing the shell).
+87
+Chapter 3: Using the Shell
+3
+Variable Description
+PROMPT_COMMAND
+This can be set to a command name that is run each time before your shell
+prompt is displayed. Setting PROMPT_COMMAND=date lists the current date/
+time before the prompt appears.
+PS1 This sets the value of your shell prompt. There are many items that you can
+read into your prompt (date, time, username, hostname, and so on).
+Sometimes a command requires additional prompts, which you can set with
+the variables PS2, PS3, and so on.
+PWD This is the directory that is assigned as your current directory. This value
+changes each time you change directories using the cd command.
+RANDOM Accessing this variable causes a random number to be generated. The
+number is between 0 and 99999.
+SECONDS This is the number of seconds since the time the shell was started.
+SHLVL This is the number of shell levels associated with the current shell session.
+When you log in to the shell, the SHLVL is 1. Each time you start a new bash
+command (by, for example, using su to become a new user, or by simply
+typing bash), this number is incremented.
+TMOUT This can be set to a number representing the number of seconds the shell
+can be idle without receiving input. After the number of seconds is
+reached, the shell exits. This security feature makes it less likely for
+unattended shells to be accessed by unauthorized people. (This must be
+set in the login shell for it to actually cause the shell to log out the user.)
+
+可以用echo来显示查看全局变量(eg：echo $HOME)。env(或printenv)、set也可以用来查看系统的环境变量，但不是单独查看。而用unset临时取消环境变量(eg:unset USER)，要永久生效还是要写到配置文件中
+
+自定义环境变量(采用export)： 
+
+- export 变量名=value 
+- 变量名=value;export 变量名 
+- declare -x 变量名=value
+
+这里依旧是临时生效，在shell终端关闭后就消失了，写到配置文件中则永久生效(注意：写到配置文件中后需要运行一遍配置文件的脚本才可生效，否则等重启时生效)
+
+命令行的三种方式测试如下： 
+
+
+关于环境变量PATH与export的更详细的内容，可参考： Linux环境变量与系统编程学习笔记 
+
+2、局部变量(本地变量)：
+
+本地变量在用户当前的shell生存期的脚本中使用。在一个函数中将某个变量声明为local，则该变量就是一个局部变量，只在本函数中有效。 
+定义：
+
+- 变量名=value 
+- 变量名=’value’ 
+- 变量名=”value” 
+
+shell中变量名的要求：一般遵循字母、数字、下滑线组成，不能以数字开头
+
+### 别名的创建和使用
+
+为了方便，常会配置一些别名。
+
+```bash
+$\$$ alias l='ls -CF'
+$\$$ alias la='ls -A'
+$\$$ alias rm='rm -i
+$\$$ alias
+$\$$ \ls
+$\$$ unalias la
+$\$$ alias
+```
+
+**解释**
+
+1. 第1-3行，定义了三个别名。这些别名相当于后面的那个命令。
+1. 第4行，查看当前所有别名。
+1. 第5行，使用`\command`表示，使用最原始的命令，非别名。
+1. 第6-7行，暂时取消别名`la`，然后查看当前所有的别名。这个`unalias`只可以在当前shell取消别名。
+
+### 退出 shell
+
+可以使用快捷键`Ctrl+D`，或者输入`exit`，或者直接点击窗口的关闭按钮。
+
+## 定制 shell 环境
+
+bash 的配置文件夹，一般如下表所示，
+
+: Bash Configuration Files
+
+File Description
+---- -----------
+/etc/profile 
+/etc/bashrc
+~/.bash_profile
+~/.bashrc
+~/.bash_logout
+
+一般，修改*/etc/profile*,*/etc/bashrc*需要root权限，而且影响所有用户。后面三个文件，只影响本用户。
+
+编辑好这些文件，需要执行才可以生效。
+
+```bash
+$\$$ gedit $HOME/.bashrc # 编辑文件
+$\$$ source $HOME/.bashrc # 执行生效
+```
+
+### 配置提示（prompt）
+
+参考网页：
+
+- https://www.cnblogs.com/lienhua34/p/5018119.html
+- http://billie66.github.io/TLCL/book/chap14.html
+
+就是在前面\@ref(shell:intro)提到的`$`或者`#`之前的文字。是通过环境变量`PS1`，`PS2`，`PS,3`，`PS4`配置的。
+
+我们可以自定义Linux系统终端提示符。Linux系统终端提示符的特征由系统环境变量PS1（是“prompt string one” 的简写）定义。通过命令echo $PS1查看当前设置。从上图可以看到我的Linux机器上该环境变量PS1的值。下面我们通过改变环境变量PS1的值来将shell提示符设置得更加清爽点。
+1.基本转义字符
+
+PS1的值由一系列静态文本或\和转义字符序列组成，如:
+
+ $ PS1=”\u@\H \w$ ”
+
+ 表1: Shell 提示符中用到的转义字符
+
+序列
+	
+
+显示值
+
+\a
+	
+
+以 ASCII 格式编码的铃声 . 当遇到这个转义序列时，计算机会发出嗡嗡的响声。
+
+\d
+	
+
+以日，月，天格式来表示当前日期。例如，“Mon May 26”
+
+\h
+	
+
+本地机的主机名，但不带末尾的域名。
+
+\H
+	
+
+完整的主机名。
+
+\j
+	
+
+运行在当前 shell 会话中的工作数。
+
+\l
+	
+
+当前终端设备名。
+
+\n
+	
+
+一个换行符。
+
+\r
+	
+
+一个回车符。
+
+\s
+	
+
+shell 程序名。
+
+\t
+	
+
+以24小时制，hours:minutes:seconds 的格式表示当前时间.
+
+\T
+	
+
+以12小时制表示当前时间。 
+
+\@
+	
+
+以12小时制，AM/PM 格式来表示当前时间，例如“10:51 PM”。
+
+\A
+	
+
+以24小时制，hours:minutes 格式表示当前时间。
+
+\u
+	
+
+当前用户名。
+
+\v
+	
+
+shell 程序的版本号，例如4.3。
+
+\V
+	
+
+shell 程序的版本号，例如4.3.11。
+
+\w
+	
+
+当前工作目录名。
+
+\W
+	
+
+当前工作目录名的最后部分。
+
+\!
+	
+
+当前命令的历史号。 
+
+\#
+	
+
+当前 shell 会话中的命令数。 
+
+\$
+	
+
+这会显示一个"$"字符，除非你拥有超级用户权限。在那种情况下， 它会显示一个"#"字符。
+
+\[
+	
+
+标志着一系列一个或多个非打印字符的开始。这被用来嵌入非打印的控制字符，这些字符以某种方式来操作终端仿真器，比方说移动光标或者是更改文本颜色。 
+
+\]
+	
+
+标志着非打印字符序列结束。 
+
+例如我现在想让提示符显示格式为：“<用户名>@<当前目录名> $ ”，则
+
+$ PS1=”\u@\W\$ ”
+
+效果如下所示，
+
+上面能够满足我们的效果了，但是相对于LinuxMint原始的提示符，缺少了颜色，不太美观。下面我们来学习如何添加颜色。大多数终端仿真器程序支持一定的非打印字符序列来控制，比方说字符属性（像颜色，黑体和可怕的闪烁） 和光标位置。
+2.字体颜色
+
+字体颜色是由一个ANSI 转义编码来控制的。该控制编码会嵌入字符流中并发送给终端仿真器。但是，该控制编码不会被“打印”到屏幕上，而是会被终端解释为一个指令。正如我们在上表看到的字符序列， 这个 \[ 和 \] 序列被用来封装这些非打印字符。一个 ANSI 转义编码以一个八进制033（这个编码是由 退出按键产生的）开头，其后跟着一个可选的字符属性（0：正常、1：黑体、4：下划线、5：闪烁、7：反向（前景色和背景色反转）），在之后是一个指令。
+
+表14-2: 用转义序列来设置文本颜色
+
+序列
+	
+
+文本颜色
+	
+
+序列
+	
+
+文本颜色
+
+\033[0;30m
+	
+
+黑色
+	
+
+\033[1;30m 
+	
+
+深灰色
+
+\033[0;31m
+	
+
+红色
+	
+
+\033[1;31m 
+	
+
+浅红色
+
+\033[0;32m 
+	
+
+绿色
+	
+
+\033[1;32m 
+	
+
+浅绿色
+
+\033[0;33m 
+	
+
+棕色
+	
+
+\033[1;33m 
+	
+
+黄色
+
+\033[0;34m 
+	
+
+蓝色
+	
+
+\033[1;34m 
+	
+
+浅蓝色
+
+\033[0;35m 
+	
+
+粉红
+	
+
+\033[1;35m 
+	
+
+浅粉色
+
+\033[0;36m 
+	
+
+青色
+	
+
+\033[1;36m 
+	
+
+浅青色
+
+\033[0;37m 
+	
+
+浅灰色
+	
+
+\033[1;37m 
+	
+
+白色
+
+ 例如我们来设置一个同LinuxMint默认的绿色提示符，
+
+$ PS1="\[\033[01;32m\]\u@\W\$\[\033[00m\] "
+
+于是，我们便有了下面的效果。
+
+上面跟设置的提示符格式中的最后那个”\[\033[00m\]”是用于将后续的字符颜色还原回原来的颜色。如果没有没有加最后这个转义码，则会出现下面结果（我们自己手工输入的命令也都将是绿色的）。
+ 3.背景颜色
+
+除了字体颜色，我们也可以设置字体的背景颜色。同样是通过转义的控制编码来实现，下表是背景颜色的控制编码。
+
+表3: 用转义序列来设置背景颜色
+
+\033[0;40m 
+	
+
+黑色
+	
+
+\033[1;44m 
+	
+
+蓝色
+
+\033[0;41m 
+	
+
+红色
+	
+
+\033[1;45m 
+	
+
+粉红
+
+\033[0;42m 
+	
+
+绿色
+	
+
+\033[1;46m 
+	
+
+青色
+
+\033[0;43m 
+	
+
+棕色
+	
+
+\033[1;47m 
+	
+
+浅灰色
+4.移动光标：
+
+转义编码也可以用来定位光标。这些编码通常被用来，每次当提示符出现的时候，会在屏幕的不同位置，比如说上面一个角落，显示一个时钟或者其它一些信息。下表是一系列用来定位光标的转义编码：
+
+表14-4: 光标移动转义序列
+
+转义编码
+	
+
+行动
+
+\033[l;cH 
+	
+
+把光标移到第 l 行，第 c 列。
+
+\033[nA 
+	
+
+把光标向上移动 n 行。
+
+\033[nB 
+	
+
+把光标向下移动 n 行。
+
+\033[nC 
+	
+
+把光标向前移动 n 个字符。
+
+\033[nD 
+	
+
+把光标向后移动 n 个字符。
+
+\033[2J 
+	
+
+清空屏幕，把光标移到左上角（第零行，第零列）。
+
+\033[K 
+	
+
+清空从光标位置到当前行末的内容。
+
+\033[s 
+	
+
+存储当前光标位置。
+
+\033[u 
+	
+
+唤醒之前存储的光标位置。
+5.保存提示符
+
+我们在当前打开的Terminal中设置环境变量PS1的值来自定义的终端提示符，只在当前Terminal中有效，打开新的Terminal就会采用系统默认的提示符了。我们当让不希望每次打开Terminal的时候都要重新设置一次SP1环境变量。
+
+~/.bashrc文件会在每次打开一个Terminal之前会被执行一次。于是，我们可以将设置环境变量SP1的命令放到该文件中，便不需要每次都手工再设置一次SP1的值。于是，我们在~/.bashrc配置文件末尾加入下面两行内容，
+
+PS1="\[\033[01;32m\]\u@\W\$\[\033[00m\] "
+export PS1
+
+于是，每次打开Terminal便都会有如下提示符效果，
+
+6.示例
+
+（1）格式：“<用户名>@<当前目录名>$”
+
+$ PS1="\u@\W\$ "
+
+效果如下：
+
+（2）添加下划线：
+
+$ PS1="\[\033[4;37m\]\u@\W\$\[\033[00m\] "
+
+效果如下：
+
+（3）前景色为绿色：
+
+$ PS1="\[\033[0;32m\]\u@\W\$\[\033[00m\] "
+
+效果如下：
+
+（4）前景色为绿色，背景色为红色：
+
+$ PS1="\[\033[0;41m\033[1;32m\]\u@\W\$\[\033[00m\] "
+
+效果如下：
+
+ 
+
+（5）设置一个超级复杂的，通过移动光标来设置一个每次显示提示符的时候都在当前Terminal的第一行显示当前时间。
+
+$ PS1='\[\033[s\033[0;0H\033[0;41m\033[K\033[1;33m\t\033[0m\033[u\033[1;32m\]\u@\W\$ \[\033[00m\] '
+
+效果如下：
+
+ 
+
+## 命令帮助
+
+https://www.cnblogs.com/anliven/p/6030074.html
+
+Manual Page Chapter List
+
+1：所有用户可以操作的指令或可执行文件
+2：系统核心调用的函数与工具
+3：子调用，常用的函数与函数库
+4：设备，硬件文件说明，通常是/dev/的文件
+5：文件格式，配置文件或者是某些档案的格式
+6：游戏相关
+7：杂项，例如linux文件系统、网络协议、ASCIIcode等说明
+8：系统管理员可用的命令
+9：跟kernel有关的文件
+
+
+Command 	Description 	Notes
+type <command> 	判断是否是内置命令 	如果是外部命令，会给出简要信息
+help <command> 	显示简洁的帮助信息 	适用内置命令
+<command> -h/--help 	显示简洁的帮助信息 	适用外部命令
+根据实际情况，使用“-h”或“--help”参数
+whatis <command> 	显示命令手册的页眉行 	等同于man -f命令，可确认有哪些章节存在
+man <command> 	显示命令手册(manual page) 	
+
+包含完整的命令帮助，默认只显示第一章节内容
+可在命令手册内查询关键字，方法类似vi/vim，输入“q”退出浏览
+
+man -a <command> 显示命令手册的所有章节
+
+man <chapter number> <command> 显示指定章节
+info <command> 	显示info文档信息 	
+相比man 命令，信息可能更新更详细，但使用方法复杂些，按“q”键退出
+类似命令：pinfo
+which <command> 	显示命令的完整路径 	 
+whereis <command> 	显示命令的路径、手册等信息 	locate the binary, source, and manual page files for a command
+README 	README文件 	绝大多数程序自带，保存在/usr/share/doc文件夹
+
+## 总结
+
+文章一大抄，待后面整理再看吧。

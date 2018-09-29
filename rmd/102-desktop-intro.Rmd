@@ -1,4 +1,4 @@
-# Linux 桌面系统简介 {#linux-desktop-intro}
+# Linux 桌面系统简介 {#chap:linux-desktop-intro}
 
 通过阅读本章，你将会了解到以下几项内容。
 

@@ -1,4 +1,4 @@
-# 教学用的 Linux 软件{#education-intro}
+# 教学用的 Linux 软件{#chap:education-intro}
 
 参考网页：
 
