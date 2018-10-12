@@ -1,0 +1,1 @@
+# 简单bash脚本 {#chap:simple-bash-scripts}
