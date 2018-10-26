@@ -210,10 +210,55 @@ $\$$ evince _book/deepin-bible.pdf \&
 
 ```bash
 $\$$ jobs
-[3]+  已完成               evince _book/deepin-bible.pdf
+[1]   运行中               evince _book/deepin-bible.pdf \&
+[2]-  已停止               man top
+[3]+  已停止               vim ~/test.md
+```
+**解释**
+
+1. 使用`jobs`会弹出当前正在运行的后台程序。还会显示他们的状态，比如运行中、已停止等。
+1. `[3]+`，的`+``-`号，表示最新和次新加入后台的进程。就是最后两个加入后台的进程。但是这个貌似不是非常准确。`man top`不是最新加入后台的进程，但是却被标注为最新加入的。好在这个不怎么影响，后面再去找资料核实。
+
+有时还需要把这些后台再拉回前台来，`fg`表示foreground的意思，就可以派上用场了。先看看`fg`的用法。貌似，不带`%`也不影响结果。需要核实。
+
+```bash
+$\$$ fg % # 把最新的进程，也就是带`+`的进程放到前台。
+$\$$ fg %n # n表示`jobs`命令中[n]
+$\$$ fg %string # string 表示命令，比如 `vim`，前提是不混淆。
+$\$$ fg %?string # ?string表示 string 在任意位置。
+$\$$ fg %-- # 倒数第二个已停止的进程拉回前台。
 ```
 
+当然，我试过`fg n`直接输入`jobs`命令出来的那些后台序号`[n]`，可以直接把他们拉回前台。另外还有`bg`命令，用于唤醒已停止的后台命令。
+
 ## 进程的终结与调整优先级（Killing and Renicing）
+
+有些进程太耗资源，我们需要关闭它，可以使用`kill`和`killall`命令，分别是通过进程号PID终结某个进程和通过进程名称终结某类进程。在终结进程的时候，还需要传递系统信号。具体用法可以通过`man kill`等查看。先来常用的几个例子吧，
+
+```bash
+$\$$ kill -l # 列出所有可用信号，见下面信号表
+$\$$ kill 999 # 使用默认系统信号杀死PID=999的进程
+$\$$ kill -15 999 # 默认系统信号也就是15号
+$\$$ kill -SIGKILL 999 # 默认系统信号常量为 SIGKILL，跟上面一致。
+$\$$ kill -9 999 # 对于顽固分子，电脑卡住的，往往用 -9 KILL 信号
+$\$$ killall -9 workrave # killall 使用的信号类似 kill，只不过用的是命令名称进行终结
+```
+
+参考网页：
+
+- http://www.cnblogs.com/taobataoma/archive/2007/08/30/875743.html
+
+----------------------------------------------------------------------
+Signal Number Description
+SIGHUP 1 Hang-up detected on controlling terminal or death of controlling process.
+SIGINT 2 Interrupt from keyboard.
+SIGQUIT 3 Quit from keyboard.
+SIGABRT 6 Abort signal from abort(3).
+SIGKILL 9 Kill signal.
+SIGTERM 15 Termination signal.
+SIGCONT 19,18,25 Continue if stopped.
+SIGSTOP 17,19,23 Stop process.
+----------------------------------------------------------------------
 
 参考网页：
 
@@ -355,7 +400,6 @@ net_cls -- 这个子系统使用等级识别符（classid）标记网络数据�
 
 ns -- 名称空间子系统。
 
-PS：Linux cgroups详解系列是本人毕业论文部分章节的草稿，算是为论文打前站，欢迎方家斧正。
 
 ### 进程的状态
 
