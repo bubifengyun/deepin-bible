@@ -406,7 +406,7 @@ $\$$ gunzip < /usr/share/man/man1/grep.1.gz | nroff -c -man | less
 1. 第1行命令，`cat` 命令显示文件*/etc/passwd*的内容，输出到`sort`命令进行排序，再送给`less`命令显示出来。
 1. 第2行命令，`gunzip` 命令解压缩*grep.1.gz*文件，送给`nroff`命令调整为适合阅读的格式，传递到`less`命令显示出来。
 
-### 重定向
+### 重定向{#sec:redirect}
 
 参考网页：
 
