@@ -506,7 +506,7 @@
 
 \noindent \textsc{\url{https://github.com/bubifengyun/deepin-bible}}\\ % URL
 
-\noindent 版权采用 Creative Commons Attribution-NonCommercial 3.0 Unported License，内容见http://creativecommons.org/licenses/by-nc/3.0。共享版权，商业用途请联系我们。\\ % License information
+\noindent 版权采用 Creative Commons Attribution-NonCommercial 3.0 Unported License，内容见http://creativecommons.org/licenses/by-nc/3.0。共享版权，商业用途请联系我们。如果您采用六角丛书的价格发布图书，可以不用联系我们。\\ % License information
 
 \noindent \textit{\sjtu@value@publisher 于 \sjtu@value@date} % Printing/edition date
 ~\vfill
