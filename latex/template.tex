@@ -2,6 +2,7 @@
 
 \usepackage[export]{adjustbox}
 \usepackage{etoc}
+\usepackage{bookmark}
 
 % 为表格隔行涂色
 \usepackage{colortbl}
@@ -374,6 +375,9 @@ $body$
 
 \backmatter	% 文后无编号部分 
 
+% https://stackoverflow.com/questions/1483396/how-to-explicitly-end-a-part-in-latex-with-hyperref
+% 把索引等从最后一个 PART 踢出去。
+\bookmarksetup{startatroot}
 % 索引
 \printindex
 
