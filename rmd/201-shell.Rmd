@@ -50,7 +50,7 @@
 在每行命令行开头会如下显示，
 
 ```bash
-litianci@litianci-pc:~$\$$ 
+litianci@litianci-pc:~$ 
 ```
 **解释**
 
@@ -66,12 +66,12 @@ litianci@litianci-pc:~$\$$
 下面命令行首标志 `$` 和 `#` 区分运行权限，其他显示信息略。输入结果行没有行首标志，每行会有序号方便区分。
 
 ```bash
-$\$$ whoami
+$ whoami
 litianci
-$\$$ who -H
+$ who -H
 名称   线路       时间           备注
 litianci tty1         2018-09-20 09:07 (:0)
-$\$$ grep litianci /etc/passwd
+$ grep litianci /etc/passwd
 litianci:x:1000:1000::/home/litianci:/bin/bash
 ```
 **解释**
@@ -81,15 +81,15 @@ litianci:x:1000:1000::/home/litianci:/bin/bash
 1. 第6行，是在*/etc/passwd*文件内查找该用户，在第7行最后`/bin/bash`，表示该用户默认的shell类型。实际操作时请把`litianci`换成你的账户名。
 
 ```bash
-$\$$ date
+$ date
 2018年 09月 21日 星期五 16:45:08 CST
-$\$$ pwd
+$ pwd
 /home/litianci
-$\$$ hostname
+$ hostname
 litianci-PC
-$\$$ hostname -I
+$ hostname -I
 192.168.43.45
-$\$$ ls
+$ ls
 Desktop  Documents  Downloads  Music  Pictures	Videos
 ```
 **解释**
@@ -115,8 +115,8 @@ Desktop  Documents  Downloads  Music  Pictures	Videos
 选项分为长选项和短选项。下面示例中，`-l -a -t`就是短选项，
 
 ```bash
-$\$$ ls -l -a -t
-$\$$ ls -lat
+$ ls -l -a -t
+$ ls -lat
 ```
 **解释**
 
@@ -127,7 +127,7 @@ $\$$ ls -lat
 1. 有些短选项需带参数，比如-L 512M，则不便跟其他短选项组合，但如果位于最后一个也是可以组合的。比如`tar cvf deepin-bible.tar ~/deepin-bible`，各选项说明见后面\@ref(shell:more-example)节解释。
 
 ```bash
-$\$$ ls --hide=Desktop
+$ ls --hide=Desktop
 Documents  Downloads  Music  Pictures  Videos
 ```
 
@@ -145,7 +145,7 @@ Documents  Downloads  Music  Pictures  Videos
 上面讲述选项有所介绍，通过空格或者等号传入参数，也有直接通过空格缀在命令后面的。比如，
 
 ```bash
-$\$$ cd /media/litianci/data/
+$ cd /media/litianci/data/
 ```
 
 跳转到*/media/litianci/data/* 文件夹。
@@ -155,17 +155,17 @@ $\$$ cd /media/litianci/data/
 为了方便大家上手，再多介绍几个例子。
 
 ```bash
-$\$$ tar cvf deepin-bible.tar ~/deepin-bible
-$\$$ uname
-$\$$ uname -a
-$\$$ date
-$\$$ date +'%Y-%m-%d'
+$ tar cvf deepin-bible.tar ~/deepin-bible
+$ uname
+$ uname -a
+$ date
+$ date +'%Y-%m-%d'
 2018-09-21
-$\$$ date +'%A, %B %d, %Y'
+$ date +'%A, %B %d, %Y'
 星期五, 九月 21, 2018
-$\$$ id
+$ id
 uid=1000(litianci) gid=1000(litianci) 组=1000(litianci),7(lp),24(cdrom),27(sudo)
-$\$$ who -aH
+$ who -aH
 名称     线路       时间           空闲  进程号 备注   退出
            系统引导 2018-09-21 15:54
            运行级别 5 2018-09-21 07:54
@@ -183,8 +183,8 @@ litianci + tty1         2018-09-21 07:55  旧��       3820 (:0)
 由于采用系统默认的中文，深度终端自作聪明的翻译，有些内容乱码。为了方便叙述，后面把终端显示改为英文的，也即在*~/.bashrc*文件加上所用语言选项，并执行。
 
 ```bash
-$\$$ echo LANG=en_US >> ～/.bashrc
-$\$$ source ~/.bashrc
+$ echo LANG=en_US >> ～/.bashrc
+$ source ~/.bashrc
 ```
 
 或者直接修改所有用户的 bash 信息，`sudo gedit /etc/profile`，修改最后一行的`LC_ALL=C`为`LC_ALL=en`。
@@ -192,7 +192,7 @@ $\$$ source ~/.bashrc
 回头再看`who -aH`命令，就清爽了。当然需要你对英文有一定理解了。
 
 ```bash
-$\$$ who -aH
+$ who -aH
 NAME       LINE         TIME         IDLE          PID COMMENT  EXIT
            system boot  Sep 21 15:54
            run-level 5  Sep 21 07:54
@@ -205,7 +205,7 @@ LOGIN      tty2         Sep 21 22:02             25289 id=tty2
 相信大家都听说过**一切皆文件**的Unix哲学，其实很多命令都是可执行文件，是可以查看这部分命令的文件的。比如`bash`位于*/bin/bash*，那么命令`bash`和`/bin/bash`就是相同的。为啥我们可以简写为 `bash`呢？是因为shell有`PATH`（**路径**）这个环境变量。众多已知目录存放在 `PATH` 变量里，shell 遇到这些没有目录路径的命令，在查找其他默认命令集合无果后，就会去`PATH`路径变量里各目录下去找该文件名，从左到右查找，找到后就执行命令，找不到就会报错。那么你电脑上的 `PATH` 是啥呢？
 
 ```bash
-$\$$ echo $\$$PATH
+$ echo $PATH
 /home/litianci/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin
 ```
 
@@ -227,17 +227,17 @@ $\$$ echo $\$$PATH
 在 bash 内，使用
 
 ```bash
-$\$$ type ls
+$ type ls
 ls 是 `ls --color=auto` 的别名
 ```
 
 可以看到你的命令是哪个命令。为了显示全部同一名称的命令，可以加`-a`选项。
 
 ```bash
-$\$$ type -a ls
+$ type -a ls
 ls 是 `ls --color=auto` 的别名
 ls 是 /bin/ls
-$\$$ type -a cd
+$ type -a cd
 cd 是 shell 内建
 ```
 
@@ -313,9 +313,9 @@ bash 是会记录你已经输入命令的。使用`history`命令，可以查看
 默认记录1000条命令，但是事实上记录文件里记录的命令条数可能超过此数值。可以输入如下命令查看，
 
 ```bash
-$\$$ echo $\$$HISTSIZE
+$ echo $HISTSIZE
 1000
-$\$$ echo $\$$HISTFILE
+$ echo $HISTFILE
 /home/litianci/.bash_history
 ```
 
@@ -327,8 +327,8 @@ $\$$ echo $\$$HISTFILE
 如果我们想修改记录条数，或者记录文件，可以*/etc/profile*修改相应的变量。下面以修改记录条数为200进行讲解。
 
 ```bash
-$\$$ sudo sed -i 's/^HISTSIZE=1000/HISTSIZE=200/' /etc/profile
-$\$$ source /etc/profile   #使其立即生效
+$ sudo sed -i 's/^HISTSIZE=1000/HISTSIZE=200/' /etc/profile
+$ source /etc/profile   #使其立即生效
 ```
 
 上方命令使用的是`sed`输入的，您可以以其他方式，在文件*/etc/profile*加上一行`HISTSIZE=200`。并保存退出。
@@ -382,7 +382,7 @@ knitr::include_graphics("shell-pipe.png")
 
 
 ```bash
-$\$$ ps aux | grep "ssh"
+$ ps aux | grep "ssh"
 litianci 11012  0.0  0.0  14660  1124 pts/0    S+   15:39   0:00 grep ssh
 ```
 
@@ -397,8 +397,8 @@ litianci 11012  0.0  0.0  14660  1124 pts/0    S+   15:39   0:00 grep ssh
 再来两个简单例子
 
 ```bash
-$\$$ cat /etc/passwd | sort | less
-$\$$ gunzip < /usr/share/man/man1/grep.1.gz | nroff -c -man | less
+$ cat /etc/passwd | sort | less
+$ gunzip < /usr/share/man/man1/grep.1.gz | nroff -c -man | less
 ```
 
 **解释**
@@ -427,45 +427,45 @@ $\$$ gunzip < /usr/share/man/man1/grep.1.gz | nroff -c -man | less
 一般`-`都是表示旧工作文件夹；有时候，`-`也表示/dev/stdin，。如：
 
 ```bash
-$\$$ cat /etc/fstab | cat -
+$ cat /etc/fstab | cat -
 ```
 
 脚本中常见`2>&1`和`&>`的符号，它们都表示将stdout和stderr都重定向到同一个地方去，即重定向所有输出内容。如最常见的`&> /dev/null`表示将stdout或stderr丢到/dev/null表示丢弃输出信息，反过来，将/dev/null重定向到某个文件则表示清空文件。
 
 ```bash
-$\$$ cat /dev/null > ab.sh
+$ cat /dev/null > ab.sh
 ```
 
 除此，还有以下几种方法快速清空文件
 
 ```bash
-$\$$ > ab.sh
-$\$$ : > ab.sh       # 或"true >ab.sh"，其实它们都等价于">ab.sh"
-$\$$ echo '' > ab.sh
-$\$$ truncate -s 0 ab.sh  # truncate命令用于收缩和扩展文件大小
-$\$$ dd if=/dev/null of=ab.sh
+$ > ab.sh
+$ : > ab.sh       # 或"true >ab.sh"，其实它们都等价于">ab.sh"
+$ echo '' > ab.sh
+$ truncate -s 0 ab.sh  # truncate命令用于收缩和扩展文件大小
+$ dd if=/dev/null of=ab.sh
 ```
 
 最后最重要的一点：在有重定向符号的语句中，命令执行之前已经将文件截断了。所以如果正在编辑一个文件并将编辑的结果重定向回这个文件将出现异常，因为截断后就没有合适的内容用于编辑。一个简单的示例如下：
 
 ```bash
-$\$$ head a.log > a.log
+$ head a.log > a.log
 ```
 
 有些时候直接使用`>`覆盖输出是比较危险的。可以使用`set -C`来设置如果输出重定向文件已经存在则不覆盖。使用`set +C`来取消`set -C`的效果。如果在设置了`set -C`时仍然想强制覆盖，可以使用`>|`代替`>`来重定向输出。同理错误输出也有此特性。
 
 ```bash
-$\$$ set -C
-$\$$ cat flip >ttt.txt
+$ set -C
+$ cat flip >ttt.txt
 -bash: ttt.txt: cannot overwrite existing file
-$\$$ cat flip >| ttt.txt
-$\$$ set +C
+$ cat flip >| ttt.txt
+$ set +C
 ```
 
 接下来讲 `<<` 一篇字符串。类似 PHP 语言的 `<<<`功能
 
 ```bash
-$\$$ cat >log1.txt <<EOF 
+$ cat >log1.txt <<EOF 
 > this is stdin character first!
 > EOF
 ```
@@ -479,13 +479,13 @@ $\$$ cat >log1.txt <<EOF
 在bash中，`<<`和`<<<`是特殊重定向符号。`<<<` 表示的是其后字符串作为输入数据。
 
 ```bash
-$\$$ cat <<< PATH
+$ cat <<< PATH
 ```
 
 等价于
 
 ```bash
-$\$$ echo PATH | cat
+$ echo PATH | cat
 ```
 
 一般情况下，重定向要么将信息输入到文件中，要么输出到屏幕上，但是既想输出到屏幕又想输出到文件就比较麻烦。使用tee的双重定向功能可以实现该想法。
@@ -502,19 +502,19 @@ tee [-a] file
 例如下面的代码，将a开头的文件内容全部保存到b.log，同时把副本交给后面的的cat，使用这个cat又将内容保存到了x.log。其中"-"代表前面的stdin。
 
 ```bash
-$\$$ cat a* | tee b.log | cat - >x.log
+$ cat a* | tee b.log | cat - >x.log
 ```
 
 还可以直接输出到屏幕：
 
 ```bash
-$\$$ cat a* | tee b.log | cat
+$ cat a* | tee b.log | cat
 ```
 
 tee默认会使用覆盖的方式保存到文件，可以使用-a选项来追加到文件。如：
 
 ```bash
-$\$$ cat a* | tee -a b.log | cat
+$ cat a* | tee -a b.log | cat
 ```
 
 ### 重定向和管道的区别
@@ -530,25 +530,25 @@ $\$$ cat a* | tee -a b.log | cat
 ---------------------------------------------------------------------------------------
 
 ```bash
-$\$$ cat test.sh| grep -n 'echo' #“|”管道两边都必须是shell命令
-$\$$ grep -n 'echo' <test.sh #“重定向”符号，右边只能是文件
+$ cat test.sh| grep -n 'echo' #“|”管道两边都必须是shell命令
+$ grep -n 'echo' <test.sh #“重定向”符号，右边只能是文件
 ```
 
 下面两个也是等同的。
 
 ```bash
-$\$$ (sed -n '1,$\$$p'|grep -n 'echo')<test.sh 
+$ (sed -n '1,$p'|grep -n 'echo')<test.sh 
 ```
 
 这个脚本比较有意思了。由于前面是管道，后面需要把test.sh内容重定向到 sed ，然后sed输出通过管道，输入给grep.需要将前面用"()"运算符括起来。在单括号内的命令，可以把它们看作一个象一个命令样。如果不加括号test.sh就是grep 的输入了。
 
 ```bash
-$\$$ sed -n '1,$\$$p'<test.sh | grep -n 'echo'
+$ sed -n '1,$p'<test.sh | grep -n 'echo'
 ```
 重定向运算符，在shell命令解析前，首先检查的（一个命令，执行前一定检查好它的输入，输出，也就是0,1,2 设备是否准备好），所以优先级会最高
 
 ```bash
-$\$$ sed -n '1,10p'<test.sh | grep -n 'echo' <testsh.sh
+$ sed -n '1,10p'<test.sh | grep -n 'echo' <testsh.sh
 ```
 
 哈哈，这个grep又接受管道输入，又有testsh.sh输入，那是不是2个都接收呢。刚才说了"<"运算符会优先，管道还没有发送数据前，grep绑定了testsh.sh输入，这样sed命令输出就被抛弃了。这里一定要小心使用
@@ -557,19 +557,19 @@ $\$$ sed -n '1,10p'<test.sh | grep -n 'echo' <testsh.sh
 下面是输出重定向例子。
 
 ```bash
-$\$$ cat test.sh>test.txt
-$\$$ cat test.sh|tee test.txt &>/dev/null
+$ cat test.sh>test.txt
+$ cat test.sh|tee test.txt &>/dev/null
 ```
 通过管道实现将结果存入文件,还需要借助命令tee，它会把管道过来标准输入写入文件test.txt ,然后将标准输入复制到标准输出(stdout),所以重定向到/dev/null 不显示输出。">"输出重定向，往往在命令最右边，接收左边命令的，输出结果，重定向到指定文件。也可以用到命令中间。
 
 ```bash
-$\$$ ls test.sh test1.sh testsh.sh 2>err.txt | grep 'test'
+$ ls test.sh test1.sh testsh.sh 2>err.txt | grep 'test'
 ```
 
 目录下面有：test,testsh文件，test1.sh不存在，因此将ls 命令错误输出输入到err.txt 正确输出，还会通过管道发送到grep命令。
 
 ```bash
-$\$$ ls test.sh test1.sh testsh.sh &>err.txt | grep 'test'
+$ ls test.sh test1.sh testsh.sh &>err.txt | grep 'test'
 ```
 
 这次打印结果是空，&代表正确与错误输出 都输入给err.txt，通过管道继续往下面传递数据为空,所以没有什么显示的。
@@ -583,7 +583,7 @@ $\$$ ls test.sh test1.sh testsh.sh &>err.txt | grep 'test'
 顺序执行，类似C语言的`；`语法。逐条执行命令。
 
 ```bash
-$\$$ date ; cat <<< LONGLONGJOB | cat - ; date
+$ date ; cat <<< LONGLONGJOB | cat - ; date
 2018年 09月 29日 星期六 17:16:12 CST
 LONGLONGJOB
 2018年 09月 29日 星期六 17:16:12 CST
@@ -598,9 +598,9 @@ LONGLONGJOB
 有些命令比较耗时，或者其他原因，我们希望他们运行在后台。就可以用如下方式。
 
 ```bash
-$\$$ tar cf test.tar test &
+$ tar cf test.tar test &
 [1] 9355
-$\$$ 
+$ 
 [1]+  已完成               tar cf test.tar test
 ```
 
@@ -615,7 +615,7 @@ $\$$
 把命令输出结果作为另外一条命令的参数，也是常用的一项功能，可以用美元符号`$`和斜点（键盘左上角～键）`` ` ``，`$(command)` 和 `` `command` ``。
 
 ```bash
-$\$$ vim -p $\$$(find ~ | grep deepin-bible.tex)
+$ vim -p $(find ~ | grep deepin-bible.tex)
 ```
 
 **解释**
@@ -627,7 +627,7 @@ $\$$ vim -p $\$$(find ~ | grep deepin-bible.tex)
 使用`$[math expression]`的方式计算。
 
 ```bash
-$\$$ echo "我今年$\$$[`date +%Y` - 1987]岁了。"
+$ echo "我今年$[`date +%Y` - 1987]岁了。"
 我今年31岁了。
 ```
 
@@ -640,7 +640,7 @@ $\$$ echo "我今年$\$$[`date +%Y` - 1987]岁了。"
 一些变量的数值，可以通过`$Var`输出。
 
 ```bash
-$\$$ echo $\$$PATH
+$ echo $PATH
 ```
 
 ## Shell 变量（Variables）
@@ -736,13 +736,13 @@ shell中变量名的要求：一般遵循字母、数字、下滑线组成，不
 为了方便，常会配置一些别名。
 
 ```bash
-$\$$ alias l='ls -CF'
-$\$$ alias la='ls -A'
-$\$$ alias rm='rm -i
-$\$$ alias
-$\$$ \ls
-$\$$ unalias la
-$\$$ alias
+$ alias l='ls -CF'
+$ alias la='ls -A'
+$ alias rm='rm -i
+$ alias
+$ \ls
+$ unalias la
+$ alias
 ```
 
 **解释**
@@ -781,8 +781,8 @@ bash 的配置文件，一般如下表所示，
 编辑好这些文件，需要执行才可以生效。
 
 ```bash
-$\$$ gedit $\$$HOME/.bashrc #编辑文件
-$\$$ source $\$$HOME/.bashrc #执行生效
+$ gedit $HOME/.bashrc #编辑文件
+$ source $HOME/.bashrc #执行生效
 ```
 
 ### 配置提示（prompt）
@@ -795,8 +795,8 @@ $\$$ source $\$$HOME/.bashrc #执行生效
 Linux系统终端提示符,就是在前面\@ref(shell:intro)提到的`$`或者`#`之前的文字。是通过环境变量`PS1`，`PS2`，`PS3`，`PS4`配置的。一般都是配置系统环境变量`PS1`（是\cqh prompt string one\cqt 的简写）定义。通过命令`echo $PS1`查看当前设置。
 
 ```bash
-$\$$ echo $\$$PS1
-\[\e]0;\u@\h: \w\a\]$\$${debian_chroot:+($\$$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$\setminus\$$
+$ echo $PS1
+\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$\setminus\$$
 ```
 
 **1、基本转义字符**
@@ -804,7 +804,7 @@ $\$$ echo $\$$PS1
 PS1的值由一系列静态文本或`\`和转义字符序列组成。示例，
 
 ```bash
-$\$$ PS1="\u@\H \w$\$$ "
+$ PS1="\u@\H \w$ "
 ```
 
 : Shell 提示符中用到的转义字符
@@ -881,7 +881,7 @@ $\$$ PS1="\u@\H \w$\$$ "
  例如我们来设置一个同LinuxMint默认的绿色提示符，
 
 ```bash
-$\$$ PS1="\[\033[01;32m\]\u@\W$\setminus\$$\[\033[00m\] "
+$ PS1="\[\033[01;32m\]\u@\W$\setminus\$$\[\033[00m\] "
 ```
 
 于是，我们便有了下面的效果。

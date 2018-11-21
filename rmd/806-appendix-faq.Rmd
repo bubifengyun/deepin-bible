@@ -37,3 +37,11 @@ $\$$ source .bashrc
 \BeginKnitrBlock{answer}
 因为没能很好的解决中文双引号问题，使用 `\cqh（Chinese Quote Head）`,`\cqt（Chinese Quote Tail） `，折衷解决。见 https://stackoverflow.com/questions/52052231/how-to-write-chinese-quotes-in-bookdown
 \EndKnitrBlock{answer}
+
+```{block2, type='question'}
+代码框里下划线`_`怎么处置？
+```
+
+\BeginKnitrBlock{answer}
+请修改为`\_`的方式。
+\EndKnitrBlock{answer}

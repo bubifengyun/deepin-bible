@@ -257,8 +257,8 @@ swap 	&    交换分区（可选）&    不设置         &     4G内存以下�
 国人挚爱。可以视频。就不废话了。系统默认自带，如果没有，命令行安装。
 
 ```bash
-$\$$ sudo apt-get update
-$\$$ sudo apt-get install deepin.com.qq.im
+$ sudo apt-get update
+$ sudo apt-get install deepin.com.qq.im
 ```
 
 ### 深度截图
@@ -276,7 +276,7 @@ $\$$ sudo apt-get install deepin.com.qq.im
 深度截图也是系统默认自带的，如果没有，直接在深度商店搜索下载，也可以采用命令行安装。
 
 ```bash
-$\$$ sudo apt-get install deepin-screenshot
+$ sudo apt-get install deepin-screenshot
 ```
 
 ### 网易云音乐
@@ -294,7 +294,7 @@ $\$$ sudo apt-get install deepin-screenshot
 深度操作系统用户可运行深度商店，搜索\cqh 网易云音乐 \cqt 进行安装体验，非深度操作系统用户可前往网易云音乐官网下载Linux客户端安装体验。另外，您也可以命令行安装。
 
 ```bash
-$\$$ sudo apt-get install netease-cloud-music
+$ sudo apt-get install netease-cloud-music
 ```
 
 ### 深度系统监视器
@@ -312,7 +312,7 @@ $\$$ sudo apt-get install netease-cloud-music
 系统默认自带，如果没有，可以深度商店搜索下载，也可命令行安装。
 
 ```bash
-$\$$ sudo apt-get install deepin-system-monitor -y
+$ sudo apt-get install deepin-system-monitor -y
 ```
 
 ### 深度无线投屏
@@ -330,7 +330,7 @@ $\$$ sudo apt-get install deepin-system-monitor -y
 系统默认自带，如果没有，可以深度商店搜索下载，也可命令行安装。
 
 ```bash
-$\$$ sudo apt-get install deepin-presentation-assistant -y
+$ sudo apt-get install deepin-presentation-assistant -y
 ```
 
 ## 总结

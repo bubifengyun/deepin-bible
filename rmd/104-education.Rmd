@@ -67,7 +67,7 @@ knitr::include_graphics('images/education-xpad-setwin.png')
 该软件[开源](https://github.com/veyon/veyon/)，[官网](https://veyon.io/)能够下载 Window 和 Linux 版本的[安装包](https://veyon.io/download/)。主要功能允许教师查看学生桌面上发生了什么，控制他们的桌面，锁定他们的桌面，对桌面演示，打开或关闭桌面，向学生桌面发送文本消息等等。安装方式如下，
 
 ```bash
-$\$$ sudo apt-get install veyon -y
+$ sudo apt-get install veyon -y
 ```
 
 具体使用方法，请参考[官网文档](https://veyon.io/docs/)或者网上搜索相关资料。
@@ -139,7 +139,7 @@ VuFind 是完全模块化的，你可以自由选择模块。全平台支持，�
 Calibre 是电子书管理软件，支持 Amazon、Apple、Bookeen、Ectaco、Endless Ideas、Google/HTC、Hanlin Song 设备及格式，功能十分强大。通常我都是按照官网提供的方法下载安装
 
 ```{.bash numbers=none}
-$\$$ sudo -v && wget -nv -O- \
+$ sudo -v && wget -nv -O- \
 https://download.calibre-ebook.com/linux-installer.sh \
 | sudo sh /dev/stdin
 ```

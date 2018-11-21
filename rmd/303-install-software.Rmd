@@ -22,17 +22,17 @@
 其他发行版可以直接用 `apt-get` 直接安装的，比如 veil,
 
 ```bash
-$\$$ sudo apt-get install veil
+$ sudo apt-get install veil
 ```
 
 在 Kali Linux 就可以直接运行，但是在深度操作系统下就无法下载，这个时候不妨网上搜索一下，加入私有源。当然最好的是搜到这个软件的官网，比如 `veil` 的官网：https://github.com/Veil-Framework/Veil，安装原作者的方法安装，也是不错的。
 
 ```bash
-$\$$ sudo apt-get -y install git
-$\$$ git clone https://github.com/Veil-Framework/Veil.git
-$\$$ cd Veil/
-$\$$ cd setup
-$\$$ sudo ./setup.sh -c
+$ sudo apt-get -y install git
+$ git clone https://github.com/Veil-Framework/Veil.git
+$ cd Veil/
+$ cd setup
+$ sudo ./setup.sh -c
 ```
 
 这样一路点击确认下来，慢慢等待，就可以成功安装 `veil` 了，当然还需要对 *setup.sh* 文件检测操作系统的代码改一改，让他支持 `deepin`。详情见[pull request](https://github.com/Veil-Framework/Veil/pull/130)。用方法有所变样。
@@ -69,25 +69,25 @@ $\$$ sudo ./setup.sh -c
 根据 you-get [源码网站](https://github.com/soimort/you-get)的提示，在 deepin 下，用如下命令安装，较为合适。
 
 ```bash
-$\$$ sudo pip3 install you-get
+$ sudo pip3 install you-get
 ```
 
 但是，你可能会发现，自己的电脑没有安装 `pip3` 软件。试着 `sudo apt-get install pip3` 也不存在这个软件包啊。接着百度 `how to install pip3`，找到一大堆页码。参考[这个](http://ask.xmodulo.com/install-pip-linux.html)，如下命令安装。
 
 ```bash
-$\$$ sudo apt-get install python3-pip python3-dev build-essential
+$ sudo apt-get install python3-pip python3-dev build-essential
 ```
 
 这样就安装好了 `pip3`，我的理解，`pip3` 就是 `python3-pip` 的意思，不知此解对不对。那么接下来安装 `you-get` 就容易多啦。
 
 ```bash
-$\$$ sudo pip3 install you-get
+$ sudo pip3 install you-get
 ```
 
 如果需要更新 `you-get`，可以如下。
 
 ```bash
-$\$$ sudo pip3 install --upgrade you-get
+$ sudo pip3 install --upgrade you-get
 ```
 
 对于 `you-get` 如何使用，这里就不赘述啦。详见[官网说明](https://github.com/soimort/you-get)。
@@ -99,10 +99,10 @@ $\$$ sudo pip3 install --upgrade you-get
 下载需要的字体，下面以安装交大论文需要的字体为例，网上下好需要的[字体](http://download.csdn.net/download/bubifengyun/9695994)，解压缩后，双击安装即可，也可以仿照上面[网页](https://github.com/weijianwen/SJTUThesis/blob/master/tex/app_setup.tex)提供的方式安装。
 
 ```bash
-$\$$ mkdir ~/.fonts
-$\$$ cp *.ttf ~/.fonts				# 当前用户可用新字体
-$\$$ sudo cp *.ttf /usr/share/fonts/local/	# 所有用户可以使用新字体
-$\$$ sudo fc-cache -f
+$ mkdir ~/.fonts
+$ cp *.ttf ~/.fonts				# 当前用户可用新字体
+$ sudo cp *.ttf /usr/share/fonts/local/	# 所有用户可以使用新字体
+$ sudo fc-cache -f
 ```
 
 **解释**
@@ -113,7 +113,7 @@ $\$$ sudo fc-cache -f
 这里以搜狗输入法为例，讲解怎么在没有安装搜狗输入法的 Linux 桌面发行版上安装 搜狗输入法，其实深度操作系统自带搜狗输入法的。当然第一步百度搜索了，搜索到搜狗输入法的 Linux 专用版[网站](http://pinyin.sogou.com/linux/)，上面网址如果不对，请继续搜索，毕竟某搜索网址广告比较厉害，不一定就第一时间提供有用的答案。进入官网，下载对应 *.deb 文件，使用命令
 
 ```bash
-$\$$ sudo dpkg -i /path/to/***.deb
+$ sudo dpkg -i /path/to/***.deb
 ```
 
 就可以安装了。本来这个输入法安装应该放在上面的，但是考虑到很多人找不到怎么安装，特来说一下。深度操作系统下，可以直接双击下载的 **.deb 安装包的，一会就会自动安装完。不过汉语简体版的深度操作系统已经自带了该输入法。

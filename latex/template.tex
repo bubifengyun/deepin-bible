@@ -143,10 +143,11 @@ $if(href2footnote)$% 是否把链接改为脚注
 $endif$
 
 \usepackage{listings}
+\lstset{mathescape=false}
 % https://github.com/jgm/pandoc/issues/4716
 % lstinline 对数学模式存在 bug，等修复后可以改为如下方式
-% \newcommand{\passthrough}[1]{#1}
-\newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}}
+\newcommand{\passthrough}[1]{#1}
+% \newcommand{\passthrough}[1]{\lstset{mathescape=false}#1\lstset{mathescape=true}}
 
 % https://tex.stackexchange.com/questions/30845/how-to-redefine-lstinline-to-automatically-highlight-or-draw-frames-around-all/30851
 % https://www.spinics.net/lists/perfbook/msg00036.html

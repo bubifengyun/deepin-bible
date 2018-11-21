@@ -15,7 +15,7 @@
 下面以深度操作系统15.5版本为例说明。安装过程中，请确保当前 `rstudio` 的版本高于 1.0.0, `texlive` 为2015年后的版本， `pandoc` 的版本高于 2.0.0。
 
 ```{.bash numbers=none}
-$\$$ sudo apt-get install r-base r-base-dev \
+$ sudo apt-get install r-base r-base-dev \
 rstudio texlive-full pandoc make
 ```
 
@@ -24,13 +24,13 @@ rstudio texlive-full pandoc make
 曾经在 Lubuntu 下试着安装过。一般先安装 `make`，运行命令，仍旧出错，提示没有`RScript`，接着安装`r-base r-base-dev`。再接着，`sudo make`还是出错。最后是`pandoc`版本问题了。由于 Lubuntu 版本太老，没能更新好。总结一下，
 
 ```{.bash numbers=none}
-$\$$ sudo apt-get install make r-base r-base-dev -y
-$\$$ sudo make
+$ sudo apt-get install make r-base r-base-dev -y
+$ sudo make
 ```
 第一次编译，可能需要安装很多软件，请静静等待。后面，直接运行下面这条语句，实现编译。
 
 ```{.bash numbers=none}
-$\$$ make
+$ make
 ```
 
 ### Windows 下使用
@@ -48,7 +48,7 @@ $\$$ make
 模板默认使用GNUMake构建，后续如无特殊说明，默认执行命令的文件夹以及当前文件夹均为本模板的根目录。对于部分用户，第一次编译可能需要下载很多文件，最好联网编译，简言之**首次编译请联网**。如果第一次编译成功，后面再次编译则不需要联网。
 
 ```{.bash numbers=none}
-$\$$ make
+$ make
 ```
 ### 第二种编译方法——RStudio编译
 
@@ -60,7 +60,7 @@ $\$$ make
 如果需要统计字数，先生成文件，然后执行如下命令，特别提醒**先编译书籍才可以统计字数**。
 
 ```{.bash numbers=none}
-$\$$ make wordcount
+$ make wordcount
 ```
 
 ### 本书编译的 R 各包信息
