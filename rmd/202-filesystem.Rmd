@@ -86,12 +86,12 @@
 下面给出几个简单例子。
 
 ```bash
-$\$$ cd
-$\$$ cd ~
-$\$$ cd /usr/local/bin
-$\$$ cd -
-$\$$ cd ..
-$\$$ pwd
+$ cd
+$ cd ~
+$ cd /usr/local/bin
+$ cd -
+$ cd ..
+$ pwd
 ```
 
 **解释**
@@ -103,14 +103,14 @@ $\$$ pwd
 1. `pwd`打印当前目录。
 
 ```bash
-$\$$ cd
-$\$$ mkdir dir1
-$\$$ mkdir -p dir2/dir22
-$\$$ ls -ld dir1
+$ cd
+$ mkdir dir1
+$ mkdir -p dir2/dir22
+$ ls -ld dir1
 drwxr-xr-x 2 litianci litianci 4096 10月 31 22:24 dir1
-$\$$ chmod o-rx dir1
-$\$$ touch dir1
-$\$$ ls -ld dir1
+$ chmod o-rx dir1
+$ touch dir1
+$ ls -ld dir1
 drwxr-x--- 2 litianci litianci 4096 10月 31 23:22 dir1
 ```
 
@@ -124,9 +124,9 @@ drwxr-x--- 2 litianci litianci 4096 10月 31 23:22 dir1
 
 ## 元字符和操作符
 
-古人云”物以类聚，人以群分“。我们操作文件（夹）的时候，可能就需要批量操作。这个时候我们就可以这些文件（夹）”归类“，其实就是使用元字符表示某一类文件（夹）。这样操作起来更方便。
+古人云\cqh 物以类聚，人以群分\cqt 。我们操作文件（夹）的时候，可能就需要批量操作。这个时候我们就可以这些文件（夹）\cqh 归类\cqt ，其实就是使用元字符表示某一类文件（夹）。这样操作起来更方便。
 
-如果说元字符是对文件夹”分类“，那么操作符就是对”操作“按照一定的规则拼接。
+如果说元字符是对文件夹\cqh 分类\cqt ，那么操作符就是对\cqh 操作\cqt 按照一定的规则拼接。
 
 ### 元字符{#filesystem:metachar}
 
@@ -139,14 +139,14 @@ drwxr-x--- 2 litianci litianci 4096 10月 31 23:22 dir1
 看下面例子，
 
 ```bash
-$\$$ mkdir test
-$\$$ cd test
-$\$$ touch huawei huashuo 华为 华硕 深度 深不可测
-$\$$ ls h*
+$ mkdir test
+$ cd test
+$ touch huawei huashuo 华为 华硕 深度 深不可测
+$ ls h*
 huashuo  huawei
-$\$$ ls 华*
+$ ls 华*
 华硕  华为
-$\$$ ls 深*测
+$ ls 深*测
 深不可测
 ```
 
@@ -158,11 +158,11 @@ $\$$ ls 深*测
 下面紧接着上面的shell环境，继续例子，
 
 ```bash
-$\$$ ls h?????
+$ ls h?????
 huawei
-$\$$ ls 华?
+$ ls 华?
 华硕  华为
-$\$$ ls 深?
+$ ls 深?
 深度
 ```
 
@@ -174,12 +174,12 @@ $\$$ ls 深?
 下面我们看看`[...]`相关的例子，
 
 ```bash
-$\$$ touch auawei buawei cuawei duawei
-$\$$ ls [ah]uawei
+$ touch auawei buawei cuawei duawei
+$ ls [ah]uawei
 auawei  huawei
-$\$$ ls [a-dh]uawei
+$ ls [a-dh]uawei
 auawei  buawei  cuawei  duawei  huawei
-$\$$ ls [a-dh]u*
+$ ls [a-dh]u*
 auawei  buawei  cuawei  duawei  huashuo  huawei
 ```
 
@@ -199,35 +199,35 @@ auawei  buawei  cuawei  duawei  huashuo  huawei
 第\@ref(filesystem:metachar)小节提到的均为归类，前提是筛选，选择已经存在的事物，对已有的事情分类（**是否如此请核实**）。如果你想创建一个集合，可以选择花括号`{}`的方式，列出所有相关的元素。
 
 ```bash
-$\$$ touch deepin{1,2,3,4}
-$\$$ ls deepin*
+$ touch deepin{1,2,3,4}
+$ ls deepin*
 deepin1  deepin2  deepin3  deepin4
-$\$$ rm ./*
-$\$$ touch {deepin,深度}-{5,6,7,8}
-$\$$ ls
+$ rm ./*
+$ touch {deepin,深度}-{5,6,7,8}
+$ ls
 deepin-5  deepin-6  deepin-7  deepin-8  深度-5  深度-6  深度-7  深度-8
-$\$$ rm {deepin,深度}-{5,6,7,8}
-$\$$ ls
-$\$$ touch {a..e}{1..3}
-$\$$ ls
+$ rm {deepin,深度}-{5,6,7,8}
+$ ls
+$ touch {a..e}{1..3}
+$ ls
 a1  a2  a3  b1  b2  b3  c1  c2  c3  d1  d2  d3  e1  e2  e3
-$\$$ rm ./*
-$\$$ touch {A..a}
+$ rm ./*
+$ touch {A..a}
 touch: 无法创建'': 没有那个文件或目录
-$\$$ ls
+$ ls
 '`'   _    ]   A   C   E   G   I   K   M   O   Q   S   U   W   Y
 '^'  '['   a   B   D   F   H   J   L   N   P   R   T   V   X   Z
-$\$$ rm ./*
-$\$$ touch {aa..ac}
-$\$$ ls
+$ rm ./*
+$ touch {aa..ac}
+$ ls
 {aa..ac}
-$\$$ rm ./*
-$\$$ touch {11..21}
-$\$$ ls
+$ rm ./*
+$ touch {11..21}
+$ ls
 11  12  13  14  15  16  17  18  19  20  21
-$\$$ rm ./*
-$\$$ touch {33..22}
-$\$$ touch {z..b}
+$ rm ./*
+$ touch {33..22}
+$ touch {z..b}
 ```
 
 **解释**
@@ -251,228 +251,223 @@ Linux 是多用户的系统，为了在一定程度上保护数据隐私，对�
 
 对于一个文件（夹）来说，他一定归属于某个用户，且归属于某个用户组。也一定有其他不属于前两者的用户，简称其他用户，有时候也想访问该文件（夹）。那么这个权限就是针对这三类人来设定的。当然，由于某些用户（组）被删除等，造成文件（夹）归属的用户（组）不存在了，这些就是无主文件（夹），这也是存在安全隐患的。在下章内容会讲述通过`find`命令查找此类无主文件（夹）的方法，可以采用相关方法，重新赋予其归属用户（组）或者删除等，这里就不叙述了。
 
-### 权限
+### 权限简介
 
-针对这三类用户，权限又可以分为读（Read）、写（Write）和执行（Execute）三类。这三类权限详细介绍见下表。
+参考网页：
 
-本节内容转载自：https://blog.csdn.net/zhao12795969/article/details/53448039
+- https://blog.csdn.net/zhao12795969/article/details/53448039
 
-后续有时间再整理。
+针对这三类用户，权限又可以分为读（Read）、写（Write）和执行（eXecute）三类。
 
-Linux的权限不是很细致，只有RWX三种
-r(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。
-w(Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。
-x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。
-1、目录的只读访问不允许使用cd进入目录，必须要有执行的权限才能进入。
-2、只有执行权限只能进入目录，不能看到目录下的内容，要想看到目录下的文件名和目录名，需要可读权限。
-3、一个文件能不能被删除，主要看该文件所在的目录对用户是否具有写权限，如果目录对用户没有写权限，则该目录下的所有文件都不能被删除，文件所有者除外
+- r(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。
+- w(Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。
+- x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。
 
-4、目录的w位不设置，即使你拥有目录中某文件的w权限也不能写该文件
+**注意**
+
+1. 目录的只读访问不允许使用cd进入目录，必须要有执行的权限才能进入。
+1. 只有执行权限只能进入目录，不能看到目录下的内容，要想看到目录下的文件名和目录名，需要可读权限。
+1. 一个文件能不能被删除，主要看该文件所在的目录对用户是否具有写权限，如果目录对用户没有写权限，则该目录下的所有文件都不能被删除，文件所有者除外。
+1. 目录的w位不设置，即使你拥有目录中某文件的w权限也不能写该文件。
+1. 以上仅限于 `ext3/4`等文件系统的文件。对于安装`windows10`双系统的电脑，还需要注意是否`windows10`开启电源保护模式，哪怕你是`ext4`格式，依旧为只读，无法更改文件。
 
 
-linux权限详解
+每个文件属于一个用户和一个组。命令`ls -l`可以查看用户和组，比如，
 
-一个用户、一个组 
-我们来看一看 Linux 权限和所有权模型。我们已经看到每个文件属于一个用户和一个组。这正是 Linux 中权限模型的核心。您可以在 ls -l 清单中查看用户和组：
+```bash
+$ ls -l /bin/bash 
+-rwxr-xr-x 1 root root 1111240 5月  13  2018 /bin/bash
+```
 
-$ ls -l /bin/bash
+第二行为输出结果，表明 `/bin/bash` 属于 root 用户， root 组。`ls -l` 命令的第一个字段 `-rwxr-xr-x` 包含`/bin/bash`的权限的符号表示。该字段中的首字符（`-`）指定该文件的类型，本例中它是一个常规文件。可能的首字符如下： 
 
- 
+- `-` 普通文件
+- `d` 目录
+- `l` 符号链接
+- `c` 字符专门设备文件
+- `b` 块专门设备文件
+- `p` 先进先出
+- `s` 套接字
 
--rwxr-xr-x    1 root     wheel      430540 Dec 23 18:27 /bin/bash
-在这个特殊的示例中，/bin/bash 可执行文件属于 root 用户，并且在 wheel 组中。Linux 权限模型通过允许给每个文件系统对象设置三种独立的权限级别来工作 — 它们为文件的所有者、文件的组以及所有其他用户。
+首字符后紧接着三个三元组`rwx`，`r-x`，`r-x`，第一个三元字符组代表文件所有者的权限，第二个代表文件的所属组的权限，第三个代表其他用户的权限。但是 root 用户，往往会被跳过这些权限检查（**待核实**）。
 
-理解“ls -l”
+### 权限更改`chmod`
 
-我们来看一看我们的 ls -l 输出，检查一下这个清单的第一栏：
+`chmod` 用于更改 `rwx` 权限，带有两个或多个参数：`mode`，描述怎样改变权限，后面跟将会受到影响的文件或文件列表：
 
-$ ls -l /bin/bash
--rwxr-xr-x    1 root     wheel      430540 Dec 23 18:27 /bin/bash
-第一个字段 -rwxr-xr-x 包含该特殊文件的权限的符号表示。该字段中的首字符（-）指定该文件的类型，本例中它是一个常规文件。其它可能的首字符还有： 
-“d”目录
-“l”符号链接
-“c”字符专门设备文件
-“b”块专门设备文件
-“p”先进先出
-“s”套接字
-三个三元组
-$ ls -l /bin/bash
--rwxr-xr-x    1 root     wheel      430540 Dec 23 18:27 /bin/bash
-该字段的其余部分由三个三元组字符组成。第一个三元字符组代表文件所有者的权限，第二个代表文件的组的权限，第三个代表所有其他用户的权限： 
-"rwx"
-"r-x"
-"r-x"
-上面，r 表示允许读（查看文件中的数据），w 表示允许写（修改文件以及删除），x 表示允许“执行”（运行程序）。将所有这些信息放在一起，我们可以发现每个人都能够读该文件的内容和执行该文件，但是只允许文件所有者（root 用户）可以以任何方式修改该文件。因此，虽然一般用户可以复制该文件，但是只允许 root 用户更新或删除它。 
-我是谁？
-在我们看怎样改变文件的用户所有权和组所有权之前，我们首先来看一看怎样得知您当前的用户标识和组成员资格。除非最近您使用过 su 命令，否则您当前的用户标识是您用来登录系统的用户标识。但是，如果您经常使用 su，您可能不记得您当前有效的用户标识。要查看用户标识，输入 whoami：
-# whoami
-root
-# su drobbins
-$ whoami
-drobbins
-我在哪一组？
-要看看您属于哪一组，使用 group 命令：
-$ groups
-drobbins wheel audio
-在上面的示例中，我是 drobbins、wheel 和 audio 组的成员。如果您想看看其他用户在什么组，指定他们的用户名作为参数： 
-$ groups root daemon
-root : root bin daemon sys adm disk wheel floppy dialout tape video
-daemon : daemon bin adm
-改变用户和组所有权
-为了改变文件或其它文件系统对象的所有者或组，分别使用 chown 或 chgrp。这两个命令都要一个用户名或组名作参数，后面跟上一个或多个文件名。
+```bash
+$ chmod +x bashscript
+```
 
-# chown root /etc/passwd
-# chgrp wheel /etc/passwd
-您还可以用 chown 命令的另一种形式同时设置所有者和组： 
-# chown root.wheel /etc/passwd
-除非您是超级用户，否则您不可以使用 chown，然而任何人都可以使用 chgrp 来将文件的组所有权改为他们所属的组。 
-递归的所有权改变
-chown 和 chgrp 都有一个 -R 选项，该选项可以用来告诉它们递归地将所属权和组改变应用到整个目录树中。例如：
-# chown -R drobbins /home/drobbins
-介绍 chmod
-chown 和 chgrp 可以用来改变文件系统对象的所有者和组，而另一个程序 — 叫做 chmod — 用来改变我们可以在 ls -l 清单中看到的 rwx 权限。chmod 带有两个或多个参数：“mode”，描述怎样改变权限，后面跟将会受到影响的文件或文件列表：
-$ chmod +x scriptfile.sh
-在上面的示例中，我们的“mode”是 +x。您可能会猜到，+x 模式告诉 chmod，使该特殊文件对于用户、组以及其它任何人都是可执行的。如果我们想要除去一个文件的所有执行权限，我们应该这样做： 
-$ chmod -x scriptfile.sh
-用户／组／其他粒度
-到此，我们的 chmod 示例已经影响到了所有三个三元组 — 用户、组和所有其他用户。通常，一次只修改一个或两个三元组很方便。要这样做，只需要在 + 或 - 符号之前，给您想要修改的特定的三元组指定符号字符。对于“用户”三元组使用 u，对于“组”三元组使用 g，对于“其他／每个人”使用 o：
-$ chmod go-w scriptfile.sh
-我们刚除去了组和所有其他用户的写权限，而保留“所有者”权限不动。 
-重新设置权限
-除了交替打开和关闭权限位以外，我们还可以一起重新设置它们。通过使用 = 操作符，我们可以告诉 chmod 我们要指定权限和取消别的权限：
-$ chmod =rx scriptfile.sh
-上面，我们只设置了所有的“read”和“execute”位，没有设置所有的“write”位。如果您仅仅想重新设置特定的三元组，您可以像下面这样，在 = 之前指定该三元组的符号名：
-$ chmod u=rx scriptfile.sh
-                        数字模式
-                        直到现在为止，我们使用了叫做“符号”的模式来用 chmod 指定权限的改变。然而，指定权限还有
-                        一种普遍使用的方法 — 使用 4 位八进制数。使用叫做数字权限语法的语法，每一位代表一个权限
-                        三元组。例如，在 1777 中，777 设置本章我们所讨论的“owner”、“group”和“other”
-                        标志。1 用来设置专门的权限位，我们将在本章的结束部分讲到。这个图表说明了怎样解释第二到
-                        四位（777）：
-                        模式 数字 
-                        rwx 7 
-                        rw- 6 
-                        r-x 5 
-                        r-- 4 
-                        -wx 3 
-                        -w- 2 
-                        --x 1 
-                        --- 0
-                         
-                        数字权限语法
-                        当您需要给一个文件指定所有权限时，数字权限语法特别有用，比如在下面的示例中：
-$ chmod 0755 scriptfile.sh
-                        $ ls -l scriptfile.sh
-                        -rwxr-xr-x    1 drobbins drobbins        0 Jan  9 17:44 scriptfile.sh
-                        在该示例中，我们使用了 0755 模式，它展开为一个完整的权限设置“-rwxr-xr-x”。
-                        Umask
-                        
-当进程创建了新文件时，它指定新文件应该具有的权限。通常，所请求的模式是 0666（每个人可读和可写），它比我们希望的具有更多的权限。幸运的是，不管什么时候创建了新文件，Linux 将参考叫做“umask”的东西。系统用 umask 值来将初始指定的权限降低为更合理、更安全的权限。您可以通过在命令行中输入 umask 来查看您当前的 umask 设置：
-                        $ umask
-                        0022
-                        Linux 系统上，umask 的缺省值一般为 0022，它允许其他人读您的新文件（如果他们可以得到它们），但是不能进行修改。为了在缺省的情况下使新文件更安全，您可以改变 umask 设置： $ umask 0077umask 将确保组和其他用户对于新创建的文件绝对没有任何权限。那么，umask 怎样工作呢？与文件的“常规”权限不同，umask 指定应该关闭哪一个权限。我们来参阅一下我们的“模式到数字”映射表，从而使我们可以理解 0077 的 umask 的意思是什么： 模式 数字 rwx 7 rw- 6 r-x 5 r-- 4 -wx 3 -w- 2 --x 1 --- 0 使用该表，0077 的最后三位扩展为 ---rwxrwx。现在，请记住 umask 告诉系统禁用哪个权限。根据推断，我们可以看到将关闭所有“组”和“其他”权限，而“用户”权限将保留不动。
-介绍 suid 和 sgid
-                        当您最初登录时，将启动一个新的 shell 进程。您已经知道，但是您可能还不知道这个新的 shell
-                         进程（通常是 bash）使用您的用户标识运行。照这样，bash 程序可以访问所有属于您的文件和
-                        目录。事实上，作为用户，我们完全依靠其它程序来代表我们执行操作。因为您启动的程序继承了
-                        您的用户标识，因此它们不能访问任何不允许您访问的文件系统对象。
-                        例如，一般用户不能直接修改 passwd 文件，因为“write”标志已经对除“root 用户”以外的每个用户关闭：
+上例`+x`表示对`bashscript`的三类人员（拥有者、拥有组和其他人）均增加可执行权限。如果我们想要除去一个文件的所有执行权限，
+
+```bash
+$ chmod -x bashscript
+```
+
+为了更精细的控制权限，比如只修改部分人员权限，需要在`+-`符号前加上这部分人员的代号。`a`表示所有人员，`u`表示拥有者，`g`表示拥有组，`o`表示其他人员。这些代号可以合用。比如下面这行命令表示组和其他人员去除读写权限增加执行权限。
+
+```bash
+$ chmod go-rw+x bashscript
+```
+
+对于权限，除了`+-`外，还可以使用等号`=`，表示只保留这些权限，未涉及的权限全部取消，有例外，见下文。
+
+```bash
+$ chmod =rx bashscript
+```
+
+**注意**
+
+使用`+-=`改变权限的时候，最好在前面加上相关人员的代号，比如`a`,`u`，`g`,`o`的组合，否则，可能跟你预期的结果不一样。
+
+```bash
+$ chmod a-rwx bashscript
+$ chmod +rwx bashscript # + 不一定跟你期望的一样
+$ ls -l bashscript # rwxr-xr-x
+$ chmod a-rwx bashscript
+$ chmod a+rwx bashscript
+$ ls -l bashscript # rwxrwxrwx
+$ chmod -rwx bashscript # - 不一定跟你期望的一样
+$ ls -l bashscript # ----w--w-
+$ chmod a-rwx bashscript
+$ ls -l bashscript # ---------
+$ chmod =rwx bashscript
+$ ls -l bashscript # rwxr-xr-x
+```
+
+以上是因为存在权限掩码`umask`这个参数，在终端输入`umask`回车，输出本机`umask=0022`,怎么是数字呢？这是因为权限也可用用数字表示，关于权限掩码`umask`在后面详述。
+
+数字形式的权限，使用4位八进制数，每一位代表一个权限三元组。例如，在 `1777` 中，`777` 设置本章我们所讨论的`owner`、`group`和`other`标志。`1` 用来设置专门的权限位，稍后再讲。这个图表说明了怎样解释第二到
+
+： 字符形式权限和数字形式权限对照表
+
+ **字符**    **数字**    **字符**    **数字**    **字符**    **数字**    **字符**    **数字**
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------
+ `rwx`       7    		 `rw-`     	 6 		     `r-x` 	     5     		 `r--`	     4 
+ `-wx`     	 3 		     `-w-` 	     2     		 `--x`    	 1 		     `---`	     0
+
+采用数字形式的权限管理方法，比如，
+
+```bash
+$ chmod 0755 bashscript
+$ ls -l bashscript
+-rwxr-xr-x 1 litianci litianci 119 11月 17 22:32 bashscript
+```
+
+就实现跟字符形式等同的权限设置。
+
+### 权限掩码`umask`
+
+当进程创建了新文件时，它指定新文件应该具有的权限。通常，所请求的模式是 0666（每个人可读和可写），它比我们希望的具有更多的权限。幸运的是，不管什么时候创建了新文件，Linux 将参考叫做权限掩码`umask`的东西。系统用`umask`值来将初始指定的权限降低为更合理、更安全的权限。您可以通过在命令行中输入`umask`来查看您当前的`umask`设置，
+
+```bash
+$ umask
+0022
+```
+
+Linux 系统上，`umask` 的缺省值一般为 `0022`，它允许其他人读您的新文件（如果他们可以得到它们），但是不能进行修改。为了在缺省的情况下使新文件更安全，您可以改变 `umask` 设置，
+
+```bash
+$ umask 0077
+$ touch newfile # 新建一个文件
+$ ls -l newfile
+-rw------- 1 litianci litianci 0 11月 21 18:39 newfile
+```
+
+`umask` 将确保组和其他用户对于新创建的文件绝对没有任何权限。参阅上方的《字符形式权限和数字形式权限对照表》，当`umask=0077`时，对应字符形式权限为 `---rwxrwx`。而新建文件的请求权限为`0666`（`rw-rw-rw-`），禁用掉`0077`后，就剩上方显示的`rw-------`权限了。
+
+
+#### `suid` 和 `sgid`
+
+当您最初登录时，将启动一个新的 shell 进程。这个新的 shell 进程（通常是 bash）使用您的用户标识运行，可以访问所有属于您的文件（夹）。您启动的程序继承了您的用户标识，因此它们不能访问任何不允许您访问的文件系统对象。例如，一般用户不能直接修改 */etc/passwd* 文件，因为`write`标志已经对除`root 用户`以外的每个用户关闭，
+
+```bash
 $ ls -l /etc/passwd
-                        -rw-r--r--    1 root     wheel        1355 Nov  1 21:16 /etc/passwd
-                        但是，一般用户确实需要在他们需要改变其密码的任何时候，能够修改 /etc/passwd（至少间接地）。但是，如果用户不能修改该文件，究竟怎样完成这个工作呢？
-                        Suid
-                        幸好，Linux 权限模型有两个专门的位，叫做“suid”和“sgid”。当设置了一个可执行程序的“suid”这一位时，它将代表可执行文件的所有者运行，而不是代表启动程序的人运行。现在，回到 /etc/passwd 问题。如果看一看 passwd 可执行文件，我们可以看到它属于 root 用户：
-                        $ ls -l /usr/bin/passwd
-                        -rwsr-xr-x    1 root     wheel       17588 Sep 24 00:53 /usr/bin/passwd
-                        您还将注意到，这里有一个 s 取替了用户权限三元组中的一个 x。这表明，对于这个特殊程序，设置了 suid 和可执行位。由于这个原因，当 passwd 运行时，它将代表 root 用户执行（具有完全超级用户访问权），而不是代表运行它的用户运行。又因为 passwd 以 root 用户访问权运行，所以能够修改 /etc/passwd 文件，而没有什么问题。
-                        suid/sgid 告诫说明
-                        我们看到了 suid 怎样工作，sgid 以同样的方式工作。它允许程序继承程序的组所有权，而不是当前用户的程序所有权。这里有一些关于 suid 和 sgid 的其它的但是很重要的信息。首先，suid 和 sgid 占据与 ls -l 清单中 x 位相同的空间。如果还设置了 x 位，则相应的位表示为 s（小写）。但是，如果没有设置 x 位，它将表示为 S（大写）。另一个很重要的提示：在许多环境中，suid 和 suid 很管用，但是不恰当地使用这些位可能使系统的安全遭到破坏。最好尽可能地少用“suid”程序。passwd 命令是为数不多的必须使用“suid”的命令之一。 
-                        改变 suid 和 sgid
-                        设置和除去 suid 与 sgid 位相当简单。这里，我们设置 suid 位：
-                        # chmod u+s /usr/bin/myapp
-                        此处，我们从一个目录除去 sgid 位。我们将看到 sgid 位怎样影响下面几屏中的目录：
-# chmod g-s /home/drobbins
-                        权限和目到此为止，我们从常规文件的角度来看权限。当从目录的角度看权限时，情况有一点不同。目录使用同样的权限标志，但是它们被解释为表示略微不同的含义。 对于一个目录，如果设置了“read”标志，您可以列出目录的内容；“write”表示您可以在目录中创建文件，“execute”表示您可以进入该目录并访问内部的任何子目录。没有“execute”标志，目录内的文件系统对象是不可访问的。没有“read”标志，目录内的文件系统对象是不可查看的，但是只要有人知道磁盘上对象的完整路径，就仍然可以访问目录内的对象。目录和 sgid如果启用了目录的“sgid”标志，在目录内创建的任何文件系统对象将继承目录的组。当您需要创建一个属于同一组的一组人使用的目录树时，这种特殊的功能很管用。只需要这样做： 
-# mkdir /home/groupspace
-                        # chgrp mygroup /home/groupspace
-                        # chmod g+s /home/groupspace
-                        现在，mygroup 组中的所有用户都可以在 /home/groupspace 内创建文件或目录，同样，他
-                        们也将自动地分配到 mygroup 的组所有权。根据用户的 umask 设置，新文件系统对象对于 
-                        mygroup 组的其他成员来说，可以或不可以是可读、可写或可执行的。
-                        目录和删除
-                        缺省情况下，Linux 目录以一种不是在所有情况下都很理想的方式表现。一般来说，只要对一个
-                        目录有写访问权，任何人都可以重命名或删除该目录中的文件。对于个别用户使用的目录，这种行
-                        为是很合理的。
-                        但是，对于很多用户使用的目录来说，尤其是 /tmp 和 /var/tmp，这种行为可能会产生麻烦。
-                        因为任何人都可以写这些目录，任何人都可以删除或重命名任何其他人的文件 — 即使是不属于
-                        他们的！显然，当任何其他用户在任何时候都可以输入“rm -rf /tmp/*”并损坏每个人的文
-                        件时，很难把 /tmp 用于任何有意义的文件。
-                        所幸，Linux 有叫做“粘滞位”（sticky bit）的东西。当给 /tmp 设置了粘滞位（用 
-                        chmod +t），唯一能够删除或重命名 /tmp 中文件的是该目录的所有者（通常是 root 用户）
-                        、文件的所有者或 root 用户。事实上，所有 Linux 分发包都缺省地启用了 /tmp 的粘滞位，
-                        而您还可以发现粘滞位在其它情况下也很管用。
-                        难以理解的第一位
-                        总结本章，我们最后来看一看数字模式的难以理解的第一位数。您可以看到，这个第一位数
-                        用来设置 sticky、suid 和 sgid 位： 
-                        suid sgid sticky 模式数字 on on on 7 on on off 6 on off on 5 on off off 4 off on on 3 off on off 2 off off on 1 off off off 0 
-                        这里有一个怎样用 4 位数字模式来设置一个目录的权限的示例，该目录将由一个工作组使用： 
-                        # chmod 1775 /home/groupfiles
-                        请想一想 1755 数字模式权限设置的含义。
-linux权限补充：rwt rwT rws rwS 特殊权限
+-rw-r--r-- 1 root root 2438 11月 21 15:54 /etc/passwd
+```
 
-众所周知，Linux的文件权限如: 777；666等，其实只要在相应的文件上加上UID的权限，就可以用到加权限人的身份去运行这个文件。所以我们只需要将bash复制出来到另一个地方，然后用root加上UID权限,只要用户运行此Shell就可以用用root的身份来执行任何文件了
+但是，一般用户确实需要在他们需要改变其密码的任何时候，能够修改 */etc/passwd*（至少间接地）。但是，如果用户不能修改该文件，究竟怎样完成这个工作呢？
 
-一个文件都有一个所有者, 表示该文件是谁创建的. 同时, 该文件还有一个组编号, 表示该文件所属的组, 一般为文件所有者所属的组.
+幸好，Linux 权限模型有两个专门的位，叫做`suid`和`sgid`。当设置了一个可执行程序的`suid`这一位时，它将代表可执行文件的所有者运行，而不是代表启动程序的人运行。现在回到上面这个问题。查看 */usr/bin/passwd* 可执行文件，
 
-如果是一个可执行文件, 那么在执行时, 一般该文件只拥有调用该文件的用户具有的权限. 而setuid, setgid 可以来改变这种设置. 
+```bash
+$ ls -l /usr/bin/passwd
+-rwsr-xr-x 1 root root 59640 9月  28  2017 /usr/bin/passwd
+```
 
-setuid：该位是让普通用户可以以root用户的角色运行只有root帐号才能运行的程序或命令。比如我们用普通用户运行passwd命令来更改自己的口令，实际上最终更改的是/etc/passwd文件我们知道/etc/passwd文件是用户管理的配置文件，只有root权限的用户才能更改
+您还将注意到，这里有一个 `s` 取替了用户权限三元组中的一个 `x`。这表明，对于这个特殊程序，设置了 `suid` 和可执行位。由于这个原因，当 `/usr/bin/passwd` 运行时，它将代表 root 用户执行（具有完全超级用户访问权），而不是代表运行它的用户运行。又因为 `/usr/bin/passwd` 以 root 用户访问权运行，所以能够修改 */etc/passwd* 文件，而没有什么问题。
 
-　　[root@localhost ~]# ls -l /etc/passwd
+我们看到了 `suid` 怎样工作，`sgid` 以同样的方式工作。它允许程序继承程序的组所有权，而不是当前用户的组所有权。
 
-　　-rw-r--r-- 1 root root 2379 04-21 13:18 /etc/passwd
+这里有一些关于 `suid` 和 `sgid` 的其它的但是很重要的信息。
 
-　　作为普通用户如果修改自己的口令通过修改/etc/passwd肯定是不可完成的任务，但是不是可以通过一个命令来修改呢答案是肯定的，作为普通用户可以通过passwd 来修改自己的口令这归功于passwd命令的权限我们来看一下；
+首先，`suid` 和 `sgid` 分别占据与 `ls -l` 清单中用户`u`和用户组`g`的执行`x`位。如果设置了 `x` 位为可执行，则相应的位表示为 `s`（小写）否则为 `S`（大写）。
 
-　　[root@localhost ~]# ls -l /usr/bin/passwd
+其次，在许多环境中，`suid` 和 `sgid` 很管用，但是不恰当地使用这些位可能使系统的安全遭到破坏。最好尽可能地少用`suid`程序。`/usr/bin/passwd` 命令是为数不多的必须使用`suid`的命令之一。 
 
-　　-r-s--x--x 1 root root 21944 02-12 16:15 /usr/bin/passwd
+设置和除去 `suid` 与 `sgid` 位相当简单。这里，我们设置 suid 位：
 
-　　因为/usr/bin/passwd 文件已经设置了setuid 权限位（也就是r-s--x--x中的s），所以普通用户能临时变成root，间接的修改/etc/passwd，以达到修改自己口令的权限
+```bash
+$ ls -l bashscript 
+-rwxr-xr-x 1 litianci litianci 119 11月 17 22:32 bashscript
+$ chmod u+s bashscript 
+$ ls -l bashscript 
+-rwsr-xr-x 1 litianci litianci 119 11月 17 22:32 bashscript
+$ chmod u-x bashscript 
+$ ls -l bashscript 
+-rwSr-xr-x 1 litianci litianci 119 11月 17 22:32 bashscript
+$ chmod g+s bashscript 
+$ ls -l bashscript 
+-rwSr-sr-x 1 litianci litianci 119 11月 17 22:32 bashscript
+$ chmod g-s bashscript 
+$ ls -l bashscript 
+-rwSr-xr-x 1 litianci litianci 119 11月 17 22:32 bashscript
+```
 
-setgid: 该权限只对目录有效. 目录被设置该位后, 任何用户在此目录下创建的文件都具有和该目录所属的组相同的组.
+权限和目到此为止，我们从常规文件的角度来看权限。当从目录的角度看权限时，情况有一点不同。目录使用同样的权限标志，但是它们被解释为表示略微不同的含义。 对于一个目录，如果设置了`read`标志，您可以列出目录的内容；`write`表示您可以在目录中创建文件，`execute`表示您可以进入该目录并访问内部的任何子目录。没有`execute`标志，目录内的文件系统对象是不可访问的。没有`read`标志，目录内的文件系统对象是不可查看的，但是只要有人知道磁盘上对象的完整路径，就仍然可以访问目录内的对象。
 
-sticky bit: 该位可以理解为防删除位. 一个文件是否可以被某用户删除, 主要取决于该文件所属的组是否对该用户具有写权限. 如果没有写权限, 则这个目录下的所有文件都不能被删除, 同时也不能添加新的文件. 如果希望用户能够添加文件但同时不能删除文件, 则可以对文件使用sticky bit位. 设置该位后, 就算用户对目录具有写权限, 也不能删除该文件.
+如果启用了目录的`sgid`标志，在目录内创建的任何文件系统对象将继承目录的组。当您需要创建一个属于同一组的一组人使用的目录树时，这种特殊的功能很管用。只需要这样做，
 
-下面说一下如何操作这些标志:
+```bash
+$ mkdir -p /media/litianci/data/groupspace
+$ sudo chgrp mygroup /media/litianci/data/groupspace
+$ chmod g+s /media/litianci/data/groupspace
+```
 
-操作这些标志与操作文件权限的命令是一样的, 都是 chmod. 有两种方法来操作,
+现在，mygroup 组中的所有用户都可以在 */media/litianci/data/groupspace* 内创建文件或目录，同样，他们也将自动地分配到 mygroup 的组所有权。根据用户的 `umask` 设置，新文件系统对象对于 mygroup 组的其他成员来说，可以或不可以是可读、可写或可执行的。
 
-1) chmod u+s temp -- 为temp文件加上setuid标志. (setuid 只对文件有效)
+#### 目录和删除
 
-chmod g+s tempdir -- 为tempdir目录加上setgid标志 (setgid 只对目录有效)
+缺省情况下，Linux 目录以一种不是在所有情况下都很理想的方式表现。一般来说，只要对一个目录有写访问权，任何人都可以重命名或删除该目录中的文件。对于个别用户使用的目录，这种行为是很合理的。
 
-chmod o+t temp -- 为temp文件加上sticky标志 (sticky只对文件有效)
+但是，对于很多用户使用的目录来说，尤其是 */tmp* 和 */var/tmp*，这种行为可能会产生麻烦。因为任何人都可以写这些目录，任何人都可以删除或重命名任何其他人的文件——即使是不属于他们的！显然，当任何其他用户在任何时候都可以输入`rm -rf /tmp/*`并损坏每个人的文件时，很难在 */tmp* 存放任何有意义的文件。
 
-2) 采用八进制方式. 对一般文件通过三组八进制数字来置标志, 如 666, 777, 644等. 如果设置这些特殊标志, 则在这组数字之外外加一组八进制数字. 如 4666, 2777等. 这一组八进制数字三位的意义如下,
+所幸，Linux 提供了\cqh 粘滞位\cqt （sticky bit）的东西。当给 */tmp* 设置了粘滞位（用`chmod +t`），唯一能够删除或重命名 */tmp* 中文件的是该目录的所有者（通常是 root 用户）、文件的所有者或 root 用户。事实上，所有 Linux 分发包都缺省地启用了 */tmp* 的粘滞位，而您还可以发现粘滞位在其它情况下也很管用。很显然，\cqh 粘滞位\cqt 是属于其他类型人员的权限，跟`suid`,`sgid`一样，占据的也是权限三元组的`x`位，小写是设置了执行权限，大写是禁用了执行权限。所不同的是他们分别占据`u`,`g`，`o`的`x`位。
 
-abc
+```bash
+$ ls -dl /tmp
+drwxrwxrwt 15 root root 4096 11月 22 10:19 /tmp
+$ sudo chmod o-x /tmp
+$ ls -dl /tmp
+drwxrwxrwT 16 root root 4096 11月 22 10:25 /tmp
+```
 
-a - setuid位, 如果该位为1, 则表示设置setuid 4---
+#### 数字形式权限的第一位数字
 
-b - setgid位, 如果该位为1, 则表示设置setgid 2---
+现在我们回过头来看数字权限的第一位数字的意思，这也是一个八进制数字，`0-7`，转化为三位的二进制数，从高位到低位，分别表示`suid`,`sgid`,`sticky`。当设置该权限时为`1`，禁用该权限时为`0`。比如，`3`就表示，禁用`suid`,启用`sgid`,`sticky`。看下面例子。
 
-c - sticky位, 如果该位为1, 则表示设置sticky 1---
-
-设置完这些标志后, 可以用 ls -l 来查看. 如果有这些标志, 则会在原来的执行标志位置上显示. 如
-
-rwsrw-r-- 表示有setuid标志
-
-rwxrwsrw- 表示有setgid标志
-
-rwxrw-rwt 表示有sticky标志
-
-那么原来的执行标志x到哪里去了呢? 系统是这样规定的, 如果本来在该位上有x, 则这些特殊标志显示为小写字母 (s, s, t). 否则, 显示为大写字母 (S, S, T)
+```bash
+$ chmod 1777 bashscript 
+$ ls -l bashscript 
+-rwxrwxrwt 1 litianci litianci 119 11月 17 22:32 bashscript
+$ chmod 2777 bashscript 
+$ ls -l bashscript 
+-rwxrwsrwx 1 litianci litianci 119 11月 17 22:32 bashscript
+$ chmod 4777 bashscript 
+$ ls -l bashscript 
+-rwsrwxrwx 1 litianci litianci 119 11月 17 22:32 bashscript
+```
 
 ### 归属
 
@@ -480,70 +475,60 @@ rwxrw-rwt 表示有sticky标志
 
 - https://www.cnblogs.com/DawaTech/p/7249734.html
 
-chgrp  用户名    文件名  -R
+语法结构如下，
 
-chown 用户名   文件名  -R
+```bash
+chgrp 组名 文件（夹） -R
+chown 用户名 文件（夹） -R
+```
 
- 
+其中`chgrp`表示改变组名；`chown`表示改变用户名；`-R`表示递归目录下所有文件，可略。**更改所属用户和所属组常常需要根用户权限。**
 
--R表示递归目录下所有文件
+#### 修改文件所属组群`chgrp`
 
+`chgrp`，就是change group的缩写（我们可以利用这些来记忆命令）。看例子，
 
- 
-一、修改文件所属组群——chgrp
-   修改文件所属组群很简单-chgrp命令，就是change group的缩写（我们可以利用这些来记忆命令）
-   语法：chgrp  组群  文件名/目录 
-   举例：
-[root@redhat ~]# groupadd groupa
-[root@redhat ~]# groupadd groupb
-[root@redhat ~]# useradd   -g groupa zgz
-[root@redhat ~]# su - zgz
-[zgz@redhat ~]$ touch filea
-[zgz@redhat ~]$ touch fileb
-[zgz@redhat ~]$ ls -l
-total 8
--rw-r--r--  1 zgz groupa 0 Sep 26 05:48 filea
--rw-r--r--  1 zgz groupa 0 Sep 26 05:50 fileb
-          --
-[root@redhat zgz]# chgrp  groupb filea      --改变filea所属群组
-[root@redhat zgz]# ls -l
-total 8
--rw-r--r--  1 zgz groupb 0 Sep 26 05:48 filea
--rw-r--r--  1 zgz groupa 0 Sep 26 05:50 fileb
- 
-二、修改文件拥有者——chown
-   修改组群的命令使chgrp，即change group，那么修改文件拥有者的命令自然就是chown，即change owner。chown功能很多，不仅仅能更改文件拥有者，还可以修改文件所属组群。如果需要将某一目录下的所有文件都改变其拥有者，可以使用-R参数。
-   语法如下：
-   chown [-R] 账号名称      文件/目录
-   chown [-R] 账号名称:组群  文件/目录
-   举例：
-[root@redhat zgz]# ls -l
-total 20
--rw-r--r--  1 zgz groupb    0 Sep 26 05:48 filea
--rw-r--r--  1 zgz groupa    3 Sep 26 05:59 fileb
-drwxr-xr-x  2 zgz groupa 4096 Sep 26 06:07 zgzdir
-[root@redhat zgz]# chown myy fileb --修改fileb的拥有者为myy
-[root@redhat zgz]# ls -l
-total 20
--rw-r--r--  1 zgz groupb    0 Sep 26 05:48 filea
--rw-r--r--  1 myy groupa    3 Sep 26 05:59 fileb
-drwxr-xr-x  2 zgz groupa 4096 Sep 26 06:07 zgzdir
-[root@redhat zgz]# chown myy:groupa filea --修改filea的拥有者为myy，并且同
-[root@redhat zgz]# ls -l时修改组群为groupa
-total 20
--rw-r--r--  1 myy groupa    0 Sep 26 05:48 filea
--rw-r--r--  1 myy groupa    3 Sep 26 05:59 fileb
-drwxr-xr-x  2 zgz groupa 4096 Sep 26 06:07 zgzdir
-[root@redhat zgz]# chown -R myy  zgzdir                同时改变其下所有文件拥有者
-total 20
--rw-r--r--  1 myy groupa    0 Sep 26 05:48 filea
--rw-r--r--  1 myy groupa    3 Sep 26 05:59 fileb
-drwxr-xr-x  2 myy groupa 4096 Sep 26 06:07 zgzdir
-[root@redhat zgz]# cd zgzdir/
-[root@redhat zgzdir]# ls -l
-total 8
--rw-r--r--  1 myy groupa 0 Sep 26 06:07 filec
--rw-r--r--  1 myy groupa 0 Sep 26 06:07 filed
+```bash
+[litianci]$ sudo groupadd groupa # 增加组 groupa
+[litianci]$ sudo groupadd groupb # 增加组 groupb
+[litianci]$ sudo useradd -g groupa deepin -m # 新增用户 deepin，默认组 groupa,自带主目录
+[litianci]$ sudo su - deepin # 切换到 deepin 用户，- 表示不保存当前任何环境变量
+[deepin]$ touch filea fileb # 创建两个文件
+[deepin]$ ls -l
+-rw-r--r-- 1 deepin groupa    0 11月 21 15:55 filea
+-rw-r--r-- 1 deepin groupa    0 11月 21 15:55 fileb
+[deepin]$ exit
+[litianci]$ sudo chgrp groupb ~deepin/filea # 改变filea所属群组
+[litianci]$ sudo ls -l ~deepin/
+-rw-r--r-- 1 deepin groupb    0 11月 21 15:55 filea
+-rw-r--r-- 1 deepin groupa    0 11月 21 15:55 fileb
+```
+
+由于新增用户权限的问题，后面使用其他用户（`ls -l`）访问文件的属性。执行命令的用户放在每行命令的开头了。
+
+#### 修改文件拥有者`chown`
+
+`chown`，即change owner改变归属用户。`chown`功能很多，不仅仅能更改文件拥有者，还可以修改文件所属组群。如果需要将某一目录下的所有文件都改变其拥有者，可以使用`-R`参数。
+
+语法结构如下，
+
+```bash
+chown [-R] 账号名称      文件/目录
+chown [-R] 账号名称:组群  文件/目录
+```
+
+下面简单示例，
+
+```bash
+$ touch demo
+$ ls -l demo
+-rw-r--r-- 1 litianci litianci 0 11月 21 16:13 demo
+$ sudo chown deepin demo # 修改文件 demo 的拥有者为 deepin
+$ ls -l demo
+-rw-r--r-- 1 deepin litianci 0 11月 21 16:13 demo
+$ sudo chown deepin:groupa demo # 修改 demo 的拥有者为 deepin，拥有组 groupa
+-rw-r--r-- 1 deepin groupa 0 11月 21 16:13 demo
+```
 
 ## 文件（夹）的创建、查看、移动、复制和删除
 
@@ -560,9 +545,9 @@ total 8
 文件（夹）的查看，通常采用**深度文件管理器**。对于其属性，可以通过**深度文件管理器**右击找到属性来查看。当然在命令行下`ls`也是一个非常强大的存在。看下面的例子。
 
 ```bash
-$\$$ ls
-$\$$ ls -la
-$\$$ ls -lR
+$ ls
+$ ls -la
+$ ls -lR
 ```
 
 **解释**
@@ -574,11 +559,11 @@ $\$$ ls -lR
 文件（夹）的移动和重命名是通过`mv`命令实现的。
 
 ```bash
-$\$$ mv litianci deepin
-$\$$ mv deepin ~
-$\$$ mv test1 test2 test3 ~
-$\$$ mv ~/deepin-bible/ ~/test/
-$\$$ mv ~/Desktop/* ~/test/
+$ mv litianci deepin
+$ mv deepin ~
+$ mv test1 test2 test3 ~
+$ mv ~/deepin-bible/ ~/test/
+$ mv ~/Desktop/* ~/test/
 ```
 
 **解释**
@@ -594,11 +579,11 @@ $\$$ mv ~/Desktop/* ~/test/
 ### 文件（夹）的复制
 
 ```bash
-$\$$ cp litianci deepin
-$\$$ cp deepin ~
-$\$$ cp test1 test2 test3 ~
-$\$$ cp -r ~/deepin-bible/ ~/test/
-$\$$ cp -ra ~/Desktop/* ~/test/
+$ cp litianci deepin
+$ cp deepin ~
+$ cp test1 test2 test3 ~
+$ cp -r ~/deepin-bible/ ~/test/
+$ cp -ra ~/Desktop/* ~/test/
 ```
 
 **解释**
@@ -610,13 +595,13 @@ $\$$ cp -ra ~/Desktop/* ~/test/
 ### 文件（夹）的删除
 
 ```bash
-$\$$ rm deepin
-$\$$ rm ./-
-$\$$ rm *
-$\$$ rmdir /home/joe/nothing/
-$\$$ rm -r /home/joe/bigdir/
-$\$$ rm -rf /home/joe/hugedir/
-$\$$ sudo rm -rf /#千万不要试运行
+$ rm deepin
+$ rm ./-
+$ rm *
+$ rmdir /home/joe/nothing/
+$ rm -r /home/joe/bigdir/
+$ rm -rf /home/joe/hugedir/
+$ sudo rm -rf / #千万不要试运行
 ```
 
 **解释**

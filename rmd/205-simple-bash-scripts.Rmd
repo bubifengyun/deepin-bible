@@ -19,7 +19,7 @@
 ```bash
 $\$$ echo 'uname -a' > myscript
 $\$$ bash myscript 
-Linux litianci-PC 4.15.0-29deepin-generic $\#$31 SMP Fri Jul 27 07:12:08 UTC 2018 x86\_64 GNU/Linux
+Linux litianci-PC 4.15.0-29deepin-generic $\#$31 SMP Fri Jul 27 07:12:08 UTC 2018 x86_64 GNU/Linux
 ```
 \lstset{mathescape=false}
 
@@ -180,20 +180,444 @@ $ echo $Name
 - `${var%pattern}`：从尾删除满足匹配模式`pattern`的最短子字符串。
 - `${var%%pattern}`：从尾删除满足匹配模式`pattern`的最长子字符串。
 
+\lstset{mathescape=true}
 ```bash
-$ readme=/home/litianci/deepin-bible/Readme.md
-$ file=${readme##*/}
-$ echo $file 
+$\$$ readme=/home/litianci/deepin-bible/Readme.md
+$\$$ file=$\$${readme$\#$$\#$*/}
+$\$$ echo $\$$file 
 Readme.md
-$ dir=${readme%/*}
-$ echo $dir
+$\$$ dir=$\$${readme%/*}
+$\$$ echo $\$$dir
 /home/litianci/deepin-bible
-$ stringchar="--folder=ucvideo"
-$ option=${stringchar%=*}
-$ echo $option
+$\$$ stringchar="--folder=ucvideo"
+$\$$ option=$\$${stringchar%=*}
+$\$$ echo $\$$option
 --folder
-$ value=${stringchar#*=}
-$ echo $value
+$\$$ value=$\$${stringchar$\#$*=}
+$\$$ echo $\$$value
 ucvideo
 ```
+\lstset{mathescape=false}
 
+### 简单计算
+
+bash 认为所有的输入都是字符串或者文本，如果你想让bash理解为数字，貌似只可以整数，就得声明，比如使用`let`,`expr`,`bc`等方式。
+
+```bash
+Total=1024
+let div=$Total/8 # let表达式中间不可以有空格，所有参数必须为整数
+div=`echo "$Total / 8" | bc` # bc对空格不敏感，可以有小数，但是结果还是取整
+div=`echo "$Total       /       9.8      " | bc`
+div=`echo "$Total/9.8" | bc`
+div=`expr $Total / 8` # expr 必须有空格，所有参数必须为整数
+echo $RANDOM # random 生成随机数
+```
+
+同时使用`((statement))`也可用实现简单的数学语句，
+
+```bash
+i=0
+((i++))
+echo $i
+echo $((i++))
+echo $((++i))
+((i=i+10))
+echo $i
+```
+
+其中`i++`跟`++i`实现`i`数值加一，这两者区别类似C语言的规定，`i++`是先使用后递增一，`++i`是先递增一再使用。
+
+## shell 脚本的三大结构
+
+学过编程语言的，应当多多少少都知道结构化编程语言的三大结构：[顺序、分支和循环](https://en.wikipedia.org/wiki/Structured_programming)。shell 脚本支持这三种结构的。顺序执行就是逐行执行的命令，这里略过，下面介绍分支结构的语法。
+
+### 分支结构的语法
+
+#### `if then` 语句
+
+语法结构如下，
+
+```bash
+if [ condition1 ] ; then
+    statement1
+elif [ condition2 ] ; then
+    statement2
+else
+    statement3
+fi
+```
+
+**解释**
+
+1. `[ condition1 ]`这里是测试语句，用于测试条件是否满足，满足则执行`statement1`语句。
+1. `elif` 是`else if`的意思，用于多个测试条件。
+1. 其中`elif`和`else`部分可以不要。
+1. `fi`其实是`if`的倒序写法。后面的`case`的结尾语句`esac`是同样的处理方式。
+
+```bash
+touch emptyfile
+if [ ! -s dsffyfile ] ; then
+    echo "emptyfile 是一个空文件"
+fi
+```
+
+**解释**
+
+1. `[ ! -s emptyfile ]`中`-s`判断一个文件存在且非空是为真，`!`是逻辑运算取反的意思。
+1. 测试条件，需要注意`[]`以及各个选项、运算符、参数均用空格` `隔开。
+1. 关于测试条件的更多信息，可以使用`help test`命令查看。
+
+: 常见测试语句含义（`help test`截取）
+
+---------------------------------------------------------------------------------------------------
+ **测试语句**        **解释**
+-------------------- ------------------------------------------------------------------------------
+    `-a FILE`        True if file exists.
+
+    `-b FILE`        True if file is block special.
+
+    `-c FILE`        True if file is character special.
+
+    `-d FILE`        True if file is a directory.
+
+    `-e FILE`        True if file exists.
+
+    `-f FILE`        True if file exists and is a regular file.
+
+    `-g FILE`        True if file is set-group-id.
+
+    `-h FILE`        True if file is a symbolic link.
+
+    `-L FILE`        True if file is a symbolic link.
+
+    `-k FILE`        True if file has its `sticky' bit set.
+
+    `-p FILE`        True if file is a named pipe.
+
+    `-r FILE`        True if file is readable by you.
+
+    `-s FILE`        True if file exists and is not empty.
+
+    `-S FILE`        True if file is a socket.
+
+    `-t FD`          True if FD is opened on a terminal.
+
+    `-u FILE`        True if the file is set-user-id.
+
+    `-w FILE`        True if the file is writable by you.
+
+    `-x FILE`        True if the file is executable by you.
+
+    `-O FILE`        True if the file is effectively owned by you.
+
+    `-G FILE`        True if the file is effectively owned by your group.
+
+    `-N FILE`        True if the file has been modified since it was last read.
+
+  `FILE1 -nt FILE2`  True if file1 is newer than file2 (according to modification date).
+
+  `FILE1 -ot FILE2`  True if file1 is older than file2.
+
+  `FILE1 -ef FILE2`  True if file1 is a hard link to file2.
+
+    `-z STRING`      True if string is empty.
+
+    `-n STRING`      True if string is not empty.
+
+       `STRING`      True if string is not empty.
+
+`STRING1 = STRING2`  True if the strings are equal.
+
+`STRING1 != STRING2` True if the strings are not equal.
+
+`STRING1 < STRING2`  True if STRING1 sorts before STRING2 lexicographically.
+
+`STRING1 > STRING2`  True if STRING1 sorts after STRING2 lexicographically.
+
+    `-o OPTION`      True if the shell option OPTION is enabled.
+
+    `-v VAR`         True if the shell variable VAR is set.
+
+    `-R VAR`         True if the shell variable VAR is set and is a name reference.
+
+    `! EXPR`         True if expr is false.
+
+`EXPR1 -a EXPR2`     True if both expr1 AND expr2 are true.
+
+`EXPR1 -o EXPR2`     True if either expr1 OR expr2 is true.
+    
+`arg1 OP arg2`       Arithmetic tests.  OP is one of -eq, -ne, -lt, -le, -gt, or -ge. 
+---------------------------------------------------------------------------------------------------
+
+#### `&& ||` 条件语句
+
+该条件语句，是`if..then`单条语句的简写，语法结构如下，
+
+```bash
+[ condition ] && statement1 || statement2
+```
+
+其中`[ condition ]`跟`if`后的判断条件一致，`&&`后的语句 `statement1`是条件满足的执行语句，`||`后的语句`statement2`是条件不满足执行的语句。且`&&`和`||`可以根据需要略掉。
+
+```bash
+[ -s emptyfile ] || echo "emptyfile 不存在或者是空文件"
+[ -e ucdir ] && echo "可以继续执行" || echo "不存在该文件夹，请核实后继续"
+```
+
+#### `case` 条件语句
+
+类似C语言的`switch`分支语句，语法结构如下，
+
+````bash
+case $var in
+    'value1')
+        { statement1 }
+        ;;
+    'value2')
+        { statement2 }
+        ;;
+    *)
+        { statement3 }
+        ;;
+esac
+````
+
+**解释**
+
+1. `$var`表示输入的某个变量，或者一个运行结果，
+1. `*`表示其他都不满足的执行语句。
+
+````bash
+case $destination in
+    'Shanghai')
+        echo "你想去上海啊！那边风景不错。"
+		;;
+    '北京')
+        echo "北京天气不好，雾霾多！"
+		;;
+    *)
+        echo "不允许去其他地方！"
+		;;
+esac
+````
+
+上面语句实现了对目的地的简单判断，支持汉字输入。
+
+#### `for...do` 循环语句
+
+类似C语言的`for`循环，语法结构如下，
+
+```bash
+for i in array ; do
+    statement
+done
+```
+
+实现使用参数`i`遍历数组`array`的所有子元素，并对每个`i`执行`statement`语句。看下面例子，
+
+```bash
+for i in {1..5} ; do
+    echo $i
+done
+```
+
+会输出如下结果，
+
+```bash
+1
+2
+3
+4
+5
+```
+
+再看几个例子，
+
+```bash
+for file in `ls` ; do
+    echo $file
+done
+
+for destination in 成都 上海 北京 广州 徐州 ; do
+    echo 我很想去$destination
+done
+```
+
+对于循环，除了使用`{m..n}`列出从`m`到`n`的数字外，还可以用下面这种方式，关于`(())`作为数学计算的介绍，上面已经提及，这里不再赘述。
+
+```bash
+for ((i=1; i <= 5 ; i++)) ; do
+    echo $i
+done
+```
+
+#### `while..do`和`until..do`循环语句
+
+可能我们更熟悉`while`语句，跟其他C系列的语言相似，语法结构如下，
+
+```bash
+while condition ; do
+    statement
+done
+```
+
+比如下面这段代码，实现了按序输出`i`
+
+```bash
+i=0
+while ((i<5)) ; do
+    echo $((++i))
+done
+```
+
+`until`的语法跟`while`类似，语法结构如下，
+
+```bash
+until condition ; do
+    statement
+done
+```
+
+只不过`until`条件是不满足才循环，相当于`while`的条件`condition`取反。不再举例子了。
+
+## 流编辑器`sed`
+
+流编辑器`sed`还算常用，操作方式跟`vim`有相似之处，下面摘抄几个例子，详细内容请参考`man sed`或者网上搜索`vim sed`相关资料。
+
+```bash
+sed 's/Windows/Linux/g' deepin.txt > ok\_deepin.txt
+```
+
+如果你常用`vim`会发现，当光标在某一行，在正常模式下输入`:s/Windows/Linux/g`实现该行所有的`Windows`被`Linux`替代。而`sed`命令会逐行执行，也就实现了对全文的替换。
+
+
+## shell脚本例子：转换 UC 缓存视频
+
+阿里宝卡正当时，UC 看视频免流量是个多么大的诱惑。当然一些缓存视频，也是相当不错的。一般都会存在于 ./UCDownloads/videodata 文件夹下。文件一般是从`0`开始排序，顺序增加，可达几百个文件。另外还有一个`index.m3u8`文件。但是，因为网络协议对视频文件的第一要求是及时传达，而不是完整传达，导致部分视频文件丢失，甚至为空，所以需要妥善处理这些文件。
+
+首先，我们需要知道如何把若干个视频文件转化为一个完整的视频文件，参阅[网页](https://stackoverflow.com/questions/14829819/how-to-concatenate-flv-file-into-one)，我们得知，
+
+如果存在文件`file.txt`，其内容为
+
+```
+file '1'
+file '2'
+```
+
+则，
+
+```bash
+ffmpeg -f concat -i input.txt -c copy output.mp4
+```
+
+即可把这些文件给转换为 MP4 格式的单个文件。
+
+### 生成 `file.txt`文件
+
+因为缓存文件都是数字，且文件夹内还有其他文件，包括 `index.m3u8` 的文件。
+
+```bash
+$ ls -1v +([0-9]) > file.txt
+```
+
+**解释**
+
+- `ls -1v`中`v`表示按照把文件按照数字的大小排序，`1`表示按行显示。
+- `+([0-9])`只选择纯数字的文件。
+
+对`file.txt`文件再处理，生成每行类似`file '1'`的样式。
+
+```bash
+$ sed "s/.*/file '&'/" file.txt > file2.txt
+$ mv file2.txt file.txt
+```
+
+**解释**
+
+- 第一行实现对每一行行首行尾分别添加`file '`和`'`内容。
+- 第二行，重命名，替换掉中间文件。
+
+参考网页：
+
+- https://unix.stackexchange.com/questions/33909/list-files-sorted-numerically
+- https://superuser.com/questions/716001/how-can-i-get-files-with-numeric-names-using-ls-command
+- https://www.shellhacks.com/sed-awk-add-end-beginning-line/
+
+### 生成 MP4 文件
+
+前提需要你安装`ffmpeg`软件，如果没有，命令行`sudo apt-get install ffmpeg`安装。
+
+```bash
+$ ffmpeg -f concat -i file.txt -c copy film.mp4
+```
+
+### 做成一个 bash 脚本
+
+下面是完整的代码
+
+```bash
+#!/bin/bash
+# 本脚本实现 UC 浏览器视频缓存内容转换为一个完整的 MP4 文件
+# ucvideo
+
+echo "语法: $0 <UC浏览器视频缓存文件夹> <输出文件>"
+
+output='ucvideo.mp4'
+output=${2:-$output} # 读第二个参数作为输出文件
+
+if [ -e $output ]
+then
+    echo "已经存在 $output 文件，请更改输出文件名字！"
+    exit 1
+fi
+
+ucdir=${1:-'.'} # 第一个参数作为缓存文件夹，默认为当前文件夹
+if [ ! -d $ucdir ]
+then
+	echo "$ucdir 文件夹不存在！"
+    exit 2
+fi
+
+cd $ucdir
+
+find ./ -size -1b -exec rm {} \; # 删除空文件
+ls -1v | grep -E '^[0-9]+$'| sed "s/.*/file '&'/" > file.txt # 把数字文件按序，并加上行首行尾，写入file.txt
+
+ffmpeg -f concat -i file.txt -c copy $output
+
+if [ ! $ucdir -ef $OLDPWD ];then
+	mv $output $OLDPWD
+fi
+```
+
+当然为了方便直接使用，把他放在*/usr/local/bin/ucvideo*。
+并为之添加执行权限
+
+```bash
+$ chmod u+x /usr/local/bin/ucvideo
+```
+
+当你从手机上复制缓存文件夹过来，就可以
+
+```bash
+$ ucvideo /<指向缓存文件夹>/  <电影名称>.mp4
+```
+
+期间发生了一个小问题，bash命令在脚本和终端下运行不一致。比如`ls -1v +([0-9])`可以在终端下运行，但是在脚本里就会报错。
+`bash <<<'ls -1v +([0-9])'`是无法运行的。所以上面解决方案就出现了部分调整。
+
+也就是说一般在 deepin 下，`sh`或者`/bin/sh`指向`/bin/dash`，可以通过`sudo dpkg-reconfigure dash`关闭`dash`，改为默认的`/bin/bash`。其中`dash`跟`bash`还是存在一些小差异。
+
+不过，通过`echo $SHELL`和查看`/etc/passwd`文件，看当前用户的shell，均为`bash`。但是在终端默认的shell可以执行`ls -1v +([0-9])`，在脚本里使用`/bin/bash`执行`/bin/bash <<<'ls -1v +([0-9])'`执行就是报错。原因待查。
+
+后来无意间在[unixstackexchange](https://unix.stackexchange.com/questions/471937/how-does-this-work-ls-0-9)发现，是没有启用`glob`扩展，在该行代码前一行加上`shopt -s extglob`即可。
+
+关于`glob`的更多介绍，
+
+- https://en.wikipedia.org/wiki/Glob_%28programming%29
+- http://www.tldp.org/LDP/abs/html/globbingref.html
+- http://www.mamicode.com/info-detail-1227028.html
+
+## 总结
+
+本章简要介绍了bash的若干语法结构，并给出了一个小例子。

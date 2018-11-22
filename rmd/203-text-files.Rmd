@@ -115,7 +115,7 @@ UTF:UCS Transformation Format.考虑到unicode编码不兼容iso8859-1编码，�
 
 注意，虽然说utf是为了使用更少的空间而使用的，但那只是相对于unicode编码来说，如果已经知道是汉字，则使用GB2312/GBK无疑是 最节省的。不过另一方面，值得说明的是，虽然utf编码对汉字使用3个字节，但即使对于汉字网页，utf编码也会比unicode编码节省，因为网页中包 含了很多的英文字符。
 
-UTF8编码后的大小是不一定,例如一个英文字母"a" 和　一个汉字 "好"，编码后占用的空间大小就不样了，前者是一个字节，后者是三个字节！编码的方法是从低位到高位。黄色为标志位其它着色为了显示其，编码后的位置。
+UTF8编码后的大小是不一定,例如一个英文字母`a`和一个汉字`好`，编码后占用的空间大小就不样了，前者是一个字节，后者是三个字节！编码的方法是从低位到高位。黄色为标志位其它着色为了显示其，编码后的位置。
 
 #### UTF-16
 
@@ -123,9 +123,8 @@ UTF8编码后的大小是不一定,例如一个英文字母"a" 和　一个汉�
 
 由于0x00在c语言及操作系统文件名等中有特殊意义，故很多情况下需要UTF-8编码保存文本，去掉这个0x00。举例如下：
 
-UTF-16: 0x0080 = 0000 0000 1000 0000
-
-UTF-8: 0xC280 = 1100 0010 1000 0000
+- UTF-16: 0x0080 = 0000 0000 1000 0000
+- UTF-8: 0xC280 = 1100 0010 1000 0000
 
 #### UTF-32
 
@@ -135,9 +134,8 @@ UTF-8: 0xC280 = 1100 0010 1000 0000
 
 A Mail-Safe Transformation Format of Unicode(RFC1642)。这是一种使用 7 位 ASCII 码对 Unicode 码进行转换的编码。它的设计目的仍然是为了在只能传递 7 为编码的邮件网关中传递信息。 UTF-7 对英语字母、数字和常见符号直接显示，而对其他符号用修正的 Base64 编码。符号 + 和 - 号控制编码过程的开始和暂停。所以乱码中如果夹有英文单词，并且相伴有 + 号和 - 号，这就有可能是 UTF-7 编码。
 
-作用：为世界650种语言进行统一编码，兼容ISO-8859-1。
-
-位数：UNICODE字符集有多个编码方式，分别是UTF-8，UTF-16和UTF-32。 
+- 作用：为世界650种语言进行统一编码，兼容ISO-8859-1。
+- 位数：UNICODE字符集有多个编码方式，分别是UTF-8，UTF-16和UTF-32。 
 
 ### 编码的常用命令
 
@@ -146,7 +144,7 @@ A Mail-Safe Transformation Format of Unicode(RFC1642)。这是一种使用 7 位
 如果我们想查看某个文件的编码方式，可以使用`file -i`命令。
 
 ```bash
-$\$$ file -i test.md
+$ file -i test.md
 test.md: text/plain; charset=utf-8
 ```
 
@@ -156,8 +154,8 @@ test.md: text/plain; charset=utf-8
 iconv 工具的使用方法如下：
 
 ```bash
-$\$$ iconv option
-$\$$ iconv options -f from-encoding -t to-encoding inputfile(s) -o outputfile 
+$ iconv option
+$ iconv options -f from-encoding -t to-encoding inputfile(s) -o outputfile 
 ```
 
 在这里，`-f` 或 `--from-code` 表明了输入编码，而 `-t` 或 `--to-encoding` 指定了输出编码。
@@ -165,7 +163,7 @@ $\$$ iconv options -f from-encoding -t to-encoding inputfile(s) -o outputfile
 为了列出所有已有编码的字符集，你可以使用以下命令：
 
 ```bash
-$\$$ iconv -l
+$ iconv -l
 以下的列表包含所有已知的编码字符集，但这不代表所有的字符名称组合皆可用于
 命令行的 "来源" 以及 "目的" 参数。一个编码字符集可以用几个不同的名称
 来表示 (即 "别名")。
@@ -181,14 +179,14 @@ $\$$ iconv -l
 在运行 iconv 命令之后，我们可以像下面这样检查输出文件的内容，和它使用的字符编码。
 
 ```bash
-$\$$ file -i test.md
+$ file -i test.md
 test.md: text/plain; charset=utf-8
-$\$$ cat test.md 
+$ cat test.md 
 : Shell 提示符中用到的转义字符
-$\$$ iconv -f utf-8 -t GB18030 test.md -o out.md
-$\$$ cat out.md
+$ iconv -f utf-8 -t GB18030 test.md -o out.md
+$ cat out.md
 : Shell ��ʾ�����õ���ת���ַ�
-$\$$ file -i out.md
+$ file -i out.md
 out.md: text/plain; charset=iso-8859-1
 ```
 
@@ -213,7 +211,7 @@ out.md: text/plain; charset=iso-8859-1
 Linux find命令用来在指定目录下查找文件。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。前提是你必须对这个文件（夹）有相关权限。
 
 ```bash
-find   path   -option   [   -print ]   [ -exec   -ok   command ]   {} \;
+find path -option [ -print ] [ -exec -ok command ] {} \;
 ```
 
 **解释**
@@ -246,14 +244,14 @@ find   path   -option   [   -print ]   [ -exec   -ok   command ]   {} \;
 #### 根据文件名查找文件
 
 ```bash
-$\$$ find . -name test.md
-$\$$ find . -name 'test.md'
-$\$$ find . -name "*.Rmd"
-$\$$ find . -name "*.rmd"
-$\$$ find . -iname "*.rmd"
-$\$$ find . -iname '????.rmd'
-$\$$ find . -ls
-$\$$ find /root -ls
+$ find . -name test.md
+$ find . -name 'test.md'
+$ find . -name "*.Rmd"
+$ find . -name "*.rmd"
+$ find . -iname "*.rmd"
+$ find . -iname '????.rmd'
+$ find . -ls
+$ find /root -ls
 ```
 
 **解释**
@@ -271,21 +269,21 @@ $\$$ find /root -ls
 将目前目录其其下子目录中所有一般文件列出
 
 ```bash
-$\$$ find . -type f
-$\$$ find ./deepin-bible -size +10M
-$\$$ find /mostlybig -size -1M
-$\$$ find /bigdata -size +500M -size -5G -exec du -sh {} \;
-$\$$ find /home -user litianci -ls
-$\#$ find /home -user litianci -or -user joe -ls
-$\#$ find /etc -group ntp -ls
-$\#$ find /var/spool -not -user root -ls
-$\$$ find /bin -perm 755 -ls
-$\$$ find /home/chris/ -perm -222 -type d -ls
-$\$$ find /myreadonly -perm /222 -type f
-$\$$ find . -perm -002 -type f -ls
-$\#$ find /etc/ -mmin -10
-$\#$ find /bin /usr/bin /sbin /usr/sbin -ctime -3
-$\$$ find /var/ftp /var/www -atime +300
+$ find . -type f
+$ find ./deepin-bible -size +10M
+$ find /mostlybig -size -1M
+$ find /bigdata -size +500M -size -5G -exec du -sh {} \;
+$ find /home -user litianci -ls
+$ sudo find /home -user litianci -or -user joe -ls
+$ sudo find /etc -group ntp -ls
+$ sudo find /var/spool -not -user root -ls
+$ find /bin -perm 755 -ls
+$ find /home/chris/ -perm -222 -type d -ls
+$ find /myreadonly -perm /222 -type f
+$ find . -perm -002 -type f -ls
+$ sudo find /etc/ -mmin -10
+$ sudo find /bin /usr/bin /sbin /usr/sbin -ctime -3
+$ find /var/ftp /var/www -atime +300
 ```
 
 **解释**
@@ -316,9 +314,9 @@ EXPR1 , EXPR2
 下面举几个例子。
 
 ```bash
-$\$$ find /var/all \( -user litianci -o -user xampp \) -ls
-$\$$ find /var/all/ -user litianci -not -group litianci -ls
-$\$$ find /var/all/ -user litianci -and -size +1M -ls
+$ find /var/all \( -user litianci -o -user xampp \) -ls
+$ find /var/all/ -user litianci -not -group litianci -ls
+$ find /var/all/ -user litianci -and -size +1M -ls
 ```
 
 **解释**
@@ -330,8 +328,8 @@ $\$$ find /var/all/ -user litianci -and -size +1M -ls
 找到文件后只是列出来，有时不太满足我们的需求。强大的`find`给我们提供了找到后就操作的功能。语法如下，
 
 ```bash
-$\$$ find [options] -exec command {} \;
-$\$$ find [options] -ok command {} \;
+$ find [options] -exec command {} \;
+$ find [options] -ok command {} \;
 ```
 
 **解释**
@@ -342,9 +340,9 @@ $\$$ find [options] -ok command {} \;
 下面给出几个例子。
 
 ```bash
-$\$$ find deepin-bible/ -iname "*.Rmd"  -exec echo "我找到了{}" \;
-$\$$ find /usr/share -size +5M -exec du {} \; | sort -nr
-$\#$ find /opt/lampp/ -user litianci -ok mv {} /tmp/litianci/ \;
+$ find deepin-bible/ -iname "*.Rmd"  -exec echo "我找到了{}" \;
+$ find /usr/share -size +5M -exec du {} \; | sort -nr
+$ sudo find /opt/lampp/ -user litianci -ok mv {} /tmp/litianci/ \;
 ```
 **解释**
 
@@ -357,21 +355,21 @@ $\#$ find /opt/lampp/ -user litianci -ok mv {} /tmp/litianci/ \;
 有时候你想找某个文件或者某个目录下的一段话，`grep`就能过来帮忙啦。但是对于中文，还是存在编码问题，`grep`默认文件为`utf8`编码（这句话对吗？需要核实。至少ASCII的，或者其他编码的文件，搜英文字母还是都可以搜得到的）。对于非UTF8文件，建议先转化为UFT8格式的临时文件，再查找。
 
 ```bash
-$\$$ cat test.md
+$ cat test.md
 : Shell 提示符中用到的转义字符
-$\$$ grep 转义字符 test.md
+$ grep 转义字符 test.md
 : Shell 提示符中用到的转义字符
-$\$$ grep 转义字符 -rn .
+$ grep 转义字符 -rn .
 grep 转义字符 -rn .
 ./test.md:1:: Shell 提示符中用到的转义字符
-$\$$ grep 转义 -rln .
+$ grep 转义 -rln .
 ./test.md
-$\$$ grep s test.md
-$\$$ grep s -i test.md
+$ grep s test.md
+$ grep s -i test.md
 : Shell 提示符中用到的转义字符
-$\$$ grep s -v test.md
+$ grep s -v test.md
 : Shell 提示符中用到的转义字符
-$\$$ grep -i --color shell test.md
+$ grep -i --color shell test.md
 : Shell 提示符中用到的转义字符
 ```
 
@@ -401,13 +399,11 @@ $\$$ grep -i --color shell test.md
 - http://www.runoob.com/regexp/regexp-syntax.html
 - https://deerchao.net/tutorials/regex/regex.htm
 
-
-
 例如：
 
-- runoo+b，可以匹配 runoob、runooob、runoooooob 等，+ 号代表前面的字符必须至少出现一次（1次或多次）。
-- runoo*b，可以匹配 runob、runoob、runoooooob 等，* 号代表字符可以不出现，也可以出现一次或者多次（0次、或1次、或多次）。
-- colou?r 可以匹配 color 或者 colour，? 问号代表前面的字符最多只可以出现一次（0次、或1次）(存疑，难道可以0次？)。 
+- `runoo+b`，可以匹配 `runoob`、`runooob`、`runoooooob` 等，`+` 号代表前面的字符必须至少出现一次（1次或多次）。
+- `runoo*b`，可以匹配 `runob`、`runoob`、`runoooooob` 等，`*` 号代表字符可以不出现，也可以出现一次或者多次（0次、或1次、或多次）。
+- `colo?r` 可以匹配 `color` 或者 `colour`，`?`问号代表前面的字符最多只可以出现一次（0次、或1次）(存疑，难道可以0次？)。 
 
 构造正则表达式的方法和创建数学表达式的方法一样。也就是用多种元字符与运算符可以将小的表达式结合在一起来创建更大的表达式。正则表达式的组件可以是单个的字符、字符集合、字符范围、字符间的选择或者所有这些组件的任意组合。
 
@@ -477,7 +473,7 @@ $\$$ grep -i --color shell test.md
 `|` 	                指明两项之间的一个选择。要匹配 `|`，请使用 `\|`。
 ---------------------------------------------------------------------------------------------------
 
-限定符
+#### 限定符
 
 限定符用来指定正则表达式的一个给定组件必须要出现多少次才能满足匹配。有 `*` 或 `+` 或 `?` 或 `{n}` 或 `{n,}` 或 `{n,m}` 共6种。
 
@@ -629,7 +625,6 @@ document.write(str.match(patt1));
 `http://www.runoob.com:80/html/html-tutorial.html`
 
 下面的正则表达式提供该功能：
-实例
 
 输出所有匹配的数据：
 

@@ -8,14 +8,14 @@
  文件被删且难以恢复，想必很多人都曾经遇到过。参考[这里](https://bbs.deepin.org/forum.php?mod=redirect&goto=findpost&ptid=159778&pid=487081&fromuid=16639)。具体做法如下。
 
 ```{.bash  numbers=none}
-$\$$ sudo apt install trash-cli
-$\$$ gedit ~/.bashrc
+$ sudo apt install trash-cli
+$ gedit ~/.bashrc
 ```
 
 打开文件，在末尾加上，`alias rm='trash-put'`，保存退出。运行如下命令。
 
 ```{.bash  numbers=none}
-$\$$ source .bashrc
+$ source .bashrc
 ```
 
 重启终端即可。想用原生的 `rm`，则为 `\rm`。当然这样也有弊端，详细说明见[这里](https://bbs.deepin.org/forum.php?mod=redirect&goto=findpost&ptid=159778&pid=487121&fromuid=16639)。
@@ -39,9 +39,9 @@ $\$$ source .bashrc
 \EndKnitrBlock{answer}
 
 ```{block2, type='question'}
-代码框里下划线`_`怎么处置？
+代码框里下划线`#`怎么处置？
 ```
 
 \BeginKnitrBlock{answer}
-请修改为`\_`的方式。
+直接使用 `` `#` ``，单个`#`会变成两个`#`。待完成本书，去pandoc提意见，再改。对于代码中出现，作为注释符号时，没有问题，但是出现在字符串中时，可能需要把整段代码改为`\lstset{mathescape=true}`，改完后，再改回`\lstset{mathescape=false}`。作为特殊字符处理，不然报错。例子见第\@ref(chap:simple-bash-scripts)章相关代码。
 \EndKnitrBlock{answer}

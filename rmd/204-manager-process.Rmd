@@ -21,11 +21,9 @@ Linux 是一个多用户多任务的操作系统。多用户是指多个用户�
 
 系统运行时，会为每个进程分配当前唯一的数字标识，PID（Process ID），其他进程在该进程存活期间是无法抢占该PID的，当然，该进程结束了，系统会回收该PID的。
 
-除了PID号外，进程还会与特定的用户帐户和组帐户相关联。这些账户信息有助于确定进程可以访问的系统资源。例如，进程运行时，根用户进程比普通用户进程在访问系统文件和资源方面有更多的权限。
+除了PID号外，进程还会与特定的用户帐户和组帐户相关联。这些账户信息有助于确定进程可以访问的系统资源。例如，进程运行时，root 根用户进程比普通用户进程在访问系统文件和资源方面有更多的权限。
 
-有效管理进程，有助于我们更好的控制电脑。
-
-进程的信息一般存储与 */proc* 文件夹，每个进程将其信息存储在*/proc*的子目录中，以进程 PID 命名。你可以使用 `cat`,`less` 以及其他编辑器查看这些文件。
+有效管理进程，有助于我们更好的控制电脑。进程的信息一般存储与 */proc* 文件夹，每个进程将其信息存储在*/proc*的子目录中，以进程 PID 命名。你可以使用 `cat`,`less` 以及其他编辑器查看这些文件。
 
 ## 深度系统监视器管理进程
 
@@ -37,24 +35,24 @@ Linux 是一个多用户多任务的操作系统。多用户是指多个用户�
 
 通过标签分类的方式显示：应用程序进程、我的进程和所有进程，快速切换自己想要的进程显示；同时应用程序进程名称国际化处理，进程名称一目了然。当需要快速定位到某个进程时，可以快速搜索定位。
 
-![深度系统监视器](images/deepin-system-monitor-3.jpg)
+![标签显示，快速定位](images/deepin-system-monitor-3.jpg)
 
 **列表展示，高效右键**
 
 系统的进程采用列表方式展示，可以自定义处理器、内存、磁盘写入、磁盘读取、下载、上传、进程号是否显示，还可以根据列表排序显示；同时对进程还可以右键菜单快速操作。
 
-![深度系统监视器](images/deepin-system-monitor-4.jpg)
+![列表展示，高效右键](images/deepin-system-monitor-4.jpg)
 
 **捕捉窗口，即点即“杀”**
 
 当在使用系统的过程，不知道进程的ID或者想直接结束某个应用进程，只需点击菜单中强制结束进程选项，自动采用红色透明遮框捕捉窗口，点击即可结束进程。
 
-![深度系统监视器](images/deepin-system-monitor-5.jpg)
+![捕捉窗口，即点即“杀”](images/deepin-system-monitor-5.jpg)
 
 大家可以通过更新系统以获取深度系统监视器V1.0，或者直接在深度商店搜索下载。也可以采用命令行安装。
 
 ```bash
-$\$$ sudo apt-get install deepin-system-monitor -y
+$ sudo apt-get install deepin-system-monitor -y
 ```
 
 ## 命令方式查看进程
@@ -63,9 +61,7 @@ $\$$ sudo apt-get install deepin-system-monitor -y
 
 - https://www.cnblogs.com/w10234/p/5642552.html
 
-要对进程进行监测和控制，首先必须要了解当前进程的情况,也就是需要查看当前进程, 而`ps`命令（Process Status）就是最基本同时也是非常强大的进程查看命令。
-
-使用该命令 可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵尸、哪些进程占用了过多的资源等等.总之大部分信息都是可以通过执行该命令得到的。
+要对进程进行监测和控制，首先必须要了解当前进程的情况，也就是需要查看当前进程，而`ps`命令（Process Status）就是最基本同时也是非常强大的进程查看命令。使用该命令，可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵尸、哪些进程占用了过多的资源等等。
 
 `ps` 为我们提供了进程的一次性的查看，它所提供的查看结果并不动态连续的；
 
@@ -79,9 +75,9 @@ $\$$ sudo apt-get install deepin-system-monitor -y
 
 > This version of ps accepts several kinds of options:
 >
->      1   UNIX options, which may be grouped and must be preceded by a dash.
-       2   BSD options, which may be grouped and must not be used with a dash.
-       3   GNU long options, which are preceded by two dashes.
+> 1. UNIX options, which may be grouped and must be preceded by a dash.
+> 2. BSD options, which may be grouped and must not be used with a dash.
+> 3. GNU long options, which are preceded by two dashes.
 
 `ps`的选项支持三种方式，
 
@@ -93,38 +89,38 @@ $\$$ sudo apt-get install deepin-system-monitor -y
 
 
 ```bash
-$\$$ # To see every process on the system using standard syntax:
-$\$$ ps -e
-$\$$ ps -ef
-$\$$ ps -eF
-$\$$ ps -ely
-$\$$ # To see every process on the system using BSD syntax:
-$\$$ ps ax
-$\$$ ps axu
-$\$$ # 查找包含php的进程
-$\$$ ps aux|grep php
-$\$$ # To print a process tree:
-$\$$ ps -ejH
-$\$$ ps axjf
-$\$$ # To get info about threads:
-$\$$ ps -eLf
-$\$$ ps axms
-$\$$ # To get security info:
-$\$$ ps -eo euser,ruser,suser,fuser,f,comm,label
-$\$$ ps axZ
-$\$$ ps -eM
-$\$$ # To see every process running as root (real \& effective ID) in user format:
-$\$$ ps -U root -u root u
-$\$$ # To see every process with a user-defined format:
-$\$$ ps -eo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm
-$\$$ ps axo stat,euid,ruid,tty,tpgid,sess,pgrp,ppid,pid,pcpu,comm
-$\$$ ps -Ao pid,tt,user,fname,tmout,f,wchan
-$\$$ # --sort=-rss是输出结果安装 rss从大到小排序，rss前正负号是否倒序。
-$\$$ ps -eo pid,user,group,gid,vsz,rss,comm --sort=-rss | less
-$\$$ # Print only the process IDs of syslogd:
-$\$$ ps -C syslogd -o pid=
-$\$$ # Print only the name of PID 42:
-$\$$ ps -q 42 -o comm=
+$ # To see every process on the system using standard syntax:
+$ ps -e
+$ ps -ef
+$ ps -eF
+$ ps -ely
+$ # To see every process on the system using BSD syntax:
+$ ps ax
+$ ps axu
+$ # 查找包含php的进程
+$ ps aux|grep php
+$ # To print a process tree:
+$ ps -ejH
+$ ps axjf
+$ # To get info about threads:
+$ ps -eLf
+$ ps axms
+$ # To get security info:
+$ ps -eo euser,ruser,suser,fuser,f,comm,label
+$ ps axZ
+$ ps -eM
+$ # To see every process running as root (real \& effective ID) in user format:
+$ ps -U root -u root u
+$ # To see every process with a user-defined format:
+$ ps -eo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm
+$ ps axo stat,euid,ruid,tty,tpgid,sess,pgrp,ppid,pid,pcpu,comm
+$ ps -Ao pid,tt,user,fname,tmout,f,wchan
+$ # --sort=-rss是输出结果安装 rss从大到小排序，rss前正负号是否倒序。
+$ ps -eo pid,user,group,gid,vsz,rss,comm --sort=-rss | less
+$ # Print only the process IDs of syslogd:
+$ ps -C syslogd -o pid=
+$ # Print only the name of PID 42:
+$ ps -q 42 -o comm=
 ```
 
 对各个选项的简单解释如下，摘自：https://www.cnblogs.com/w10234/p/5642552.html
@@ -195,10 +191,10 @@ knitr::include_graphics('images/top-help.png')
 我感觉我的理解可能有误，比如我知道`evince` PDF阅读器不锁定文件的修改，当你修改了PDF文件，可以从`evince`上直接看到变化。这对于编写本书反复编译太有帮助了。但是编译本书要运行`make`命令，我习惯只打开一个终端，我就可以让`evince`程序运行于后台。有这么几种方法，
 
 - 在命令行末尾加`&`。
-- 使用`at`命令。
+- 使用`at`命令（没有例子）。
 
 ```bash
-$\$$ evince _book/deepin-bible.pdf \&
+$ evince _book/deepin-bible.pdf &
 [1] 19589
 ```
 
@@ -209,24 +205,24 @@ $\$$ evince _book/deepin-bible.pdf \&
 如果想查看当前有多少后台进程。使用命令`jobs`
 
 ```bash
-$\$$ jobs
-[1]   运行中               evince _book/deepin-bible.pdf \&
+$ jobs
+[1]   运行中               evince _book/deepin-bible.pdf &
 [2]-  已停止               man top
 [3]+  已停止               vim ~/test.md
 ```
 **解释**
 
 1. 使用`jobs`会弹出当前正在运行的后台程序。还会显示他们的状态，比如运行中、已停止等。
-1. `[3]+`，的`+``-`号，表示最新和次新加入后台的进程。就是最后两个加入后台的进程。但是这个貌似不是非常准确。`man top`不是最新加入后台的进程，但是却被标注为最新加入的。好在这个不怎么影响，后面再去找资料核实。
+1. `[3]+`，的`+`，`-`号，表示最新和次新加入后台的进程。就是最后两个加入后台的进程。但是这个貌似不是非常准确。`man top`不是最新加入后台的进程，但是却被标注为最新加入的。好在这个不怎么影响，后面再去找资料核实。
 
 有时还需要把这些后台再拉回前台来，`fg`表示foreground的意思，就可以派上用场了。先看看`fg`的用法。貌似，不带`%`也不影响结果。需要核实。
 
 ```bash
-$\$$ fg % # 把最新的进程，也就是带`+`的进程放到前台。
-$\$$ fg %n # n表示`jobs`命令中[n]
-$\$$ fg %string # string 表示命令，比如 `vim`，前提是不混淆。
-$\$$ fg %?string # ?string表示 string 在任意位置。
-$\$$ fg %-- # 倒数第二个已停止的进程拉回前台。
+$ fg % # 把最新的进程，也就是带`+`的进程放到前台。
+$ fg %n # n表示`jobs`命令中[n]
+$ fg %string # string 表示命令，比如 `vim`，前提是不混淆。
+$ fg %?string # ?string表示 string 在任意位置。
+$ fg %-- # 倒数第二个已停止的进程拉回前台。
 ```
 
 当然，我试过`fg n`直接输入`jobs`命令出来的那些后台序号`[n]`，可以直接把他们拉回前台。另外还有`bg`命令，用于唤醒已停止的后台命令。
@@ -236,106 +232,87 @@ $\$$ fg %-- # 倒数第二个已停止的进程拉回前台。
 有些进程太耗资源，我们需要关闭它，可以使用`kill`和`killall`命令，分别是通过进程号PID终结某个进程和通过进程名称终结某类进程。在终结进程的时候，还需要传递系统信号。具体用法可以通过`man kill`等查看。先来常用的几个例子吧，
 
 ```bash
-$\$$ kill -l # 列出所有可用信号，见下面信号表
-$\$$ kill 999 # 使用默认系统信号杀死PID=999的进程
-$\$$ kill -15 999 # 默认系统信号也就是15号
-$\$$ kill -SIGKILL 999 # 默认系统信号常量为 SIGKILL，跟上面一致。
-$\$$ kill -9 999 # 对于顽固分子，电脑卡住的，往往用 -9 KILL 信号
-$\$$ killall -9 workrave # killall 使用的信号类似 kill，只不过用的是命令名称进行终结
+$ kill -l # 列出所有可用信号，见下面信号表
+$ kill 999 # 使用默认系统信号杀死PID=999的进程
+$ kill -15 999 # 默认系统信号也就是15号
+$ kill -SIGKILL 999 # 默认系统信号常量为 SIGKILL，跟上面一致。
+$ kill -9 999 # 对于顽固分子，电脑卡住的，往往用 -9 KILL 信号
+$ killall -9 workrave # killall 使用的信号类似 kill，只不过用的是命令名称进行终结
 ```
 
 参考网页：
 
 - http://www.cnblogs.com/taobataoma/archive/2007/08/30/875743.html
 
-----------------------------------------------------------------------
-Signal Number Description
-SIGHUP 1 Hang-up detected on controlling terminal or death of controlling process.
-SIGINT 2 Interrupt from keyboard.
-SIGQUIT 3 Quit from keyboard.
-SIGABRT 6 Abort signal from abort(3).
-SIGKILL 9 Kill signal.
-SIGTERM 15 Termination signal.
-SIGCONT 19,18,25 Continue if stopped.
-SIGSTOP 17,19,23 Stop process.
-----------------------------------------------------------------------
+: 信号对应的数值及意义
+
+-----------------------------------------------------------------------------------------------------
+ **信号**   **数值**     **意义**
+---------- ----------   -----------------------------------------------------------------------------
+ SIGHUP     1 			Hang-up detected on controlling terminal or death of controlling process.
+
+ SIGINT     2           Interrupt from keyboard.
+
+ SIGQUIT    3 			Quit from keyboard.
+
+ SIGABRT    6 			Abort signal from abort(3).
+
+ SIGKILL    9 			Kill signal.
+
+ SIGTERM    15 			Termination signal.
+
+ SIGCONT    19,18,25 	Continue if stopped.
+
+ SIGSTOP    17,19,23 	Stop process.
+-----------------------------------------------------------------------------------------------------
 
 参考网页：
 
 - https://blog.csdn.net/longdel/article/details/7317511
 
-用top或者ps命令会输出PRI/PR、NI、%ni/%nice这三种指标值，这些到底是什么东西？先给出大概的解释如下：
+用`top`或者`ps`命令会输出`PRI/PR`、`NI`、`%ni/%nice`这三种指标值，这些到底是什么东西？先给出大概的解释如下：
 
-PRI ：进程优先权，代表这个进程可被执行的优先级，其值越小，优先级就越高，越早被执行
+- `PRI` ：进程优先权，代表这个进程可被执行的优先级，其值越小，优先级就越高，越早被执行。
+- `NI` ：进程`nice`值，代表这个进程的优先值。
+- `%nice` ：改变过优先级的进程占用CPU的百分比。
 
-NI ：进程Nice值，代表这个进程的优先值
+`PRI`是比较好理解的，即进程的优先级，或者通俗点说就是程序被CPU执行的先后顺序，此值越小进程的优先级别越高。那`NI`呢？就是我们所要说的`nice`值了，其表示进程可被执行的优先级的修正数值。如前面所说，`PRI`值越小越快被执行，那么加入`nice`值后，将会使得`PRI`变为：`PRI(new)=PRI(old)+nice`。由此看出，`PRI`是根据`nice`排序的，规则是`nice`越小`PRI`越前（小，优先权更大），即其优先级会变高，则其越快被执行。如果`nice`相同则进程`uid`是root的优先权更大。
 
-%nice ：改变过优先级的进程的占用CPU的百分比 （呵呵，这句好难理解是吧，不急慢慢来^_^）
+在LINUX系统中，`nice`值的范围从`-20`到`+19`（不同系统的值范围是不一样的），正值表示低优先级，负值表示高优先级，值为零则表示不会调整该进程的优先级。具有最高优先级的程序，其`nice`值最低，所以在LINUX系统中，值`-20`使得一项任务变得非常重要；与之相反，如果任务的`nice`为`+19`，则表示它是一个高尚的、无私的任务，允许所有其他任务比自己享有宝贵的CPU时间的更大使用份额，这也就是`nice`的名称的来意。
 
- 
+进程在创建时被赋予不同的优先级值，而如前面所说，`nice`的值是表示进程优先级值可被修正数据值，因此，每个进程都在其计划执行时被赋予一个`nice`值，这样系统就可以根据系统的资源以及具体进程的各类资源消耗情况，主动干预进程的优先级值。在通常情况下，子进程会继承父进程的`nice`值，比如在系统启动的过程中，`init`进程会被赋予`0`，其他所有进程继承了这个`nice`值（因为其他进程都是`init`的子进程）。
 
-PRI是比较好理解的，即进程的优先级，或者通俗点说就是程序被CPU执行的先后顺序，此值越小进程的优先级别越高。那NI呢？就是我们所要说的nice值了，其表示进程可被执行的优先级的修正数值。如前面所说，PRI值越小越快被执行，那么加入nice值后，将会使得PRI变为：PRI(new)=PRI(old)+nice。由此看出，PR是根据NICE排序的，规则是NICE越小PR越前（小，优先权更大），即其优先级会变高，则其越快被执行。如果NICE相同则进程uid是root的优先权更大。
+对`nice`值一个形象比喻，假设在一个CPU轮转中，有2个`runnable`的进程A和B，如果他们的`nice`值都为0，假设内核会给他们每人分配`1k`个cpu时间片。但是假设进程A的为0，但是B的值为`-10`，那么此时CPU可能分别给A和B分配`1k`和`1.5k`的时间片。故可以形象的理解为，`nice`的值影响了内核分配给进程的cpu时间片的多少，时间片越多的进程，其优先级越高，其优先级值（`PRI`）越低。`%nice`，就是改变过优先级的进程的占用CPU的百分比，如上例中就是`0.5k/2.5k=1/5=20%`。
 
- 
+由此可见，进程`nice`值和进程优先级不是一个概念，但是进程`nice`值会影响到进程的优先级变化。
 
-在LINUX系统中，Nice值的范围从-20到+19（不同系统的值范围是不一样的），正值表示低优先级，负值表示高优先级，值为零则表示不会调整该进程的优先级。具有最高优先级的程序，其nice值最低，所以在LINUX系统中，值-20使得一项任务变得非常重要；与之相反，如果任务的nice为+19，则表示它是一个高尚的、无私的任务，允许所有其他任务比自己享有宝贵的CPU时间的更大使用份额，这也就是nice的名称的来意。
+进程的nice值是可以被修改的，修改命令分别是`nice`和`renice`。
 
- 
+1. `nice`命令就是设置一个要执行command进程的`nice`值，其命令格式是 `nice –n adjustment command command_option`。如果这里不指定`adjustment`，则默认为`10`，非root用户，`adjustment`不可为负值。
+1. `renice`命令就是设置一个已经在运行的进程的`nice`值，假设一运行进程本来`nice`值为`0`，`renice`为`3`后，则这个运行进程的`nice`值就为`3`了。
+1. 如果用户设置的`nice`值超过了`nice`的边界值（LINUX为`-20`到`+19`），系统就取`nice`的边界值作为进程的`nice`值。
+1. 对非root用户，只能将其底下的进程的`nice`值变大而不能变小。若想变小，得要有相应的权限。
 
-进程在创建时被赋予不同的优先级值，而如前面所说，nice的值是表示进程优先级值可被修正数据值，因此，每个进程都在其计划执行时被赋予一个nice值，这样系统就可以根据系统的资源以及具体进程的各类资源消耗情况，主动干预进程的优先级值。在通常情况下，子进程会继承父进程的nice值，比如在系统启动的过程中，init进程会被赋予0，其他所有进程继承了这个nice值（因为其他进程都是init的子进程）。
-
- 
-
-对nice值一个形象比喻，假设在一个CPU轮转中，有2个runnable的进程A和B，如果他们的nice值都为0，假设内核会给他们每人分配1k个cpu时间片。但是假设进程A的为0，但是B的值为-10，那么此时CPU可能分别给A和B分配1k和1.5k的时间片。故可以形象的理解为，nice的值影响了内核分配给进程的cpu时间片的多少，时间片越多的进程，其优先级越高，其优先级值（PRI）越低。%nice，就是改变过优先级的进程的占用CPU的百分比，如上例中就是0.5k/2.5k=1/5=20%。
-
- 
-
-由此可见，进程nice值和进程优先级不是一个概念，但是进程nice值会影响到进程的优先级变化。
-
- 
-
-进程的nice值是可以被修改的，修改命令分别是nice和renice。
-
-1、nice命令就是设置一个要执行command进程的nice值，其命令格式是 nice –n adjustment command command_option，如果这里不指定adjustment，则默认为10。
-
-2、renice命令就是设置一个已经在运行的进程的nice值，假设一运行进程本来nice值为0，renice为3后，则这个运行进程的nice值就为3了。
-
-说明：如果用户设置的nice值超过了nice的边界值（LINUX为-20到+19），系统就取nice的边界值作为进程的nice值。
-
- 
-
-举例如下：
-
-对非root用户，只能将其底下的进程的nice值变大而不能变小。若想变小，得要有相应的权限。
-
-[oracle@perf_dbc ~]$ nice
-
+```bash
+$ nice
 0
+$ nice -n 3 ls -l bashscript
+-rwsrwxrwx 1 litianci litianci 119 11月 17 22:32 bashscript
+$ nice -n -2 ls -l bashscript
+nice: 无法设置优先级: 权限不够
+-rwsrwxrwx 1 litianci litianci 119 11月 17 22:32 bashscript
+$ sudo nice -n -2 ls -l bashscript
+-rwsrwxrwx 1 litianci litianci 119 11月 17 22:32 bashscript
+```
 
-[oracle@perf_dbc ~]$ nice -n 3 ls
+同样，`renice`与`nice`命令类似，但是需要输入已经运行的进程号PID。
 
-agent bin important_bak logs statistics_import.log TMP_FORUM_STATS.dmp TMP_TAOBAO_STATS.dmp TMP_TBCAT_STATS.dmp top.dmp worksh
-
-[oracle@perf_dbc ~]$ nice -n -3 ls
-
-nice: cannot set priority: Permission denied
-
- 
-
-对root用户，可以给其子进程赋予更小的nice值。
-
-[root@dbbak root]# nice
-
-0
-
-[root@dbbak root]# nice -n -3 ls
-
-192.168.205.191.txt anaconda-ks.cfg clariion.log Desktop disk1 emc.sh File_sort install.log install.log.syslog log OPS rhel_os_soft root_link_name
-
- 
-
-同样，renice的执行也必须要有相应的权限方可执行。
-
+```bash
+$ evince _book/deepin-bible.pdf & # 启动一个后台程序，显示了进程号
+[1] 26159
+$ renice -n 5 26159 # renice 该进程
+26159 (process ID) old priority 0, new priority 5
+```
 
 ## 通过`cgroups`限制进程
 
@@ -343,65 +320,54 @@ nice: cannot set priority: Permission denied
 
 - http://www.cnblogs.com/lisperl/archive/2012/04/17/2453838.html
 
-Cgroups是什么？
+### `cgroups`是什么？
 
-Cgroups是control groups的缩写，是Linux内核提供的一种可以限制、记录、隔离进程组（process groups）所使用的物理资源（如：cpu,memory,IO等等）的机制。最初由google的工程师提出，后来被整合进Linux内核。Cgroups也是LXC为实现虚拟化所使用的资源管理手段，可以说没有cgroups就没有LXC。
-Cgroups可以做什么？
+`cgroups`是control groups的缩写，是Linux内核提供的一种可以限制、记录、隔离进程组（process groups）所使用的物理资源（如：cpu,memory,IO等等）的机制。最初由google的工程师提出，后来被整合进Linux内核。cgroups也是LXC为实现虚拟化所使用的资源管理手段，可以说没有cgroups就没有LXC。
 
-Cgroups最初的目标是为资源管理提供的一个统一的框架，既整合现有的cpuset等子系统，也为未来开发新的子系统提供接口。现在的cgroups适用于多种应用场景，从单个进程的资源控制，到实现操作系统层次的虚拟化（OS Level Virtualization）。Cgroups提供了一下功能：
+### `cgroups`可以做什么？
 
-1.限制进程组可以使用的资源数量（Resource limiting ）。比如：memory子系统可以为进程组设定一个memory使用上限，一旦进程组使用的内存达到限额再申请内存，就会出发OOM（out of memory）。
+`cgroups`最初的目标是为资源管理提供的一个统一的框架，既整合现有的cpuset等子系统，也为未来开发新的子系统提供接口。现在的`cgroups`适用于多种应用场景，从单个进程的资源控制，到实现操作系统层次的虚拟化（OS Level Virtualization）。
 
-2.进程组的优先级控制（Prioritization ）。比如：可以使用cpu子系统为某个进程组分配特定cpu share。
+`cgroups`提供了以下功能：
 
-3.记录进程组使用的资源数量（Accounting ）。比如：可以使用cpuacct子系统记录某个进程组使用的cpu时间
+1. 限制进程组可以使用的资源数量（Resource limiting ）。比如：memory子系统可以为进程组设定一个memory使用上限，一旦进程组使用的内存达到限额再申请内存，就会出发OOM（out of memory）。
+2. 进程组的优先级控制（Prioritization ）。比如：可以使用cpu子系统为某个进程组分配特定cpu share。
+3. 记录进程组使用的资源数量（Accounting ）。比如：可以使用cpuacct子系统记录某个进程组使用的cpu时间
+4. 进程组隔离（Isolation）。比如：使用ns子系统可以使不同的进程组使用不同的namespace，以达到隔离的目的，不同的进程组有各自的进程、网络、文件系统挂载空间。
+5. 进程组控制（Control）。比如：使用freezer子系统可以将进程组挂起和恢复。
 
-4.进程组隔离（Isolation）。比如：使用ns子系统可以使不同的进程组使用不同的namespace，以达到隔离的目的，不同的进程组有各自的进程、网络、文件系统挂载空间。
+### `cgroups`相关概念及其关系
 
-5.进程组控制（Control）。比如：使用freezer子系统可以将进程组挂起和恢复。
-Cgroups相关概念及其关系
-相关概念
+**相关概念：**
 
-1.任务（task）。在cgroups中，任务就是系统的一个进程。
+1. 任务（task）。在`cgroups`中，任务就是系统的一个进程。
+2. 控制族群（control group）。控制族群就是一组按照某种标准划分的进程。`cgroups`中的资源控制都是以控制族群为单位实现。一个进程可以加入到某个控制族群，也从一个进程组迁移到另一个控制族群。一个进程组的进程可以使用`cgroups`以控制族群为单位分配的资源，同时受到`cgroups`以控制族群为单位设定的限制。
+3. 层级（hierarchy）。控制族群可以组织成hierarchical的形式，即一颗控制族群树。控制族群树上的子节点控制族群是父节点控制族群的孩子，继承父控制族群的特定的属性。
+4. 子系统（subsytem）。一个子系统就是一个资源控制器，比如cpu子系统就是控制cpu时间分配的一个控制器。子系统必须附加（attach）到一个层级上才能起作用，一个子系统附加到某个层级以后，这个层级上的所有控制族群都受到这个子系统的控制。
 
-2.控制族群（control group）。控制族群就是一组按照某种标准划分的进程。Cgroups中的资源控制都是以控制族群为单位实现。一个进程可以加入到某个控制族群，也从一个进程组迁移到另一个控制族群。一个进程组的进程可以使用cgroups以控制族群为单位分配的资源，同时受到cgroups以控制族群为单位设定的限制。
+**相互关系：**
 
-3.层级（hierarchy）。控制族群可以组织成hierarchical的形式，既一颗控制族群树。控制族群树上的子节点控制族群是父节点控制族群的孩子，继承父控制族群的特定的属性。
+1. 每次在系统中创建新层级时，该系统中的所有任务都是那个层级的默认 `cgroup`（我们称之为 `root cgroup` ，此`cgroup`在创建层级时自动创建，后面在该层级中创建的`cgroup`都是此`cgroup`的后代）的初始成员。
+2. 一个子系统最多只能附加到一个层级。
+3. 一个层级可以附加多个子系统
+4. 一个任务可以是多个`cgroup`的成员，但是这些`cgroup`必须在不同的层级。
+5. 系统中的进程（任务）创建子进程（任务）时，该子任务自动成为其父进程所在 `cgroup` 的成员。然后可根据需要将该子任务移动到不同的 `cgroup` 中，但开始时它总是继承其父任务的`cgroup`。
 
-4.子系统（subsytem）。一个子系统就是一个资源控制器，比如cpu子系统就是控制cpu时间分配的一个控制器。子系统必须附加（attach）到一个层级上才能起作用，一个子系统附加到某个层级以后，这个层级上的所有控制族群都受到这个子系统的控制。
-相互关系
+### `cgroups`子系统介绍
 
-1.每次在系统中创建新层级时，该系统中的所有任务都是那个层级的默认 cgroup（我们称之为 root cgroup ，此cgroup在创建层级时自动创建，后面在该层级中创建的cgroup都是此cgroup的后代）的初始成员。
+- `blkio` -- 这个子系统为块设备设定输入/输出限制，比如物理设备（磁盘，固态硬盘，USB 等等）。
+- `cpu` -- 这个子系统使用调度程序提供对 CPU 的 `cgroup` 任务访问。
+- `cpuacct` -- 这个子系统自动生成 `cgroup` 中任务所使用的 CPU 报告。
+- `cpuset` -- 这个子系统为 `cgroup` 中的任务分配独立 CPU（在多核系统）和内存节点。
+- `devices` -- 这个子系统可允许或者拒绝 `cgroup` 中的任务访问设备。
+- `freezer` -- 这个子系统挂起或者恢复 `cgroup` 中的任务。
+- `memory` -- 这个子系统设定 `cgroup` 中任务使用的内存限制，并自动生成由那些任务使用的内存资源报告。
+- `net_cls` -- 这个子系统使用等级识别符（classid）标记网络数据包，可允许 Linux 流量控制程序（tc）识别从具体 cgroup 中生成的数据包。
+- `ns` -- 名称空间子系统。
 
-2.一个子系统最多只能附加到一个层级。
+关于`cgroups`的更多介绍，请参考相关书籍。
 
-3.一个层级可以附加多个子系统
-
-4.一个任务可以是多个cgroup的成员，但是这些cgroup必须在不同的层级。
-
-5.系统中的进程（任务）创建子进程（任务）时，该子任务自动成为其父进程所在 cgroup 的成员。然后可根据需要将该子任务移动到不同的 cgroup 中，但开始时它总是继承其父任务的cgroup。
-Cgroups子系统介绍
-
-blkio -- 这个子系统为块设备设定输入/输出限制，比如物理设备（磁盘，固态硬盘，USB 等等）。
-
-cpu -- 这个子系统使用调度程序提供对 CPU 的 cgroup 任务访问。
-
-cpuacct -- 这个子系统自动生成 cgroup 中任务所使用的 CPU 报告。
-
-cpuset -- 这个子系统为 cgroup 中的任务分配独立 CPU（在多核系统）和内存节点。
-
-devices -- 这个子系统可允许或者拒绝 cgroup 中的任务访问设备。
-
-freezer -- 这个子系统挂起或者恢复 cgroup 中的任务。
-
-memory -- 这个子系统设定 cgroup 中任务使用的内存限制，并自动生成由那些任务使用的内存资源报告。
-
-net_cls -- 这个子系统使用等级识别符（classid）标记网络数据包，可允许 Linux 流量控制程序（tc）识别从具体 cgroup 中生成的数据包。
-
-ns -- 名称空间子系统。
-
-
-### 进程的状态
+## 进程的状态
 
 参考网页：
 
@@ -410,110 +376,93 @@ ns -- 名称空间子系统。
 Linux是一个多用户，多任务的系统，可以同时运行多个用户的多个程序，就必然会产生很多的进程，而每个进程会有不同的状态。
 
 
-Linux进程状态：R (TASK_RUNNING)，可执行状态。
+### Linux进程状态：R (TASK_RUNNING)，可执行状态。
 
-     只有在该状态的进程才可能在CPU上运行。而同一时刻可能有多个进程处于可执行状态，这些进程的task_struct结构（进程控制块）被放入对应CPU的可执行队列中（一个进程最多只能出现在一个CPU的可执行队列中）。进程调度器的任务就是从各个CPU的可执行队列中分别选择一个进程在该CPU上运行。
+只有在该状态的进程才可能在CPU上运行。而同一时刻可能有多个进程处于可执行状态，这些进程的task_struct结构（进程控制块）被放入对应CPU的可执行队列中（一个进程最多只能出现在一个CPU的可执行队列中）。进程调度器的任务就是从各个CPU的可执行队列中分别选择一个进程在该CPU上运行。
 
-    很多操作系统教科书将正在CPU上执行的进程定义为RUNNING状态、而将可执行但是尚未被调度执行的进程定义为READY状态，这两种状态在linux下统一为 TASK_RUNNING状态。
+很多操作系统教科书将正在CPU上执行的进程定义为RUNNING状态、而将可执行但是尚未被调度执行的进程定义为READY状态，这两种状态在linux下统一为 TASK_RUNNING状态。
 
+### Linux进程状态：S (TASK_INTERRUPTIBLE)，可中断的睡眠状态。
 
-Linux进程状态：S (TASK_INTERRUPTIBLE)，可中断的睡眠状态。
+处于这个状态的进程因为等待某某事件的发生（比如等待socket连接、等待信号量），而被挂起。这些进程的task_struct结构被放入对应事件的等待队列中。当这些事件发生时（由外部中断触发、或由其他进程触发），对应的等待队列中的一个或多个进程将被唤醒。
 
-    处于这个状态的进程因为等待某某事件的发生（比如等待socket连接、等待信号量），而被挂起。这些进程的task_struct结构被放入对应事件的等待队列中。当这些事件发生时（由外部中断触发、或由其他进程触发），对应的等待队列中的一个或多个进程将被唤醒。
-
-   通过ps命令我们会看到，一般情况下，进程列表中的绝大多数进程都处于TASK_INTERRUPTIBLE状态（除非机器的负载很高）。毕竟CPU就这么一两个，进程动辄几十上百个，如果不是绝大多数进程都在睡眠，CPU又怎么响应得过来。
-
-
-Linux进程状态：D (TASK_UNINTERRUPTIBLE)，不可中断的睡眠状态。
-
-    与TASK_INTERRUPTIBLE状态类似，进程处于睡眠状态，但是此刻进程是不可中断的。不可中断，指的并不是CPU不响应外部硬件的中断，而是指进程不响应异步信号。
-绝大多数情况下，进程处在睡眠状态时，总是应该能够响应异步信号的。否则你将惊奇的发现，kill -9竟然杀不死一个正在睡眠的进程了！于是我们也很好理解，为什么ps命令看到的进程几乎不会出现TASK_UNINTERRUPTIBLE状态，而总是TASK_INTERRUPTIBLE状态。
-
-   而TASK_UNINTERRUPTIBLE状态存在的意义就在于，内核的某些处理流程是不能被打断的。如果响应异步信号，程序的执行流程中就会被插入一段用于处理异步信号的流程（这个插入的流程可能只存在于内核态，也可能延伸到用户态），于是原有的流程就被中断了。（参见《linux内核异步中断浅析》）
-       在进程对某些硬件进行操作时（比如进程调用read系统调用对某个设备文件进行读操作，而read系统调用最终执行到对应设备驱动的代码，并与对应的物理设备进行交互），可能需要使用TASK_UNINTERRUPTIBLE状态对进程进行保护，以避免进程与设备交互的过程被打断，造成设备陷入不可控的状态。这种情况下的TASK_UNINTERRUPTIBLE状态总是非常短暂的，通过ps命令基本上不可能捕捉到。
-
-     linux系统中也存在容易捕捉的TASK_UNINTERRUPTIBLE状态。执行vfork系统调用后，父进程将进入TASK_UNINTERRUPTIBLE状态，直到子进程调用exit或exec（参见《神奇的vfork》）。
-通过下面的代码就能得到处于TASK_UNINTERRUPTIBLE状态的进程：
-#include   void main() {  if (!vfork()) sleep(100);  } 
+通过`ps`命令我们会看到，一般情况下，进程列表中的绝大多数进程都处于TASK_INTERRUPTIBLE状态（除非机器的负载很高）。毕竟CPU就这么一两个，进程动辄几十上百个，如果不是绝大多数进程都在睡眠，CPU又怎么响应得过来。
 
 
-编译运行，然后ps一下：
-kouu@kouu-one:~/test$ ps -ax | grep a\.out  4371 pts/0    D+     0:00 ./a.out  4372 pts/0    S+     0:00 ./a.out  4374 pts/1    S+     0:00 grep a.out 
+### Linux进程状态：D (TASK_UNINTERRUPTIBLE)，不可中断的睡眠状态。
 
+与TASK_INTERRUPTIBLE状态类似，进程处于睡眠状态，但是此刻进程是不可中断的。不可中断，指的并不是CPU不响应外部硬件的中断，而是指进程不响应异步信号。
 
-然后我们可以试验一下TASK_UNINTERRUPTIBLE状态的威力。不管kill还是kill -9，这个TASK_UNINTERRUPTIBLE状态的父进程依然屹立不倒。
+绝大多数情况下，进程处在睡眠状态时，总是应该能够响应异步信号的。否则你将惊奇的发现，`kill -9`竟然杀不死一个正在睡眠的进程了！于是我们也很好理解，为什么`ps`命令看到的进程几乎不会出现TASK_UNINTERRUPTIBLE状态，而总是TASK_INTERRUPTIBLE状态。
 
+而TASK_UNINTERRUPTIBLE状态存在的意义就在于，内核的某些处理流程是不能被打断的。如果响应异步信号，程序的执行流程中就会被插入一段用于处理异步信号的流程（这个插入的流程可能只存在于内核态，也可能延伸到用户态），于是原有的流程就被中断了。（参见《linux内核异步中断浅析》）
 
+在进程对某些硬件进行操作时（比如进程调用read系统调用对某个设备文件进行读操作，而read系统调用最终执行到对应设备驱动的代码，并与对应的物理设备进行交互），可能需要使用TASK_UNINTERRUPTIBLE状态对进程进行保护，以避免进程与设备交互的过程被打断，造成设备陷入不可控的状态。这种情况下的TASK_UNINTERRUPTIBLE状态总是非常短暂的，通过`ps`命令基本上不可能捕捉到。
 
-上面我们介绍了Linux进程的R、S、D三种状态，这里接着上面的文章介绍另外三个状态。
+### Linux进程状态：T (TASK_STOPPED or TASK_TRACED)，暂停状态或跟踪状态。
 
+向进程发送一个SIGSTOP信号，它就会因响应该信号而进入TASK_STOPPED状态（除非该进程本身处于TASK_UNINTERRUPTIBLE状态而不响应信号）。（SIGSTOP与SIGKILL信号一样，是非常强制的。不允许用户进程通过signal系列的系统调用重新设置对应的信号处理函数。）
 
-Linux进程状态：T (TASK_STOPPED or TASK_TRACED)，暂停状态或跟踪状态。
-
-    向进程发送一个SIGSTOP信号，它就会因响应该信号而进入TASK_STOPPED状态（除非该进程本身处于TASK_UNINTERRUPTIBLE状态而不响应信号）。（SIGSTOP与SIGKILL信号一样，是非常强制的。不允许用户进程通过signal系列的系统调用重新设置对应的信号处理函数。）
 向进程发送一个SIGCONT信号，可以让其从TASK_STOPPED状态恢复到TASK_RUNNING状态。
 
 当进程正在被跟踪时，它处于TASK_TRACED这个特殊的状态。“正在被跟踪”指的是进程暂停下来，等待跟踪它的进程对它进行操作。比如在gdb中对被跟踪的进程下一个断点，进程在断点处停下来的时候就处于TASK_TRACED状态。而在其他时候，被跟踪的进程还是处于前面提到的那些状态。
 
-对于进程本身来说，TASK_STOPPED和TASK_TRACED状态很类似，都是表示进程暂停下来。
-而TASK_TRACED状态相当于在TASK_STOPPED之上多了一层保护，处于TASK_TRACED状态的进程不能响应SIGCONT信号而被唤醒。只能等到调试进程通过ptrace系统调用执行PTRACE_CONT、PTRACE_DETACH等操作（通过ptrace系统调用的参数指定操作），或调试进程退出，被调试的进程才能恢复TASK_RUNNING状态。
+对于进程本身来说，TASK_STOPPED和TASK_TRACED状态很类似，都是表示进程暂停下来。而TASK_TRACED状态相当于在TASK_STOPPED之上多了一层保护，处于TASK_TRACED状态的进程不能响应SIGCONT信号而被唤醒。只能等到调试进程通过ptrace系统调用执行PTRACE_CONT、PTRACE_DETACH等操作（通过ptrace系统调用的参数指定操作），或调试进程退出，被调试的进程才能恢复TASK_RUNNING状态。
 
+### Linux进程状态：Z (TASK_DEAD - EXIT_ZOMBIE)，退出状态，进程成为僵尸进程。
 
-Linux进程状态：Z (TASK_DEAD - EXIT_ZOMBIE)，退出状态，进程成为僵尸进程。
-
-   进程在退出的过程中，处于TASK_DEAD状态。
+进程在退出的过程中，处于TASK_DEAD状态。
 
 在这个退出过程中，进程占有的所有资源将被回收，除了task_struct结构（以及少数资源）以外。于是进程就只剩下task_struct这么个空壳，故称为僵尸。
+
 之所以保留task_struct，是因为task_struct里面保存了进程的退出码、以及一些统计信息。而其父进程很可能会关心这些信息。比如在shell中，$?变量就保存了最后一个退出的前台进程的退出码，而这个退出码往往被作为if语句的判断条件。
+
 当然，内核也可以将这些信息保存在别的地方，而将task_struct结构释放掉，以节省一些空间。但是使用task_struct结构更为方便，因为在内核中已经建立了从pid到task_struct查找关系，还有进程间的父子关系。释放掉task_struct，则需要建立一些新的数据结构，以便让父进程找到它的子进程的退出信息。
 
 父进程可以通过wait系列的系统调用（如wait4、waitid）来等待某个或某些子进程的退出，并获取它的退出信息。然后wait系列的系统调用会顺便将子进程的尸体（task_struct）也释放掉。
-  子进程在退出的过程中，内核会给其父进程发送一个信号，通知父进程来“收尸”。这个信号默认是SIGCHLD，但是在通过clone系统调用创建子进程时，可以设置这个信号。
 
-
-通过下面的代码能够制造一个EXIT_ZOMBIE状态的进程：
-#include   void main() {  if (fork())  while(1) sleep(100);  } 
-
-
-编译运行，然后ps一下：
-kouu@kouu-one:~/test$ ps -ax | grep a\.out  10410 pts/0    S+     0:00 ./a.out  10411 pts/0    Z+     0:00 [a.out]   10413 pts/1    S+     0:00 grep a.out 
+子进程在退出的过程中，内核会给其父进程发送一个信号，通知父进程来“收尸”。这个信号默认是SIGCHLD，但是在通过clone系统调用创建子进程时，可以设置这个信号。
 
 只要父进程不退出，这个僵尸状态的子进程就一直存在。那么如果父进程退出了呢，谁又来给子进程“收尸”？
 当进程退出的时候，会将它的所有子进程都托管给别的进程（使之成为别的进程的子进程）。托管给谁呢？可能是退出进程所在进程组的下一个进程（如果存在的话），或者是1号进程。所以每个进程、每时每刻都有父进程存在。除非它是1号进程。
 
 1号进程，pid为1的进程，又称init进程。
 linux系统启动后，第一个被创建的用户态进程就是init进程。它有两项使命：
-1、执行系统初始化脚本，创建一系列的进程（它们都是init进程的子孙）；
-2、在一个死循环中等待其子进程的退出事件，并调用waitid系统调用来完成“收尸”工作；
+
+1. 执行系统初始化脚本，创建一系列的进程（它们都是init进程的子孙）；
+2. 在一个死循环中等待其子进程的退出事件，并调用waitid系统调用来完成“收尸”工作；
+
 init进程不会被暂停、也不会被杀死（这是由内核来保证的）。它在等待子进程退出的过程中处于TASK_INTERRUPTIBLE状态，“收尸”过程中则处于TASK_RUNNING状态。
 
+### Linux进程状态：X (TASK_DEAD - EXIT_DEAD)，退出状态，进程即将被销毁。
 
-Linux进程状态：X (TASK_DEAD - EXIT_DEAD)，退出状态，进程即将被销毁。
+而进程在退出过程中也可能不会保留它的task_struct。比如这个进程是多线程程序中被detach过的进程（进程？线程？参见《linux线程浅析》）。或者父进程通过设置SIGCHLD信号的handler为SIG_IGN，显式的忽略了SIGCHLD信号。（这是posix的规定，尽管子进程的退出信号可以被设置为SIGCHLD以外的其他信号。）
 
-    而进程在退出过程中也可能不会保留它的task_struct。比如这个进程是多线程程序中被detach过的进程（进程？线程？参见《linux线程浅析》）。或者父进程通过设置SIGCHLD信号的handler为SIG_IGN，显式的忽略了SIGCHLD信号。（这是posix的规定，尽管子进程的退出信号可以被设置为SIGCHLD以外的其他信号。）
-    此时，进程将被置于EXIT_DEAD退出状态，这意味着接下来的代码立即就会将该进程彻底释放。所以EXIT_DEAD状态是非常短暂的，几乎不可能通过ps命令捕捉到。
+此时，进程将被置于EXIT_DEAD退出状态，这意味着接下来的代码立即就会将该进程彻底释放。所以EXIT_DEAD状态是非常短暂的，几乎不可能通过ps命令捕捉到。
 
-
-进程的初始状态
+### 进程的初始状态
 
 进程是通过fork系列的系统调用（fork、clone、vfork）来创建的，内核（或内核模块）也可以通过kernel_thread函数创建内核进程。这些创建子进程的函数本质上都完成了相同的功能——将调用进程复制一份，得到子进程。（可以通过选项参数来决定各种资源是共享、还是私有。）
+
 那么既然调用进程处于TASK_RUNNING状态（否则，它若不是正在运行，又怎么进行调用？），则子进程默认也处于TASK_RUNNING状态。
+
 另外，在系统调用调用clone和内核函数kernel_thread也接受CLONE_STOPPED选项，从而将子进程的初始状态置为 TASK_STOPPED。
 
+### 进程状态变迁
 
-进程状态变迁
+进程自创建以后，状态可能发生一系列的变化，直到进程退出。而尽管进程状态有好几种，但是进程状态的变迁却只有两个方向——从TASK_RUNNING状态变为非TASK_RUNNING状态、或者从非TASK_RUNNING状态变为TASK_RUNNING状态。
+    
+也就是说，如果给一个TASK_INTERRUPTIBLE状态的进程发送SIGKILL信号，这个进程将先被唤醒（进入TASK_RUNNING状态），然后再响应SIGKILL信号而退出（变为TASK_DEAD状态）。并不会从TASK_INTERRUPTIBLE状态直接退出。
 
-    进程自创建以后，状态可能发生一系列的变化，直到进程退出。而尽管进程状态有好几种，但是进程状态的变迁却只有两个方向——从TASK_RUNNING状态变为非TASK_RUNNING状态、或者从非TASK_RUNNING状态变为TASK_RUNNING状态。
-    也就是说，如果给一个TASK_INTERRUPTIBLE状态的进程发送SIGKILL信号，这个进程将先被唤醒（进入TASK_RUNNING状态），然后再响应SIGKILL信号而退出（变为TASK_DEAD状态）。并不会从TASK_INTERRUPTIBLE状态直接退出。
-
-    进程从非TASK_RUNNING状态变为TASK_RUNNING状态，是由别的进程（也可能是中断处理程序）执行唤醒操作来实现的。执行唤醒的进程设置被唤醒进程的状态为TASK_RUNNING，然后将其task_struct结构加入到某个CPU的可执行队列中。于是被唤醒的进程将有机会被调度执行。
+进程从非TASK_RUNNING状态变为TASK_RUNNING状态，是由别的进程（也可能是中断处理程序）执行唤醒操作来实现的。执行唤醒的进程设置被唤醒进程的状态为TASK_RUNNING，然后将其task_struct结构加入到某个CPU的可执行队列中。于是被唤醒的进程将有机会被调度执行。
 
 
-  而进程从TASK_RUNNING状态变为非TASK_RUNNING状态，则有两种途径：
-1、响应信号而进入TASK_STOPED状态、或TASK_DEAD状态；
-2、执行系统调用主动进入TASK_INTERRUPTIBLE状态（如nanosleep系统调用）、或TASK_DEAD状态（如exit系统调用）；或由于执行系统调用需要的资源得不到满足，而进入TASK_INTERRUPTIBLE状态或TASK_UNINTERRUPTIBLE状态（如select系统调用）。
+而进程从TASK_RUNNING状态变为非TASK_RUNNING状态，则有两种途径：
+
+1. 响应信号而进入TASK_STOPED状态、或TASK_DEAD状态；
+2. 执行系统调用主动进入TASK_INTERRUPTIBLE状态（如nanosleep系统调用）、或TASK_DEAD状态（如exit系统调用）；或由于执行系统调用需要的资源得不到满足，而进入TASK_INTERRUPTIBLE状态或TASK_UNINTERRUPTIBLE状态（如select系统调用）。
+
 显然，这两种情况都只能发生在进程正在CPU上执行的情况下。
-
 
 ## 总结
 
