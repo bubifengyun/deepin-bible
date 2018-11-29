@@ -102,18 +102,18 @@ $HOME `date`
 ### 特殊变量
 
 作为脚本，作为命令来用时，不可避免的要传入参数，在脚本中，通常使用`$0,$1,...,$n`的方式来获取这些参数值。其中 `$0`,表示本脚本；`$n`，表示第`n`个输入参数。不管是`bash myscript`还是`./myscript`方式执行脚本，上述`$n`($n!=0$)都是一样的。另外`$#`表示共有多少个参数，`$@`保存着正行的输入。`$?`显示上一个命令的返回状态，一般返回`0`表示正常，其他数值表示异常或错误。看下面例子，脚本`myscript`的内容为。
-
+\lstset{mathescape=true}
 ```bash
 #!/bin/bash
 # 测试这些特使变量
 # myscript
 
-echo "第一个参数为： $1, 第二个参数为 $2."
-echo "共有 $# 个参数"
-echo "这些参数是 $@"
-echo "该脚本名称为： $0."
+echo "第一个参数为： $\$$1, 第二个参数为 $\$$2."
+echo "共有 $\$$$\#$ 个参数"
+echo "这些参数是 $\$$@"
+echo "该脚本名称为： $\$$0."
 ```
-
+\lstset{mathescape=false}
 分别执行`bash myscript first second`和`./myscript first second`，结果如下，
 
 ```bash
