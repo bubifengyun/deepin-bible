@@ -1,5 +1,5 @@
 # 常见问题 {#chap:faqs}
-
+\setholdfigure
 ```{block2, type='question'}
 如何修改`rm`命令，让删除的文件去回收站？
 ```
@@ -74,3 +74,10 @@ Windows10进入后，按`Super`键（也就是`Windows`图案的键，或者直�
 ![取消快速启动\label{win10-qidong-05}](win10-qidong-05.png)
 
 \EndKnitrBlock{answer}
+
+
+
+
+
+
+\setdefaultfigure

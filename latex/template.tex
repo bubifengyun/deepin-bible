@@ -4,6 +4,13 @@
 \usepackage{etoc}
 \usepackage{bookmark}
 
+% 参考https://stackoverflow.com/questions/29696172/how-to-hold-figure-position-with-figure-caption-in-pdf-output-of-knitr
+% http://cs.brown.edu/about/system/managed/latex/doc/float.pdf
+\usepackage{float}
+\newcommand\setdefaultfigure{\floatplacement{figure}{htp}}
+\newcommand\setholdfigure{\floatplacement{figure}{H}}
+\setdefaultfigure
+
 % 为表格隔行涂色
 \usepackage{colortbl}
 \definecolor{Gray}{gray}{0.9}
@@ -350,6 +357,7 @@ $endif$
 \let\oldincludegraphics\includegraphics
 \renewcommand\includegraphics[2][]{%
 \begin{adjustbox}{max size={\textwidth}{\textheight}}
+\centering
 \oldincludegraphics[#1]{#2}
 \end{adjustbox}
 }

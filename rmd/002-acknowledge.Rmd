@@ -1,6 +1,6 @@
 # 致谢
 
-首先感谢 bookdown 的开发者，谢益辉和他的小伙伴们，提供了这么好的一个做笔记的模板。
+首先感谢 bookdown 的开发者，谢益辉和他的小伙伴们，提供了这么好的一个做笔记的模板。另外，本书籍模板获得第一届bookdown大奖赛的[三等奖](https://community.rstudio.com/t/announcing-winners-of-the-1st-bookdown-contest/16394)，可作为一些技术资料的书籍制作模板。
 
 当然也要感谢《Linux Bible》的作者，以及为 Linux 做出贡献的那些人。
 

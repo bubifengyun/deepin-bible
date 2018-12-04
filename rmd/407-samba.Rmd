@@ -61,7 +61,7 @@ Samba 是一种网络文件共享的应用程序，基于微软制定的SMB（Se
 当您设置了共享文件时，我的共享图标将会出现在导航栏上，当所有共享文件都取消共享后，我的共享图标自动从侧边栏中移除。
 
 ### 可能存在的小问题
-
+\setholdfigure
 ```{block2, type='question'}
 共享失败，显示缺乏权限。
 ```
@@ -75,7 +75,7 @@ Samba 是一种网络文件共享的应用程序，基于微软制定的SMB（Se
 ![取消共享出现的问题](samba-unshare.png)
 
 \EndKnitrBlock{answer}
-
+\setdefaultfigure
 ## 关于 samba 的配置
 
 ### 手动安装
