@@ -114,11 +114,10 @@ knitr::include_graphics("en_about-us_content_sys.jpg")
 4、进入账户界面，输入系统用户名和密码。
 
 \leftline{\begin{minipage}{\linewidth}
-\begin{center}
+\centering
 \includegraphics{deepin-installer2.png}
 \captionof{figure}{账户界面}
 \label{deepin-installer2}
-\end{center}
 \end{minipage}}
 
 5、点击**下一步**。

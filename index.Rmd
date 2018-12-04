@@ -84,7 +84,7 @@ lof: yes
 site: bookdown::bookdown_site
 description: "深度操作系统的简单介绍"
 github-repo: bubifengyun/deepin-bible
-href2footnote: yes
+href2footnote: false
 cover-image: images/cover.jpg
 publisher: 尚未出版
 ---

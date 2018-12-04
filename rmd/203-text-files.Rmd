@@ -371,6 +371,7 @@ $ grep s -v test.md
 : Shell 提示符中用到的转义字符
 $ grep -i --color shell test.md
 : Shell 提示符中用到的转义字符
+$ grep Shell -rn {test.md,xxx.md}
 ```
 
 **解释**
@@ -383,6 +384,7 @@ $ grep -i --color shell test.md
 1. 第9、10行，`grep`搜索是区分大小写的。选项`-i`也即`--ignore-case`，是忽略大小写的意思，表示在忽略大小写的情况下搜索。
 1. 第12行，选项`-v`，`--invert-match`表示显示不匹配的行数，也即搜索不包含搜索词的那些文件或者行数等。
 1. 第14行，`--color`表示搜索结果中高亮匹配词。
+1. 第16行，`{}`表示集合，该语句实现了对集合内所有文件进行内部查找`Shell`的功能。
 
 如果有兴趣，可以使用 `grep --help` 或者其他命令，查看更多`grep`相关的用法。另外还有类似的`rgrep`等命令，这里就不介绍了。
 
