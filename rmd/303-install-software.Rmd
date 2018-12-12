@@ -25,7 +25,7 @@
 $ sudo apt-get install veil
 ```
 
-在 Kali Linux 就可以直接运行，但是在深度操作系统下就无法下载，这个时候不妨网上搜索一下，加入私有源。当然最好的是搜到这个软件的官网，比如 `veil` 的官网：https://github.com/Veil-Framework/Veil，安装原作者的方法安装，也是不错的。
+在 Kali Linux 就可以直接运行，但是在深度操作系统下就无法下载，这个时候不妨网上搜索一下，加入私有源。当然最好的是搜到这个软件的官网，比如 `veil` 的官网：[https://github.com/Veil-Framework/Veil](https://github.com/Veil-Framework/Veil)，按照原作者的方法安装，也是不错的。
 
 ```bash
 $ sudo apt-get -y install git

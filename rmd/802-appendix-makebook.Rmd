@@ -43,14 +43,14 @@ $ make
 
 ## 编译模板
 
-### 第一种编译方法——命令行编译
+### 第一种编译方法 —— 命令行编译
 
 模板默认使用GNUMake构建，后续如无特殊说明，默认执行命令的文件夹以及当前文件夹均为本模板的根目录。对于部分用户，第一次编译可能需要下载很多文件，最好联网编译，简言之**首次编译请联网**。如果第一次编译成功，后面再次编译则不需要联网。
 
 ```{.bash numbers=none}
 $ make
 ```
-### 第二种编译方法——RStudio编译
+### 第二种编译方法 —— RStudio编译
 
 在已经安装 RStudio 的前提下，也可手动编译。打开 RStudio 软件，在弹出的界面，左上角点击 File->Open Project，选中 *./deepin-bible.Rproj* 文件打开，点击右上角靠下的一栏，有个 `Build` 格，会出现 `Build Book` 等按钮。
 点击 `Build Book` 就会生成 PDF 书籍了，位于 *./\_book/deepin-bible.pdf* 。本质上讲，第二种编译方法是调用的第一种编译方法，只不过方便懒得写命令行的用户。
@@ -111,7 +111,7 @@ sessionInfo()
 ### \LaTeX 模板文件
 
 格式控制文件控制着论文的表现形式，包括 *./sjtuthesis.cfg* 和 *./sjtuthesis.cls*。
-其中，“cls”控制论文主体格式，“cfg”为配置文件。上述文件全部来自[上海交通大学学位论文 \LaTeX 模板](https://github.com/sjtug/SJTUThesis)
+其中，\cqh cls\cqt 控制论文主体格式，\cqh cfg\cqt 为配置文件。上述文件全部来自最新（2018-12-12）[上海交通大学学位论文 \LaTeX 模板](https://github.com/sjtug/SJTUThesis)
 
 ### 各章源文件
 
@@ -126,7 +126,7 @@ sessionInfo()
 ### 图片文件夹 images {#intro:fig}
 
 images 文件夹放置了需要插入文档中的图片文件(支持PNG/JPG/PDF/EPS格式的图片)，可以在按照章节划分子目录。
-模板文件中使用`\graphicspath`命令定义了图片存储的顶层目录，在插入图片时，顶层目录名“images”可省略。
+模板文件中使用`\graphicspath`命令定义了图片存储的顶层目录，在插入图片时，顶层目录名\cqh images\cqt 可省略。
 
 ### 参考文献数据库bib {#intro:bib}
 

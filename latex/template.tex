@@ -1,5 +1,33 @@
 \documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
 
+\makeatletter
+\newcommand\publisher[1]{\def\sjtu@value@publisher{#1}}
+\renewcommand\maketitle{%
+  \pdfbookmark[0]{\sjtu@titlepage}{titlepage}
+  \makechinesetitle
+}
+\makeatother
+
+$if(title)$
+\title{$title$}
+$endif$
+$if(englishtitle)$
+\englishtitle{$englishtitle$}
+$endif$
+$if(author)$
+\author{$author$}
+$endif$
+$if(keywords)$
+\keywords{$keywords$}
+$endif$
+$if(publisher)$
+\publisher{$publisher$}
+$endif$
+$if(date)$
+\submitdate{$date$}
+$endif$
+
+
 \usepackage[export]{adjustbox}
 \usepackage{etoc}
 \usepackage{bookmark}
@@ -336,6 +364,102 @@ linewidth=4pt]{qBox}
   }
 }
 
+
+\makeatletter
+% 授权声明
+\renewcommand\makeDeclareAuthorization{%
+%----------------------------------------------------------------------------------------
+%	COPYRIGHT PAGE
+%----------------------------------------------------------------------------------------
+
+\newpage
+
+\thispagestyle{empty}
+
+\noindent 版权 \copyright\ 2018 \sjtu@value@author\\ % Copyright notice
+
+\noindent \textsc{\sjtu@value@publisher}\\ % Publisher
+
+\noindent \textsc{\url{https://github.com/bubifengyun/deepin-bible}}\\ % URL
+
+\noindent 版权采用 Creative Commons Attribution-NonCommercial 3.0 Unported License，内容见http://creativecommons.org/licenses/by-nc/3.0。共享版权，商业用途请联系我们。如果您采用六角丛书的价格发布图书，可以不用联系我们。\\ % License information
+
+\noindent \textit{\sjtu@value@publisher 于 \sjtu@value@submitdate} % Printing/edition date
+~\vfill
+}
+
+% “绘制”中文标题页
+\renewcommand\makechinesetitle{%
+  \cleardoublepage
+  \thispagestyle{empty}
+  \begin{center}
+  \vskip\stretch{12}
+  {\heiti\zihao{1}\sjtu@value@englishtitle}
+  \vskip 20pt
+  {\heiti\zihao{1}\sjtu@value@chinesetitle}
+  \vskip 20pt
+  {\fangsong\zihao{4}{\sjtu@value@author \quad\quad 编著}}
+  \vskip\stretch{30}
+  {\heiti\zihao{4}{\sjtu@value@publisher}}
+  \end{center}
+
+  ~\vfill
+}
+
+% Setting Package listings/lstlistings
+\lstset{
+  escapeinside={\%*}{*)}% 支持LaTeX代码入框 https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+}
+
+\graphicspath{{images/}}
+
+\AtBeginDocument{
+  \hypersetup{
+    urlcolor=blue,
+    linkcolor=blue,
+    citecolor=blue,
+  }
+}
+% fancyhdr页眉页脚设置
+%% 研究生学位论文页眉页脚设置
+  \if@twoside
+  %% 双面打印页眉页脚
+    \fancypagestyle{front}{%
+      \fancyhf{}
+      \fancyhead[LO,RE]{\small\kaishu\sjtu@value@chinesetitle}
+      \fancyhead[LE,RO]{\nouppercase{\sjtu@fancyhead\leftmark}}
+      \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
+      \renewcommand{\headheight}{32pt}
+    }
+    %% 正文部分，奇数页页眉为书名章名，偶数页页眉为章名节名
+    \fancypagestyle{main}{%
+      \fancyhf{}
+      \fancyhead[LO]{\small\kaishu\sjtu@value@chinesetitle}
+      \fancyhead[RO,LE]{\nouppercase{\sjtu@fancyhead\leftmark}}
+      \fancyhead[RE]{\nouppercase{\sjtu@fancyhead\rightmark}}
+      \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
+      \renewcommand{\headheight}{32pt}
+    }
+  \else
+  %% 单面打印页眉页脚
+    \fancypagestyle{front}{%
+      \fancyhf{}
+      \fancyhead[L]{\small\kaishu\sjtu@value@chinesetitle}
+      \fancyhead[R]{\nouppercase{\sjtu@fancyhead\leftmark}}
+      \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
+      \renewcommand{\headheight}{32pt}
+    }
+    \fancypagestyle{main}{%
+      \fancyhf{}
+      \fancyhead[L]{\small\kaishu\sjtu@value@chinesetitle}
+      \fancyhead[R]{\nouppercase{\sjtu@fancyhead\leftmark}}
+      \fancyfoot[C]{\small ---~{\bfseries\thepage}~---}
+      \renewcommand{\headheight}{32pt}
+    }
+  \fi
+
+\makeatother
+
 \begin{document}
 
 $if(cover-image)$
@@ -362,21 +486,6 @@ $endif$
 \end{adjustbox}
 }
 
-$if(title)$
-\title{$title$}
-$endif$
-$if(englishtitle)$
-\englishtitle{$englishtitle$}
-$endif$
-$if(author)$
-\author{$author$}
-$endif$
-$if(publisher)$
-\publisher{$publisher$}
-$endif$
-$if(date)$
-\date{$date$}
-$endif$
 \maketitle
 \makeDeclareAuthorization
 

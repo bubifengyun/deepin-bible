@@ -27,7 +27,7 @@ $ source .bashrc
 ```
 
 \BeginKnitrBlock{answer}
-索引有个坑，见[这里](https://github.com/jgm/pandoc/issues/4762)。另外，如果一些`\ref` `\cite` 的编号出错了，也容易导致在目录里无索引。
+索引有个坑，见[这里](https://github.com/jgm/pandoc/issues/4762)。另外，如果一些`\ref` `\cite` 的编号出错了，也容易导致在目录里无索引无参考文献。
 \EndKnitrBlock{answer}
 
 ```{block2, type='question'}
