@@ -323,7 +323,7 @@ linewidth=4pt]{qBox}
 \newcommand\cqt{”}
 
 \makeatletter
-% 实现附录按甲乙丙丁排序，但是仅限于十个以内。否则，报错。
+% 实现附录按甲乙丙丁、子丑寅卯排序，但是仅限于二十二个以内。否则，报错。
 % https://tex.stackexchange.com/questions/219711/definition-with-roman-counter-value
 \newcommand\tiangani{甲}
 \newcommand\tianganii{乙}
@@ -335,6 +335,18 @@ linewidth=4pt]{qBox}
 \newcommand\tianganviii{辛}
 \newcommand\tianganix{壬}
 \newcommand\tianganx{癸}
+\newcommand\tianganxi{子}
+\newcommand\tianganxii{丑}
+\newcommand\tianganxiii{寅}
+\newcommand\tianganxiv{卯}
+\newcommand\tianganxv{辰}
+\newcommand\tianganxvi{巳}
+\newcommand\tianganxvii{午}
+\newcommand\tianganxviii{未}
+\newcommand\tianganxix{申}
+\newcommand\tianganxx{酉}
+\newcommand\tianganxxi{戌}
+\newcommand\tianganxxii{亥}
 \newcommand*\Tiangan[1]{\csname tiangan\romannumeral\value{#1}\endcsname}
 % https://latex.org/forum/viewtopic.php?t=2674
 \let\oldappendix\appendix

@@ -1,6 +1,6 @@
 # Deepin-Bible 深度易经
 
-关于[深度操作系统（Deepin OS）](https://www.deepin.org/)的使用介绍。[下载地址](https://github.com/bubifengyun/deepin-bible/releases)。
+关于[深度操作系统（Deepin OS）](https://www.deepin.org/)的使用介绍。[PDF书籍下载地址](https://github.com/bubifengyun/deepin-bible/releases)。[在线阅读地址](https://bubifengyun.github.io/deepin-bible/)。
 
 ## 一、引言
 
@@ -18,12 +18,13 @@
 接下来需要做的事情：
 
 + 找个小伙伴，授课、书写。
++ 书籍网页版放到github上共享。
 
 ## 四、致谢
 
 - 谢益辉，在其 https://github.com/yihui/bookdown-chinese 基础上修改完善的。
 - 深度操作系统的开发者和贡献者们。
-- 上海交大论文模板的贡献者们。
+- 上海交大论文模板的贡献者们，本书采用[(2018-12-24)最新论文模板](https://raw.githubusercontent.com/sjtug/SJTUThesis/master/sjtuthesis.cls)。
 - 其他曾经帮助过，没有来得及记录的朋友。
 
 有兴趣的同学，欢迎在 [issue](https://github.com/bubifengyun/deepin-bible/issues) 上发表建议，或者直接推送。谢谢。

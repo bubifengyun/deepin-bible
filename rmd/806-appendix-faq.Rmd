@@ -53,25 +53,25 @@ deepin/win10双系统deepin下其他盘带锁问题。
 \BeginKnitrBlock{answer}
 Windows10进入后，按`Super`键（也就是`Windows`图案的键，或者直接点击左下角的微软标志），弹出如图\@ref(win10-qidong-01)所示操作栏，点击**设置**。
 
-![打开Windows10设置\label{win10-qidong-01}](win10-qidong-01.png)
+![打开Windows10设置\label{win10-qidong-01}](images/win10-qidong-01.png)
 
 点击**系统**大按钮，如图\@ref(win10-qidong-02)所示。
 
-![选择系统设置\label{win10-qidong-02}](win10-qidong-02.png)
+![选择系统设置\label{win10-qidong-02}](images/win10-qidong-02.png)
 
 
 选择**电源和睡眠**选项->**其他电源设置**。如图\@ref(win10-qidong-03)所示。
 
-![选择其他电源设置\label{win10-qidong-03}](win10-qidong-03.png)
+![选择其他电源设置\label{win10-qidong-03}](images/win10-qidong-03.png)
 
 选择**电源和按钮的功能**选项。如图\@ref(win10-qidong-04)所示。
 
-![选择电源和按钮的功能\label{win10-qidong-04}](win10-qidong-04.png)
+![选择电源和按钮的功能\label{win10-qidong-04}](images/win10-qidong-04.png)
 
 
 **取消快速启动**，并确定。如图\@ref(win10-qidong-05)所示。
 
-![取消快速启动\label{win10-qidong-05}](win10-qidong-05.png)
+![取消快速启动\label{win10-qidong-05}](images/win10-qidong-05.png)
 
 \EndKnitrBlock{answer}
 

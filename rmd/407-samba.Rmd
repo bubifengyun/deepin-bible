@@ -68,11 +68,11 @@ Samba 是一种网络文件共享的应用程序，基于微软制定的SMB（Se
 \BeginKnitrBlock{answer}
 如果文件夹不是自己的，设置为共享会弹出如下的问题框，采用管理员权限打开文件夹，成功共享。当然也可以跟根据异常提示，修改或添加*/etc/samba/smb.conf*的`usershare owner only=false`。
 
-![共享文件夹出现的问题](samba-share.png)
+![共享文件夹出现的问题](images/samba-share.png)
 
 由于权限的问题，取消共享也会出现类似问题，也请采用管理员权限或者修改配置文件的方法取消共享。
 
-![取消共享出现的问题](samba-unshare.png)
+![取消共享出现的问题](images/samba-unshare.png)
 
 \EndKnitrBlock{answer}
 \setdefaultfigure
@@ -130,4 +130,4 @@ vim
 
 深度操作系统支持开启无线网热点。**控制中心**->**网络**->**热点**->**热点设置**，即可进入无线网设置页面，如图\@ref(samba-hotwif)所示，
 
-![共享文件夹出现的问题\label{samba-hotwif}](samba-hotwifi.png)
+![开启无线网热点\label{samba-hotwif}](images/samba-hotwifi.png)

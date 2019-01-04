@@ -16,7 +16,7 @@
 - https://www.cnblogs.com/CoderJYF/p/6092604.html
 - https://blog.csdn.net/fan0220/article/details/53079618
 
-![Linux系统目录结构图](linux-fs-tree.png)
+![Linux系统目录结构图](images/linux-fs-tree.png)
 
 常用文件夹说明。
 
