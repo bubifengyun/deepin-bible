@@ -348,6 +348,8 @@ linewidth=4pt]{qBox}
 \newcommand\tianganxxi{戌}
 \newcommand\tianganxxii{亥}
 \newcommand*\Tiangan[1]{\csname tiangan\romannumeral\value{#1}\endcsname}
+\ifsjtu@english
+\else
 % https://latex.org/forum/viewtopic.php?t=2674
 \let\oldappendix\appendix
 \renewcommand\appendix{%
@@ -356,6 +358,7 @@ linewidth=4pt]{qBox}
   \renewcommand{\CTEX@thechapter}{\Tiangan{chapter}}
   \renewcommand{\thechapter}{\Tiangan{chapter}}
 }
+\fi
 \makeatother
 
 % 增加索引功能

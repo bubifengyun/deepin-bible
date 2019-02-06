@@ -123,6 +123,8 @@ sessionInfo()
 
 对于 *./index.Rmd* 文件，书名、作者等信息直接更改为自己的即可。由于本文采用的上海交大论文模板，一些配置不建议修改。如果想修改书籍字体，比如 `classoption: [doctor, openright, twoside， fontset=adobe]` ，就表示中文字体修改为 adobe 系列的字体。可供选择的中文字体：fandol(Fandol 开源字体)、windows(Windows 系统下的中文字体)、mac(macOS 系统下的华文字体)、ubuntu(Ubuntu 系统下的文泉驿和文鼎字体)、adobe(Adobe 公司的中文字体)、founder(方正公司的中文字体)，默认根据操作系统自动配置。
 
+For English, you can add "english" in `classoption: [doctor, openright, twoside， fontset=adobe]`
+
 ### 图片文件夹 images {#intro:fig}
 
 images 文件夹放置了需要插入文档中的图片文件(支持PNG/JPG/PDF/EPS格式的图片)，可以在按照章节划分子目录。
