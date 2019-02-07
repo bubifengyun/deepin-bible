@@ -6,6 +6,23 @@
   \pdfbookmark[0]{\sjtu@titlepage}{titlepage}
   \makechinesetitle
 }
+
+\ifsjtu@english
+
+%% labels in excercise, solution, and answer 
+\def\sjtu@label@exercise{Exercise}
+\def\sjtu@label@solution{Solution}
+\def\sjtu@label@answerT{Answer}
+
+\else
+
+%% 练习，解答，答的标签
+\def\sjtu@label@exercise{练习}
+\def\sjtu@label@solution{解答}
+\def\sjtu@label@answerT{答}
+
+\fi
+
 \makeatother
 
 $if(title)$
@@ -201,12 +218,12 @@ $endif$
   \newtheorem{corollary}[theorem]{\sjtu@label@cor~}
 \theoremstyle{definition}
   \newtheorem{definition}{\sjtu@label@defn~}[chapter]
-  \newtheorem{exercise}{练习}[chapter]
+  \newtheorem{exercise}{\sjtu@label@exercise}[chapter]
   \newtheorem{conjecture}{\sjtu@label@conj~}[chapter]
   \newtheorem{example}{\sjtu@label@exmp~}[chapter]
 \theoremstyle{remark}
   \newtheorem{remark}{\sjtu@label@rem~}
-  \newtheorem*{solution}{\bfseries{解答}}
+  \newtheorem*{solution}{\bfseries{\sjtu@label@solution}}
 \makeatother
 
 \makeatletter
@@ -227,7 +244,7 @@ $endif$
 \theoremstyle{ocrenumbox}
   \newtheorem{questionT}{}[chapter]
 \theoremstyle{plain}
-  \newtheorem*{answerT}{答}
+  \newtheorem*{answerT}{\sjtu@label@answerT}
 \makeatother
 
 %----------------------------------------------------------------------------------------
