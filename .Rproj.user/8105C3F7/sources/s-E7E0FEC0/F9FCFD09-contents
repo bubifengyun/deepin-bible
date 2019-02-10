@@ -1,0 +1,12 @@
+book_filename: deepin-bible
+rmd_subdir: TRUE
+clean: [packages.bib, bookdown.bbl]
+delete_merged_file: TRUE
+language:
+  label:
+    fig: "图 "
+    tab: "表 "
+  ui:
+    edit: "编辑"
+    chapter_name: ["第 ", " 章"]
+

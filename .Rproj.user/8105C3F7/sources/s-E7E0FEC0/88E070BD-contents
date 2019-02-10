@@ -1,0 +1,23 @@
+bookdown::gitbook:
+  css: css/style.css
+  config:
+    toc:
+      collapse: none
+      before: |
+        <li><a href="./">深度易经</a></li>
+      after: |
+        <li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
+    download: [pdf, epub]
+    edit: https://github.com/bubifengyun/deepin-bible/edit/master/%s
+    sharing:
+      github: yes
+      facebook: no
+bookdown::pdf_book:
+  keep_tex: yes
+  dev: "cairo_pdf"
+  latex_engine: xelatex
+  citation_package: biblatex
+  pandoc_args: ["--listings", "--top-level-division=chapter"]
+  template: latex/template.tex
+bookdown::epub_book:
+  stylesheet: css/style.css

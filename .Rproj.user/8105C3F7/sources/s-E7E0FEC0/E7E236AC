@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1528198381574.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E7E236AC",
+    "lastKnownWriteTime" : 1527260212,
+    "last_content_update" : 1528198416483,
+    "path" : "~/deepin-bible/latex/before_body.tex",
+    "project_path" : "latex/before_body.tex",
+    "properties" : {
+        "cursorPosition" : "6,9",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "tex"
+}

@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>deepin-bible.utf8.md</title>
+  <meta name="description" content="深度操作系统的简单介绍">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
+
+  <meta property="og:title" content="deepin-bible.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="深度操作系统的简单介绍" />
+  <meta name="github-repo" content="bubifengyun/deepin-bible" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="deepin-bible.utf8.md" />
+  
+  <meta name="twitter:description" content="深度操作系统的简单介绍" />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="深度操作系统爱好者">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="chap-chapters.html">
+<link rel="next" href="chap-faqs.html">
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">深度易经</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 致谢</a></li>
+<li class="chapter" data-level="3" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i><b>3</b> 作者简介</a></li>
+<li class="part"><span><b>I Linux 及 Deepin 入门</b></span></li>
+<li class="chapter" data-level="4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html"><i class="fa fa-check"></i><b>4</b> GNU/Linux 操作系统简介</a><ul>
+<li class="chapter" data-level="4.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#gnulinux-"><i class="fa fa-check"></i><b>4.1</b> GNU/Linux 使用范围</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#gnulinux-"><i class="fa fa-check"></i><b>4.2</b> GNU/Linux 是什么</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#richard-stallman"><i class="fa fa-check"></i><b>4.2.1</b> Richard Stallman</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#linus-torvalds"><i class="fa fa-check"></i><b>4.2.2</b> Linus Torvalds</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix-"><i class="fa fa-check"></i><b>4.3</b> Unix 哲学</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix-"><i class="fa fa-check"></i><b>4.3.1</b> Unix 哲学核心</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix-"><i class="fa fa-check"></i><b>4.3.2</b> Unix 哲学下的用户</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix-"><i class="fa fa-check"></i><b>4.3.3</b> Unix 哲学的对手</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#chap:linux-intro:distro"><i class="fa fa-check"></i><b>4.4</b> GNU/Linux 发行版的出现</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#red-hat-"><i class="fa fa-check"></i><b>4.4.1</b> Red Hat 系</a></li>
+<li class="chapter" data-level="4.4.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#debian-"><i class="fa fa-check"></i><b>4.4.2</b> Debian 系</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#-linux-"><i class="fa fa-check"></i><b>4.5</b> 如何提高自己的 Linux 技术</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#-gnulinux-"><i class="fa fa-check"></i><b>4.5.1</b> 首先安装 GNU/Linux 操作系统</a></li>
+<li class="chapter" data-level="4.5.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-4.5.2"><i class="fa fa-check"></i><b>4.5.2</b> 平常多用</a></li>
+<li class="chapter" data-level="4.5.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-4.5.3"><i class="fa fa-check"></i><b>4.5.3</b> 多问多记</a></li>
+<li class="chapter" data-level="4.5.4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-4.5.4"><i class="fa fa-check"></i><b>4.5.4</b> 定个计划</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-4.6"><i class="fa fa-check"></i><b>4.6</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html"><i class="fa fa-check"></i><b>5</b> Linux 桌面系统简介</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#-live-cddvd-"><i class="fa fa-check"></i><b>5.1</b> 运行 Live CD/DVD 试用系统</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.1.1"><i class="fa fa-check"></i><b>5.1.1</b> 下载深度系统</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#u"><i class="fa fa-check"></i><b>5.1.2</b> 把系统写到U盘里</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.1.3"><i class="fa fa-check"></i><b>5.1.3</b> 开始试用</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#x-window-"><i class="fa fa-check"></i><b>5.2</b> X Window 系统简介</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.2.1"><i class="fa fa-check"></i><b>5.2.1</b> 基本部件</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.2.2"><i class="fa fa-check"></i><b>5.2.2</b> 用户接口</a></li>
+<li class="chapter" data-level="5.2.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.2.3"><i class="fa fa-check"></i><b>5.2.3</b> 用户界面</a></li>
+<li class="chapter" data-level="5.2.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.2.4"><i class="fa fa-check"></i><b>5.2.4</b> 优缺点</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#-wayland"><i class="fa fa-check"></i><b>5.3</b> 王勇谈 Wayland</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.4"><i class="fa fa-check"></i><b>5.4</b> 常见的桌面环境</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#cinnamon"><i class="fa fa-check"></i><b>5.4.1</b> Cinnamon</a></li>
+<li class="chapter" data-level="5.4.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#gnome"><i class="fa fa-check"></i><b>5.4.2</b> GNOME</a></li>
+<li class="chapter" data-level="5.4.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#kde"><i class="fa fa-check"></i><b>5.4.3</b> KDE</a></li>
+<li class="chapter" data-level="5.4.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#lxde"><i class="fa fa-check"></i><b>5.4.4</b> LXDE</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#-1"><i class="fa fa-check"></i><b>5.5</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html"><i class="fa fa-check"></i><b>6</b> 深度操作系统简介</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 深度科技简介</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.2"><i class="fa fa-check"></i><b>6.2</b> 深度操作系统的安装</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.2.1"><i class="fa fa-check"></i><b>6.2.1</b> 安装方案</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.2.2"><i class="fa fa-check"></i><b>6.2.2</b> 安装环境</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.2.3"><i class="fa fa-check"></i><b>6.2.3</b> 启动优盘的制作</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.2.4"><i class="fa fa-check"></i><b>6.2.4</b> 安装过程</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 桌面使用</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.1"><i class="fa fa-check"></i><b>6.3.1</b> 开机</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.2"><i class="fa fa-check"></i><b>6.3.2</b> 关机</a></li>
+<li class="chapter" data-level="6.3.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#-"><i class="fa fa-check"></i><b>6.3.3</b> 控制中心-系统设置</a></li>
+<li class="chapter" data-level="6.3.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.4"><i class="fa fa-check"></i><b>6.3.4</b> 开机自启动</a></li>
+<li class="chapter" data-level="6.3.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.5"><i class="fa fa-check"></i><b>6.3.5</b> 常用快捷键</a></li>
+<li class="chapter" data-level="6.3.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.6"><i class="fa fa-check"></i><b>6.3.6</b> 安装软件</a></li>
+<li class="chapter" data-level="6.3.7" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.7"><i class="fa fa-check"></i><b>6.3.7</b> 卸载软件</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4"><i class="fa fa-check"></i><b>6.4</b> 深度桌面常用软件</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4.1"><i class="fa fa-check"></i><b>6.4.1</b> 搜狗输入法</a></li>
+<li class="chapter" data-level="6.4.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#qq"><i class="fa fa-check"></i><b>6.4.2</b> QQ</a></li>
+<li class="chapter" data-level="6.4.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4.3"><i class="fa fa-check"></i><b>6.4.3</b> 深度截图</a></li>
+<li class="chapter" data-level="6.4.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4.4"><i class="fa fa-check"></i><b>6.4.4</b> 网易云音乐</a></li>
+<li class="chapter" data-level="6.4.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4.5"><i class="fa fa-check"></i><b>6.4.5</b> 深度系统监视器</a></li>
+<li class="chapter" data-level="6.4.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4.6"><i class="fa fa-check"></i><b>6.4.6</b> 深度无线投屏</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#-2"><i class="fa fa-check"></i><b>6.5</b> 总结</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.6"><i class="fa fa-check"></i><b>6.6</b> 附注</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-education-intro.html"><a href="chap-education-intro.html"><i class="fa fa-check"></i><b>7</b> 教学用的 Linux 软件</a><ul>
+<li class="chapter" data-level="7.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 引言</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 笔记</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#leanote"><i class="fa fa-check"></i><b>7.2.1</b> leanote</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#xpad-"><i class="fa fa-check"></i><b>7.2.2</b> Xpad 便笺</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-7.3"><i class="fa fa-check"></i><b>7.3</b> 课堂工具</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#veyon"><i class="fa fa-check"></i><b>7.3.1</b> Veyon</a></li>
+<li class="chapter" data-level="7.3.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#acontent"><i class="fa fa-check"></i><b>7.3.2</b> AContent</a></li>
+<li class="chapter" data-level="7.3.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#moodle"><i class="fa fa-check"></i><b>7.3.3</b> Moodle</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-7.4"><i class="fa fa-check"></i><b>7.4</b> 文献阅读写作管理工具</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#bookdown"><i class="fa fa-check"></i><b>7.4.1</b> bookdown</a></li>
+<li class="chapter" data-level="7.4.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#vufind"><i class="fa fa-check"></i><b>7.4.2</b> VuFind</a></li>
+<li class="chapter" data-level="7.4.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#calibre"><i class="fa fa-check"></i><b>7.4.3</b> Calibre</a></li>
+<li class="chapter" data-level="7.4.4" data-path="chap-education-intro.html"><a href="chap-education-intro.html#cajviewer"><i class="fa fa-check"></i><b>7.4.4</b> CAJViewer</a></li>
+<li class="chapter" data-level="7.4.5" data-path="chap-education-intro.html"><a href="chap-education-intro.html#-everything"><i class="fa fa-check"></i><b>7.4.5</b> 搜索神器 Everything</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II GNU/Linux 基础知识</b></span></li>
+<li class="chapter" data-level="8" data-path="chap-shell.html"><a href="chap-shell.html"><i class="fa fa-check"></i><b>8</b> shell 用法简介</a><ul>
+<li class="chapter" data-level="8.1" data-path="chap-shell.html"><a href="chap-shell.html#-shell-"><i class="fa fa-check"></i><b>8.1</b> 用 shell 有啥好处？</a></li>
+<li class="chapter" data-level="8.2" data-path="chap-shell.html"><a href="chap-shell.html#shell:intro"><i class="fa fa-check"></i><b>8.2</b> 深度操作系统下 shell 简介</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="chap-shell.html"><a href="chap-shell.html#section-8.2.1"><i class="fa fa-check"></i><b>8.2.1</b> 牛刀小试</a></li>
+<li class="chapter" data-level="8.2.2" data-path="chap-shell.html"><a href="chap-shell.html#section-8.2.2"><i class="fa fa-check"></i><b>8.2.2</b> 命令语法结构</a></li>
+<li class="chapter" data-level="8.2.3" data-path="chap-shell.html"><a href="chap-shell.html#options"><i class="fa fa-check"></i><b>8.2.3</b> 选项(Options)</a></li>
+<li class="chapter" data-level="8.2.4" data-path="chap-shell.html"><a href="chap-shell.html#arguments"><i class="fa fa-check"></i><b>8.2.4</b> 参数(Arguments)</a></li>
+<li class="chapter" data-level="8.2.5" data-path="chap-shell.html"><a href="chap-shell.html#shell:more-example"><i class="fa fa-check"></i><b>8.2.5</b> 更多例子</a></li>
+<li class="chapter" data-level="8.2.6" data-path="chap-shell.html"><a href="chap-shell.html#section-8.2.6"><i class="fa fa-check"></i><b>8.2.6</b> 找找命令文件在哪里</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="chap-shell.html"><a href="chap-shell.html#section-8.3"><i class="fa fa-check"></i><b>8.3</b> 命令快捷编辑</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="chap-shell.html"><a href="chap-shell.html#section-8.3.1"><i class="fa fa-check"></i><b>8.3.1</b> 方便编辑的快捷键</a></li>
+<li class="chapter" data-level="8.3.2" data-path="chap-shell.html"><a href="chap-shell.html#section-8.3.2"><i class="fa fa-check"></i><b>8.3.2</b> 重输之前的命令</a></li>
+<li class="chapter" data-level="8.3.3" data-path="chap-shell.html"><a href="chap-shell.html#section-8.3.3"><i class="fa fa-check"></i><b>8.3.3</b> 自动补全</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4"><i class="fa fa-check"></i><b>8.4</b> 命令连接与扩展</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.1"><i class="fa fa-check"></i><b>8.4.1</b> 匿名管道</a></li>
+<li class="chapter" data-level="8.4.2" data-path="chap-shell.html"><a href="chap-shell.html#sec:redirect"><i class="fa fa-check"></i><b>8.4.2</b> 重定向</a></li>
+<li class="chapter" data-level="8.4.3" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.3"><i class="fa fa-check"></i><b>8.4.3</b> 重定向和管道的区别</a></li>
+<li class="chapter" data-level="8.4.4" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.4"><i class="fa fa-check"></i><b>8.4.4</b> 顺序执行</a></li>
+<li class="chapter" data-level="8.4.5" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.5"><i class="fa fa-check"></i><b>8.4.5</b> 后台命令</a></li>
+<li class="chapter" data-level="8.4.6" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.6"><i class="fa fa-check"></i><b>8.4.6</b> 命令扩展</a></li>
+<li class="chapter" data-level="8.4.7" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.7"><i class="fa fa-check"></i><b>8.4.7</b> 简单数值计算</a></li>
+<li class="chapter" data-level="8.4.8" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.8"><i class="fa fa-check"></i><b>8.4.8</b> 输出变量值</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="chap-shell.html"><a href="chap-shell.html#shell-variables"><i class="fa fa-check"></i><b>8.5</b> Shell 变量（Variables）</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="chap-shell.html"><a href="chap-shell.html#section-8.5.1"><i class="fa fa-check"></i><b>8.5.1</b> 别名的创建和使用</a></li>
+<li class="chapter" data-level="8.5.2" data-path="chap-shell.html"><a href="chap-shell.html#-shell"><i class="fa fa-check"></i><b>8.5.2</b> 退出 shell</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="chap-shell.html"><a href="chap-shell.html#-shell-"><i class="fa fa-check"></i><b>8.6</b> 定制 shell 环境</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="chap-shell.html"><a href="chap-shell.html#prompt"><i class="fa fa-check"></i><b>8.6.1</b> 配置提示（prompt）</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="chap-shell.html"><a href="chap-shell.html#section-8.7"><i class="fa fa-check"></i><b>8.7</b> 命令帮助</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-shell.html"><a href="chap-shell.html#-3"><i class="fa fa-check"></i><b>8.8</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-filesystem.html"><a href="chap-filesystem.html"><i class="fa fa-check"></i><b>9</b> 文件系统</a><ul>
+<li class="chapter" data-level="9.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.1"><i class="fa fa-check"></i><b>9.1</b> 树形结构</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.2"><i class="fa fa-check"></i><b>9.2</b> 文件系统常用命令</a></li>
+<li class="chapter" data-level="9.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.3"><i class="fa fa-check"></i><b>9.3</b> 元字符和操作符</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#filesystem:metachar"><i class="fa fa-check"></i><b>9.3.1</b> 元字符</a></li>
+<li class="chapter" data-level="9.3.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.3.2"><i class="fa fa-check"></i><b>9.3.2</b> 操作符</a></li>
+<li class="chapter" data-level="9.3.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.3.3"><i class="fa fa-check"></i><b>9.3.3</b> 花括号<code>{}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.4"><i class="fa fa-check"></i><b>9.4</b> 几个常用的目录</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.5"><i class="fa fa-check"></i><b>9.5</b> 文件（夹）的权限和归属</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.5.1"><i class="fa fa-check"></i><b>9.5.1</b> 权限简介</a></li>
+<li class="chapter" data-level="9.5.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#chmod"><i class="fa fa-check"></i><b>9.5.2</b> 权限更改<code>chmod</code></a></li>
+<li class="chapter" data-level="9.5.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#umask"><i class="fa fa-check"></i><b>9.5.3</b> 权限掩码<code>umask</code></a></li>
+<li class="chapter" data-level="9.5.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.5.4"><i class="fa fa-check"></i><b>9.5.4</b> 归属</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.6"><i class="fa fa-check"></i><b>9.6</b> 文件（夹）的创建、查看、移动、复制和删除</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.6.1"><i class="fa fa-check"></i><b>9.6.1</b> 文件（夹）的创建</a></li>
+<li class="chapter" data-level="9.6.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.6.2"><i class="fa fa-check"></i><b>9.6.2</b> 文件（夹）的查看</a></li>
+<li class="chapter" data-level="9.6.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.6.3"><i class="fa fa-check"></i><b>9.6.3</b> 文件（夹）的复制</a></li>
+<li class="chapter" data-level="9.6.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.6.4"><i class="fa fa-check"></i><b>9.6.4</b> 文件（夹）的删除</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="chap-filesystem.html"><a href="chap-filesystem.html#-4"><i class="fa fa-check"></i><b>9.7</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-vim-find.html"><a href="chap-vim-find.html"><i class="fa fa-check"></i><b>10</b> 文件编辑与查找</a><ul>
+<li class="chapter" data-level="10.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 字符集和字符编码</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#ascii"><i class="fa fa-check"></i><b>10.1.1</b> ASCII</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gb2312"><i class="fa fa-check"></i><b>10.1.2</b> GB2312</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gbk"><i class="fa fa-check"></i><b>10.1.3</b> GBK字符集</a></li>
+<li class="chapter" data-level="10.1.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#big5"><i class="fa fa-check"></i><b>10.1.4</b> BIG5</a></li>
+<li class="chapter" data-level="10.1.5" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gb18030"><i class="fa fa-check"></i><b>10.1.5</b> GB18030</a></li>
+<li class="chapter" data-level="10.1.6" data-path="chap-vim-find.html"><a href="chap-vim-find.html#unicode"><i class="fa fa-check"></i><b>10.1.6</b> Unicode字符集</a></li>
+<li class="chapter" data-level="10.1.7" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.1.7"><i class="fa fa-check"></i><b>10.1.7</b> 编码的常用命令</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 编辑器</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.3"><i class="fa fa-check"></i><b>10.3</b> 文件查找</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#find-"><i class="fa fa-check"></i><b>10.3.1</b> <code>find</code> 查找文件</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#grep-"><i class="fa fa-check"></i><b>10.3.2</b> <code>grep</code> 查找文件内部信息</a></li>
+<li class="chapter" data-level="10.3.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.3.3"><i class="fa fa-check"></i><b>10.3.3</b> 其他检索工具</a></li>
+<li class="chapter" data-level="10.3.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.3.4"><i class="fa fa-check"></i><b>10.3.4</b> 正则表达式</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#-5"><i class="fa fa-check"></i><b>10.4</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-manager-process.html"><a href="chap-manager-process.html"><i class="fa fa-check"></i><b>11</b> 进程管理</a><ul>
+<li class="chapter" data-level="11.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.1"><i class="fa fa-check"></i><b>11.1</b> 何谓进程</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.2"><i class="fa fa-check"></i><b>11.2</b> 深度系统监视器管理进程</a></li>
+<li class="chapter" data-level="11.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.3"><i class="fa fa-check"></i><b>11.3</b> 命令方式查看进程</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#ps-"><i class="fa fa-check"></i><b>11.3.1</b> ps 命令基本用法</a></li>
+<li class="chapter" data-level="11.3.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#top-"><i class="fa fa-check"></i><b>11.3.2</b> top 命令基本用法</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.4"><i class="fa fa-check"></i><b>11.4</b> 进程的分类</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.4.1"><i class="fa fa-check"></i><b>11.4.1</b> 怎么生成后台进程呢？</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="chap-manager-process.html"><a href="chap-manager-process.html#killing-and-renicing"><i class="fa fa-check"></i><b>11.5</b> 进程的终结与调整优先级（Killing and Renicing）</a></li>
+<li class="chapter" data-level="11.6" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6</b> 通过<code>cgroups</code>限制进程</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6.1</b> <code>cgroups</code>是什么？</a></li>
+<li class="chapter" data-level="11.6.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6.2</b> <code>cgroups</code>可以做什么？</a></li>
+<li class="chapter" data-level="11.6.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6.3</b> <code>cgroups</code>相关概念及其关系</a></li>
+<li class="chapter" data-level="11.6.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6.4</b> <code>cgroups</code>子系统介绍</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.7"><i class="fa fa-check"></i><b>11.7</b> 进程的状态</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxr-task_running"><i class="fa fa-check"></i><b>11.7.1</b> Linux进程状态：R (TASK_RUNNING)，可执行状态。</a></li>
+<li class="chapter" data-level="11.7.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxs-task_interruptible"><i class="fa fa-check"></i><b>11.7.2</b> Linux进程状态：S (TASK_INTERRUPTIBLE)，可中断的睡眠状态。</a></li>
+<li class="chapter" data-level="11.7.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxd-task_uninterruptible"><i class="fa fa-check"></i><b>11.7.3</b> Linux进程状态：D (TASK_UNINTERRUPTIBLE)，不可中断的睡眠状态。</a></li>
+<li class="chapter" data-level="11.7.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxt-task_stopped-or-task_traced"><i class="fa fa-check"></i><b>11.7.4</b> Linux进程状态：T (TASK_STOPPED or TASK_TRACED)，暂停状态或跟踪状态。</a></li>
+<li class="chapter" data-level="11.7.5" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxz-task_dead---exit_zombie"><i class="fa fa-check"></i><b>11.7.5</b> Linux进程状态：Z (TASK_DEAD - EXIT_ZOMBIE)，退出状态，进程成为僵尸进程。</a></li>
+<li class="chapter" data-level="11.7.6" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxx-task_dead---exit_dead"><i class="fa fa-check"></i><b>11.7.6</b> Linux进程状态：X (TASK_DEAD - EXIT_DEAD)，退出状态，进程即将被销毁。</a></li>
+<li class="chapter" data-level="11.7.7" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.7.7"><i class="fa fa-check"></i><b>11.7.7</b> 进程的初始状态</a></li>
+<li class="chapter" data-level="11.7.8" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.7.8"><i class="fa fa-check"></i><b>11.7.8</b> 进程状态变迁</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="chap-manager-process.html"><a href="chap-manager-process.html#-6"><i class="fa fa-check"></i><b>11.8</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html"><i class="fa fa-check"></i><b>12</b> 简单bash脚本</a><ul>
+<li class="chapter" data-level="12.1" data-path="chap-shell.html"><a href="chap-shell.html#-shell-"><i class="fa fa-check"></i><b>12.1</b> 何谓 shell 脚本</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.1.1"><i class="fa fa-check"></i><b>12.1.1</b> 执行和调试</a></li>
+<li class="chapter" data-level="12.1.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell-"><i class="fa fa-check"></i><b>12.1.2</b> shell 变量</a></li>
+<li class="chapter" data-level="12.1.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.1.3"><i class="fa fa-check"></i><b>12.1.3</b> 特殊变量</a></li>
+<li class="chapter" data-level="12.1.4" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.1.4"><i class="fa fa-check"></i><b>12.1.4</b> 执行时输入参数</a></li>
+<li class="chapter" data-level="12.1.5" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.1.5"><i class="fa fa-check"></i><b>12.1.5</b> 其他需求的参数</a></li>
+<li class="chapter" data-level="12.1.6" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.1.6"><i class="fa fa-check"></i><b>12.1.6</b> 简单计算</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell-"><i class="fa fa-check"></i><b>12.2</b> shell 脚本的三大结构</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.2.1"><i class="fa fa-check"></i><b>12.2.1</b> 分支结构的语法</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#sed"><i class="fa fa-check"></i><b>12.3</b> 流编辑器<code>sed</code></a></li>
+<li class="chapter" data-level="12.4" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell-uc-"><i class="fa fa-check"></i><b>12.4</b> shell脚本例子：转换 UC 缓存视频</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#-file.txt"><i class="fa fa-check"></i><b>12.4.1</b> 生成 <code>file.txt</code>文件</a></li>
+<li class="chapter" data-level="12.4.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#-mp4-"><i class="fa fa-check"></i><b>12.4.2</b> 生成 MP4 文件</a></li>
+<li class="chapter" data-level="12.4.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#-bash-"><i class="fa fa-check"></i><b>12.4.3</b> 做成一个 bash 脚本</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#-7"><i class="fa fa-check"></i><b>12.5</b> 总结</a></li>
+</ul></li>
+<li class="part"><span><b>III 本机管理员</b></span></li>
+<li class="chapter" data-level="13" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>13</b> </a></li>
+<li class="chapter" data-level="14" data-path="deepin-install.html"><a href="deepin-install.html"><i class="fa fa-check"></i><b>14</b> 深度系统安装</a><ul>
+<li class="chapter" data-level="14.1" data-path="deepin-install.html"><a href="deepin-install.html#uefi--legacy-bios-"><i class="fa fa-check"></i><b>14.1</b> UEFI 和 legacy BIOS 区别和联系</a></li>
+<li class="chapter" data-level="14.2" data-path="deepin-install.html"><a href="deepin-install.html#section-14.2"><i class="fa fa-check"></i><b>14.2</b> 优盘安装</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="deepin-install.html"><a href="deepin-install.html#-deepin.iso-"><i class="fa fa-check"></i><b>14.2.1</b> 第一步下载并校验 deepin.iso 文件</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="deepin-install.html"><a href="deepin-install.html#section-14.3"><i class="fa fa-check"></i><b>14.3</b> 安装遇到的问题</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="software-install.html"><a href="software-install.html"><i class="fa fa-check"></i><b>15</b> 软件安装</a><ul>
+<li class="chapter" data-level="15.1" data-path="software-install.html"><a href="software-install.html#npm-"><i class="fa fa-check"></i><b>15.1</b> npm 软件的安装</a></li>
+<li class="chapter" data-level="15.2" data-path="software-install.html"><a href="software-install.html#veil-"><i class="fa fa-check"></i><b>15.2</b> veil 软件安装</a></li>
+<li class="chapter" data-level="15.3" data-path="software-install.html"><a href="software-install.html#dpkg-"><i class="fa fa-check"></i><b>15.3</b> dpkg 安装</a></li>
+<li class="chapter" data-level="15.4" data-path="software-install.html"><a href="software-install.html#section-15.4"><i class="fa fa-check"></i><b>15.4</b> 其他安装方式</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="software-install.html"><a href="software-install.html#bitnami"><i class="fa fa-check"></i><b>15.4.1</b> bitnami</a></li>
+<li class="chapter" data-level="15.4.2" data-path="software-install.html"><a href="software-install.html#turnkeylinux"><i class="fa fa-check"></i><b>15.4.2</b> turnkeylinux</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="software-install.html"><a href="software-install.html#you-get-"><i class="fa fa-check"></i><b>15.5</b> you-get 软件的安装</a></li>
+<li class="chapter" data-level="15.6" data-path="software-install.html"><a href="software-install.html#section-15.6"><i class="fa fa-check"></i><b>15.6</b> 字体的安装</a></li>
+<li class="chapter" data-level="15.7" data-path="software-install.html"><a href="software-install.html#section-15.7"><i class="fa fa-check"></i><b>15.7</b> 输入法的安装</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="manager-user.html"><a href="manager-user.html"><i class="fa fa-check"></i><b>16</b> 管理账户</a><ul>
+<li class="chapter" data-level="16.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#-1"><i class="fa fa-check"></i><b>16.1</b> 引言</a></li>
+<li class="chapter" data-level="16.2" data-path="manager-user.html"><a href="manager-user.html#section-16.2"><i class="fa fa-check"></i><b>16.2</b> 创建账户</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="manager-user.html"><a href="manager-user.html#section-16.2.1"><i class="fa fa-check"></i><b>16.2.1</b> 图形方式</a></li>
+<li class="chapter" data-level="16.2.2" data-path="manager-user.html"><a href="manager-user.html#section-16.2.2"><i class="fa fa-check"></i><b>16.2.2</b> 命令方式</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV 服务器管理员</b></span></li>
+<li class="chapter" data-level="17" data-path="chap-server-intro.html"><a href="chap-server-intro.html"><i class="fa fa-check"></i><b>17</b> 服务器简介</a></li>
+<li class="chapter" data-level="18" data-path="web-server-.html"><a href="web-server-.html"><i class="fa fa-check"></i><b>18</b> Web Server 的搭建与运行</a><ul>
+<li class="chapter" data-level="18.1" data-path="web-server-.html"><a href="web-server-.html#section-18.1"><i class="fa fa-check"></i><b>18.1</b> 面向开发的一键安装类型</a></li>
+<li class="chapter" data-level="18.2" data-path="web-server-.html"><a href="web-server-.html#section-18.2"><i class="fa fa-check"></i><b>18.2</b> 关注效率稳定的搭建方法</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="-windows-samba-.html"><a href="-windows-samba-.html"><i class="fa fa-check"></i><b>19</b> 与 Windows 共享文件打印机的 samba 服务</a><ul>
+<li class="chapter" data-level="19.1" data-path="-windows-samba-.html"><a href="-windows-samba-.html#samba-"><i class="fa fa-check"></i><b>19.1</b> Samba 文件传输服务简介</a></li>
+<li class="chapter" data-level="19.2" data-path="-windows-samba-.html"><a href="-windows-samba-.html#-samba-"><i class="fa fa-check"></i><b>19.2</b> 深度自带 samba 的使用</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.2.1"><i class="fa fa-check"></i><b>19.2.1</b> 共享本地文件</a></li>
+<li class="chapter" data-level="19.2.2" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.2.2"><i class="fa fa-check"></i><b>19.2.2</b> 访问共享文件</a></li>
+<li class="chapter" data-level="19.2.3" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.2.3"><i class="fa fa-check"></i><b>19.2.3</b> 我的共享</a></li>
+<li class="chapter" data-level="19.2.4" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.2.4"><i class="fa fa-check"></i><b>19.2.4</b> 可能存在的小问题</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="-windows-samba-.html"><a href="-windows-samba-.html#-samba-"><i class="fa fa-check"></i><b>19.3</b> 关于 samba 的配置</a><ul>
+<li class="chapter" data-level="19.3.1" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.3.1"><i class="fa fa-check"></i><b>19.3.1</b> 手动安装</a></li>
+<li class="chapter" data-level="19.3.2" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.3.2"><i class="fa fa-check"></i><b>19.3.2</b> 启动与停止</a></li>
+<li class="chapter" data-level="19.3.3" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.3.3"><i class="fa fa-check"></i><b>19.3.3</b> 配置文件</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="-windows-samba-.html"><a href="-windows-samba-.html#-u-file-"><i class="fa fa-check"></i><b>19.4</b> 例：借助安卓软件 U-File 实现手机电脑互传</a><ul>
+<li class="chapter" data-level="19.4.1" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.4.1"><i class="fa fa-check"></i><b>19.4.1</b> 开启局域网</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V 安全</b></span></li>
+<li class="chapter" data-level="20" data-path="chap-network-security.html"><a href="chap-network-security.html"><i class="fa fa-check"></i><b>20</b> 网络安全</a></li>
+<li class="part"><span><b>VI 附录</b></span></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="A" data-path="chap-yugong.html"><a href="chap-yugong.html"><i class="fa fa-check"></i><b>A</b> 愚公移山</a></li>
+<li class="chapter" data-level="B" data-path="chap-makebook.html"><a href="chap-makebook.html"><i class="fa fa-check"></i><b>B</b> 如何制作本书</a><ul>
+<li class="chapter" data-level="B.1" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-B.1"><i class="fa fa-check"></i><b>B.1</b> 准备工作</a><ul>
+<li class="chapter" data-level="B.1.1" data-path="chap-makebook.html"><a href="chap-makebook.html#linux-"><i class="fa fa-check"></i><b>B.1.1</b> Linux 下使用</a></li>
+<li class="chapter" data-level="B.1.2" data-path="chap-makebook.html"><a href="chap-makebook.html#windows-"><i class="fa fa-check"></i><b>B.1.2</b> Windows 下使用</a></li>
+<li class="chapter" data-level="B.1.3" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-B.1.3"><i class="fa fa-check"></i><b>B.1.3</b> 苹果操作系统下使用</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-B.2"><i class="fa fa-check"></i><b>B.2</b> 编译模板</a><ul>
+<li class="chapter" data-level="B.2.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#-"><i class="fa fa-check"></i><b>B.2.1</b> 第一种编译方法 —— 命令行编译</a></li>
+<li class="chapter" data-level="B.2.2" data-path="chap-makebook.html"><a href="chap-makebook.html#-rstudio"><i class="fa fa-check"></i><b>B.2.2</b> 第二种编译方法 —— RStudio编译</a></li>
+<li class="chapter" data-level="B.2.3" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-B.2.3"><i class="fa fa-check"></i><b>B.2.3</b> 字数统计</a></li>
+<li class="chapter" data-level="B.2.4" data-path="chap-makebook.html"><a href="chap-makebook.html#-r-"><i class="fa fa-check"></i><b>B.2.4</b> 本书编译的 R 各包信息</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-B.3"><i class="fa fa-check"></i><b>B.3</b> 文件布局</a></li>
+<li class="chapter" data-level="B.4" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-B.4"><i class="fa fa-check"></i><b>B.4</b> 主要文件介绍</a><ul>
+<li class="chapter" data-level="B.4.1" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-B.4.1"><i class="fa fa-check"></i><b>B.4.1</b> 模板文件</a></li>
+<li class="chapter" data-level="B.4.2" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-B.4.2"><i class="fa fa-check"></i><b>B.4.2</b> 各章源文件</a></li>
+<li class="chapter" data-level="B.4.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#-1"><i class="fa fa-check"></i><b>B.4.3</b> 配置文件</a></li>
+<li class="chapter" data-level="B.4.4" data-path="chap-makebook.html"><a href="chap-makebook.html#intro:fig"><i class="fa fa-check"></i><b>B.4.4</b> 图片文件夹 images</a></li>
+<li class="chapter" data-level="B.4.5" data-path="chap-makebook.html"><a href="chap-makebook.html#intro:bib"><i class="fa fa-check"></i><b>B.4.5</b> 参考文献数据库bib</a></li>
+<li class="chapter" data-level="B.4.6" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-B.4.6"><i class="fa fa-check"></i><b>B.4.6</b> 辅助文件</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="chap-chapters.html"><a href="chap-chapters.html"><i class="fa fa-check"></i><b>C</b> 各章格式说明</a><ul>
+<li class="chapter" data-level="C.1" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-C.1"><i class="fa fa-check"></i><b>C.1</b> 章：前言</a></li>
+<li class="chapter" data-level="C.2" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-C.2"><i class="fa fa-check"></i><b>C.2</b> 前言后的部分章节</a></li>
+<li class="chapter" data-level="C.3" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-C.3"><i class="fa fa-check"></i><b>C.3</b> 部分：第一部分简介</a></li>
+<li class="chapter" data-level="C.4" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-C.4"><i class="fa fa-check"></i><b>C.4</b> 各部分内部的章</a></li>
+<li class="chapter" data-level="C.5" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-C.5"><i class="fa fa-check"></i><b>C.5</b> 部分：附录及其他</a></li>
+<li class="chapter" data-level="C.6" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-C.6"><i class="fa fa-check"></i><b>C.6</b> 附录内部各章</a></li>
+<li class="chapter" data-level="C.7" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-C.7"><i class="fa fa-check"></i><b>C.7</b> 后缀部分</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html"><i class="fa fa-check"></i><b>D</b> RMarkdown/Bookdown 排版示例</a><ul>
+<li class="chapter" data-level="D.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#markdown-syntax"><i class="fa fa-check"></i><b>D.1</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="D.1.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#inline-formatting"><i class="fa fa-check"></i><b>D.1.1</b> Inline formatting</a></li>
+<li class="chapter" data-level="D.1.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#block-level-elements"><i class="fa fa-check"></i><b>D.1.2</b> Block-level elements</a></li>
+<li class="chapter" data-level="D.1.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#math-expressions"><i class="fa fa-check"></i><b>D.1.3</b> Math expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="D.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#markdown-extensions-by-bookdown"><i class="fa fa-check"></i><b>D.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="D.2.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#equations"><i class="fa fa-check"></i><b>D.2.1</b> Number and reference equations</a></li>
+<li class="chapter" data-level="D.2.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#theorems"><i class="fa fa-check"></i><b>D.2.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="D.2.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#special-headers"><i class="fa fa-check"></i><b>D.2.3</b> Special headers</a></li>
+<li class="chapter" data-level="D.2.4" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#text-references"><i class="fa fa-check"></i><b>D.2.4</b> Text references</a></li>
+</ul></li>
+<li class="chapter" data-level="D.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#r-code"><i class="fa fa-check"></i><b>D.3</b> R code</a></li>
+<li class="chapter" data-level="D.4" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#figures"><i class="fa fa-check"></i><b>D.4</b> Figures</a></li>
+<li class="chapter" data-level="D.5" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#tables"><i class="fa fa-check"></i><b>D.5</b> Tables</a></li>
+<li class="chapter" data-level="D.6" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#cross-references"><i class="fa fa-check"></i><b>D.6</b> Cross-references</a></li>
+<li class="chapter" data-level="D.7" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#custom-blocks"><i class="fa fa-check"></i><b>D.7</b> Custom blocks</a></li>
+<li class="chapter" data-level="D.8" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#citations"><i class="fa fa-check"></i><b>D.8</b> Citations</a></li>
+<li class="chapter" data-level="D.9" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#latex-index"><i class="fa fa-check"></i><b>D.9</b> Index</a></li>
+<li class="chapter" data-level="D.10" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#html-widgets"><i class="fa fa-check"></i><b>D.10</b> HTML widgets</a></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="chap-faqs.html"><a href="chap-faqs.html"><i class="fa fa-check"></i><b>E</b> 常见问题</a></li>
+<li class="chapter" data-level="F" data-path="install-further-read.html"><a href="install-further-read.html"><i class="fa fa-check"></i><b>F</b> 操作系统安装延伸阅读</a><ul>
+<li class="chapter" data-level="F.1" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-F.1"><i class="fa fa-check"></i><b>F.1</b> 计算机引导过程</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="install-further-read.html"><a href="install-further-read.html#-bios-"><i class="fa fa-check"></i><b>F.1.1</b> 传统 BIOS 引导</a></li>
+<li class="chapter" data-level="F.1.2" data-path="install-further-read.html"><a href="install-further-read.html#uefi-"><i class="fa fa-check"></i><b>F.1.2</b> UEFI 引导</a></li>
+<li class="chapter" data-level="F.1.3" data-path="install-further-read.html"><a href="install-further-read.html#uefi-"><i class="fa fa-check"></i><b>F.1.3</b> UEFI 的多重引导</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="install-further-read.html"><a href="install-further-read.html#-bios-"><i class="fa fa-check"></i><b>F.2</b> 常见 BIOS 设置</a><ul>
+<li class="chapter" data-level="F.2.1" data-path="./rmd/805-appendix-rmarkdown.html"><a href="#section-F.2.1"><i class="fa fa-check"></i><b>F.2.1</b> 常见启动引导器</a></li>
+<li class="chapter" data-level="F.2.2" data-path="install-further-read.html"><a href="install-further-read.html#ntldrbootmgr"><i class="fa fa-check"></i><b>F.2.2</b> NTLDR/BOOTMGR</a></li>
+<li class="chapter" data-level="F.2.3" data-path="install-further-read.html"><a href="install-further-read.html#gnu-grub-"><i class="fa fa-check"></i><b>F.2.3</b> GNU GRUB 及其使用</a></li>
+</ul></li>
+<li class="chapter" data-level="F.3" data-path="chap-makebook.html"><a href="chap-makebook.html#linux-"><i class="fa fa-check"></i><b>F.3</b> LINUX 启动过程</a><ul>
+<li class="chapter" data-level="F.3.1" data-path="install-further-read.html"><a href="install-further-read.html#vmlinuz"><i class="fa fa-check"></i><b>F.3.1</b> VMLINUZ</a></li>
+<li class="chapter" data-level="F.3.2" data-path="install-further-read.html"><a href="install-further-read.html#initrd"><i class="fa fa-check"></i><b>F.3.2</b> INITRD</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="history.html"><a href="history.html"><i class="fa fa-check"></i><b>G</b> 大事记</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">深度易经</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:rmarkdown" class="section level1">
+<h1><span class="header-section-number">D</span> RMarkdown/Bookdown 排版示例</h1>
+<p>本文无意全文翻译 RMarkdown/Bookdown 的使用方法，只是简单的复制，详细内容请参考页面：</p>
+<ul>
+<li><a href="https://rmarkdown.rstudio.com/lesson-1.html" class="uri">https://rmarkdown.rstudio.com/lesson-1.html</a></li>
+<li><a href="https://bookdown.org/yihui/bookdown/" class="uri">https://bookdown.org/yihui/bookdown/</a></li>
+<li><a href="https://bookdown.org/yihui/bookdown/components.html" class="uri">https://bookdown.org/yihui/bookdown/components.html</a></li>
+<li><a href="http://pandoc.org/" class="uri">http://pandoc.org/</a></li>
+</ul>
+<p>以下为全文复制 <a href="https://bookdown.org/yihui/bookdown/components.html" class="uri">https://bookdown.org/yihui/bookdown/components.html</a> ，有改动。</p>
+<p>This chapter demonstrates the syntax of common components of a book written in <strong>bookdown</strong>, including code chunks, figures, tables, citations, math theorems, and equations. The approach is based on Pandoc, so we start with the syntax of Pandoc’s flavor of Markdown.</p>
+<div id="markdown-syntax" class="section level2">
+<h2><span class="header-section-number">D.1</span> Markdown syntax</h2>
+<p>In this section, we give a very brief introduction to Pandoc’s Markdown. Readers who are familiar with Markdown can skip this section. The comprehensive syntax of Pandoc’s Markdown can be found on the Pandoc website <a href="http://pandoc.org" class="uri">http://pandoc.org</a>.</p>
+<div id="inline-formatting" class="section level3">
+<h3><span class="header-section-number">D.1.1</span> Inline formatting</h3>
+<p>You can make text <em>italic</em> by surrounding it with underscores or asterisks, e.g., <code>_text_</code> or <code>*text*</code>. For <strong>bold</strong> text, use two underscores (<code>__text__</code>) or asterisks (<code>**text**</code>). Text surrounded by <code>~</code> will be converted to a subscript (e.g., <code>H~2~SO~4~</code> renders H<sub>2</sub>SO<sub>4</sub>), and similarly, two carets (<code>^</code>) produce a superscript (e.g., <code>Fe^2+^</code> renders Fe<sup>2+</sup>). To mark text as <code>inline code</code>, use a pair of backticks, e.g., <code>`code`</code>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> Small caps can be produced by the HTML tag <code>span</code>, e.g., <code>&lt;span style=&quot;font-variant:small-caps;&quot;&gt;Small Caps&lt;/span&gt;</code> renders <span class="smallcaps">Small Caps</span>. Links are created using <code>[text](link)</code>, e.g., <code>[RStudio](https://www.rstudio.com)</code>, and the syntax for images is similar: just add an exclamation mark, e.g., <code>![alt text or image title](path/to/image)</code>. Footnotes are put inside the square brackets after a caret <code>^[]</code>, e.g., <code>^[This is a footnote.]</code>. We will talk about citations in Section <a href="chap-rmarkdown.html#citations">D.8</a>.</p>
+</div>
+<div id="block-level-elements" class="section level3">
+<h3><span class="header-section-number">D.1.2</span> Block-level elements</h3>
+<p>Section headers can be written after a number of pound signs, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># First-level header</span>
+
+<span class="fu">## Second-level header</span>
+
+<span class="fu">### Third-level header</span></code></pre>
+<p>If you do not want a certain heading to be numbered, you can add <code>{-}</code> after the heading, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="fu"># Preface {-}</span></code></pre>
+<p>Unordered list items start with <code>*</code>, <code>-</code>, or <code>+</code>, and you can nest one list within another list by indenting the sub-list by four spaces, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown">- <span class="fl">one item</span>
+<span class="fl">- one item</span>
+<span class="fl">- one item</span>
+<span class="fl">    - one item</span>
+<span class="fl">    - one item</span></code></pre>
+<p>The output is:</p>
+<ul>
+<li>one item</li>
+<li>one item</li>
+<li>one item
+<ul>
+<li>one item</li>
+<li>one item</li>
+</ul></li>
+</ul>
+<p>Ordered list items start with numbers (the rule for nested lists is the same as above), e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown">1. <span class="fl">the first item</span>
+<span class="fl">2. the second item</span>
+<span class="fl">3. the third item</span></code></pre>
+<p>The output does not look too much different with the Markdown source:</p>
+<ol style="list-style-type: decimal">
+<li>the first item</li>
+<li>the second item</li>
+<li>the third item</li>
+</ol>
+<p>Blockquotes are written after <code>&gt;</code>, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown">&gt;<span class="dt"> &quot;I thoroughly disapprove of duels. If a man should challenge me,</span>
+<span class="dt">  I would take him kindly and forgivingly by the hand and lead him</span>
+<span class="dt">  to a quiet place and kill him.&quot;</span>
+<span class="dt">&gt;</span>
+<span class="dt">&gt; --- Mark Twain</span></code></pre>
+<p>The actual output (we customized the style for blockquotes in this book):</p>
+<blockquote>
+<p>“I thoroughly disapprove of duels. If a man should challenge me,
+I would take him kindly and forgivingly by the hand and lead him
+to a quiet place and kill him.”</p>
+<p>— Mark Twain</p>
+</blockquote>
+<p>Plain code blocks can be written after three or more backticks, and you can also indent the blocks by four spaces, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">```</span>
+<span class="bn">This text is displayed verbatim / preformatted</span>
+<span class="bn">```</span>
+
+Or indent by four spaces:
+
+<span class="bn">    This text is displayed verbatim / preformatted</span></code></pre>
+</div>
+<div id="math-expressions" class="section level3">
+<h3><span class="header-section-number">D.1.3</span> Math expressions</h3>
+<p>Inline LaTeX equations can be written in a pair of dollar signs using the LaTeX syntax, e.g., <code>$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$</code> (actual output: <span class="math inline">\(f(k)={n \choose k}p^{k}(1-p)^{n-k}\)</span>); math expressions of the display style can be written in a pair of double dollar signs, e.g., <code>$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$</code>, and the output looks like this:</p>
+<p><span class="math display">\[f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k}\]</span></p>
+<p>You can also use math environments inside <code>$ $</code> or <code>$$ $$</code>, e.g.,</p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{array}{ccc}</span>
+<span class="ss">x_{11} &amp; x_{12} &amp; x_{13}</span><span class="sc">\\</span>
+<span class="ss">x_{21} &amp; x_{22} &amp; x_{23}</span>
+<span class="sc">\end</span><span class="ss">{array}$$</span></code></pre>
+<p><span class="math display">\[\begin{array}{ccc}
+x_{11} &amp; x_{12} &amp; x_{13}\\
+x_{21} &amp; x_{22} &amp; x_{23}
+\end{array}\]</span></p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$X = </span><span class="sc">\begin</span><span class="ss">{bmatrix}1 &amp; x_{1}</span><span class="sc">\\</span>
+<span class="ss">1 &amp; x_{2}</span><span class="sc">\\</span>
+<span class="ss">1 &amp; x_{3}</span>
+<span class="sc">\end</span><span class="ss">{bmatrix}$$</span></code></pre>
+<p><span class="math display">\[X = \begin{bmatrix}1 &amp; x_{1}\\
+1 &amp; x_{2}\\
+1 &amp; x_{3}
+\end{bmatrix}\]</span></p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\Theta</span><span class="ss"> = </span><span class="sc">\begin</span><span class="ss">{pmatrix}</span><span class="sc">\alpha</span><span class="ss"> &amp; </span><span class="sc">\beta\\</span>
+<span class="sc">\gamma</span><span class="ss"> &amp; </span><span class="sc">\delta</span>
+<span class="sc">\end</span><span class="ss">{pmatrix}$$</span></code></pre>
+<p><span class="math display">\[\Theta = \begin{pmatrix}\alpha &amp; \beta\\
+\gamma &amp; \delta
+\end{pmatrix}\]</span></p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="ss">$$</span><span class="sc">\begin</span><span class="ss">{vmatrix}a &amp; b</span><span class="sc">\\</span>
+<span class="ss">c &amp; d</span>
+<span class="sc">\end</span><span class="ss">{vmatrix}=ad-bc$$</span></code></pre>
+<p><span class="math display">\[\begin{vmatrix}a &amp; b\\
+c &amp; d
+\end{vmatrix}=ad-bc\]</span></p>
+</div>
+</div>
+<div id="markdown-extensions-by-bookdown" class="section level2">
+<h2><span class="header-section-number">D.2</span> Markdown extensions by bookdown</h2>
+<p>Although Pandoc’s Markdown is much richer than the original Markdown syntax, it still lacks a number of things that we may need for academic writing. For example, it supports math equations, but you cannot number and reference equations in multi-page HTML or EPUB output. We have provided a few Markdown extensions in <strong>bookdown</strong> to fill the gaps.</p>
+<div id="equations" class="section level3">
+<h3><span class="header-section-number">D.2.1</span> Number and reference equations</h3>
+<p>To number and refer to equations, put them in the equation environments and assign labels to them using the syntax <code>(\#eq:label)</code>, e.g.,</p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span>
+<span class="ss">  f</span><span class="sc">\left</span><span class="ss">(k</span><span class="sc">\right</span><span class="ss">) = </span><span class="sc">\binom</span><span class="ss">{n}{k} p^k</span><span class="sc">\left</span><span class="ss">(1-p</span><span class="sc">\right</span><span class="ss">)^{n-k}</span>
+<span class="ss">  (</span><span class="sc">\#</span><span class="ss">eq:binom)</span>
+<span class="kw">\end</span>{<span class="ex">equation</span>} </code></pre>
+<p>It renders the equation below:</p>
+<p><span class="math display" id="eq:binom">\[\begin{equation}
+f\left(k\right)=\binom{n}{k}p^k\left(1-p\right)^{n-k} \tag{D.1}
+\end{equation}\]</span></p>
+<p>You may refer to it using <code>\@ref(eq:binom)</code>, e.g., see Equation <a href="chap-rmarkdown.html#eq:binom">(D.1)</a>.</p>
+
+<div class="rmdcaution">
+Equation labels must start with the prefix <code>eq:</code> in <strong>bookdown</strong>. All labels in <strong>bookdown</strong> must only contain alphanumeric characters, <code>:</code>, <code>-</code>, and/or <code>/</code>. Equation references work best for LaTeX/PDF output, and they are not well supported in Word output or e-books. For HTML output, <strong>bookdown</strong> can only number the equations with labels. Please make sure equations without labels are not numbered by either using the <code>equation*</code> environment or adding <code>\nonumber</code> or <code>\notag</code> to your equations. The same rules apply to other math environments, such as <code>eqnarray</code>, <code>gather</code>, <code>align</code>, and so on (e.g., you can use the <code>align*</code> environment).
+</div>
+
+<p>We demonstrate a few more math equation environments below. Here is an unnumbered equation using the <code>equation*</code> environment:</p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation*</span>}<span class="ss"> </span>
+<span class="sc">\frac</span><span class="ss">{d}{dx}</span><span class="sc">\left</span><span class="ss">( </span><span class="sc">\int</span><span class="ss">_{a}^{x} f(u)</span><span class="sc">\,</span><span class="ss">du</span><span class="sc">\right</span><span class="ss">)=f(x)</span>
+<span class="kw">\end</span>{<span class="ex">equation*</span>} </code></pre>
+<p><span class="math display">\[\begin{equation*}
+\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x)
+\end{equation*}\]</span></p>
+<p>Below is an <code>align</code> environment <a href="chap-rmarkdown.html#eq:align">(D.2)</a>:</p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">align</span>}<span class="ss"> </span>
+<span class="ss">g(X_{n}) &amp;= g(</span><span class="sc">\theta</span><span class="ss">)+g&#39;({</span><span class="sc">\tilde</span><span class="ss">{</span><span class="sc">\theta</span><span class="ss">}})(X_{n}-</span><span class="sc">\theta</span><span class="ss">) </span><span class="sc">\notag</span><span class="ss"> </span><span class="sc">\\</span>
+<span class="sc">\sqrt</span><span class="ss">{n}[g(X_{n})-g(</span><span class="sc">\theta</span><span class="ss">)] &amp;= g&#39;</span><span class="sc">\left</span><span class="ss">({</span><span class="sc">\tilde</span><span class="ss">{</span><span class="sc">\theta</span><span class="ss">}}</span><span class="sc">\right</span><span class="ss">)</span>
+<span class="ss">  </span><span class="sc">\sqrt</span><span class="ss">{n}[X_{n}-</span><span class="sc">\theta</span><span class="ss"> ] (</span><span class="sc">\#</span><span class="ss">eq:align)</span>
+<span class="kw">\end</span>{<span class="ex">align</span>} </code></pre>
+<p><span class="math display" id="eq:align">\[\begin{align}
+g(X_{n}) &amp;= g(\theta)+g&#39;({\tilde{\theta}})(X_{n}-\theta) \notag \\
+\sqrt{n}[g(X_{n})-g(\theta)] &amp;= g&#39;\left({\tilde{\theta}}\right)
+  \sqrt{n}[X_{n}-\theta ] \tag{D.2}
+\end{align}\]</span></p>
+<p>You can use the <code>split</code> environment inside <code>equation</code> so that all lines share the same number <a href="chap-rmarkdown.html#eq:var-beta">(D.3)</a>. By default, each line in the <code>align</code> environment will be assigned an equation number. We suppressed the number of the first line in the previous example using <code>\notag</code>. In this example, the whole <code>split</code> environment was assigned a single number.</p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">equation</span>}<span class="ss"> </span>
+<span class="kw">\begin</span>{<span class="ex">split</span>}
+<span class="sc">\mathrm</span><span class="ss">{Var}(</span><span class="sc">\hat</span><span class="ss">{</span><span class="sc">\beta</span><span class="ss">}) &amp; =</span><span class="sc">\mathrm</span><span class="ss">{Var}((X&#39;X)^{-1}X&#39;y)</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\mathrm</span><span class="ss">{Var}(y)X(X&#39;X)^{-1}</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}X&#39;</span><span class="sc">\sigma</span><span class="ss">^{2}IX(X&#39;X)^{-1}</span><span class="sc">\\</span>
+<span class="ss"> &amp; =(X&#39;X)^{-1}</span><span class="sc">\sigma</span><span class="ss">^{2}</span>
+<span class="kw">\end</span>{<span class="ss">split}</span>
+<span class="ss">(</span><span class="sc">\#</span><span class="ss">eq:var-beta)</span>
+<span class="kw">\end</span>{<span class="ex">equation</span>} </code></pre>
+<p><span class="math display" id="eq:var-beta">\[\begin{equation}
+\begin{split}
+\mathrm{Var}(\hat{\beta}) &amp; =\mathrm{Var}((X&#39;X)^{-1}X&#39;y)\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)((X&#39;X)^{-1}X&#39;)&#39;\\
+ &amp; =(X&#39;X)^{-1}X&#39;\mathrm{Var}(y)X(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}X&#39;\sigma^{2}IX(X&#39;X)^{-1}\\
+ &amp; =(X&#39;X)^{-1}\sigma^{2}
+\end{split}
+\tag{D.3}
+\end{equation}\]</span></p>
+</div>
+<div id="theorems" class="section level3">
+<h3><span class="header-section-number">D.2.2</span> Theorems and proofs</h3>
+<p>Theorems and proofs are commonly used in articles and books in mathematics. However, please do not be misled by the names: a “theorem” is just a numbered/labeled environment, and it does not have to be a mathematical theorem (e.g., it can be an example irrelevant to mathematics). Similarly, a “proof” is an unnumbered environment. In this section, we always use the <em>general</em> meanings of a “theorem” and “proof” unless explicitly stated.</p>
+<p>In <strong>bookdown</strong>, the types of theorem environments supported are in Table <a href="chap-rmarkdown.html#tab:theorem-envs">D.1</a>. To write a theorem, you can use the syntax below:</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">```{theorem}</span>
+<span class="bn">Here is my theorem.</span>
+<span class="bn">```</span></code></pre>
+
+<table>
+<caption><span id="tab:theorem-envs">Table D.1: </span>Theorem environments in <strong>bookdown</strong>.</caption>
+<thead>
+<tr class="header">
+<th align="left">Environment</th>
+<th align="left">Printed Name</th>
+<th align="left">Label Prefix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">theorem</td>
+<td align="left">Theorem</td>
+<td align="left">thm</td>
+</tr>
+<tr class="even">
+<td align="left">lemma</td>
+<td align="left">Lemma</td>
+<td align="left">lem</td>
+</tr>
+<tr class="odd">
+<td align="left">corollary</td>
+<td align="left">Corollary</td>
+<td align="left">cor</td>
+</tr>
+<tr class="even">
+<td align="left">proposition</td>
+<td align="left">Proposition</td>
+<td align="left">prp</td>
+</tr>
+<tr class="odd">
+<td align="left">conjecture</td>
+<td align="left">Conjecture</td>
+<td align="left">cnj</td>
+</tr>
+<tr class="even">
+<td align="left">definition</td>
+<td align="left">Definition</td>
+<td align="left">def</td>
+</tr>
+<tr class="odd">
+<td align="left">example</td>
+<td align="left">Example</td>
+<td align="left">exm</td>
+</tr>
+<tr class="even">
+<td align="left">exercise</td>
+<td align="left">Exercise</td>
+<td align="left">exr</td>
+</tr>
+</tbody>
+</table>
+<p>To write other theorem environments, replace <code>```{theorem}</code> with other environment names in Table <a href="chap-rmarkdown.html#tab:theorem-envs">D.1</a>, e.g., <code>```{lemma}</code>.</p>
+<p>A theorem can have a <code>name</code> option so its name will be printed, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">```{theorem, name=&quot;Pythagorean theorem&quot;}</span>
+<span class="bn">For a right triangle, if $c$ denotes the length of the hypotenuse</span>
+<span class="bn">and $a$ and $b$ denote the lengths of the other two sides, we have</span>
+<span class="bn">$$a^2 + b^2 = c^2$$</span>
+<span class="bn">```</span></code></pre>
+<p>If you want to refer to a theorem, you should label it. The label can be written after <code>```{theorem</code>, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">```{theorem, label=&quot;foo&quot;}</span>
+<span class="bn">A labeled theorem here.</span>
+<span class="bn">```</span></code></pre>
+<p>The <code>label</code> option can be implicit, e.g., the following theorem has the label <code>bar</code>:</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">```{theorem, bar}</span>
+<span class="bn">A labeled theorem here.</span>
+<span class="bn">```</span></code></pre>
+<p>After you label a theorem, you can refer to it using the syntax <code>\@ref(prefix:label)</code>. See the column <code>Label Prefix</code> in Table <a href="chap-rmarkdown.html#tab:theorem-envs">D.1</a> for the value of <code>prefix</code> for each environment. For example, we have a labeled and named theorem below, and <code>\@ref(thm:pyth)</code> gives us its theorem number <a href="chap-rmarkdown.html#thm:pyth">D.1</a>:</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">```{theorem, pyth, name=&quot;Pythagorean theorem&quot;}</span>
+<span class="bn">For a right triangle, if $c$ denotes the length of the hypotenuse</span>
+<span class="bn">and $a$ and $b$ denote the lengths of the other two sides, we have</span>
+
+<span class="bn">$$a^2 + b^2 = c^2$$</span>
+<span class="bn">```</span></code></pre>
+
+<div class="theorem">
+<p><span id="thm:pyth" class="theorem"><strong>Theorem D.1  (Pythagorean theorem)  </strong></span>For a right triangle, if <span class="math inline">\(c\)</span> denotes the length of the hypotenuse
+and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the other two sides, we have</p>
+<span class="math display">\[a^2 + b^2 = c^2\]</span>
+</div>
+
+<p>The proof environments currently supported are <code>proof</code>, <code>remark</code>, and <code>solution</code>. The syntax is similar to theorem environments, and proof environments can also be named. The only difference is that since they are unnumbered, you cannot reference them.</p>
+<p>We have tried to make all these theorem and proof environments work out of the box, no matter if your output is PDF, HTML, or EPUB. If you are a LaTeX or HTML expert, you may want to customize the style of these environments anyway (see Chapter <a href="#customization"><strong>??</strong></a>). Customization in HTML is easy with CSS, and each environment is enclosed in <code>&lt;div&gt;&lt;/div&gt;</code> with the CSS class being the environment name, e.g., <code>&lt;div class=&quot;lemma&quot;&gt;&lt;/div&gt;</code>. For LaTeX output, we have predefined the style to be <code>definition</code> for environments <code>definition</code>, <code>example</code>, and <code>exercise</code>, and <code>remark</code> for environments <code>proof</code> and <code>remark</code>. All other environments use the <code>plain</code> style. The style definition is done through the <code>\theoremstyle{}</code> command of the <strong>amsthm</strong> package.</p>
+<p>Theorems are numbered by chapters by default. If there are no chapters in your document, they are numbered by sections instead. If the whole document is unnumbered (the output format option <code>number_sections = FALSE</code>), all theorems are numbered sequentially from 1, 2, …, N. LaTeX supports numbering one theorem environment after another, e.g., let theorems and lemmas share the same counter. This is not supported for HTML/EPUB output in <strong>bookdown</strong>. You can change the numbering scheme in the LaTeX preamble by defining your own theorem environments, e.g.,</p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="fu">\newtheorem</span>{theorem}{Theorem}
+<span class="fu">\newtheorem</span>{lemma}[theorem]{Lemma}</code></pre>
+<p>When <strong>bookdown</strong> detects <code>\newtheorem{theorem}</code> in your LaTeX preamble, it will not write out its default theorem definitions, which means you have to define all theorem environments by yourself. For the sake of simplicity and consistency, we do not recommend that you do this. It can be confusing when your Theorem 18 in PDF becomes Theorem 2.4 in HTML.</p>
+<p>Theorem and proof environments will be hidden if the chunk option <code>echo</code> is set to <code>FALSE</code>. To make sure they are always shown, you may add the chunk option <code>echo=TRUE</code>, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">```{theorem, echo=TRUE}</span>
+<span class="bn">Here is my theorem.</span>
+<span class="bn">```</span></code></pre>
+<p>Below we show more examples<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> of the theorem and proof environments, so you can see the default styles in <strong>bookdown</strong>.</p>
+
+<div class="definition">
+<p><span id="def:unnamed-chunk-6" class="definition"><strong>Definition D.1  </strong></span>The characteristic function of a random variable <span class="math inline">\(X\)</span> is defined by</p>
+<span class="math display">\[\varphi _{X}(t)=\operatorname {E} \left[e^{itX}\right], \; t\in\mathcal{R}\]</span>
+</div>
+
+
+<div class="example">
+<p><span id="exm:unnamed-chunk-7" class="example"><strong>Example D.1  </strong></span>We derive the characteristic function of <span class="math inline">\(X\sim U(0,1)\)</span> with the probability density function <span class="math inline">\(f(x)=\mathbf{1}_{x \in [0,1]}\)</span>.</p>
+<p><span class="math display">\[\begin{equation*}
+\begin{split}
+\varphi _{X}(t) &amp;= \operatorname {E} \left[e^{itX}\right]\\
+ &amp; =\int e^{itx}f(x)dx\\
+ &amp; =\int_{0}^{1}e^{itx}dx\\
+ &amp; =\int_{0}^{1}\left(\cos(tx)+i\sin(tx)\right)dx\\
+ &amp; =\left.\left(\frac{\sin(tx)}{t}-i\frac{\cos(tx)}{t}\right)\right|_{0}^{1}\\
+ &amp; =\frac{\sin(t)}{t}-i\left(\frac{\cos(t)-1}{t}\right)\\
+ &amp; =\frac{i\sin(t)}{it}+\frac{\cos(t)-1}{it}\\
+ &amp; =\frac{e^{it}-1}{it}
+\end{split}
+\end{equation*}\]</span></p>
+Note that we used the fact <span class="math inline">\(e^{ix}=\cos(x)+i\sin(x)\)</span> twice.
+</div>
+
+
+<div class="lemma">
+<p><span id="lem:chf-pdf" class="lemma"><strong>Lemma D.1  </strong></span>For any two random variables <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, they both have the same probability distribution if and only if</p>
+<span class="math display">\[\varphi _{X_1}(t)=\varphi _{X_2}(t)\]</span>
+</div>
+
+
+<div class="theorem">
+<p><span id="thm:chf-sum" class="theorem"><strong>Theorem D.2  </strong></span>If <span class="math inline">\(X_1\)</span>, …, <span class="math inline">\(X_n\)</span> are independent random variables, and <span class="math inline">\(a_1\)</span>, …, <span class="math inline">\(a_n\)</span> are some constants, then the characteristic function of the linear combination <span class="math inline">\(S_n=\sum_{i=1}^na_iX_i\)</span> is</p>
+<span class="math display">\[\varphi _{S_{n}}(t)=\prod_{i=1}^n\varphi _{X_i}(a_{i}t)=\varphi _{X_{1}}(a_{1}t)\cdots \varphi _{X_{n}}(a_{n}t)\]</span>
+</div>
+
+
+<div class="proposition">
+<span id="prp:unnamed-chunk-8" class="proposition"><strong>Proposition D.1  </strong></span>The distribution of the sum of independent Poisson random variables <span class="math inline">\(X_i \sim \mathrm{Pois}(\lambda_i),\: i=1,2,\cdots,n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
+</div>
+
+
+<div class="proof">
+<p> <span class="proof"><em>Proof. </em></span> The characteristic function of <span class="math inline">\(X\sim\mathrm{Pois}(\lambda)\)</span> is <span class="math inline">\(\varphi _{X}(t)=e^{\lambda (e^{it}-1)}\)</span>. Let <span class="math inline">\(P_n=\sum_{i=1}^nX_i\)</span>. We know from Theorem <a href="chap-rmarkdown.html#thm:chf-sum">D.2</a> that</p>
+<p><span class="math display">\[\begin{equation*}
+\begin{split}
+\varphi _{P_{n}}(t) &amp; =\prod_{i=1}^n\varphi _{X_i}(t) \\
+&amp; =\prod_{i=1}^n e^{\lambda_i (e^{it}-1)} \\
+&amp; = e^{\sum_{i=1}^n \lambda_i (e^{it}-1)}
+\end{split}
+\end{equation*}\]</span></p>
+This is the characteristic function of a Poisson random variable with the parameter <span class="math inline">\(\lambda=\sum_{i=1}^n \lambda_i\)</span>. From Lemma <a href="chap-rmarkdown.html#lem:chf-pdf">D.1</a>, we know the distribution of <span class="math inline">\(P_n\)</span> is <span class="math inline">\(\mathrm{Pois}(\sum_{i=1}^n\lambda_i)\)</span>.
+</div>
+
+
+<div class="remark">
+ <span class="remark"><em>Remark. </em></span> In some cases, it is very convenient and easy to figure out the distribution of the sum of independent random variables using characteristic functions.
+</div>
+
+
+<div class="corollary">
+<p><span id="cor:unnamed-chunk-11" class="corollary"><strong>Corollary D.1  </strong></span>The characteristic function of the sum of two independent random variables <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> is the product of characteristic functions of <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span>, i.e.,</p>
+<span class="math display">\[\varphi _{X_1+X_2}(t)=\varphi _{X_1}(t) \varphi _{X_2}(t)\]</span>
+</div>
+
+
+<div class="exercise">
+<span id="exr:unnamed-chunk-12" class="exercise"><strong>Exercise D.1  (Characteristic Function of the Sample Mean)  </strong></span>Let <span class="math inline">\(\bar{X}=\sum_{i=1}^n \frac{1}{n} X_i\)</span> be the sample mean of <span class="math inline">\(n\)</span> independent and identically distributed random variables, each with characteristic function <span class="math inline">\(\varphi _{X}\)</span>. Compute the characteristic function of <span class="math inline">\(\bar{X}\)</span>.
+</div>
+
+
+<div class="solution">
+<p> <span class="solution"><em>Solution. </em></span> Applying Theorem <a href="chap-rmarkdown.html#thm:chf-sum">D.2</a>, we have</p>
+<span class="math display">\[\varphi _{\bar{X}}(t)=\prod_{i=1}^n \varphi _{X_i}\left(\frac{t}{n}\right)=\left[\varphi _{X}\left(\frac{t}{n}\right)\right]^n.\]</span>
+</div>
+
+</div>
+<div id="special-headers" class="section level3">
+<h3><span class="header-section-number">D.2.3</span> Special headers</h3>
+<p>There are a few special types of first-level headers that will be processed differently in <strong>bookdown</strong>. The first type is an unnumbered header that starts with the token <code>(PART)</code>. This kind of headers are translated to part titles. If you are familiar with LaTeX, this basically means <code>\part{}</code>. When your book has a large number of chapters, you may want to organize them into parts, e.g.,</p>
+<pre><code># (PART) Part I {-} 
+
+# Chapter One
+
+# Chapter Two
+
+# (PART) Part II {-} 
+
+# Chapter Three</code></pre>
+<p>A part title should be written right before the first chapter title in this part. You can use <code>(PART\*)</code> (the backslash before <code>*</code> is required) instead of <code>(PART)</code> if a part title should not be numbered.</p>
+<p>The second type is an unnumbered header that starts with <code>(APPENDIX)</code>, indicating that all chapters after this header are appendices, e.g.,</p>
+<pre><code># Chapter One 
+
+# Chapter Two
+
+# (APPENDIX) Appendix {-} 
+
+# Appendix A
+
+# Appendix B</code></pre>
+<p>The numbering style of appendices will be automatically changed in LaTeX/PDF and HTML output (usually in the form A, A.1, A.2, B, B.1, …). This feature is not available to e-books or Word output.</p>
+</div>
+<div id="text-references" class="section level3">
+<h3><span class="header-section-number">D.2.4</span> Text references</h3>
+<p>You can assign some text to a label and reference the text using the label elsewhere in your document. This can be particularly useful for long figure/table captions (Section <a href="chap-rmarkdown.html#figures">D.4</a> and <a href="chap-rmarkdown.html#tables">D.5</a>), in which case you normally will have to write the whole character string in the chunk header (e.g., <code>fig.cap = &quot;A long long figure caption.&quot;</code>) or your R code (e.g., <code>kable(caption = &quot;A long long table caption.&quot;)</code>). It is also useful when these captions contain special HTML or LaTeX characters, e.g., if the figure caption contains an underscore, it works in the HTML output but may not work in LaTeX output because the underscore must be escaped in LaTeX.</p>
+<p>The syntax for a text reference is <code>(ref:label) text</code>, where <code>label</code> is a unique label<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> throughout the document for <code>text</code>. It must be in a separate paragraph with empty lines above and below it. The paragraph must not be wrapped into multiple lines, and should not end with a white space. For example,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown">$(ref:foo)$ Define a text reference **here**. </code></pre>
+<p>Then you can use <code>(ref:foo)</code> in your figure/table captions. The text can contain anything that Markdown supports, as long as it is one single paragraph. Here is a complete example:</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown">A normal paragraph.
+
+$(ref:foo)$ A scatterplot of the data <span class="bn">`cars`</span> using **base** R graphics. 
+
+<span class="bn">```{r foo, fig.cap=&#39;(ref:foo)&#39;}</span>
+<span class="bn">plot(cars)  # a scatterplot</span>
+<span class="bn">```</span></code></pre>
+<p>Text references can be used anywhere in the document (not limited to figure captions). It can also be useful if you want to reuse a fragment of text in multiple places.</p>
+</div>
+</div>
+<div id="r-code" class="section level2">
+<h2><span class="header-section-number">D.3</span> R code</h2>
+<p>There are two types of R code in R Markdown/<strong>knitr</strong> documents: R code chunks, and inline R code. The syntax for the latter is <code>`r R_CODE`</code>, and it can be embedded inline with other document elements. R code chunks look like plain code blocks, but have <code>{r}</code> after the three backticks and (optionally) chunk options inside <code>{}</code>, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">```{r chunk-label, echo = FALSE, fig.cap = &#39;A figure caption.&#39;}</span>
+<span class="bn">1 + 1</span>
+<span class="bn">rnorm(10)  # 10 random numbers</span>
+<span class="bn">plot(dist ~ speed, cars)  # a scatterplot</span>
+<span class="bn">```</span></code></pre>
+<p>To learn more about <strong>knitr</strong> chunk options, see <span class="citation">@xie2015</span> or the web page <a href="http://yihui.name/knitr/options" class="uri">http://yihui.name/knitr/options</a>. For books, additional R code can be executed before/after each chapter; see <code>before_chapter_script</code> and <code>after_chapter_script</code> in Section <a href="#configuration"><strong>??</strong></a>.</p>
+</div>
+<div id="figures" class="section level2">
+<h2><span class="header-section-number">D.4</span> Figures</h2>
+<p>By default, figures have no captions in the output generated by <strong>knitr</strong>, which means they will be placed wherever they were generated in the R code. Below is such an example.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))
+<span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>)</code></pre>
+<p>\includegraphics[width=70%]{deepin-bible_files/figure-html/no-caption-1}</p>
+<p>The disadvantage of typesetting figures in this way is that when there is not enough space on the current page to place a figure, it may either reach the bottom of the page (hence exceeds the page margin), or be pushed to the next page, leaving a large white margin at the bottom of the current page. That is basically why there are “floating environments” in LaTeX: elements that cannot be split over multiple pages (like figures) are put in floating environments, so they can float to a page that has enough space to hold them. There is also a disadvantage of floating things forward or backward, though. That is, readers may have to jump to a different page to find the figure mentioned on the current page. This is simply a natural consequence of having to typeset things on multiple pages of fixed sizes. This issue does not exist in HTML, however, since everything can be placed continuously on one single page (presumably with infinite height), and there is no need to split anything across multiple pages of the same page size.</p>
+<p>If we assign a figure caption to a code chunk via the chunk option <code>fig.cap</code>, R plots will be put into figure environments, which will be automatically labeled and numbered, and can also be cross-referenced. The label of a figure environment is generated from the label of the code chunk, e.g., if the chunk label is <code>foo</code>, the figure label will be <code>fig:foo</code> (the prefix <code>fig:</code> is added before <code>foo</code>). To reference a figure, use the syntax <code>\@ref(label)</code>,<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> where <code>label</code> is the figure label, e.g., <code>fig:foo</code>.</p>
+<p>To take advantage of Markdown formatting <em>within</em> the figure caption, you will need to use text references (see Section <a href="chap-rmarkdown.html#text-references">D.2.4</a>). For example, a figure caption that contains <code>_italic text_</code> will not work when the output format is LaTeX/PDF, since the underscore is a special character in LaTeX, but if you use text references, <code>_italic text_</code> will be translated to LaTeX code when the output is LaTeX.</p>
+
+<div class="rmdimportant">
+If you want to cross-reference figures or tables generated from a code chunk, please make sure the chunk label only contains <em>alphanumeric</em> characters (a-z, A-Z, 0-9), slashes (/), or dashes (-).
+</div>
+
+<p>The chunk option <code>fig.asp</code> can be used to set the aspect ratio of plots, i.e., the ratio of figure height/width. If the figure width is 6 inches (<code>fig.width = 6</code>) and <code>fig.asp = 0.7</code>, the figure height will be automatically calculated from <code>fig.width * fig.asp = 6 * 0.7 = 4.2</code>. Figure <a href="#fig:pressure-plot">D.1</a> is an example using the chunk options <code>fig.asp = 0.7</code>, <code>fig.width = 6</code>, and <code>fig.align = 'center'</code>, generated from the code below:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))
+<span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>)</code></pre>
+<p>\begin{figure}</p>
+<p>{\includegraphics[width=90%]{deepin-bible_files/figure-html/pressure-plot-1}</p>
+<p>}</p>
+
+<p>
+\end{figure}</p>
+<p>The actual size of a plot is determined by the chunk options <code>fig.width</code> and <code>fig.height</code> (the size of the plot generated from a graphical device), and we can specify the output size of plots via the chunk options <code>out.width</code> and <code>out.height</code>. The possible value of these two options depends on the output format of the document. For example, <code>out.width = '30%'</code> is a valid value for HTML output, but not for LaTeX/PDF output. However, <strong>knitr</strong> will automatically convert a percentage value for <code>out.width</code> of the form <code>x%</code> to <code>(x / 100) \linewidth</code>, e.g., <code>out.width = '70%'</code> will be treated as <code>.7\linewidth</code> when the output format is LaTeX. This makes it possible to specify a relative width of a plot in a consistent manner. Figure <a href="#fig:cars-plot">D.2</a> is an example of <code>out.width = 70%</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))
+<span class="kw">plot</span>(cars, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre>
+\begin{figure}
+\includegraphics[width=70%]{deepin-bible_files/figure-html/cars-plot-1}
+
+<p>
+\end{figure}</p>
+<p>If you want to put multiple plots in one figure environment, you must use the chunk option <code>fig.show = 'hold'</code> to hold multiple plots from a code chunk and include them in one environment. You can also place plots side by side if the sum of the width of all plots is smaller than or equal to the current line width. For example, if two plots have the same width <code>50%</code>, they will be placed side by side. Similarly, you can specify <code>out.width = '33%'</code> to arrange three plots on one line. Figure <a href="#fig:multi-plots">D.3</a> is an example of two plots, each with a width of <code>50%</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))
+<span class="kw">plot</span>(pressure, <span class="dt">pch =</span> <span class="dv">19</span>, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>)
+<span class="kw">plot</span>(cars, <span class="dt">pch =</span> <span class="dv">19</span>)</code></pre>
+\begin{figure}
+\includegraphics[width=50%]{deepin-bible_files/figure-html/multi-plots-1} \includegraphics[width=50%]{deepin-bible_files/figure-html/multi-plots-2}
+
+<p>
+\end{figure}</p>
+<p>Sometimes you may have certain images that are not generated from R code, and you can include them in R Markdown via the function <code>knitr::include_graphics()</code>. Figure <a href="#fig:knitr-logo">D.4</a> is an example of three <strong>knitr</strong> logos included in a figure environment. You may pass one or multiple image paths to the <code>include_graphics()</code> function, and all chunk options that apply to normal R plots also apply to these images, e.g., you can use <code>out.width = '33%'</code> to set the widths of these images in the output document.</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="kw">rep</span>(<span class="st">&#39;images/bookdown/knit-logo.png&#39;</span>, <span class="dv">3</span>))</code></pre>
+\begin{figure}
+\includegraphics[width=32.8%]{images/bookdown/knit-logo} \includegraphics[width=32.8%]{images/bookdown/knit-logo} \includegraphics[width=32.8%]{images/bookdown/knit-logo}
+
+<p>
+\end{figure}</p>
+<p>There are a few advantages of using <code>include_graphics()</code>:</p>
+<ol style="list-style-type: decimal">
+<li>You do not need to worry about the document output format, e.g., when the output format is LaTeX, you may have to use the LaTeX command <code>\includegraphics{}</code> to include an image, and when the output format is Markdown, you have to use <code>![]()</code>. The function <code>include_graphics()</code> in <strong>knitr</strong> takes care of these details automatically.</li>
+<li>The syntax for controlling the image attributes is the same as when images are generated from R code, e.g., chunk options <code>fig.cap</code>, <code>out.width</code>, and <code>fig.show</code> still have the same meanings.</li>
+<li><code>include_graphics()</code> can be smart enough to use PDF graphics automatically when the output format is LaTeX and the PDF graphics files exist, e.g., an image path <code>foo/bar.png</code> can be automatically replaced with <code>foo/bar.pdf</code> if the latter exists. PDF images often have better qualities than raster images in LaTeX/PDF output. To make use of this feature, set the argument <code>auto_pdf = TRUE</code>, or set the global option <code>options(knitr.graphics.auto_pdf = TRUE)</code> to enable this feature globally in an R session.</li>
+<li>You can easily scale these images proportionally using the same ratio. This can be done via the <code>dpi</code> argument (dots per inch), which takes the value from the chunk option <code>dpi</code> by default. If it is a numeric value and the chunk option <code>out.width</code> is not set, the output width of an image will be its actual width (in pixels) divided by <code>dpi</code>, and the unit will be inches. For example, for an image with the size 672 x 480, its output width will be 7 inches (<code>7in</code>) when <code>dpi = 96</code>. This feature requires the package <strong>png</strong> and/or <strong>jpeg</strong> to be installed. You can always override the automatic calculation of width in inches by providing a non-NULL value to the chunk option <code>out.width</code>, or use <code>include_graphics(dpi = NA)</code>.</li>
+</ol>
+</div>
+<div id="tables" class="section level2">
+<h2><span class="header-section-number">D.5</span> Tables</h2>
+<p>For now, the most convenient way to generate a table is the function <code>knitr::kable()</code>, because there are some internal tricks in <strong>knitr</strong> to make it work with <strong>bookdown</strong> and users do not have to know anything about these implementation details. We will explain how to use other packages and functions later in this section.</p>
+<p>Like figures, tables with captions will also be numbered and can be referenced. The <code>kable()</code> function will automatically generate a label for a table environment, which is the prefix <code>tab:</code> plus the chunk label. For example, the table label for a code chunk with the label <code>foo</code> will be <code>tab:foo</code>, and we can still use the syntax <code>\@ref(label)</code> to reference the table. Table <a href="chap-rmarkdown.html#tab:table-single">D.2</a> is a simple example.</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
+  <span class="kw">head</span>(mtcars[, <span class="dv">1</span><span class="op">:</span><span class="dv">8</span>], <span class="dv">10</span>), <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,
+  <span class="dt">caption =</span> <span class="st">&#39;A table of the first 10 rows of the mtcars data.&#39;</span>
+)</code></pre>
+<table>
+<caption><span id="tab:table-single">Table D.2: </span>A table of the first 10 rows of the mtcars data.</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+<th align="right">hp</th>
+<th align="right">drat</th>
+<th align="right">wt</th>
+<th align="right">qsec</th>
+<th align="right">vs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mazda RX4</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160.0</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.620</td>
+<td align="right">16.46</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td>Mazda RX4 Wag</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160.0</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.875</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td>Datsun 710</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">108.0</td>
+<td align="right">93</td>
+<td align="right">3.85</td>
+<td align="right">2.320</td>
+<td align="right">18.61</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Hornet 4 Drive</td>
+<td align="right">21.4</td>
+<td align="right">6</td>
+<td align="right">258.0</td>
+<td align="right">110</td>
+<td align="right">3.08</td>
+<td align="right">3.215</td>
+<td align="right">19.44</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Hornet Sportabout</td>
+<td align="right">18.7</td>
+<td align="right">8</td>
+<td align="right">360.0</td>
+<td align="right">175</td>
+<td align="right">3.15</td>
+<td align="right">3.440</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td>Valiant</td>
+<td align="right">18.1</td>
+<td align="right">6</td>
+<td align="right">225.0</td>
+<td align="right">105</td>
+<td align="right">2.76</td>
+<td align="right">3.460</td>
+<td align="right">20.22</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Duster 360</td>
+<td align="right">14.3</td>
+<td align="right">8</td>
+<td align="right">360.0</td>
+<td align="right">245</td>
+<td align="right">3.21</td>
+<td align="right">3.570</td>
+<td align="right">15.84</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td>Merc 240D</td>
+<td align="right">24.4</td>
+<td align="right">4</td>
+<td align="right">146.7</td>
+<td align="right">62</td>
+<td align="right">3.69</td>
+<td align="right">3.190</td>
+<td align="right">20.00</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td>Merc 230</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">140.8</td>
+<td align="right">95</td>
+<td align="right">3.92</td>
+<td align="right">3.150</td>
+<td align="right">22.90</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td>Merc 280</td>
+<td align="right">19.2</td>
+<td align="right">6</td>
+<td align="right">167.6</td>
+<td align="right">123</td>
+<td align="right">3.92</td>
+<td align="right">3.440</td>
+<td align="right">18.30</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p>If you want to put multiple tables in a single table environment, wrap the data objects (usually data frames in R) into a list. See Table <a href="chap-rmarkdown.html#tab:table-multi">D.3</a> for an example. Please note that this feature is only available in HTML and PDF output.</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
+  <span class="kw">list</span>(
+    <span class="kw">head</span>(iris[, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">3</span>),
+    <span class="kw">head</span>(mtcars[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>], <span class="dv">5</span>)
+  ),
+  <span class="dt">caption =</span> <span class="st">&#39;A Tale of Two Tables.&#39;</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>
+)</code></pre>
+<table class="kable_wrapper">
+<caption>
+<span id="tab:table-multi">Table D.3: </span>A Tale of Two Tables.
+</caption>
+<tbody>
+<tr>
+<td>
+<table>
+<thead>
+<tr class="header">
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mazda RX4</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
+</tr>
+<tr class="even">
+<td>Mazda RX4 Wag</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
+</tr>
+<tr class="odd">
+<td>Datsun 710</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">108</td>
+</tr>
+<tr class="even">
+<td>Hornet 4 Drive</td>
+<td align="right">21.4</td>
+<td align="right">6</td>
+<td align="right">258</td>
+</tr>
+<tr class="odd">
+<td>Hornet Sportabout</td>
+<td align="right">18.7</td>
+<td align="right">8</td>
+<td align="right">360</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<p>When you do not want a table to float in PDF, you may use the LaTeX package <a href="https://www.ctan.org/pkg/longtable"><strong>longtable</strong>,</a> which can break a table across multiple pages. To use <strong>longtable</strong>, pass <code>longtable = TRUE</code> to <code>kable()</code>, and make sure to include <code>\usepackage{longtable}</code> in the LaTeX preamble (see Section <a href="#yaml-options"><strong>??</strong></a> for how to customize the LaTeX preamble). Of course, this is irrelevant to HTML output, since tables in HTML do not need to float.</p>
+<pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(
+  iris[<span class="dv">1</span><span class="op">:</span><span class="dv">55</span>, ], <span class="dt">longtable =</span> <span class="ot">TRUE</span>, <span class="dt">booktabs =</span> <span class="ot">TRUE</span>,
+  <span class="dt">caption =</span> <span class="st">&#39;A table generated by the longtable package.&#39;</span>
+)</code></pre>
+<table>
+<caption><span id="tab:longtable">Table D.4: </span>A table generated by the longtable package.</caption>
+<thead>
+<tr class="header">
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.6</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">2.9</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.3</td>
+<td align="right">3.0</td>
+<td align="right">1.1</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">4.0</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">4.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.3</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.7</td>
+<td align="right">3.8</td>
+<td align="right">1.7</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.5</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.4</td>
+<td align="right">1.7</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.6</td>
+<td align="right">3.6</td>
+<td align="right">1.0</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.3</td>
+<td align="right">1.7</td>
+<td align="right">0.5</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.9</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.0</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.2</td>
+<td align="right">3.5</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.2</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.1</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.2</td>
+<td align="right">4.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.5</td>
+<td align="right">4.2</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.2</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.5</td>
+<td align="right">3.5</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">3.0</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.5</td>
+<td align="right">1.3</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.5</td>
+<td align="right">2.3</td>
+<td align="right">1.3</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.5</td>
+<td align="right">1.6</td>
+<td align="right">0.6</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.9</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.2</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.3</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.3</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">7.0</td>
+<td align="right">3.2</td>
+<td align="right">4.7</td>
+<td align="right">1.4</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">6.4</td>
+<td align="right">3.2</td>
+<td align="right">4.5</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.9</td>
+<td align="right">3.1</td>
+<td align="right">4.9</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="even">
+<td align="right">5.5</td>
+<td align="right">2.3</td>
+<td align="right">4.0</td>
+<td align="right">1.3</td>
+<td align="left">versicolor</td>
+</tr>
+<tr class="odd">
+<td align="right">6.5</td>
+<td align="right">2.8</td>
+<td align="right">4.6</td>
+<td align="right">1.5</td>
+<td align="left">versicolor</td>
+</tr>
+</tbody>
+</table>
+<p>Pandoc supports several types of <a href="http://pandoc.org/MANUAL.html#tables">Markdown tables,</a> such as simple tables, multiline tables, grid tables, and pipe tables. What <code>knitr::kable()</code> generates is a simple table like this:</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown">Table: A simple table in Markdown.
+
+ Sepal.Length   Sepal.Width   Petal.Length   Petal.Width
+-------------  ------------  -------------  ------------
+<span class="bn">          5.1           3.5            1.4           0.2</span>
+<span class="bn">          4.9           3.0            1.4           0.2</span>
+<span class="bn">          4.7           3.2            1.3           0.2</span>
+<span class="bn">          4.6           3.1            1.5           0.2</span>
+<span class="bn">          5.0           3.6            1.4           0.2</span>
+<span class="bn">          5.4           3.9            1.7           0.4</span></code></pre>
+<p>You can use any types of Markdown tables in your document. To be able to cross-reference a Markdown table, it must have a labeled caption of the form <code>Table: (\#label) Caption here</code>, where <code>label</code> must have the prefix <code>tab:</code>, e.g., <code>tab:simple-table</code>.</p>
+<p>If you decide to use other R packages to generate tables, you have to make sure the label for the table environment appears in the beginning of the table caption in the form <code>(\#label)</code> (again, <code>label</code> must have the prefix <code>tab:</code>). You have to be very careful about the <em>portability</em> of the table generating function: it should work for both HTML and LaTeX output automatically, so it must consider the output format internally (check <code>knitr::opts_knit$get('rmarkdown.pandoc.to')</code>). When writing out an HTML table, the caption must be written in the <code>&lt;caption&gt;&lt;/caption&gt;</code> tag. For simple tables, <code>kable()</code> should suffice. If you have to create complicated tables (e.g., with certain cells spanning across multiple columns/rows), you will have to take the aforementioned issues into consideration.</p>
+</div>
+<div id="cross-references" class="section level2">
+<h2><span class="header-section-number">D.6</span> Cross-references</h2>
+<p>We have explained how cross-references work for equations (Section <a href="chap-rmarkdown.html#equations">D.2.1</a>), theorems (Section <a href="chap-rmarkdown.html#theorems">D.2.2</a>), figures (Section <a href="chap-rmarkdown.html#figures">D.4</a>), and tables (Section <a href="chap-rmarkdown.html#tables">D.5</a>). In fact, you can also reference sections using the same syntax <code>\@ref(label)</code>, where <code>label</code> is the section ID. By default, Pandoc will generate an ID for all section headers, e.g., a section <code># Hello World</code> will have an ID <code>hello-world</code>. We recommend you to manually assign an ID to a section header to make sure you do not forget to update the reference label after you change the section header. To assign an ID to a section header, simply add <code>{#id}</code> to the end of the section header. Further attributes of section headers can be set using standard <a href="http://pandoc.org/MANUAL.html#header-identifiers">Pandoc syntax</a>.</p>
+<p>When a referenced label cannot be found, you will see two question marks like <a href="#fig:does-not-exist"><strong>??</strong></a>, as well as a warning message in the R console when rendering the book.</p>
+<p>You can also create text-based links using explicit or automatic section IDs or even the actual section header text.</p>
+<ul>
+<li>If you are happy with the section header as the link text, use it inside a single set of square brackets:
+<ul>
+<li><code>[Section header text]</code>: example “[A single document]” via <code>[A single document]</code></li>
+</ul></li>
+<li>There are two ways to specify custom link text:
+<ul>
+<li><code>[link text][Section header text]</code>, e.g., “[non-English books][Internationalization]” via <code>[non-English books][Internationalization]</code></li>
+<li><code>[link text](#ID)</code>, e.g., “<a href="chap-rmarkdown.html#tables">Table stuff</a>” via <code>[Table stuff](#tables)</code></li>
+</ul></li>
+</ul>
+<p>The Pandoc documentation provides more details on <a href="http://pandoc.org/MANUAL.html#extension-auto_identifiers">automatic section IDs</a> and <a href="http://pandoc.org/MANUAL.html#extension-implicit_header_references">implicit header references.</a></p>
+<p>Cross-references still work even when we refer to an item that is not on the current page of the PDF or HTML output. For example, see Equation <a href="chap-rmarkdown.html#eq:binom">(D.1)</a> and Figure <a href="#fig:knitr-logo">D.4</a>.</p>
+</div>
+<div id="custom-blocks" class="section level2">
+<h2><span class="header-section-number">D.7</span> Custom blocks</h2>
+<p>You can generate custom blocks using the <code>block</code> engine in <strong>knitr</strong>, i.e., the chunk option <code>engine = 'block'</code>, or the more compact syntax <code>```{block}</code>. This engine should be used in conjunction with the chunk option <code>type</code>, which takes a character string. When the <code>block</code> engine is used, it generates a <code>&lt;div&gt;</code> to wrap the chunk content if the output format is HTML, and a LaTeX environment if the output is LaTeX. The <code>type</code> option specifies the class of the <code>&lt;div&gt;</code> and the name of the LaTeX environment. For example, the HTML output of this chunk</p>
+<p><code>{block, type='FOO'}     Some text for this block.</code></p>
+<p>will be this:</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;FOO&quot;</span><span class="kw">&gt;</span>
+Some text for this block.
+<span class="kw">&lt;/div&gt;</span></code></pre>
+<p>and the LaTeX output will be this:</p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="kw">\begin</span>{<span class="ex">FOO</span>}
+Some text for this block.
+<span class="kw">\end</span>{<span class="ex">FOO</span>}</code></pre>
+<p>It is up to the book author how to define the style of the block. You can define the style of the <code>&lt;div&gt;</code> in CSS and include it in the output via the <code>includes</code> option in the YAML metadata. Similarly, you may define the LaTeX environment via <code>\newenvironment</code> and include the definition in the LaTeX output via the <code>includes</code> option. For example, we may save the following style in a CSS file, say, <code>style.css</code>:</p>
+<pre class="sourceCode css"><code class="sourceCode css">div<span class="fu">.FOO</span> {
+  <span class="kw">font-weight</span>: <span class="dv">bold</span>;
+  <span class="kw">color</span>: <span class="dv">red</span>;
+}</code></pre>
+<p>And the YAML metadata of the R Markdown document can be:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">output:</span>
+  <span class="fu">bookdown:</span><span class="at">:html_book:</span>
+    <span class="fu">includes:</span>
+      <span class="fu">in_header:</span><span class="at"> style.css</span>
+<span class="ot">---</span></code></pre>
+<p>We have defined a few types of blocks for this book to show notes, tips, and warnings, etc. Below are some examples:</p>
+
+<div class="rmdnote">
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+<a href="http://www.gnu.org/licenses/" class="uri">http://www.gnu.org/licenses/</a>.
+</div>
+
+
+<div class="rmdcaution">
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+<a href="http://www.gnu.org/licenses/" class="uri">http://www.gnu.org/licenses/</a>.
+</div>
+
+
+<div class="rmdimportant">
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+<a href="http://www.gnu.org/licenses/" class="uri">http://www.gnu.org/licenses/</a>.
+</div>
+
+
+<div class="rmdtip">
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+<a href="http://www.gnu.org/licenses/" class="uri">http://www.gnu.org/licenses/</a>.
+</div>
+
+
+<div class="rmdwarning">
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+<a href="http://www.gnu.org/licenses/" class="uri">http://www.gnu.org/licenses/</a>.
+</div>
+
+<p>The <strong>knitr</strong> <code>block</code> engine was designed to display simple content (typically a paragraph of plain text). You can use simple formatting syntax such as making certain words bold or italic, but more advanced syntax such as citations and cross-references will not work. However, there is an alternative engine named <code>block2</code> that supports arbitrary Markdown syntax, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">```{block2, type=&#39;FOO&#39;}</span>
+<span class="bn">Some text for this block [@citation-key].</span>
+
+<span class="bn">- a list item</span>
+<span class="bn">- another item</span>
+
+<span class="bn">More text.</span>
+<span class="bn">```</span></code></pre>
+<p>The <code>block2</code> engine should also be faster than the <code>block</code> engine if you have a lot of custom blocks in the document, but its implementation was based on <a href="https://github.com/jgm/pandoc/issues/2453">a hack,</a> so we are not 100% sure if it is always going to work in the future. We have not seen problems with Pandoc v1.17.2 yet.</p>
+<p>One more caveat for the <code>block2</code> engine: if the last element in the block is not an ordinary paragraph, you must leave a blank line at the end, e.g.,</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">```{block2, type=&#39;FOO&#39;}</span>
+<span class="bn">Some text for this block [@citation-key].</span>
+
+<span class="bn">- a list item</span>
+<span class="bn">- another item</span>
+<span class="bn">- end the list with a blank line</span>
+
+<span class="bn">```</span></code></pre>
+<p>The theorem and proof environments in Section <a href="chap-rmarkdown.html#theorems">D.2.2</a> are actually implemented through the <code>block2</code> engine.</p>
+<p>For all custom blocks based on the <code>block</code> or <code>block2</code> engine, there is one chunk option <code>echo</code> that you can use to show (<code>echo = TRUE</code>) or hide (<code>echo = FALSE</code>) the blocks.</p>
+</div>
+<div id="citations" class="section level2">
+<h2><span class="header-section-number">D.8</span> Citations</h2>
+<p>Although Pandoc supports multiple ways of writing citations, we recommend you to use BibTeX databases because they work best with LaTeX/PDF output. Pandoc can process other types of bibliography databases with the utility <code>pandoc-citeproc</code> (<a href="https://github.com/jgm/pandoc-citeproc" class="uri">https://github.com/jgm/pandoc-citeproc</a>), but it may not render certain bibliography items correctly (especially in case of multiple authors per item), and BibTeX can do a better job when the output format is LaTeX. With BibTeX databases, you will be able to define the bibliography style if it is required by a certain publisher or journal.</p>
+<p>A BibTeX database is a plain-text file (with the conventional filename extension <code>.bib</code>) that consists of bibliography entries like this:</p>
+<pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span class="va">@Manual</span>{<span class="ot">R</span>-<span class="ot">base</span>,
+  <span class="dt">title</span> = {R: A Language and Environment for Statistical
+    Computing},
+  <span class="dt">author</span> = {{R Core Team}},
+  <span class="dt">organization</span> = {R Foundation for Statistical Computing},
+  <span class="dt">address</span> = {Vienna, Austria},
+  <span class="dt">year</span> = {2016},
+  <span class="dt">url</span> = {https://www.R-project.org/},
+}</code></pre>
+<p>A bibliography entry starts with <code>@type{</code>, where <code>type</code> may be <code>article</code>, <code>book</code>, <code>manual</code>, and so on.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> Then there is a citation key, like <code>R-base</code> in the above example. To cite an entry, use <code>@key</code> or <code>[@key]</code> (the latter puts the citation in braces), e.g., <code>@R-base</code> is rendered as <span class="citation">@R-base</span>, and <code>[@R-base]</code> generates “<span class="citation">[@R-base]</span>”. If you are familiar with the <strong>natbib</strong> package in LaTeX, <code>@key</code> is basically <code>\citet{key}</code>, and <code>[@key]</code> is equivalent to <code>\citep{key}</code>.</p>
+<p>There are a number of fields in a bibliography entry, such as <code>title</code>, <code>author</code>, and <code>year</code>, etc. You may see <a href="https://en.wikipedia.org/wiki/BibTeX" class="uri">https://en.wikipedia.org/wiki/BibTeX</a> for possible types of entries and fields in BibTeX.</p>
+<p>There is a helper function <code>write_bib()</code> in <strong>knitr</strong> to generate BibTeX entries automatically for R packages. Note that it only generates one BibTeX entry for the package itself at the moment, whereas a package may contain multiple entries in the <code>CITATION</code> file, and some entries are about the publications related to the package. These entries are ignored by <code>write_bib()</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># the second argument can be a .bib file</span>
+knitr<span class="op">::</span><span class="kw">write_bib</span>(<span class="kw">c</span>(<span class="st">&#39;knitr&#39;</span>, <span class="st">&#39;stringr&#39;</span>), <span class="st">&#39;&#39;</span>, <span class="dt">width =</span> <span class="dv">60</span>)</code></pre>
+<pre><code>@Manual{R-knitr,
+  title = {knitr: A General-Purpose Package for Dynamic Report
+    Generation in R},
+  author = {Yihui Xie},
+  year = {2018},
+  note = {R package version 1.20},
+  url = {https://CRAN.R-project.org/package=knitr},
+}
+@Manual{R-stringr,
+  title = {stringr: Simple, Consistent Wrappers for Common
+    String Operations},
+  author = {Hadley Wickham},
+  year = {2018},
+  note = {R package version 1.3.1},
+  url = {https://CRAN.R-project.org/package=stringr},
+}</code></pre>
+<p>Once you have one or multiple <code>.bib</code> files, you may use the field <code>bibliography</code> in the YAML metadata of your first R Markdown document (which is typically <code>index.Rmd</code>), and you can also specify the bibliography style via <code>biblio-style</code> (this only applies to PDF output), e.g.,</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="ot">---</span>
+<span class="fu">bibliography:</span><span class="at"> </span><span class="kw">[</span><span class="st">&quot;one.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;another.bib&quot;</span><span class="kw">,</span> <span class="st">&quot;yet-another.bib&quot;</span><span class="kw">]</span>
+<span class="fu">biblio-style:</span><span class="at"> </span><span class="st">&quot;apalike&quot;</span>
+<span class="fu">link-citations:</span><span class="at"> true</span>
+<span class="ot">---</span></code></pre>
+<p>The field <code>link-citations</code> can be used to add internal links from the citation text of the author-year style to the bibliography entry in the HTML output.</p>
+<p>When the output format is LaTeX, citations will be automatically put in a chapter or section. For non-LaTeX output, you can add an empty chapter as the last chapter of your book. For example, if your last chapter is the Rmd file <code>06-references.Rmd</code>, its content can be an inline R expression:</p>
+<pre class="sourceCode markdown"><code class="sourceCode markdown"><span class="bn">`r if (knitr::is_html_output()) &#39;# References {-}&#39;`</span></code></pre>
+</div>
+<div id="latex-index" class="section level2">
+<h2><span class="header-section-number">D.9</span> Index</h2>
+<p>Currently the index is only supported for LaTeX/PDF output. To print an index after the book, you can use the LaTeX package <strong>makeidx</strong> in the preamble (see Section <a href="#yaml-options"><strong>??</strong></a>):</p>
+<pre class="sourceCode latex"><code class="sourceCode latex"><span class="bu">\usepackage</span>{<span class="ex">makeidx</span>}
+<span class="fu">\makeindex</span></code></pre>
+<p>Then insert <code>\printindex</code> at the end of your book through the YAML option <code>includes -&gt; after_body</code>. An index entry can be created via the <code>\index{}</code> command in the book body, e.g., <code>\index{GIT}</code>.</p>
+</div>
+<div id="html-widgets" class="section level2">
+<h2><span class="header-section-number">D.10</span> HTML widgets</h2>
+<p>Although one of R’s greatest strengths is data visualization, there are a large number of JavaScript libraries for much richer data visualization. These libraries can be used to build interactive applications that can easily render in web browsers, so users do not need to install any additional software packages to view the visualizations. One way to bring these JavaScript libraries into R is through the <a href="http://htmlwidgets.org"><strong>htmlwidgets</strong></a> package <span class="citation">[@R-htmlwidgets]</span>.</p>
+<p>HTML widgets can be rendered as a standalone web page (like an R plot), or embedded in R Markdown documents and Shiny applications. They were originally designed for HTML output only, and they require the availability of JavaScript, so they will not work in non-HTML output formats, such as LaTeX/PDF. Before <strong>knitr</strong> v1.13, you will get an error when you render HTML widgets to an output format that is not HTML. Since <strong>knitr</strong> v1.13, HTML widgets will be rendered automatically as screenshots taken via the <strong>webshot</strong> package <span class="citation">[@R-webshot]</span>. Of course, you need to install the <strong>webshot</strong> package. Additionally, you have to install PhantomJS (<a href="http://phantomjs.org" class="uri">http://phantomjs.org</a>), since it is what <strong>webshot</strong> uses to capture screenshots. Both <strong>webshot</strong> and PhantomJS can be installed automatically from R:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;webshot&#39;</span>)
+webshot<span class="op">::</span><span class="kw">install_phantomjs</span>()</code></pre>
+<p>The function <code>install_phantomjs()</code> works for Windows, OS X, and Linux. You may also choose to download and install PhantomJS by yourself, if you are familiar with modifying the system environment variable <code>PATH</code>.</p>
+<p>When <strong>knitr</strong> detects an HTML widget object in a code chunk, it either renders the widget normally when the current output format is HTML, or saves the widget as an HTML page and calls <strong>webshot</strong> to capture the screen of the HTML page when the output format is not HTML. Here is an example of a table created from the <strong>DT</strong> package <span class="citation">[@R-DT]</span>:</p>
+<pre class="sourceCode r"><code class="sourceCode r">DT<span class="op">::</span><span class="kw">datatable</span>(iris)</code></pre>
+<div class="figure"><span id="fig:DT-demo"></span>
+<div id="htmlwidget-55ccfe0b7e2c78f474cf" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-55ccfe0b7e2c78f474cf">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143","144","145","146","147","148","149","150"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9,5.4,4.8,4.8,4.3,5.8,5.7,5.4,5.1,5.7,5.1,5.4,5.1,4.6,5.1,4.8,5,5,5.2,5.2,4.7,4.8,5.4,5.2,5.5,4.9,5,5.5,4.9,4.4,5.1,5,4.5,4.4,5,5.1,4.8,5.1,4.6,5.3,5,7,6.4,6.9,5.5,6.5,5.7,6.3,4.9,6.6,5.2,5,5.9,6,6.1,5.6,6.7,5.6,5.8,6.2,5.6,5.9,6.1,6.3,6.1,6.4,6.6,6.8,6.7,6,5.7,5.5,5.5,5.8,6,5.4,6,6.7,6.3,5.6,5.5,5.5,6.1,5.8,5,5.6,5.7,5.7,6.2,5.1,5.7,6.3,5.8,7.1,6.3,6.5,7.6,4.9,7.3,6.7,7.2,6.5,6.4,6.8,5.7,5.8,6.4,6.5,7.7,7.7,6,6.9,5.6,7.7,6.3,6.7,7.2,6.2,6.1,6.4,7.2,7.4,7.9,6.4,6.3,6.1,7.7,6.3,6.4,6,6.9,6.7,6.9,5.8,6.8,6.7,6.7,6.3,6.5,6.2,5.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1,3.7,3.4,3,3,4,4.4,3.9,3.5,3.8,3.8,3.4,3.7,3.6,3.3,3.4,3,3.4,3.5,3.4,3.2,3.1,3.4,4.1,4.2,3.1,3.2,3.5,3.6,3,3.4,3.5,2.3,3.2,3.5,3.8,3,3.8,3.2,3.7,3.3,3.2,3.2,3.1,2.3,2.8,2.8,3.3,2.4,2.9,2.7,2,3,2.2,2.9,2.9,3.1,3,2.7,2.2,2.5,3.2,2.8,2.5,2.8,2.9,3,2.8,3,2.9,2.6,2.4,2.4,2.7,2.7,3,3.4,3.1,2.3,3,2.5,2.6,3,2.6,2.3,2.7,3,2.9,2.9,2.5,2.8,3.3,2.7,3,2.9,3,3,2.5,2.9,2.5,3.6,3.2,2.7,3,2.5,2.8,3.2,3,3.8,2.6,2.2,3.2,2.8,2.8,2.7,3.3,3.2,2.8,3,2.8,3,2.8,3.8,2.8,2.8,2.6,3,3.4,3.1,3,3.1,3.1,3.1,2.7,3.2,3.3,3,2.5,3,3.4,3],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5,1.5,1.6,1.4,1.1,1.2,1.5,1.3,1.4,1.7,1.5,1.7,1.5,1,1.7,1.9,1.6,1.6,1.5,1.4,1.6,1.6,1.5,1.5,1.4,1.5,1.2,1.3,1.4,1.3,1.5,1.3,1.3,1.3,1.6,1.9,1.4,1.6,1.4,1.5,1.4,4.7,4.5,4.9,4,4.6,4.5,4.7,3.3,4.6,3.9,3.5,4.2,4,4.7,3.6,4.4,4.5,4.1,4.5,3.9,4.8,4,4.9,4.7,4.3,4.4,4.8,5,4.5,3.5,3.8,3.7,3.9,5.1,4.5,4.5,4.7,4.4,4.1,4,4.4,4.6,4,3.3,4.2,4.2,4.2,4.3,3,4.1,6,5.1,5.9,5.6,5.8,6.6,4.5,6.3,5.8,6.1,5.1,5.3,5.5,5,5.1,5.3,5.5,6.7,6.9,5,5.7,4.9,6.7,4.9,5.7,6,4.8,4.9,5.6,5.8,6.1,6.4,5.6,5.1,5.6,6.1,5.6,5.5,4.8,5.4,5.6,5.1,5.1,5.9,5.7,5.2,5,5.2,5.4,5.1],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1,0.2,0.2,0.1,0.1,0.2,0.4,0.4,0.3,0.3,0.3,0.2,0.4,0.2,0.5,0.2,0.2,0.4,0.2,0.2,0.2,0.2,0.4,0.1,0.2,0.2,0.2,0.2,0.1,0.2,0.2,0.3,0.3,0.2,0.6,0.4,0.3,0.2,0.2,0.2,0.2,1.4,1.5,1.5,1.3,1.5,1.3,1.6,1,1.3,1.4,1,1.5,1,1.4,1.3,1.4,1.5,1,1.5,1.1,1.8,1.3,1.5,1.2,1.3,1.4,1.4,1.7,1.5,1,1.1,1,1.2,1.6,1.5,1.6,1.5,1.3,1.3,1.3,1.2,1.4,1.2,1,1.3,1.2,1.3,1.3,1.1,1.3,2.5,1.9,2.1,1.8,2.2,2.1,1.7,1.8,1.8,2.5,2,1.9,2.1,2,2.4,2.3,1.8,2.2,2.3,1.5,2.3,2,2,1.8,2.1,1.8,1.8,1.8,2.1,1.6,1.9,2,2.2,1.5,1.4,2.3,2.4,1.8,1.8,2.1,2.4,2.3,1.9,2.3,2.5,2.3,1.9,2,2.3,1.8],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","versicolor","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica","virginica"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+Figure D.5: A table widget rendered via the DT package.
+</p>
+</div>
+<p>If you are reading this book as web pages now, you should see an interactive table generated from the above code chunk, e.g., you may sort the columns and search in the table. If you are reading a non-HTML version of this book, you should see a screenshot of the table. The screenshot may look a little different with the actual widget rendered in the web browser, due to the difference between a real web browser and PhantomJS’s virtual browser.</p>
+<p>There are a number of <strong>knitr</strong> chunk options related to screen-capturing. First, if you are not satisfied with the quality of the automatic screenshots, or want a screenshot of the widget of a particular state (e.g., after you click and sort a certain column of a table), you may capture the screen manually, and provide your own screenshot via the chunk option <code>screenshot.alt</code> (alternative screenshots). This option takes the paths of images. If you have multiple widgets in a chunk, you can provide a vector of image paths. When this option is present, <strong>knitr</strong> will no longer call <strong>webshot</strong> to take automatic screenshots.</p>
+<p>Second, sometimes you may want to force <strong>knitr</strong> to use static screenshots instead of rendering the actual widgets even on HTML pages. In this case, you can set the chunk option <code>screenshot.force = TRUE</code>, and widgets will always be rendered as static images. Note that you can still choose to use automatic or custom screenshots.</p>
+<p>Third, <strong>webshot</strong> has some options to control the automatic screenshots, and you may specify these options via the chunk option <code>screenshot.opts</code>, which takes a list like <code>list(delay = 2, cliprect = 'viewport')</code>. See the help page <code>?webshot::webshot</code> for the full list of possible options, and the <a href="https://cran.rstudio.com/web/packages/webshot/vignettes/intro.html">package vignette</a> <code>vignette('intro', package = 'webshot')</code> illustrates the effect of these options. Here the <code>delay</code> option can be important for widgets that take long time to render: <code>delay</code> specifies the number of seconds to wait before PhantomJS takes the screenshot. If you see an incomplete screenshot, you may want to specify a longer delay (the default is 0.2 seconds).</p>
+<p>Fourth, if you feel it is slow to capture the screenshots, or do not want to do it every time the code chunk is executed, you may use the chunk option <code>cache = TRUE</code> to cache the chunk. Caching works for both HTML and non-HTML output formats.</p>
+<p>Screenshots behave like normal R plots in the sense that many chunk options related to figures also apply to screenshots, including <code>fig.width</code>, <code>fig.height</code>, <code>out.width</code>, <code>fig.cap</code>, and so on. So you can specify the size of screenshots in the output document, and assign figure captions to them as well. The image format of the automatic screenshots can be specified via the chunk option <code>dev</code>, and possible values are <code>pdf</code>, <code>png</code>, and <code>jpeg</code>. The default for PDF output is <code>pdf</code>, and it is <code>png</code> for other types of output. Note that <code>pdf</code> may not work as faithfully as <code>png</code>: sometimes there are certain elements on an HTML page that fail to render to the PDF screenshot, so you may want to use <code>dev = 'png'</code> even for PDF output. It depends on specific cases of HTML widgets, and you can try both <code>pdf</code> and <code>png</code> (or <code>jpeg</code>) before deciding which format is more desirable.</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>To include literal backticks, use more backticks outside, e.g., you can use two backticks to preserve one backtick inside: <code>`` `code` ``</code>.<a href="chap-rmarkdown.html#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Some examples are adapted from the Wikipedia page <a href="https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)" class="uri">https://en.wikipedia.org/wiki/Characteristic_function_(probability_theory)</a><a href="chap-rmarkdown.html#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>You may consider using the code chunk labels.<a href="chap-rmarkdown.html#fnref3" class="footnote-back">↩</a></p></li>
+<li id="fn4"><p>Do not forget the leading backslash! And also note the parentheses <code>()</code> after <code>ref</code>; they are not curly braces <code>{}</code>.<a href="chap-rmarkdown.html#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>The type name is case-insensitive, so it does not matter if it is <code>manual</code>, <code>Manual</code>, or <code>MANUAL</code>.<a href="chap-rmarkdown.html#fnref5" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-chapters.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-faqs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bubifengyun/deepin-bible/edit/master/./rmd/805-appendix-rmarkdown.Rmd",
+"text": "Edit"
+},
+"download": ["deepin-bible.pdf", "deepin-bible.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

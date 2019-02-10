@@ -1,0 +1,9 @@
+{
+    "path" : "~/deepin-bible",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

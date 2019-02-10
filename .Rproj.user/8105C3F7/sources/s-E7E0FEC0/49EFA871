@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1528205436172.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "49EFA871",
+    "lastKnownWriteTime" : 1528965230,
+    "last_content_update" : 1528965230189,
+    "path" : "~/deepin-bible/latex/template.tex",
+    "project_path" : "latex/template.tex",
+    "properties" : {
+        "cursorPosition" : "84,4",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "tex"
+}

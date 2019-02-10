@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>deepin-bible.utf8.md</title>
+  <meta name="description" content="深度操作系统的简单介绍">
+  <meta name="generator" content="bookdown 0.7.13 and GitBook 2.6.7">
+
+  <meta property="og:title" content="deepin-bible.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="深度操作系统的简单介绍" />
+  <meta name="github-repo" content="bubifengyun/deepin-bible" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="deepin-bible.utf8.md" />
+  
+  <meta name="twitter:description" content="深度操作系统的简单介绍" />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="深度操作系统爱好者">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="chap-shell.html">
+<link rel="next" href="chap-vim-find.html">
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">深度易经</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="section-2.html"><a href="section-2.html"><i class="fa fa-check"></i><b>2</b> 致谢</a></li>
+<li class="chapter" data-level="3" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i><b>3</b> 作者简介</a></li>
+<li class="part"><span><b>I Linux 及 Deepin 入门</b></span></li>
+<li class="chapter" data-level="4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html"><i class="fa fa-check"></i><b>4</b> GNU/Linux 操作系统简介</a><ul>
+<li class="chapter" data-level="4.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#gnulinux-"><i class="fa fa-check"></i><b>4.1</b> GNU/Linux 使用范围</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#gnulinux-"><i class="fa fa-check"></i><b>4.2</b> GNU/Linux 是什么</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#richard-stallman"><i class="fa fa-check"></i><b>4.2.1</b> Richard Stallman</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#linus-torvalds"><i class="fa fa-check"></i><b>4.2.2</b> Linus Torvalds</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix-"><i class="fa fa-check"></i><b>4.3</b> Unix 哲学</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix-"><i class="fa fa-check"></i><b>4.3.1</b> Unix 哲学核心</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix-"><i class="fa fa-check"></i><b>4.3.2</b> Unix 哲学下的用户</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix-"><i class="fa fa-check"></i><b>4.3.3</b> Unix 哲学的对手</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#chap:linux-intro:distro"><i class="fa fa-check"></i><b>4.4</b> GNU/Linux 发行版的出现</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#red-hat-"><i class="fa fa-check"></i><b>4.4.1</b> Red Hat 系</a></li>
+<li class="chapter" data-level="4.4.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#debian-"><i class="fa fa-check"></i><b>4.4.2</b> Debian 系</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#-linux-"><i class="fa fa-check"></i><b>4.5</b> 如何提高自己的 Linux 技术</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#-gnulinux-"><i class="fa fa-check"></i><b>4.5.1</b> 首先安装 GNU/Linux 操作系统</a></li>
+<li class="chapter" data-level="4.5.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-4.5.2"><i class="fa fa-check"></i><b>4.5.2</b> 平常多用</a></li>
+<li class="chapter" data-level="4.5.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-4.5.3"><i class="fa fa-check"></i><b>4.5.3</b> 多问多记</a></li>
+<li class="chapter" data-level="4.5.4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-4.5.4"><i class="fa fa-check"></i><b>4.5.4</b> 定个计划</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-4.6"><i class="fa fa-check"></i><b>4.6</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html"><i class="fa fa-check"></i><b>5</b> Linux 桌面系统简介</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#-live-cddvd-"><i class="fa fa-check"></i><b>5.1</b> 运行 Live CD/DVD 试用系统</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.1.1"><i class="fa fa-check"></i><b>5.1.1</b> 下载深度系统</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#u"><i class="fa fa-check"></i><b>5.1.2</b> 把系统写到U盘里</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.1.3"><i class="fa fa-check"></i><b>5.1.3</b> 开始试用</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#x-window-"><i class="fa fa-check"></i><b>5.2</b> X Window 系统简介</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.2.1"><i class="fa fa-check"></i><b>5.2.1</b> 基本部件</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.2.2"><i class="fa fa-check"></i><b>5.2.2</b> 用户接口</a></li>
+<li class="chapter" data-level="5.2.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.2.3"><i class="fa fa-check"></i><b>5.2.3</b> 用户界面</a></li>
+<li class="chapter" data-level="5.2.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.2.4"><i class="fa fa-check"></i><b>5.2.4</b> 优缺点</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#-wayland"><i class="fa fa-check"></i><b>5.3</b> 王勇谈 Wayland</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-5.4"><i class="fa fa-check"></i><b>5.4</b> 常见的桌面环境</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#cinnamon"><i class="fa fa-check"></i><b>5.4.1</b> Cinnamon</a></li>
+<li class="chapter" data-level="5.4.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#gnome"><i class="fa fa-check"></i><b>5.4.2</b> GNOME</a></li>
+<li class="chapter" data-level="5.4.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#kde"><i class="fa fa-check"></i><b>5.4.3</b> KDE</a></li>
+<li class="chapter" data-level="5.4.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#lxde"><i class="fa fa-check"></i><b>5.4.4</b> LXDE</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#-1"><i class="fa fa-check"></i><b>5.5</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html"><i class="fa fa-check"></i><b>6</b> 深度操作系统简介</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 深度科技简介</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.2"><i class="fa fa-check"></i><b>6.2</b> 深度操作系统的安装</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.2.1"><i class="fa fa-check"></i><b>6.2.1</b> 安装方案</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.2.2"><i class="fa fa-check"></i><b>6.2.2</b> 安装环境</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.2.3"><i class="fa fa-check"></i><b>6.2.3</b> 启动优盘的制作</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.2.4"><i class="fa fa-check"></i><b>6.2.4</b> 安装过程</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3"><i class="fa fa-check"></i><b>6.3</b> 桌面使用</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.1"><i class="fa fa-check"></i><b>6.3.1</b> 开机</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.2"><i class="fa fa-check"></i><b>6.3.2</b> 关机</a></li>
+<li class="chapter" data-level="6.3.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#-"><i class="fa fa-check"></i><b>6.3.3</b> 控制中心-系统设置</a></li>
+<li class="chapter" data-level="6.3.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.4"><i class="fa fa-check"></i><b>6.3.4</b> 开机自启动</a></li>
+<li class="chapter" data-level="6.3.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.5"><i class="fa fa-check"></i><b>6.3.5</b> 常用快捷键</a></li>
+<li class="chapter" data-level="6.3.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.6"><i class="fa fa-check"></i><b>6.3.6</b> 安装软件</a></li>
+<li class="chapter" data-level="6.3.7" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.3.7"><i class="fa fa-check"></i><b>6.3.7</b> 卸载软件</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4"><i class="fa fa-check"></i><b>6.4</b> 深度桌面常用软件</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4.1"><i class="fa fa-check"></i><b>6.4.1</b> 搜狗输入法</a></li>
+<li class="chapter" data-level="6.4.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#qq"><i class="fa fa-check"></i><b>6.4.2</b> QQ</a></li>
+<li class="chapter" data-level="6.4.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4.3"><i class="fa fa-check"></i><b>6.4.3</b> 深度截图</a></li>
+<li class="chapter" data-level="6.4.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4.4"><i class="fa fa-check"></i><b>6.4.4</b> 网易云音乐</a></li>
+<li class="chapter" data-level="6.4.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4.5"><i class="fa fa-check"></i><b>6.4.5</b> 深度系统监视器</a></li>
+<li class="chapter" data-level="6.4.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.4.6"><i class="fa fa-check"></i><b>6.4.6</b> 深度无线投屏</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#-2"><i class="fa fa-check"></i><b>6.5</b> 总结</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-6.6"><i class="fa fa-check"></i><b>6.6</b> 附注</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-education-intro.html"><a href="chap-education-intro.html"><i class="fa fa-check"></i><b>7</b> 教学用的 Linux 软件</a><ul>
+<li class="chapter" data-level="7.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-7.1"><i class="fa fa-check"></i><b>7.1</b> 引言</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-7.2"><i class="fa fa-check"></i><b>7.2</b> 笔记</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#leanote"><i class="fa fa-check"></i><b>7.2.1</b> leanote</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#xpad-"><i class="fa fa-check"></i><b>7.2.2</b> Xpad 便笺</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-7.3"><i class="fa fa-check"></i><b>7.3</b> 课堂工具</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#veyon"><i class="fa fa-check"></i><b>7.3.1</b> Veyon</a></li>
+<li class="chapter" data-level="7.3.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#acontent"><i class="fa fa-check"></i><b>7.3.2</b> AContent</a></li>
+<li class="chapter" data-level="7.3.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#moodle"><i class="fa fa-check"></i><b>7.3.3</b> Moodle</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-7.4"><i class="fa fa-check"></i><b>7.4</b> 文献阅读写作管理工具</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#bookdown"><i class="fa fa-check"></i><b>7.4.1</b> bookdown</a></li>
+<li class="chapter" data-level="7.4.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#vufind"><i class="fa fa-check"></i><b>7.4.2</b> VuFind</a></li>
+<li class="chapter" data-level="7.4.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#calibre"><i class="fa fa-check"></i><b>7.4.3</b> Calibre</a></li>
+<li class="chapter" data-level="7.4.4" data-path="chap-education-intro.html"><a href="chap-education-intro.html#cajviewer"><i class="fa fa-check"></i><b>7.4.4</b> CAJViewer</a></li>
+<li class="chapter" data-level="7.4.5" data-path="chap-education-intro.html"><a href="chap-education-intro.html#-everything"><i class="fa fa-check"></i><b>7.4.5</b> 搜索神器 Everything</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II GNU/Linux 基础知识</b></span></li>
+<li class="chapter" data-level="8" data-path="chap-shell.html"><a href="chap-shell.html"><i class="fa fa-check"></i><b>8</b> shell 用法简介</a><ul>
+<li class="chapter" data-level="8.1" data-path="chap-shell.html"><a href="chap-shell.html#-shell-"><i class="fa fa-check"></i><b>8.1</b> 用 shell 有啥好处？</a></li>
+<li class="chapter" data-level="8.2" data-path="chap-shell.html"><a href="chap-shell.html#shell:intro"><i class="fa fa-check"></i><b>8.2</b> 深度操作系统下 shell 简介</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="chap-shell.html"><a href="chap-shell.html#section-8.2.1"><i class="fa fa-check"></i><b>8.2.1</b> 牛刀小试</a></li>
+<li class="chapter" data-level="8.2.2" data-path="chap-shell.html"><a href="chap-shell.html#section-8.2.2"><i class="fa fa-check"></i><b>8.2.2</b> 命令语法结构</a></li>
+<li class="chapter" data-level="8.2.3" data-path="chap-shell.html"><a href="chap-shell.html#options"><i class="fa fa-check"></i><b>8.2.3</b> 选项(Options)</a></li>
+<li class="chapter" data-level="8.2.4" data-path="chap-shell.html"><a href="chap-shell.html#arguments"><i class="fa fa-check"></i><b>8.2.4</b> 参数(Arguments)</a></li>
+<li class="chapter" data-level="8.2.5" data-path="chap-shell.html"><a href="chap-shell.html#shell:more-example"><i class="fa fa-check"></i><b>8.2.5</b> 更多例子</a></li>
+<li class="chapter" data-level="8.2.6" data-path="chap-shell.html"><a href="chap-shell.html#section-8.2.6"><i class="fa fa-check"></i><b>8.2.6</b> 找找命令文件在哪里</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="chap-shell.html"><a href="chap-shell.html#section-8.3"><i class="fa fa-check"></i><b>8.3</b> 命令快捷编辑</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="chap-shell.html"><a href="chap-shell.html#section-8.3.1"><i class="fa fa-check"></i><b>8.3.1</b> 方便编辑的快捷键</a></li>
+<li class="chapter" data-level="8.3.2" data-path="chap-shell.html"><a href="chap-shell.html#section-8.3.2"><i class="fa fa-check"></i><b>8.3.2</b> 重输之前的命令</a></li>
+<li class="chapter" data-level="8.3.3" data-path="chap-shell.html"><a href="chap-shell.html#section-8.3.3"><i class="fa fa-check"></i><b>8.3.3</b> 自动补全</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4"><i class="fa fa-check"></i><b>8.4</b> 命令连接与扩展</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.1"><i class="fa fa-check"></i><b>8.4.1</b> 匿名管道</a></li>
+<li class="chapter" data-level="8.4.2" data-path="chap-shell.html"><a href="chap-shell.html#sec:redirect"><i class="fa fa-check"></i><b>8.4.2</b> 重定向</a></li>
+<li class="chapter" data-level="8.4.3" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.3"><i class="fa fa-check"></i><b>8.4.3</b> 重定向和管道的区别</a></li>
+<li class="chapter" data-level="8.4.4" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.4"><i class="fa fa-check"></i><b>8.4.4</b> 顺序执行</a></li>
+<li class="chapter" data-level="8.4.5" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.5"><i class="fa fa-check"></i><b>8.4.5</b> 后台命令</a></li>
+<li class="chapter" data-level="8.4.6" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.6"><i class="fa fa-check"></i><b>8.4.6</b> 命令扩展</a></li>
+<li class="chapter" data-level="8.4.7" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.7"><i class="fa fa-check"></i><b>8.4.7</b> 简单数值计算</a></li>
+<li class="chapter" data-level="8.4.8" data-path="chap-shell.html"><a href="chap-shell.html#section-8.4.8"><i class="fa fa-check"></i><b>8.4.8</b> 输出变量值</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="chap-shell.html"><a href="chap-shell.html#shell-variables"><i class="fa fa-check"></i><b>8.5</b> Shell 变量（Variables）</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="chap-shell.html"><a href="chap-shell.html#section-8.5.1"><i class="fa fa-check"></i><b>8.5.1</b> 别名的创建和使用</a></li>
+<li class="chapter" data-level="8.5.2" data-path="chap-shell.html"><a href="chap-shell.html#-shell"><i class="fa fa-check"></i><b>8.5.2</b> 退出 shell</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="chap-shell.html"><a href="chap-shell.html#-shell-"><i class="fa fa-check"></i><b>8.6</b> 定制 shell 环境</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="chap-shell.html"><a href="chap-shell.html#prompt"><i class="fa fa-check"></i><b>8.6.1</b> 配置提示（prompt）</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="chap-shell.html"><a href="chap-shell.html#section-8.7"><i class="fa fa-check"></i><b>8.7</b> 命令帮助</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-shell.html"><a href="chap-shell.html#-3"><i class="fa fa-check"></i><b>8.8</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-filesystem.html"><a href="chap-filesystem.html"><i class="fa fa-check"></i><b>9</b> 文件系统</a><ul>
+<li class="chapter" data-level="9.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.1"><i class="fa fa-check"></i><b>9.1</b> 树形结构</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.2"><i class="fa fa-check"></i><b>9.2</b> 文件系统常用命令</a></li>
+<li class="chapter" data-level="9.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.3"><i class="fa fa-check"></i><b>9.3</b> 元字符和操作符</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#filesystem:metachar"><i class="fa fa-check"></i><b>9.3.1</b> 元字符</a></li>
+<li class="chapter" data-level="9.3.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.3.2"><i class="fa fa-check"></i><b>9.3.2</b> 操作符</a></li>
+<li class="chapter" data-level="9.3.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.3.3"><i class="fa fa-check"></i><b>9.3.3</b> 花括号<code>{}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.4"><i class="fa fa-check"></i><b>9.4</b> 几个常用的目录</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.5"><i class="fa fa-check"></i><b>9.5</b> 文件（夹）的权限和归属</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.5.1"><i class="fa fa-check"></i><b>9.5.1</b> 权限简介</a></li>
+<li class="chapter" data-level="9.5.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#chmod"><i class="fa fa-check"></i><b>9.5.2</b> 权限更改<code>chmod</code></a></li>
+<li class="chapter" data-level="9.5.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#umask"><i class="fa fa-check"></i><b>9.5.3</b> 权限掩码<code>umask</code></a></li>
+<li class="chapter" data-level="9.5.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.5.4"><i class="fa fa-check"></i><b>9.5.4</b> 归属</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.6"><i class="fa fa-check"></i><b>9.6</b> 文件（夹）的创建、查看、移动、复制和删除</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.6.1"><i class="fa fa-check"></i><b>9.6.1</b> 文件（夹）的创建</a></li>
+<li class="chapter" data-level="9.6.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.6.2"><i class="fa fa-check"></i><b>9.6.2</b> 文件（夹）的查看</a></li>
+<li class="chapter" data-level="9.6.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.6.3"><i class="fa fa-check"></i><b>9.6.3</b> 文件（夹）的复制</a></li>
+<li class="chapter" data-level="9.6.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-9.6.4"><i class="fa fa-check"></i><b>9.6.4</b> 文件（夹）的删除</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="chap-filesystem.html"><a href="chap-filesystem.html#-4"><i class="fa fa-check"></i><b>9.7</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-vim-find.html"><a href="chap-vim-find.html"><i class="fa fa-check"></i><b>10</b> 文件编辑与查找</a><ul>
+<li class="chapter" data-level="10.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.1"><i class="fa fa-check"></i><b>10.1</b> 字符集和字符编码</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#ascii"><i class="fa fa-check"></i><b>10.1.1</b> ASCII</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gb2312"><i class="fa fa-check"></i><b>10.1.2</b> GB2312</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gbk"><i class="fa fa-check"></i><b>10.1.3</b> GBK字符集</a></li>
+<li class="chapter" data-level="10.1.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#big5"><i class="fa fa-check"></i><b>10.1.4</b> BIG5</a></li>
+<li class="chapter" data-level="10.1.5" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gb18030"><i class="fa fa-check"></i><b>10.1.5</b> GB18030</a></li>
+<li class="chapter" data-level="10.1.6" data-path="chap-vim-find.html"><a href="chap-vim-find.html#unicode"><i class="fa fa-check"></i><b>10.1.6</b> Unicode字符集</a></li>
+<li class="chapter" data-level="10.1.7" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.1.7"><i class="fa fa-check"></i><b>10.1.7</b> 编码的常用命令</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.2"><i class="fa fa-check"></i><b>10.2</b> 编辑器</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.3"><i class="fa fa-check"></i><b>10.3</b> 文件查找</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#find-"><i class="fa fa-check"></i><b>10.3.1</b> <code>find</code> 查找文件</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#grep-"><i class="fa fa-check"></i><b>10.3.2</b> <code>grep</code> 查找文件内部信息</a></li>
+<li class="chapter" data-level="10.3.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.3.3"><i class="fa fa-check"></i><b>10.3.3</b> 其他检索工具</a></li>
+<li class="chapter" data-level="10.3.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-10.3.4"><i class="fa fa-check"></i><b>10.3.4</b> 正则表达式</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#-5"><i class="fa fa-check"></i><b>10.4</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-manager-process.html"><a href="chap-manager-process.html"><i class="fa fa-check"></i><b>11</b> 进程管理</a><ul>
+<li class="chapter" data-level="11.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.1"><i class="fa fa-check"></i><b>11.1</b> 何谓进程</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.2"><i class="fa fa-check"></i><b>11.2</b> 深度系统监视器管理进程</a></li>
+<li class="chapter" data-level="11.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.3"><i class="fa fa-check"></i><b>11.3</b> 命令方式查看进程</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#ps-"><i class="fa fa-check"></i><b>11.3.1</b> ps 命令基本用法</a></li>
+<li class="chapter" data-level="11.3.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#top-"><i class="fa fa-check"></i><b>11.3.2</b> top 命令基本用法</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.4"><i class="fa fa-check"></i><b>11.4</b> 进程的分类</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.4.1"><i class="fa fa-check"></i><b>11.4.1</b> 怎么生成后台进程呢？</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="chap-manager-process.html"><a href="chap-manager-process.html#killing-and-renicing"><i class="fa fa-check"></i><b>11.5</b> 进程的终结与调整优先级（Killing and Renicing）</a></li>
+<li class="chapter" data-level="11.6" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6</b> 通过<code>cgroups</code>限制进程</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6.1</b> <code>cgroups</code>是什么？</a></li>
+<li class="chapter" data-level="11.6.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6.2</b> <code>cgroups</code>可以做什么？</a></li>
+<li class="chapter" data-level="11.6.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6.3</b> <code>cgroups</code>相关概念及其关系</a></li>
+<li class="chapter" data-level="11.6.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6.4</b> <code>cgroups</code>子系统介绍</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.7"><i class="fa fa-check"></i><b>11.7</b> 进程的状态</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxr-task_running"><i class="fa fa-check"></i><b>11.7.1</b> Linux进程状态：R (TASK_RUNNING)，可执行状态。</a></li>
+<li class="chapter" data-level="11.7.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxs-task_interruptible"><i class="fa fa-check"></i><b>11.7.2</b> Linux进程状态：S (TASK_INTERRUPTIBLE)，可中断的睡眠状态。</a></li>
+<li class="chapter" data-level="11.7.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxd-task_uninterruptible"><i class="fa fa-check"></i><b>11.7.3</b> Linux进程状态：D (TASK_UNINTERRUPTIBLE)，不可中断的睡眠状态。</a></li>
+<li class="chapter" data-level="11.7.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxt-task_stopped-or-task_traced"><i class="fa fa-check"></i><b>11.7.4</b> Linux进程状态：T (TASK_STOPPED or TASK_TRACED)，暂停状态或跟踪状态。</a></li>
+<li class="chapter" data-level="11.7.5" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxz-task_dead---exit_zombie"><i class="fa fa-check"></i><b>11.7.5</b> Linux进程状态：Z (TASK_DEAD - EXIT_ZOMBIE)，退出状态，进程成为僵尸进程。</a></li>
+<li class="chapter" data-level="11.7.6" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxx-task_dead---exit_dead"><i class="fa fa-check"></i><b>11.7.6</b> Linux进程状态：X (TASK_DEAD - EXIT_DEAD)，退出状态，进程即将被销毁。</a></li>
+<li class="chapter" data-level="11.7.7" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.7.7"><i class="fa fa-check"></i><b>11.7.7</b> 进程的初始状态</a></li>
+<li class="chapter" data-level="11.7.8" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-11.7.8"><i class="fa fa-check"></i><b>11.7.8</b> 进程状态变迁</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="chap-manager-process.html"><a href="chap-manager-process.html#-6"><i class="fa fa-check"></i><b>11.8</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html"><i class="fa fa-check"></i><b>12</b> 简单bash脚本</a><ul>
+<li class="chapter" data-level="12.1" data-path="chap-shell.html"><a href="chap-shell.html#-shell-"><i class="fa fa-check"></i><b>12.1</b> 何谓 shell 脚本</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.1.1"><i class="fa fa-check"></i><b>12.1.1</b> 执行和调试</a></li>
+<li class="chapter" data-level="12.1.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell-"><i class="fa fa-check"></i><b>12.1.2</b> shell 变量</a></li>
+<li class="chapter" data-level="12.1.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.1.3"><i class="fa fa-check"></i><b>12.1.3</b> 特殊变量</a></li>
+<li class="chapter" data-level="12.1.4" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.1.4"><i class="fa fa-check"></i><b>12.1.4</b> 执行时输入参数</a></li>
+<li class="chapter" data-level="12.1.5" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.1.5"><i class="fa fa-check"></i><b>12.1.5</b> 其他需求的参数</a></li>
+<li class="chapter" data-level="12.1.6" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.1.6"><i class="fa fa-check"></i><b>12.1.6</b> 简单计算</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell-"><i class="fa fa-check"></i><b>12.2</b> shell 脚本的三大结构</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-12.2.1"><i class="fa fa-check"></i><b>12.2.1</b> 分支结构的语法</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#sed"><i class="fa fa-check"></i><b>12.3</b> 流编辑器<code>sed</code></a></li>
+<li class="chapter" data-level="12.4" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell-uc-"><i class="fa fa-check"></i><b>12.4</b> shell脚本例子：转换 UC 缓存视频</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#-file.txt"><i class="fa fa-check"></i><b>12.4.1</b> 生成 <code>file.txt</code>文件</a></li>
+<li class="chapter" data-level="12.4.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#-mp4-"><i class="fa fa-check"></i><b>12.4.2</b> 生成 MP4 文件</a></li>
+<li class="chapter" data-level="12.4.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#-bash-"><i class="fa fa-check"></i><b>12.4.3</b> 做成一个 bash 脚本</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#-7"><i class="fa fa-check"></i><b>12.5</b> 总结</a></li>
+</ul></li>
+<li class="part"><span><b>III 本机管理员</b></span></li>
+<li class="chapter" data-level="13" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>13</b> </a></li>
+<li class="chapter" data-level="14" data-path="deepin-install.html"><a href="deepin-install.html"><i class="fa fa-check"></i><b>14</b> 深度系统安装</a><ul>
+<li class="chapter" data-level="14.1" data-path="deepin-install.html"><a href="deepin-install.html#uefi--legacy-bios-"><i class="fa fa-check"></i><b>14.1</b> UEFI 和 legacy BIOS 区别和联系</a></li>
+<li class="chapter" data-level="14.2" data-path="deepin-install.html"><a href="deepin-install.html#section-14.2"><i class="fa fa-check"></i><b>14.2</b> 优盘安装</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="deepin-install.html"><a href="deepin-install.html#-deepin.iso-"><i class="fa fa-check"></i><b>14.2.1</b> 第一步下载并校验 deepin.iso 文件</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="deepin-install.html"><a href="deepin-install.html#section-14.3"><i class="fa fa-check"></i><b>14.3</b> 安装遇到的问题</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="software-install.html"><a href="software-install.html"><i class="fa fa-check"></i><b>15</b> 软件安装</a><ul>
+<li class="chapter" data-level="15.1" data-path="software-install.html"><a href="software-install.html#npm-"><i class="fa fa-check"></i><b>15.1</b> npm 软件的安装</a></li>
+<li class="chapter" data-level="15.2" data-path="software-install.html"><a href="software-install.html#veil-"><i class="fa fa-check"></i><b>15.2</b> veil 软件安装</a></li>
+<li class="chapter" data-level="15.3" data-path="software-install.html"><a href="software-install.html#dpkg-"><i class="fa fa-check"></i><b>15.3</b> dpkg 安装</a></li>
+<li class="chapter" data-level="15.4" data-path="software-install.html"><a href="software-install.html#section-15.4"><i class="fa fa-check"></i><b>15.4</b> 其他安装方式</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="software-install.html"><a href="software-install.html#bitnami"><i class="fa fa-check"></i><b>15.4.1</b> bitnami</a></li>
+<li class="chapter" data-level="15.4.2" data-path="software-install.html"><a href="software-install.html#turnkeylinux"><i class="fa fa-check"></i><b>15.4.2</b> turnkeylinux</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="software-install.html"><a href="software-install.html#you-get-"><i class="fa fa-check"></i><b>15.5</b> you-get 软件的安装</a></li>
+<li class="chapter" data-level="15.6" data-path="software-install.html"><a href="software-install.html#section-15.6"><i class="fa fa-check"></i><b>15.6</b> 字体的安装</a></li>
+<li class="chapter" data-level="15.7" data-path="software-install.html"><a href="software-install.html#section-15.7"><i class="fa fa-check"></i><b>15.7</b> 输入法的安装</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="manager-user.html"><a href="manager-user.html"><i class="fa fa-check"></i><b>16</b> 管理账户</a><ul>
+<li class="chapter" data-level="16.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#-1"><i class="fa fa-check"></i><b>16.1</b> 引言</a></li>
+<li class="chapter" data-level="16.2" data-path="manager-user.html"><a href="manager-user.html#section-16.2"><i class="fa fa-check"></i><b>16.2</b> 创建账户</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="manager-user.html"><a href="manager-user.html#section-16.2.1"><i class="fa fa-check"></i><b>16.2.1</b> 图形方式</a></li>
+<li class="chapter" data-level="16.2.2" data-path="manager-user.html"><a href="manager-user.html#section-16.2.2"><i class="fa fa-check"></i><b>16.2.2</b> 命令方式</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV 服务器管理员</b></span></li>
+<li class="chapter" data-level="17" data-path="chap-server-intro.html"><a href="chap-server-intro.html"><i class="fa fa-check"></i><b>17</b> 服务器简介</a></li>
+<li class="chapter" data-level="18" data-path="web-server-.html"><a href="web-server-.html"><i class="fa fa-check"></i><b>18</b> Web Server 的搭建与运行</a><ul>
+<li class="chapter" data-level="18.1" data-path="web-server-.html"><a href="web-server-.html#section-18.1"><i class="fa fa-check"></i><b>18.1</b> 面向开发的一键安装类型</a></li>
+<li class="chapter" data-level="18.2" data-path="web-server-.html"><a href="web-server-.html#section-18.2"><i class="fa fa-check"></i><b>18.2</b> 关注效率稳定的搭建方法</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="-windows-samba-.html"><a href="-windows-samba-.html"><i class="fa fa-check"></i><b>19</b> 与 Windows 共享文件打印机的 samba 服务</a><ul>
+<li class="chapter" data-level="19.1" data-path="-windows-samba-.html"><a href="-windows-samba-.html#samba-"><i class="fa fa-check"></i><b>19.1</b> Samba 文件传输服务简介</a></li>
+<li class="chapter" data-level="19.2" data-path="-windows-samba-.html"><a href="-windows-samba-.html#-samba-"><i class="fa fa-check"></i><b>19.2</b> 深度自带 samba 的使用</a><ul>
+<li class="chapter" data-level="19.2.1" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.2.1"><i class="fa fa-check"></i><b>19.2.1</b> 共享本地文件</a></li>
+<li class="chapter" data-level="19.2.2" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.2.2"><i class="fa fa-check"></i><b>19.2.2</b> 访问共享文件</a></li>
+<li class="chapter" data-level="19.2.3" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.2.3"><i class="fa fa-check"></i><b>19.2.3</b> 我的共享</a></li>
+<li class="chapter" data-level="19.2.4" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.2.4"><i class="fa fa-check"></i><b>19.2.4</b> 可能存在的小问题</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="-windows-samba-.html"><a href="-windows-samba-.html#-samba-"><i class="fa fa-check"></i><b>19.3</b> 关于 samba 的配置</a><ul>
+<li class="chapter" data-level="19.3.1" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.3.1"><i class="fa fa-check"></i><b>19.3.1</b> 手动安装</a></li>
+<li class="chapter" data-level="19.3.2" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.3.2"><i class="fa fa-check"></i><b>19.3.2</b> 启动与停止</a></li>
+<li class="chapter" data-level="19.3.3" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.3.3"><i class="fa fa-check"></i><b>19.3.3</b> 配置文件</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="-windows-samba-.html"><a href="-windows-samba-.html#-u-file-"><i class="fa fa-check"></i><b>19.4</b> 例：借助安卓软件 U-File 实现手机电脑互传</a><ul>
+<li class="chapter" data-level="19.4.1" data-path="-windows-samba-.html"><a href="-windows-samba-.html#section-19.4.1"><i class="fa fa-check"></i><b>19.4.1</b> 开启局域网</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V 安全</b></span></li>
+<li class="chapter" data-level="20" data-path="chap-network-security.html"><a href="chap-network-security.html"><i class="fa fa-check"></i><b>20</b> 网络安全</a></li>
+<li class="part"><span><b>VI 附录</b></span></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="A" data-path="chap-yugong.html"><a href="chap-yugong.html"><i class="fa fa-check"></i><b>A</b> 愚公移山</a></li>
+<li class="chapter" data-level="B" data-path="chap-makebook.html"><a href="chap-makebook.html"><i class="fa fa-check"></i><b>B</b> 如何制作本书</a><ul>
+<li class="chapter" data-level="B.1" data-path="./rmd/202-filesystem.html"><a href="#section-B.1"><i class="fa fa-check"></i><b>B.1</b> 准备工作</a><ul>
+<li class="chapter" data-level="B.1.1" data-path="chap-makebook.html"><a href="chap-makebook.html#linux-"><i class="fa fa-check"></i><b>B.1.1</b> Linux 下使用</a></li>
+<li class="chapter" data-level="B.1.2" data-path="chap-makebook.html"><a href="chap-makebook.html#windows-"><i class="fa fa-check"></i><b>B.1.2</b> Windows 下使用</a></li>
+<li class="chapter" data-level="B.1.3" data-path="./rmd/202-filesystem.html"><a href="#section-B.1.3"><i class="fa fa-check"></i><b>B.1.3</b> 苹果操作系统下使用</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="./rmd/202-filesystem.html"><a href="#section-B.2"><i class="fa fa-check"></i><b>B.2</b> 编译模板</a><ul>
+<li class="chapter" data-level="B.2.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#-"><i class="fa fa-check"></i><b>B.2.1</b> 第一种编译方法 —— 命令行编译</a></li>
+<li class="chapter" data-level="B.2.2" data-path="chap-makebook.html"><a href="chap-makebook.html#-rstudio"><i class="fa fa-check"></i><b>B.2.2</b> 第二种编译方法 —— RStudio编译</a></li>
+<li class="chapter" data-level="B.2.3" data-path="./rmd/202-filesystem.html"><a href="#section-B.2.3"><i class="fa fa-check"></i><b>B.2.3</b> 字数统计</a></li>
+<li class="chapter" data-level="B.2.4" data-path="chap-makebook.html"><a href="chap-makebook.html#-r-"><i class="fa fa-check"></i><b>B.2.4</b> 本书编译的 R 各包信息</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="./rmd/202-filesystem.html"><a href="#section-B.3"><i class="fa fa-check"></i><b>B.3</b> 文件布局</a></li>
+<li class="chapter" data-level="B.4" data-path="./rmd/202-filesystem.html"><a href="#section-B.4"><i class="fa fa-check"></i><b>B.4</b> 主要文件介绍</a><ul>
+<li class="chapter" data-level="B.4.1" data-path="./rmd/202-filesystem.html"><a href="#section-B.4.1"><i class="fa fa-check"></i><b>B.4.1</b> 模板文件</a></li>
+<li class="chapter" data-level="B.4.2" data-path="./rmd/202-filesystem.html"><a href="#section-B.4.2"><i class="fa fa-check"></i><b>B.4.2</b> 各章源文件</a></li>
+<li class="chapter" data-level="B.4.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#-1"><i class="fa fa-check"></i><b>B.4.3</b> 配置文件</a></li>
+<li class="chapter" data-level="B.4.4" data-path="chap-makebook.html"><a href="chap-makebook.html#intro:fig"><i class="fa fa-check"></i><b>B.4.4</b> 图片文件夹 images</a></li>
+<li class="chapter" data-level="B.4.5" data-path="chap-makebook.html"><a href="chap-makebook.html#intro:bib"><i class="fa fa-check"></i><b>B.4.5</b> 参考文献数据库bib</a></li>
+<li class="chapter" data-level="B.4.6" data-path="./rmd/202-filesystem.html"><a href="#section-B.4.6"><i class="fa fa-check"></i><b>B.4.6</b> 辅助文件</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="chap-chapters.html"><a href="chap-chapters.html"><i class="fa fa-check"></i><b>C</b> 各章格式说明</a><ul>
+<li class="chapter" data-level="C.1" data-path="./rmd/202-filesystem.html"><a href="#section-C.1"><i class="fa fa-check"></i><b>C.1</b> 章：前言</a></li>
+<li class="chapter" data-level="C.2" data-path="./rmd/202-filesystem.html"><a href="#section-C.2"><i class="fa fa-check"></i><b>C.2</b> 前言后的部分章节</a></li>
+<li class="chapter" data-level="C.3" data-path="./rmd/202-filesystem.html"><a href="#section-C.3"><i class="fa fa-check"></i><b>C.3</b> 部分：第一部分简介</a></li>
+<li class="chapter" data-level="C.4" data-path="./rmd/202-filesystem.html"><a href="#section-C.4"><i class="fa fa-check"></i><b>C.4</b> 各部分内部的章</a></li>
+<li class="chapter" data-level="C.5" data-path="./rmd/202-filesystem.html"><a href="#section-C.5"><i class="fa fa-check"></i><b>C.5</b> 部分：附录及其他</a></li>
+<li class="chapter" data-level="C.6" data-path="./rmd/202-filesystem.html"><a href="#section-C.6"><i class="fa fa-check"></i><b>C.6</b> 附录内部各章</a></li>
+<li class="chapter" data-level="C.7" data-path="./rmd/202-filesystem.html"><a href="#section-C.7"><i class="fa fa-check"></i><b>C.7</b> 后缀部分</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html"><i class="fa fa-check"></i><b>D</b> RMarkdown/Bookdown 排版示例</a><ul>
+<li class="chapter" data-level="D.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#markdown-syntax"><i class="fa fa-check"></i><b>D.1</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="D.1.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#inline-formatting"><i class="fa fa-check"></i><b>D.1.1</b> Inline formatting</a></li>
+<li class="chapter" data-level="D.1.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#block-level-elements"><i class="fa fa-check"></i><b>D.1.2</b> Block-level elements</a></li>
+<li class="chapter" data-level="D.1.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#math-expressions"><i class="fa fa-check"></i><b>D.1.3</b> Math expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="D.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#markdown-extensions-by-bookdown"><i class="fa fa-check"></i><b>D.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="D.2.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#equations"><i class="fa fa-check"></i><b>D.2.1</b> Number and reference equations</a></li>
+<li class="chapter" data-level="D.2.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#theorems"><i class="fa fa-check"></i><b>D.2.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="D.2.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#special-headers"><i class="fa fa-check"></i><b>D.2.3</b> Special headers</a></li>
+<li class="chapter" data-level="D.2.4" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#text-references"><i class="fa fa-check"></i><b>D.2.4</b> Text references</a></li>
+</ul></li>
+<li class="chapter" data-level="D.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#r-code"><i class="fa fa-check"></i><b>D.3</b> R code</a></li>
+<li class="chapter" data-level="D.4" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#figures"><i class="fa fa-check"></i><b>D.4</b> Figures</a></li>
+<li class="chapter" data-level="D.5" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#tables"><i class="fa fa-check"></i><b>D.5</b> Tables</a></li>
+<li class="chapter" data-level="D.6" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#cross-references"><i class="fa fa-check"></i><b>D.6</b> Cross-references</a></li>
+<li class="chapter" data-level="D.7" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#custom-blocks"><i class="fa fa-check"></i><b>D.7</b> Custom blocks</a></li>
+<li class="chapter" data-level="D.8" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#citations"><i class="fa fa-check"></i><b>D.8</b> Citations</a></li>
+<li class="chapter" data-level="D.9" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#latex-index"><i class="fa fa-check"></i><b>D.9</b> Index</a></li>
+<li class="chapter" data-level="D.10" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#html-widgets"><i class="fa fa-check"></i><b>D.10</b> HTML widgets</a></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="chap-faqs.html"><a href="chap-faqs.html"><i class="fa fa-check"></i><b>E</b> 常见问题</a></li>
+<li class="chapter" data-level="F" data-path="install-further-read.html"><a href="install-further-read.html"><i class="fa fa-check"></i><b>F</b> 操作系统安装延伸阅读</a><ul>
+<li class="chapter" data-level="F.1" data-path="./rmd/202-filesystem.html"><a href="#section-F.1"><i class="fa fa-check"></i><b>F.1</b> 计算机引导过程</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="install-further-read.html"><a href="install-further-read.html#-bios-"><i class="fa fa-check"></i><b>F.1.1</b> 传统 BIOS 引导</a></li>
+<li class="chapter" data-level="F.1.2" data-path="install-further-read.html"><a href="install-further-read.html#uefi-"><i class="fa fa-check"></i><b>F.1.2</b> UEFI 引导</a></li>
+<li class="chapter" data-level="F.1.3" data-path="install-further-read.html"><a href="install-further-read.html#uefi-"><i class="fa fa-check"></i><b>F.1.3</b> UEFI 的多重引导</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="install-further-read.html"><a href="install-further-read.html#-bios-"><i class="fa fa-check"></i><b>F.2</b> 常见 BIOS 设置</a><ul>
+<li class="chapter" data-level="F.2.1" data-path="./rmd/202-filesystem.html"><a href="#section-F.2.1"><i class="fa fa-check"></i><b>F.2.1</b> 常见启动引导器</a></li>
+<li class="chapter" data-level="F.2.2" data-path="install-further-read.html"><a href="install-further-read.html#ntldrbootmgr"><i class="fa fa-check"></i><b>F.2.2</b> NTLDR/BOOTMGR</a></li>
+<li class="chapter" data-level="F.2.3" data-path="install-further-read.html"><a href="install-further-read.html#gnu-grub-"><i class="fa fa-check"></i><b>F.2.3</b> GNU GRUB 及其使用</a></li>
+</ul></li>
+<li class="chapter" data-level="F.3" data-path="chap-makebook.html"><a href="chap-makebook.html#linux-"><i class="fa fa-check"></i><b>F.3</b> LINUX 启动过程</a><ul>
+<li class="chapter" data-level="F.3.1" data-path="install-further-read.html"><a href="install-further-read.html#vmlinuz"><i class="fa fa-check"></i><b>F.3.1</b> VMLINUZ</a></li>
+<li class="chapter" data-level="F.3.2" data-path="install-further-read.html"><a href="install-further-read.html#initrd"><i class="fa fa-check"></i><b>F.3.2</b> INITRD</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="history.html"><a href="history.html"><i class="fa fa-check"></i><b>G</b> 大事记</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">深度易经</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:filesystem" class="section level1">
+<h1><span class="header-section-number">9</span> 文件系统</h1>
+<p>通过阅读本章，你将会了解到以下几项内容。</p>
+<ul>
+<li>了解文件系统</li>
+<li>查看文件（夹）及属性</li>
+<li>创建文件（夹）</li>
+<li>查看设置文件（夹）权限和归属</li>
+<li>文件（夹）的剪切复制粘贴删除和重命名</li>
+</ul>
+<div id="section-9.1" class="section level2">
+<h2><span class="header-section-number">9.1</span> 树形结构</h2>
+<p>参考网页：</p>
+<ul>
+<li><a href="https://blog.csdn.net/mzl87/article/details/79673012" class="uri">https://blog.csdn.net/mzl87/article/details/79673012</a></li>
+<li><a href="https://www.cnblogs.com/CoderJYF/p/6092604.html" class="uri">https://www.cnblogs.com/CoderJYF/p/6092604.html</a></li>
+<li><a href="https://blog.csdn.net/fan0220/article/details/53079618" class="uri">https://blog.csdn.net/fan0220/article/details/53079618</a></li>
+</ul>
+<div class="figure">
+<img src="images/linux-fs-tree.png" alt="Linux系统目录结构图" />
+<p class="caption">Linux系统目录结构图</p>
+</div>
+<p>常用文件夹说明。</p>
+<ul>
+<li><code>/</code> —— 根目录，一般根目录下只存放目录，不要存放文件。/etc、/bin、/dev、/lib、/sbin应该和根目录放置在一个分区中。</li>
+<li><code>/bin</code> —— 存放系统中最常用的二进制可执行文件（二进制文件）。基础系统所需要的那些命令位于此目录，也是最小系统所需要的命令；例如ls、cp、mkdir等命令。功能和/usr/bin类似，这个目录中的文件都是可执行的，普通用户都可以使用命令</li>
+<li><code>/boot</code> —— 存放Linux内核和系统启动文件，包括Grub、lilo启动程序</li>
+<li><code>/dev</code> —— 存放所有设备文件，包括硬盘、分区、键盘、鼠标、USB等</li>
+<li><code>/etc</code> —— 存放系统所有配置文件，例如passwd存放用户账户信息，hostname存放主机名等。/etc/fstab是开机自动挂载一些分区的，在里面写入一些分区信息，就能实现开机挂载分区</li>
+<li><code>/home</code> —— 用户目录的默认位置</li>
+<li><code>/initrd</code> —— 存放启动时挂载initrd.img映像文件的目录，以及载入所需设备模块的目录</li>
+<li><code>/lib</code> —— 存放共享的库文件，包含许多被/bin和/sbin中程序使用的库文件</li>
+<li><code>/lost+found</code> —— 在ext2或者ext3文件系统中，当系统意外崩溃或者计算机意外关机，而产生一些文件碎片存放在这里。当系统启动的过程中fsck工具会检查这里，并修复已经损坏的文件系统。有时系统发生问题，有很多的文件被移动到这个目录中，可能会用手工的方式来修复或移动到文件的原位置上</li>
+<li><code>/media</code> —— 即插即用型设备的挂载点自动在这个目录下创建。例如USB自动挂载后会在这个目录下产生一个目录；CDROM/DVD自动挂载后，也会在这个目录中创建一个目录，存放临时读入的文件</li>
+<li><code>/mnt</code> —— 此目录通常用于作为被挂载的文件系统的挂载点</li>
+<li><code>/proc</code> —— 存放所有标志为文件的进程，它们是通过进程号或其他的系统动态信息进行标识。例如CPU、硬盘分区、内存信息等存放在这里</li>
+<li><code>/opt</code> —— 作为可选文件和程序的存放目录。有些软件包也会被安装在这里，也就是自定义软件包；有些用户自己编译的软件包，就可以安装在这个目录中</li>
+<li><code>/root</code> —— 根用户（超级用户）的主目录</li>
+<li><code>/sbin</code> —— 大多是涉及系统管理的命令的存放地，也是超级权限用户root的可执行命令存放地。普通用户无权限执行这个目录下的命令，这个目录和/usr/sbin; /usr/X11R6/sbin或/usr/local/sbin目录是相似的。注意，凡是目录sbin中包含的都是root权限才能执行的</li>
+<li><code>/srv</code> —— 存放系统所提供的服务数据</li>
+<li><code>/sys</code> —— 该目录用于将系统设备组织或层次结构，并向用户提供详细的内核数据信息</li>
+<li><code>/tmp</code> —— 临时文件目录，有时用户运行程序的时候，会产生临时文件。/var/tmp目录和这个目录相似</li>
+<li><code>/usr</code> —— 用于存放与系统用户直接有关的文件和目录，如应用程序及支出系统的库文件
+<ul>
+<li><code>/usr/X11R6</code> —— X Window系统</li>
+<li><code>/usr/bin</code> —— 用户管理员的标准命令</li>
+<li><code>/usr/include</code> —— C/C++等开发工具语言环境的标准include文件</li>
+<li><code>/usr/lib</code> —— 应用程序及程序报的链接库</li>
+<li><code>/usr/local</code> —— 系统管理员安装的应用程序</li>
+<li><code>/usr/local/share</code> —— 系统管理员安装的共享文件</li>
+<li><code>/usr/sbin</code> —— 用户和管理员的标准命令</li>
+<li><code>/usr/share</code> —— 存放使用手册等共享文件的地方</li>
+<li><code>/usr/share/dict</code> —— 存放词表的目录</li>
+<li><code>/usr/share/man</code> —— 系统使用手册</li>
+<li><code>/usr/share/misc</code> —— 一般数据</li>
+<li><code>/usr/share/sgml</code> —— SGML数据</li>
+<li><code>/usr/share/xml</code> —— XML数据</li>
+</ul></li>
+<li><code>/var</code> —— 通常用于存放长度可变的文件，例如日志文件和打印机文件
+<ul>
+<li><code>/var/cache</code> —— 应用程序缓存目录</li>
+<li><code>/var/crash</code> —— 系统错误信息</li>
+<li><code>/var/games</code> —— 游戏数据</li>
+<li><code>/var/lib</code> —— 各种状态数据</li>
+<li><code>/var/lock</code> —— 文件锁定记录</li>
+<li><code>/var/log</code> —— 日志记录</li>
+<li><code>/var/mail</code> —— 电子邮件</li>
+<li><code>/var/opt</code> —— <code>/opt</code>目录的变量数据</li>
+<li><code>/var/run</code> —— 进程的标示数据</li>
+<li><code>/var/spool</code> —— 存放电子邮件，打印任务等的队列目录</li>
+<li><code>/var/tmp</code> —— 临时文件目录</li>
+</ul></li>
+</ul>
+</div>
+<div id="section-9.2" class="section level2">
+<h2><span class="header-section-number">9.2</span> 文件系统常用命令</h2>
+<table>
+<caption>文件系统常用命令</caption>
+<colgroup>
+<col width="16%" />
+<col width="83%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"><strong>命令</strong></th>
+<th align="left"><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>cd</code></td>
+<td align="left">改变目录</td>
+</tr>
+<tr class="even">
+<td align="left"><code>pwd</code></td>
+<td align="left">显示当前目录</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>mkdir</code></td>
+<td align="left">创建文件夹</td>
+</tr>
+<tr class="even">
+<td align="left"><code>chmod</code></td>
+<td align="left">修改文件（夹）权限</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>ls</code></td>
+<td align="left">列出文件夹内容</td>
+</tr>
+</tbody>
+</table>
+<p>下面给出几个简单例子。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="bu">cd</span>
+$ <span class="bu">cd</span> ~
+$ <span class="bu">cd</span> /usr/local/bin
+$ <span class="bu">cd</span> -
+$ <span class="bu">cd</span> ..
+$ <span class="bu">pwd</span></code></pre>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li><code>cd</code> 输入不带参数，默认是回到自己的主目录，也即<code>~</code>目录，第一行第二行效果是一样的。</li>
+<li><code>cd</code> 输入带一个目录，则跳转到该目录，如果你没有权限，则跳转失败。</li>
+<li><code>-</code>短横线表示上一个目录，也就是旧目录，方便你在两个目录之间切换。</li>
+<li><code>cd</code> 输入的目录支持相对路径和绝对路径。<code>..</code>表示上级目录或者叫父目录，<code>.</code>表示当前目录，对于<code>/</code>根目录，其父目录就是他本身。</li>
+<li><code>pwd</code>打印当前目录。</li>
+</ol>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="bu">cd</span>
+$ <span class="fu">mkdir</span> dir1
+$ <span class="fu">mkdir</span> -p dir2/dir22
+$ <span class="fu">ls</span> -ld dir1
+<span class="ex">drwxr-xr-x</span> 2 litianci litianci 4096 10月 31 22:24 dir1
+$ <span class="fu">chmod</span> o-rx dir1
+$ <span class="fu">touch</span> dir1
+$ <span class="fu">ls</span> -ld dir1
+<span class="ex">drwxr-x---</span> 2 litianci litianci 4096 10月 31 23:22 dir1</code></pre>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li><code>cd</code> 到主目录。使用<code>mkdir</code>新建一个文件夹。如果你想创建嵌套的文件夹，或者多层文件夹，可以使用<code>mkdir -p</code>选项，这样就可以建立多层文件夹。</li>
+<li><code>ls -ld dir1</code>，<code>-d</code>选项，表示只显示文件夹本身，<code>-l</code>是列出详细信息。<code>drwxr-xr-x</code>表示：<code>d</code>该文件是个文件夹，<code>rwxr-xr-x</code>是该文件夹的权限。见后面详述。<code>2</code>表示其内部有2个子文件（夹），从上面的命令可以知道其实<code>dir1</code>是一个空文件夹，怎么会有两个子文件（夹）呢，其实是隐藏的<code>..</code>和<code>.</code>文件夹。你可以使用 <code>ls -la dir1</code>看到这连个文件夹。后面依次为本文件（夹）的用户、用户组、文件大小，修改日期和时间。最后是本文件名称。</li>
+<li>使用<code>chmod</code>命令，去除其他用户的读和执行权限（<code>-rx</code>）</li>
+<li>使用<code>touch</code>命令，修改<code>dir1</code>的<strong>修改日期</strong>。</li>
+<li>再次使用<code>ls -ld dir1</code>命令，会发现相关的数值发生了变化。</li>
+</ol>
+</div>
+<div id="section-9.3" class="section level2">
+<h2><span class="header-section-number">9.3</span> 元字符和操作符</h2>
+<p>古人云物以类聚，人以群分。我们操作文件（夹）的时候，可能就需要批量操作。这个时候我们就可以这些文件（夹）归类，其实就是使用元字符表示某一类文件（夹）。这样操作起来更方便。</p>
+<p>如果说元字符是对文件夹分类，那么操作符就是对操作按照一定的规则拼接。</p>
+<div id="filesystem:metachar" class="section level3">
+<h3><span class="header-section-number">9.3.1</span> 元字符</h3>
+<p>常用的元字符有如下三种方式。</p>
+<ul>
+<li><code>*</code> 匹配任意数目的字符，跟正则表达式的<code>*</code>有所区别。</li>
+<li><code>?</code> 匹配一个字符，一个汉字也是作为一个字符。</li>
+<li><code>[...]</code> 匹配<code>[]</code>内的任意一个字符，支持短横线<code>-</code>表示连续的字符。一个汉字也是作为一个字符。</li>
+</ul>
+<p>看下面例子，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">mkdir</span> test
+$ <span class="bu">cd</span> test
+$ <span class="fu">touch</span> huawei huashuo 华为 华硕 深度 深不可测
+$ <span class="fu">ls</span> h*
+<span class="ex">huashuo</span>  huawei
+$ <span class="fu">ls</span> 华*
+华硕  华为
+$ <span class="fu">ls</span> 深*测
+深不可测</code></pre>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1-3行，创建空的文件夹<code>test</code>，并转到该文件夹，创建了<code>huawei</code>等六个文件。</li>
+<li>第4、6、8行，使用元字符<code>*</code>表示任意数目的字符，分别显示了匹配相关”分类“的文件。</li>
+</ol>
+<p>下面紧接着上面的shell环境，继续例子，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">ls</span> h?????
+<span class="ex">huawei</span>
+$ <span class="fu">ls</span> 华?
+华硕  华为
+$ <span class="fu">ls</span> 深?
+深度</code></pre>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1行，可以看出每个<code>?</code>代表一个字符。</li>
+<li>第3、5行，可以看出一个汉字算作一个字符。</li>
+</ol>
+<p>下面我们看看<code>[...]</code>相关的例子，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">touch</span> auawei buawei cuawei duawei
+$ <span class="fu">ls</span> [ah]uawei
+<span class="ex">auawei</span>  huawei
+$ <span class="fu">ls</span> [a-dh]uawei
+<span class="ex">auawei</span>  buawei  cuawei  duawei  huawei
+$ <span class="fu">ls</span> [a-dh]u*
+<span class="ex">auawei</span>  buawei  cuawei  duawei  huashuo  huawei</code></pre>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1行，为了方便演示，我新建了四个文件。</li>
+<li>第2行，<code>[ah]uawei</code>表示，<code>a</code>和<code>h</code>任选一个，后面紧挨着<code>uawei</code>。匹配的字符见第3行显示结果。</li>
+<li>第4行，我们可以看出短横线<code>-</code>的意思，表示一个序列。也支持数字的连续显示，但是只支持个位数，<strong>是否如此请核实</strong>。</li>
+<li>第6行，其实这些元字符可以配合使用。</li>
+</ol>
+</div>
+<div id="section-9.3.2" class="section level3">
+<h3><span class="header-section-number">9.3.2</span> 操作符</h3>
+<p>本节内容见第<a href="chap-shell.html#sec:redirect">8.4.2</a>小节。本节从略。</p>
+</div>
+<div id="section-9.3.3" class="section level3">
+<h3><span class="header-section-number">9.3.3</span> 花括号<code>{}</code></h3>
+<p>第@ref(<a href="filesystem:metachar)小节提到的均为归类，前提是筛选，选择已经存在的事物，对已有的事情分类" class="uri">filesystem:metachar)小节提到的均为归类，前提是筛选，选择已经存在的事物，对已有的事情分类</a>（<strong>是否如此请核实</strong>）。如果你想创建一个集合，可以选择花括号<code>{}</code>的方式，列出所有相关的元素。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">touch</span> deepin<span class="dt">{1,2,3,4}</span>
+$ <span class="fu">ls</span> deepin*
+<span class="ex">deepin1</span>  deepin2  deepin3  deepin4
+$ <span class="fu">rm</span> ./*
+$ <span class="fu">touch</span> <span class="dt">{deepin,深度}-{5,6,7,8}</span>
+$ <span class="fu">ls</span>
+<span class="ex">deepin-5</span>  deepin-6  deepin-7  deepin-8  深度-5  深度-6  深度-7  深度-8
+$ <span class="fu">rm</span> <span class="dt">{deepin,深度}-{5,6,7,8}</span>
+$ <span class="fu">ls</span>
+$ <span class="fu">touch</span> <span class="dt">{a..e}{1..3}</span>
+$ <span class="fu">ls</span>
+<span class="ex">a1</span>  a2  a3  b1  b2  b3  c1  c2  c3  d1  d2  d3  e1  e2  e3
+$ <span class="fu">rm</span> ./*
+$ <span class="fu">touch</span> <span class="dt">{A..a}</span>
+<span class="ex">touch</span>: 无法创建<span class="st">&#39;&#39;</span>: 没有那个文件或目录
+$ <span class="fu">ls</span>
+<span class="st">&#39;`&#39;</span>   <span class="ex">_</span>    ]   A   C   E   G   I   K   M   O   Q   S   U   W   Y
+<span class="st">&#39;^&#39;</span>  <span class="st">&#39;[&#39;</span>   <span class="ex">a</span>   B   D   F   H   J   L   N   P   R   T   V   X   Z
+$ <span class="fu">rm</span> ./*
+$ <span class="fu">touch</span> <span class="dt">{aa..ac}</span>
+$ <span class="fu">ls</span>
+<span class="dt">{aa..ac}</span>
+$ <span class="fu">rm</span> ./*
+$ <span class="fu">touch</span> <span class="dt">{11..21}</span>
+$ <span class="fu">ls</span>
+<span class="ex">11</span>  12  13  14  15  16  17  18  19  20  21
+$ <span class="fu">rm</span> ./*
+$ <span class="fu">touch</span> <span class="dt">{33..22}</span>
+$ <span class="fu">touch</span> <span class="dt">{z..b}</span></code></pre>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1行，创建了<code>deepin</code>开头，以后面集合元素结尾的文件。</li>
+<li>第5行，集合拼接在一起，类似于笛卡尔积的形式组合起来。</li>
+<li>第10行，对于单字母支持序列功能，多字母则不支持。对于数字支持序列功能。按照ASCII码排序，从<code>A</code>到<code>a</code>包含不显示的字符，影响最终的显示。</li>
+<li>最后两行，没有显示结果，有兴趣的读者可以使用<code>ls</code>看看结果。</li>
+</ol>
+</div>
+</div>
+<div id="section-9.4" class="section level2">
+<h2><span class="header-section-number">9.4</span> 几个常用的目录</h2>
+<ul>
+<li><code>$HOME</code> 主目录</li>
+<li><code>~</code> 波浪线，位于键盘左上角第二行开头的那个键（按下的时候需要按<code>shift</code>键），也是表示主目录，为了跳转到其他人的主目录，也可用使用<code>~&lt;username&gt;</code>的方式。比如跳转到<code>litianci</code>的主目录，<code>cd ~litianci</code></li>
+<li><code>-</code> 或者 <code>$OLDPWD</code>,表示上一个目录，这个是短横线，不是减号。如果你在两个目录之间切换的话，<code>cd -</code>方便你跳转，如果你还没有切换目录，跳转到旧目录则会报错。<code>-</code>还有其他的功能，比如放权当前环境切换到新用户，<code>sudo su -</code>，这个命令就是不管你现在处于什么目录，切换到<code>root</code>根用户，且工作目录为<code>root</code>根用户的主目录。</li>
+<li><code>.</code> 或 <code>$PWD</code> 当前工作目录。这两者是否有区别，待查。</li>
+<li><code>..</code> 上级目录，也即父目录。对于<code>/</code>根目录而言，<code>..</code>和<code>.</code>都表示本级目录。</li>
+</ul>
+</div>
+<div id="section-9.5" class="section level2">
+<h2><span class="header-section-number">9.5</span> 文件（夹）的权限和归属</h2>
+<p>Linux 是多用户的系统，为了在一定程度上保护数据隐私，对文件（夹）进行简单的权限控制。这也是你输入命令或者做其他事情的时候会遇到的没有权限问题的根源，甚至部分用户喜欢用<code>root</code>根用户操作，也是因为权限控制造成的某些不方便。为了更好的用权，也为了数据的安全，还请能用普通用户的情况下，尽量少用<code>root</code>根用户操作。下面对权限进行简要介绍。</p>
+<p>对于一个文件（夹）来说，他一定归属于某个用户，且归属于某个用户组。也一定有其他不属于前两者的用户，简称其他用户，有时候也想访问该文件（夹）。那么这个权限就是针对这三类人来设定的。当然，由于某些用户（组）被删除等，造成文件（夹）归属的用户（组）不存在了，这些就是无主文件（夹），这也是存在安全隐患的。在下章内容会讲述通过<code>find</code>命令查找此类无主文件（夹）的方法，可以采用相关方法，重新赋予其归属用户（组）或者删除等，这里就不叙述了。</p>
+<div id="section-9.5.1" class="section level3">
+<h3><span class="header-section-number">9.5.1</span> 权限简介</h3>
+<p>参考网页：</p>
+<ul>
+<li><a href="https://blog.csdn.net/zhao12795969/article/details/53448039" class="uri">https://blog.csdn.net/zhao12795969/article/details/53448039</a></li>
+</ul>
+<p>针对这三类用户，权限又可以分为读（Read）、写（Write）和执行（eXecute）三类。</p>
+<ul>
+<li>r(Read，读取)：对文件而言，具有读取文件内容的权限；对目录来说，具有浏览目录的权限。</li>
+<li>w(Write,写入)：对文件而言，具有新增,修改,删除文件内容的权限；对目录来说，具有新建，删除，修改，移动目录内文件的权限。</li>
+<li>x(eXecute，执行)：对文件而言，具有执行文件的权限；对目录了来说该用户具有进入目录的权限。</li>
+</ul>
+<p><strong>注意</strong></p>
+<ol style="list-style-type: decimal">
+<li>目录的只读访问不允许使用cd进入目录，必须要有执行的权限才能进入。</li>
+<li>只有执行权限只能进入目录，不能看到目录下的内容，要想看到目录下的文件名和目录名，需要可读权限。</li>
+<li>一个文件能不能被删除，主要看该文件所在的目录对用户是否具有写权限，如果目录对用户没有写权限，则该目录下的所有文件都不能被删除，文件所有者除外。</li>
+<li>目录的w位不设置，即使你拥有目录中某文件的w权限也不能写该文件。</li>
+<li>以上仅限于 <code>ext3/4</code>等文件系统的文件。对于安装<code>windows10</code>双系统的电脑，还需要注意是否<code>windows10</code>开启电源保护模式，哪怕你是<code>ext4</code>格式，依旧为只读，无法更改文件。</li>
+</ol>
+<p>每个文件属于一个用户和一个组。命令<code>ls -l</code>可以查看用户和组，比如，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">ls</span> -l /bin/bash 
+<span class="ex">-rwxr-xr-x</span> 1 root root 1111240 5月  13  2018 /bin/bash</code></pre>
+<p>第二行为输出结果，表明 <code>/bin/bash</code> 属于 root 用户， root 组。<code>ls -l</code> 命令的第一个字段 <code>-rwxr-xr-x</code> 包含<code>/bin/bash</code>的权限的符号表示。该字段中的首字符（<code>-</code>）指定该文件的类型，本例中它是一个常规文件。可能的首字符如下：</p>
+<ul>
+<li><code>-</code> 普通文件</li>
+<li><code>d</code> 目录</li>
+<li><code>l</code> 符号链接</li>
+<li><code>c</code> 字符专门设备文件</li>
+<li><code>b</code> 块专门设备文件</li>
+<li><code>p</code> 先进先出</li>
+<li><code>s</code> 套接字</li>
+</ul>
+<p>首字符后紧接着三个三元组<code>rwx</code>，<code>r-x</code>，<code>r-x</code>，第一个三元字符组代表文件所有者的权限，第二个代表文件的所属组的权限，第三个代表其他用户的权限。但是 root 用户，往往会被跳过这些权限检查（<strong>待核实</strong>）。</p>
+</div>
+<div id="chmod" class="section level3">
+<h3><span class="header-section-number">9.5.2</span> 权限更改<code>chmod</code></h3>
+<p><code>chmod</code> 用于更改 <code>rwx</code> 权限，带有两个或多个参数：<code>mode</code>，描述怎样改变权限，后面跟将会受到影响的文件或文件列表：</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">chmod</span> +x bashscript</code></pre>
+<p>上例<code>+x</code>表示对<code>bashscript</code>的三类人员（拥有者、拥有组和其他人）均增加可执行权限。如果我们想要除去一个文件的所有执行权限，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">chmod</span> -x bashscript</code></pre>
+<p>为了更精细的控制权限，比如只修改部分人员权限，需要在<code>+-</code>符号前加上这部分人员的代号。<code>a</code>表示所有人员，<code>u</code>表示拥有者，<code>g</code>表示拥有组，<code>o</code>表示其他人员。这些代号可以合用。比如下面这行命令表示组和其他人员去除读写权限增加执行权限。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">chmod</span> go-rw+x bashscript</code></pre>
+<p>对于权限，除了<code>+-</code>外，还可以使用等号<code>=</code>，表示只保留这些权限，未涉及的权限全部取消，有例外，见下文。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">chmod</span> =rx bashscript</code></pre>
+<p><strong>注意</strong></p>
+<p>使用<code>+-=</code>改变权限的时候，最好在前面加上相关人员的代号，比如<code>a</code>,<code>u</code>，<code>g</code>,<code>o</code>的组合，否则，可能跟你预期的结果不一样。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">chmod</span> a-rwx bashscript
+$ <span class="fu">chmod</span> +rwx bashscript <span class="co"># + 不一定跟你期望的一样</span>
+$ <span class="fu">ls</span> -l bashscript <span class="co"># rwxr-xr-x</span>
+$ <span class="fu">chmod</span> a-rwx bashscript
+$ <span class="fu">chmod</span> a+rwx bashscript
+$ <span class="fu">ls</span> -l bashscript <span class="co"># rwxrwxrwx</span>
+$ <span class="fu">chmod</span> -rwx bashscript <span class="co"># - 不一定跟你期望的一样</span>
+$ <span class="fu">ls</span> -l bashscript <span class="co"># ----w--w-</span>
+$ <span class="fu">chmod</span> a-rwx bashscript
+$ <span class="fu">ls</span> -l bashscript <span class="co"># ---------</span>
+$ <span class="fu">chmod</span> =rwx bashscript
+$ <span class="fu">ls</span> -l bashscript <span class="co"># rwxr-xr-x</span></code></pre>
+<p>以上是因为存在权限掩码<code>umask</code>这个参数，在终端输入<code>umask</code>回车，输出本机<code>umask=0022</code>,怎么是数字呢？这是因为权限也可用用数字表示，关于权限掩码<code>umask</code>在后面详述。</p>
+<p>数字形式的权限，使用4位八进制数，每一位代表一个权限三元组。例如，在 <code>1777</code> 中，<code>777</code> 设置本章我们所讨论的<code>owner</code>、<code>group</code>和<code>other</code>标志。<code>1</code> 用来设置专门的权限位，稍后再讲。这个图表说明了怎样解释第二到</p>
+<p>： 字符形式权限和数字形式权限对照表</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center"><strong>字符</strong></th>
+<th align="center"><strong>数字</strong></th>
+<th align="center"><strong>字符</strong></th>
+<th align="center"><strong>数字</strong></th>
+<th align="center"><strong>字符</strong></th>
+<th align="center"><strong>数字</strong></th>
+<th align="center"><strong>字符</strong></th>
+<th align="center"><strong>数字</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>rwx</code></td>
+<td align="center">7</td>
+<td align="center"><code>rw-</code></td>
+<td align="center">6</td>
+<td align="center"><code>r-x</code></td>
+<td align="center">5</td>
+<td align="center"><code>r--</code></td>
+<td align="center">4</td>
+</tr>
+<tr class="even">
+<td align="center"><code>-wx</code></td>
+<td align="center">3</td>
+<td align="center"><code>-w-</code></td>
+<td align="center">2</td>
+<td align="center"><code>--x</code></td>
+<td align="center">1</td>
+<td align="center"><code>---</code></td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table>
+<p>采用数字形式的权限管理方法，比如，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">chmod</span> 0755 bashscript
+$ <span class="fu">ls</span> -l bashscript
+<span class="ex">-rwxr-xr-x</span> 1 litianci litianci 119 11月 17 22:32 bashscript</code></pre>
+<p>就实现跟字符形式等同的权限设置。</p>
+</div>
+<div id="umask" class="section level3">
+<h3><span class="header-section-number">9.5.3</span> 权限掩码<code>umask</code></h3>
+<p>当进程创建了新文件时，它指定新文件应该具有的权限。通常，所请求的模式是 0666（每个人可读和可写），它比我们希望的具有更多的权限。幸运的是，不管什么时候创建了新文件，Linux 将参考叫做权限掩码<code>umask</code>的东西。系统用<code>umask</code>值来将初始指定的权限降低为更合理、更安全的权限。您可以通过在命令行中输入<code>umask</code>来查看您当前的<code>umask</code>设置，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="bu">umask</span>
+<span class="ex">0022</span></code></pre>
+<p>Linux 系统上，<code>umask</code> 的缺省值一般为 <code>0022</code>，它允许其他人读您的新文件（如果他们可以得到它们），但是不能进行修改。为了在缺省的情况下使新文件更安全，您可以改变 <code>umask</code> 设置，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="bu">umask</span> 0077
+$ <span class="fu">touch</span> newfile <span class="co"># 新建一个文件</span>
+$ <span class="fu">ls</span> -l newfile
+<span class="ex">-rw-------</span> 1 litianci litianci 0 11月 21 18:39 newfile</code></pre>
+<p><code>umask</code> 将确保组和其他用户对于新创建的文件绝对没有任何权限。参阅上方的《字符形式权限和数字形式权限对照表》，当<code>umask=0077</code>时，对应字符形式权限为 <code>---rwxrwx</code>。而新建文件的请求权限为<code>0666</code>（<code>rw-rw-rw-</code>），禁用掉<code>0077</code>后，就剩上方显示的<code>rw-------</code>权限了。</p>
+<div id="suid--sgid" class="section level4">
+<h4><span class="header-section-number">9.5.3.1</span> <code>suid</code> 和 <code>sgid</code></h4>
+<p>当您最初登录时，将启动一个新的 shell 进程。这个新的 shell 进程（通常是 bash）使用您的用户标识运行，可以访问所有属于您的文件（夹）。您启动的程序继承了您的用户标识，因此它们不能访问任何不允许您访问的文件系统对象。例如，一般用户不能直接修改 <em>/etc/passwd</em> 文件，因为<code>write</code>标志已经对除<code>root 用户</code>以外的每个用户关闭，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">ls</span> -l /etc/passwd
+<span class="ex">-rw-r--r--</span> 1 root root 2438 11月 21 15:54 /etc/passwd</code></pre>
+<p>但是，一般用户确实需要在他们需要改变其密码的任何时候，能够修改 <em>/etc/passwd</em>（至少间接地）。但是，如果用户不能修改该文件，究竟怎样完成这个工作呢？</p>
+<p>幸好，Linux 权限模型有两个专门的位，叫做<code>suid</code>和<code>sgid</code>。当设置了一个可执行程序的<code>suid</code>这一位时，它将代表可执行文件的所有者运行，而不是代表启动程序的人运行。现在回到上面这个问题。查看 <em>/usr/bin/passwd</em> 可执行文件，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">ls</span> -l /usr/bin/passwd
+<span class="ex">-rwsr-xr-x</span> 1 root root 59640 9月  28  2017 /usr/bin/passwd</code></pre>
+<p>您还将注意到，这里有一个 <code>s</code> 取替了用户权限三元组中的一个 <code>x</code>。这表明，对于这个特殊程序，设置了 <code>suid</code> 和可执行位。由于这个原因，当 <code>/usr/bin/passwd</code> 运行时，它将代表 root 用户执行（具有完全超级用户访问权），而不是代表运行它的用户运行。又因为 <code>/usr/bin/passwd</code> 以 root 用户访问权运行，所以能够修改 <em>/etc/passwd</em> 文件，而没有什么问题。</p>
+<p>我们看到了 <code>suid</code> 怎样工作，<code>sgid</code> 以同样的方式工作。它允许程序继承程序的组所有权，而不是当前用户的组所有权。</p>
+<p>这里有一些关于 <code>suid</code> 和 <code>sgid</code> 的其它的但是很重要的信息。</p>
+<p>首先，<code>suid</code> 和 <code>sgid</code> 分别占据与 <code>ls -l</code> 清单中用户<code>u</code>和用户组<code>g</code>的执行<code>x</code>位。如果设置了 <code>x</code> 位为可执行，则相应的位表示为 <code>s</code>（小写）否则为 <code>S</code>（大写）。</p>
+<p>其次，在许多环境中，<code>suid</code> 和 <code>sgid</code> 很管用，但是不恰当地使用这些位可能使系统的安全遭到破坏。最好尽可能地少用<code>suid</code>程序。<code>/usr/bin/passwd</code> 命令是为数不多的必须使用<code>suid</code>的命令之一。</p>
+<p>设置和除去 <code>suid</code> 与 <code>sgid</code> 位相当简单。这里，我们设置 suid 位：</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">ls</span> -l bashscript 
+<span class="ex">-rwxr-xr-x</span> 1 litianci litianci 119 11月 17 22:32 bashscript
+$ <span class="fu">chmod</span> u+s bashscript 
+$ <span class="fu">ls</span> -l bashscript 
+<span class="ex">-rwsr-xr-x</span> 1 litianci litianci 119 11月 17 22:32 bashscript
+$ <span class="fu">chmod</span> u-x bashscript 
+$ <span class="fu">ls</span> -l bashscript 
+<span class="ex">-rwSr-xr-x</span> 1 litianci litianci 119 11月 17 22:32 bashscript
+$ <span class="fu">chmod</span> g+s bashscript 
+$ <span class="fu">ls</span> -l bashscript 
+<span class="ex">-rwSr-sr-x</span> 1 litianci litianci 119 11月 17 22:32 bashscript
+$ <span class="fu">chmod</span> g-s bashscript 
+$ <span class="fu">ls</span> -l bashscript 
+<span class="ex">-rwSr-xr-x</span> 1 litianci litianci 119 11月 17 22:32 bashscript</code></pre>
+<p>权限和目到此为止，我们从常规文件的角度来看权限。当从目录的角度看权限时，情况有一点不同。目录使用同样的权限标志，但是它们被解释为表示略微不同的含义。 对于一个目录，如果设置了<code>read</code>标志，您可以列出目录的内容；<code>write</code>表示您可以在目录中创建文件，<code>execute</code>表示您可以进入该目录并访问内部的任何子目录。没有<code>execute</code>标志，目录内的文件系统对象是不可访问的。没有<code>read</code>标志，目录内的文件系统对象是不可查看的，但是只要有人知道磁盘上对象的完整路径，就仍然可以访问目录内的对象。</p>
+<p>如果启用了目录的<code>sgid</code>标志，在目录内创建的任何文件系统对象将继承目录的组。当您需要创建一个属于同一组的一组人使用的目录树时，这种特殊的功能很管用。只需要这样做，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">mkdir</span> -p /media/litianci/data/groupspace
+$ <span class="fu">sudo</span> chgrp mygroup /media/litianci/data/groupspace
+$ <span class="fu">chmod</span> g+s /media/litianci/data/groupspace</code></pre>
+<p>现在，mygroup 组中的所有用户都可以在 <em>/media/litianci/data/groupspace</em> 内创建文件或目录，同样，他们也将自动地分配到 mygroup 的组所有权。根据用户的 <code>umask</code> 设置，新文件系统对象对于 mygroup 组的其他成员来说，可以或不可以是可读、可写或可执行的。</p>
+</div>
+<div id="section-9.5.3.2" class="section level4">
+<h4><span class="header-section-number">9.5.3.2</span> 目录和删除</h4>
+<p>缺省情况下，Linux 目录以一种不是在所有情况下都很理想的方式表现。一般来说，只要对一个目录有写访问权，任何人都可以重命名或删除该目录中的文件。对于个别用户使用的目录，这种行为是很合理的。</p>
+<p>但是，对于很多用户使用的目录来说，尤其是 <em>/tmp</em> 和 <em>/var/tmp</em>，这种行为可能会产生麻烦。因为任何人都可以写这些目录，任何人都可以删除或重命名任何其他人的文件——即使是不属于他们的！显然，当任何其他用户在任何时候都可以输入<code>rm -rf /tmp/*</code>并损坏每个人的文件时，很难在 <em>/tmp</em> 存放任何有意义的文件。</p>
+<p>所幸，Linux 提供了粘滞位（sticky bit）的东西。当给 <em>/tmp</em> 设置了粘滞位（用<code>chmod +t</code>），唯一能够删除或重命名 <em>/tmp</em> 中文件的是该目录的所有者（通常是 root 用户）、文件的所有者或 root 用户。事实上，所有 Linux 分发包都缺省地启用了 <em>/tmp</em> 的粘滞位，而您还可以发现粘滞位在其它情况下也很管用。很显然，粘滞位是属于其他类型人员的权限，跟<code>suid</code>,<code>sgid</code>一样，占据的也是权限三元组的<code>x</code>位，小写是设置了执行权限，大写是禁用了执行权限。所不同的是他们分别占据<code>u</code>,<code>g</code>，<code>o</code>的<code>x</code>位。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">ls</span> -dl /tmp
+<span class="ex">drwxrwxrwt</span> 15 root root 4096 11月 22 10:19 /tmp
+$ <span class="fu">sudo</span> chmod o-x /tmp
+$ <span class="fu">ls</span> -dl /tmp
+<span class="ex">drwxrwxrwT</span> 16 root root 4096 11月 22 10:25 /tmp</code></pre>
+</div>
+<div id="section-9.5.3.3" class="section level4">
+<h4><span class="header-section-number">9.5.3.3</span> 数字形式权限的第一位数字</h4>
+<p>现在我们回过头来看数字权限的第一位数字的意思，这也是一个八进制数字，<code>0-7</code>，转化为三位的二进制数，从高位到低位，分别表示<code>suid</code>,<code>sgid</code>,<code>sticky</code>。当设置该权限时为<code>1</code>，禁用该权限时为<code>0</code>。比如，<code>3</code>就表示，禁用<code>suid</code>,启用<code>sgid</code>,<code>sticky</code>。看下面例子。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">chmod</span> 1777 bashscript 
+$ <span class="fu">ls</span> -l bashscript 
+<span class="ex">-rwxrwxrwt</span> 1 litianci litianci 119 11月 17 22:32 bashscript
+$ <span class="fu">chmod</span> 2777 bashscript 
+$ <span class="fu">ls</span> -l bashscript 
+<span class="ex">-rwxrwsrwx</span> 1 litianci litianci 119 11月 17 22:32 bashscript
+$ <span class="fu">chmod</span> 4777 bashscript 
+$ <span class="fu">ls</span> -l bashscript 
+<span class="ex">-rwsrwxrwx</span> 1 litianci litianci 119 11月 17 22:32 bashscript</code></pre>
+</div>
+</div>
+<div id="section-9.5.4" class="section level3">
+<h3><span class="header-section-number">9.5.4</span> 归属</h3>
+<p>参考网页：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/DawaTech/p/7249734.html" class="uri">https://www.cnblogs.com/DawaTech/p/7249734.html</a></li>
+</ul>
+<p>语法结构如下，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">chgrp</span> 组名 文件（夹） -R
+<span class="fu">chown</span> 用户名 文件（夹） -R</code></pre>
+<p>其中<code>chgrp</code>表示改变组名；<code>chown</code>表示改变用户名；<code>-R</code>表示递归目录下所有文件，可略。<strong>更改所属用户和所属组常常需要根用户权限。</strong></p>
+<div id="chgrp" class="section level4">
+<h4><span class="header-section-number">9.5.4.1</span> 修改文件所属组群<code>chgrp</code></h4>
+<p><code>chgrp</code>，就是change group的缩写（我们可以利用这些来记忆命令）。看例子，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">[<span class="ex">litianci</span>]$ sudo groupadd groupa <span class="co"># 增加组 groupa</span>
+[<span class="ex">litianci</span>]$ sudo groupadd groupb <span class="co"># 增加组 groupb</span>
+[<span class="ex">litianci</span>]$ sudo useradd -g groupa deepin -m <span class="co"># 新增用户 deepin，默认组 groupa,自带主目录</span>
+[<span class="ex">litianci</span>]$ sudo su - deepin <span class="co"># 切换到 deepin 用户，- 表示不保存当前任何环境变量</span>
+[<span class="ex">deepin</span>]$ touch filea fileb <span class="co"># 创建两个文件</span>
+[<span class="ex">deepin</span>]$ ls -l
+<span class="ex">-rw-r--r--</span> 1 deepin groupa    0 11月 21 15:55 filea
+<span class="ex">-rw-r--r--</span> 1 deepin groupa    0 11月 21 15:55 fileb
+[<span class="ex">deepin</span>]$ exit
+[<span class="ex">litianci</span>]$ sudo chgrp groupb ~deepin/filea <span class="co"># 改变filea所属群组</span>
+[<span class="ex">litianci</span>]$ sudo ls -l ~deepin/
+<span class="ex">-rw-r--r--</span> 1 deepin groupb    0 11月 21 15:55 filea
+<span class="ex">-rw-r--r--</span> 1 deepin groupa    0 11月 21 15:55 fileb</code></pre>
+<p>由于新增用户权限的问题，后面使用其他用户（<code>ls -l</code>）访问文件的属性。执行命令的用户放在每行命令的开头了。</p>
+</div>
+<div id="chown" class="section level4">
+<h4><span class="header-section-number">9.5.4.2</span> 修改文件拥有者<code>chown</code></h4>
+<p><code>chown</code>，即change owner改变归属用户。<code>chown</code>功能很多，不仅仅能更改文件拥有者，还可以修改文件所属组群。如果需要将某一目录下的所有文件都改变其拥有者，可以使用<code>-R</code>参数。</p>
+<p>语法结构如下，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">chown</span> [-R] 账号名称      文件/目录
+<span class="fu">chown</span> [-R] 账号名称:组群  文件/目录</code></pre>
+<p>下面简单示例，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">touch</span> demo
+$ <span class="fu">ls</span> -l demo
+<span class="ex">-rw-r--r--</span> 1 litianci litianci 0 11月 21 16:13 demo
+$ <span class="fu">sudo</span> chown deepin demo <span class="co"># 修改文件 demo 的拥有者为 deepin</span>
+$ <span class="fu">ls</span> -l demo
+<span class="ex">-rw-r--r--</span> 1 deepin litianci 0 11月 21 16:13 demo
+$ <span class="fu">sudo</span> chown deepin:groupa demo <span class="co"># 修改 demo 的拥有者为 deepin，拥有组 groupa</span>
+<span class="ex">-rw-r--r--</span> 1 deepin groupa 0 11月 21 16:13 demo</code></pre>
+</div>
+</div>
+</div>
+<div id="section-9.6" class="section level2">
+<h2><span class="header-section-number">9.6</span> 文件（夹）的创建、查看、移动、复制和删除</h2>
+<p>有点类似数据库的增删改查（CRUD,Create,Read,Update,Delete），这里只提到了文件（夹）的创建、查看、移动（包括重命名）、复制和删除。修改涉及到文件的权限以及日期等等内容，这里略过不提。</p>
+<div id="section-9.6.1" class="section level3">
+<h3><span class="header-section-number">9.6.1</span> 文件（夹）的创建</h3>
+<p>对于文件夹的创建，常用<code>mkdir</code>这个命令。具体方法，前面已经讲解了。对于文件的创建，通常使用<code>touch</code>创建文件，通过<code>man touch</code>可以看出，一般情况，<code>touch</code>只是对访问和更改的时间戳重置为当前时间戳，创建文件只是附带功能。另外一般的编辑器，还有其他文件都有新建保存功能，这样也可用创建文件。这里就不详细介绍了。</p>
+</div>
+<div id="section-9.6.2" class="section level3">
+<h3><span class="header-section-number">9.6.2</span> 文件（夹）的查看</h3>
+<p>对于文件的内容查看，可以通过各种阅读器或者编辑器等，根据文件的类型做出不同选择。因为Unix哲学奉行一切皆文件，编辑器是一种比较常见的查看方式，这个见第<a href="chap-vim-find.html#chap:vim-find">10</a>章。</p>
+<p>文件（夹）的查看，通常采用<strong>深度文件管理器</strong>。对于其属性，可以通过<strong>深度文件管理器</strong>右击找到属性来查看。当然在命令行下<code>ls</code>也是一个非常强大的存在。看下面的例子。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">ls</span>
+$ <span class="fu">ls</span> -la
+$ <span class="fu">ls</span> -lR</code></pre>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li><code>ls</code>的选项<code>-a</code>表示把当前包含隐藏文件（夹）在内的所有文件（夹）显示出来。</li>
+<li><code>-R</code>选项是递归显示，可以把各个子文件夹的内容也显示出来。<code>-l</code>的显示内容，见上面章节说明。更多内容，可以查看<code>man ls</code>。
+### 文件（夹）的移动及重命名</li>
+</ol>
+<p>文件（夹）的移动和重命名是通过<code>mv</code>命令实现的。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">mv</span> litianci deepin
+$ <span class="fu">mv</span> deepin ~
+$ <span class="fu">mv</span> test1 test2 test3 ~
+$ <span class="fu">mv</span> ~/deepin-bible/ ~/test/
+$ <span class="fu">mv</span> ~/Desktop/* ~/test/</code></pre>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1行，对文件<code>litianci</code>重命名为 <code>deepin</code>。<code>mv</code>重命名时，不区分文件夹或文件。</li>
+<li>第2行，把文件 <code>deepin</code>移动到<code>~</code>文件夹。</li>
+<li>第3行，<code>mv</code>支持多个文件同时移动到最后面一个文件夹。请注意，<strong>当多个文件（夹）同时移动时，最后一个必须是文件夹或指向文件夹的链接</strong>。</li>
+<li>第4行，把文件夹<code>deepin-bible</code>文件夹，包括文件夹的内容（含隐藏内容），移动到<code>~/test/</code>文件夹。</li>
+<li>第5行，只是把文件夹<code>Desktop</code>内的非隐藏内容，移动到<code>~/test/</code>文件夹。</li>
+</ol>
+<p>注意，默认的<code>mv</code>，对于重名冲突是直接覆盖的。如果想不被覆盖，建议在<code>~/.bashrc</code>内加上<code>alias mv='mv -i'</code>，遇到这类的问题的时候，就会征询你的意见再决定要不要覆盖。</p>
+</div>
+<div id="section-9.6.3" class="section level3">
+<h3><span class="header-section-number">9.6.3</span> 文件（夹）的复制</h3>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">cp</span> litianci deepin
+$ <span class="fu">cp</span> deepin ~
+$ <span class="fu">cp</span> test1 test2 test3 ~
+$ <span class="fu">cp</span> -r ~/deepin-bible/ ~/test/
+$ <span class="fu">cp</span> -ra ~/Desktop/* ~/test/</code></pre>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1-3行，类似<code>mv</code>命令，实现对文件的复制，不含文件夹的复制。</li>
+<li>第4行，对于文件夹的复制，需要带<code>-r</code>选项，递归（<code>recursive</code>）的意思。</li>
+<li>第5行，复制<code>-a</code>选项，表示复制后的文件（夹）各时间戳和权限跟原文件（夹）一样。</li>
+</ol>
+</div>
+<div id="section-9.6.4" class="section level3">
+<h3><span class="header-section-number">9.6.4</span> 文件（夹）的删除</h3>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="fu">rm</span> deepin
+$ <span class="fu">rm</span> ./-
+$ <span class="fu">rm</span> *
+$ <span class="fu">rmdir</span> /home/joe/nothing/
+$ <span class="fu">rm</span> -r /home/joe/bigdir/
+$ <span class="fu">rm</span> -rf /home/joe/hugedir/
+$ <span class="fu">sudo</span> rm -rf / <span class="co">#千万不要试运行</span></code></pre>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1行，普通文件可以直接删除。不支持文件夹直接删除。如果要删除文件夹见第4-6行。</li>
+<li>第2行，对于特殊文件，比如<code>-</code>，一般写绝对路径。</li>
+<li>第3行，<code>*</code>一般代表的都是非隐藏文件（夹）。没有<code>-r</code>递归选项，也可用删除当前文件夹下的所有非隐藏内容。</li>
+<li>第4行，删除文件夹的命令<code>rmdir</code>，删除了<code>nothing</code>文件夹及其内容。</li>
+<li>第5-6行，<code>-r</code>表示递归，可以使用<code>rm</code>删除文件夹。<code>-f</code>是强制删除，实际是不用询问直接删除，对于没有权限删除的，依旧无法删除。</li>
+<li>第7行，千万不要试运行。但是有时候为了删除本文件夹下的内容，往往错输。</li>
+</ol>
+<p>我的建议是<code>alias rm='trash-put'</code>，把删除改为放置到回收站。具体做法见附录<a href="chap-faqs.html#chap:faqs">E</a>。</p>
+</div>
+</div>
+<div id="-4" class="section level2">
+<h2><span class="header-section-number">9.7</span> 总结</h2>
+<p>本章介绍了Linux操作系统的文件结构，并对文件的权限和归属情况进行了介绍，最后对文件的改动复制等作了简要介绍。</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-shell.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-vim-find.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bubifengyun/deepin-bible/edit/master/./rmd/202-filesystem.Rmd",
+"text": "Edit"
+},
+"download": ["deepin-bible.pdf", "deepin-bible.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

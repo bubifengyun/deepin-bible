@@ -1,0 +1,146 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+
+\usepackage{wallpaper}
+\usepackage{tikz} 
+\definecolor[named]{color01}{rgb}{.2,.4,.6} % Color used in the title page
+
+$for(bibliography)$
+\addbibresource{$bibliography$}
+$endfor$
+
+\providecommand{\tightlist}{%
+    \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+$if(title)$
+\title{$title$}
+$endif$
+$if(author)$
+\author{$author$}
+$endif$
+$if(advisor)$
+\advisor{$advisor$}
+$endif$
+$if(coadvisor)$
+\coadvisor{$coadvisor$}
+$endif$
+$if(defenddate)$
+\defenddate{$defenddate$}
+$endif$
+$if(school)$
+\school{$school$}
+$endif$
+$if(institute)$
+\institute{$institute$}
+$endif$
+$if(studentnumber)$
+\studentnumber{$studentnumber$}
+$endif$
+$if(major)$
+\major{$major$}
+$endif$
+
+$if(englishtitle)$
+\englishtitle{$englishtitle$}
+$endif$
+$if(englishauthor)$
+\englishauthor{\textsc{$englishauthor$}}
+$endif$
+$if(englishadvisor)$
+\englishadvisor{Prof. \textsc{$englishadvisor$}}
+$endif$
+$if(englishcoadvisor)$
+\englishcoadvisor{Prof. \textsc{$englishcoadvisor$}}
+$endif$
+$if(englishschool)$
+\englishschool{$englishschool$}
+$endif$
+$if(englishinstitute)$
+\englishinstitute{\textsc{$englishinstitute$} \\
+  \textsc{Shanghai Jiao Tong University} \\
+  \textsc{Shanghai, P.R.China}}
+$endif$
+$if(englishmajor)$
+\englishmajor{$englishmajor$}
+$endif$
+$if(englishdate)$
+\englishdate{$englishdate$}
+$endif$
+
+% http://www.latextemplates.com/template/ebook
+% https://stackoverflow.com/questions/8658380/jpg-to-pdf-conversion-how-to-fit-full-page
+$if(cover-image)$
+  \cleardoublepage
+  \thispagestyle{empty}
+  \begin{center}
+    \ThisTileWallPaper{\paperwidth}{\paperheight}{$cover-image$}
+    \begin{tikzpicture}[remember picture,overlay]
+\node [rectangle, rounded corners, fill=white, opacity=0.75, anchor=south west, minimum width=8cm, minimum height=13cm] (box) at (-0.5,-10) (box){}; % White rectangle - "minimum width/height" adjust the width and height of the box; "(-0.5,-10)" adjusts the position on the page
+\node[anchor=west, color01, xshift=-1.5cm, yshift=-0.4cm, text width=2.9cm, font=\sffamily\scriptsize] at (box.north){$advisor$}; % "Text width" adjusts the wrapping width, "xshift/yshift" adjust the position relative to the white rectangle
+\node[anchor=west, color01, xshift=-1.5cm, yshift=-2cm, text width=2.9cm, font=\sffamily\bfseries\scshape\Large] at (box.north){$title$}; % "Text width" adjusts the wrapping width, "xshift/yshift" adjust the position relative to the white rectangle
+\node[anchor=west, color01, xshift=-1.5cm, yshift=-5cm, text width=2.9cm, font=\sffamily\bfseries] at (box.north){$author$}; % "Text width" adjusts the wrapping width, "xshift/yshift" adjust the position relative to the white rectangle
+\end{tikzpicture}
+  \end{center}
+  \cleardoublepage
+$endif$
+
+\maketitle
+
+\makeatletter
+\ifsjtu@submit\relax
+	\includepdf{handed_pdf/original.pdf}
+	\cleardoublepage
+	\includepdf{handed_pdf/authorization.pdf}
+	\cleardoublepage
+\else
+\ifsjtu@review\relax
+% exclude the original claim and authorization
+\else
+	\makeDeclareOriginal
+	\makeDeclareAuthorization
+\fi
+\fi
+\makeatother
+
+$body$
+
+\backmatter	% 文后无编号部分 
+
+%% 参考资料
+\printbibliography[heading=bibintoc]
+
+%% 致谢、发表论文、申请专利、参与项目、简历
+%% 用于盲审的论文需隐去致谢、发表论文、申请专利、参与的项目
+\makeatletter
+
+%%
+% "研究生学位论文送盲审印刷格式的统一要求"
+% http://www.gs.sjtu.edu.cn/inform/3/2015/20151120_123928_738.htm
+
+% 盲审删去删去致谢页
+\ifsjtu@review\relax\else
+  \include{tex/ack} 	  %% 致谢
+\fi
+
+\ifsjtu@bachelor
+  % 学士学位论文要求在最后有一个英文大摘要，单独编页码
+  \pagestyle{biglast}
+  \include{tex/end_english_abstract}
+\else
+  % 盲审论文中，发表学术论文及参与科研情况等仅以第几作者注明即可，不要出现作者或他人姓名
+  \ifsjtu@review\relax
+    \include{tex/pubreview}
+    \include{tex/projectsreview}  
+  \else
+    \include{tex/pub}	      %% 发表论文
+    \include{tex/projects}  %% 参与的项目
+  \fi
+\fi
+
+% \include{tex/patents}	  %% 申请专利
+% \include{tex/resume}	  %% 个人简历
+
+\makeatother
+
+\end{document}

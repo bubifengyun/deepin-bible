@@ -1,0 +1,137 @@
+\documentclass[$if(fontsize)$$fontsize$,$endif$$if(lang)$$babel-lang$,$endif$$if(papersize)$$papersize$paper,$endif$$for(classoption)$$classoption$$sep$,$endfor$]{$documentclass$}
+\usepackage{epigraph}
+
+\usepackage{wallpaper}
+\usepackage{tikz} 
+\definecolor[named]{color01}{rgb}{.2,.4,.6} % Color used in the title page
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\begin{document}
+
+%% 无编号内容：中英文论文封面、授权页
+$if(title)$
+\title{$title$}
+$endif$
+$if(author)$
+\author{$author$}
+$endif$
+$if(advisor)$
+\advisor{$advisor$}
+$endif$
+$if(coadvisor)$
+\coadvisor{$coadvisor$}
+$endif$
+$if(defenddate)$
+\defenddate{$defenddate$}
+$endif$
+$if(school)$
+\school{$school$}
+$endif$
+$if(institute)$
+\institute{$institute$}
+$endif$
+$if(studentnumber)$
+\studentnumber{$studentnumber$}
+$endif$
+$if(major)$
+\major{$major$}
+$endif$
+
+$if(englishtitle)$
+\englishtitle{$englishtitle$}
+$endif$
+$if(englishauthor)$
+\englishauthor{\textsc{$englishauthor$}}
+$endif$
+$if(englishadvisor)$
+\englishadvisor{Prof. \textsc{$englishadvisor$}}
+$endif$
+$if(englishcoadvisor)$
+\englishcoadvisor{Prof. \textsc{$englishcoadvisor$}}
+$endif$
+$if(englishschool)$
+\englishschool{$englishschool$}
+$endif$
+$if(englishinstitute)$
+\englishinstitute{\textsc{$englishinstitute$} \\
+  \textsc{Shanghai Jiao Tong University} \\
+  \textsc{Shanghai, P.R.China}}
+$endif$
+$if(englishmajor)$
+\englishmajor{$englishmajor$}
+$endif$
+$if(englishdate)$
+\englishdate{$englishdate$}
+$endif$
+
+% http://www.latextemplates.com/template/ebook
+% https://stackoverflow.com/questions/8658380/jpg-to-pdf-conversion-how-to-fit-full-page
+$if(cover-image)$
+  \cleardoublepage
+  \thispagestyle{empty}
+  \begin{center}
+    \ThisTileWallPaper{\paperwidth}{\paperheight}{$cover-image$}
+    
+  \end{center}
+  \cleardoublepage
+$endif$
+
+\maketitle
+
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+$if(toc)$
+{
+\setcounter{tocdepth}{$toc-depth$}
+\tableofcontents
+}
+$endif$
+$if(lot)$
+\listoftables
+$endif$
+$if(lof)$
+\listoffigures
+$endif$
+$body$
+
+$if(natbib)$
+$if(bibliography)$
+$if(biblio-title)$
+$if(book-class)$
+\renewcommand\bibname{$biblio-title$}
+$else$
+\renewcommand\refname{$biblio-title$}
+$endif$
+$endif$
+\bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
+
+$endif$
+$endif$
+$if(biblatex)$
+\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+
+$endif$
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}

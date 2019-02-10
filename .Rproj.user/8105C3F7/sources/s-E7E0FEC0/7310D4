@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1528197094399.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "7310D4",
+    "lastKnownWriteTime" : 1528192202,
+    "last_content_update" : 1528192202,
+    "path" : "~/deepin-bible/thesis.tex",
+    "project_path" : "thesis.tex",
+    "properties" : {
+        "cursorPosition" : "23,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "tex"
+}
