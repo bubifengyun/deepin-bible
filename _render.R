@@ -8,7 +8,21 @@ local({
   if (!length(r) || all(r['CRAN'] == '@CRAN@')) r['CRAN'] = 'https://cran.rstudio.com' 
   options(repos = r)
 })
+
 if (system.file(package = 'bookdown') == '') install.packages('bookdown')
+
+# 填上你需要用到的包
+
+err = lapply(c('DT', 'citr', 'formatR', 'svglite', 'webshot', 'devtools', 'tinytex'), function(pkg) {
+  if (system.file(package = pkg) == '') install.packages(pkg)
+})
+
+if (!grepl('Windows', Sys.info()['sysname'][[1]]) && system('hash phantomjs 2>/dev/null') != 0)
+  webshot::install_phantomjs()
+
+xelatex.has_installed <- system('xelatex --version') ==0
+if ((!xelatex.has_installed) && (!tinytex:::is_tinytex()))
+  tinytex::install_tinytex()
 
 src = (function() {
   attr(body(sys.function()), 'srcfile')

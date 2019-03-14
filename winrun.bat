@@ -1,0 +1,1 @@
+Rscript _render.R "bookdown::pdf_book" > log.txt 2> err.txt

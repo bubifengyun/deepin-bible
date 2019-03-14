@@ -5,22 +5,25 @@ localedate = Sys.setlocale(category = "LC_TIME", locale = 'en_US.UTF-8')
 
 # 添加索引引擎 zhmakeindex
 
-localSystem = R.Version()$system
+sysname = Sys.info()['sysname'][[1]]
+machine = Sys.info()['machine'][[1]]
 
-if (grepl('linux', localSystem)){
+if (grepl('Linux', sysname)){
   if (system('hash zhmakeindex 2>/dev/null') == 0) {
     zhmakeindex = 'zhmakeindex'#存在zhmakeindex
-  } else if (grepl('64', localSystem)) 
+  } else if (grepl('64', machine)) 
     zhmakeindex = './bin/linux_x64/zhmakeindex'
   else
     zhmakeindex = './bin/linux_x86/zhmakeindex'
-} else if (grepl('windows', localSystem)){
-  if (grepl('64', localSystem)) 
+} else if (grepl('Windows', sysname)){
+  if (grepl('64', machine)) 
     zhmakeindex = './bin/windows_x64/zhmakeindex.exe'
   else
     zhmakeindex = './bin/windows_x86/zhmakeindex.exe'
-} else if (grepl('darwin', localSystem)){
-  if (grepl('64', localSystem)) 
+} else if (grepl('Darwin', sysname)){
+  if (system('hash zhmakeindex 2>/dev/null') == 0) {
+    zhmakeindex = 'zhmakeindex'#存在zhmakeindex
+  } else if (grepl('64', machine)) 
     zhmakeindex = './bin/darwin_x64/zhmakeindex'
   else
     zhmakeindex = './bin/darwin_x86/zhmakeindex'
@@ -31,18 +34,6 @@ if (grepl('linux', localSystem)){
 options(
   htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4, tinytex.makeindex =  zhmakeindex, tinytex.makeindex.args = '-s imakeidx.ist'
 )
-
-# 填上你需要用到的包
-
-lapply(c('DT', 'citr', 'formatR', 'svglite', 'webshot', 'devtools'), function(pkg) {
-  if (system.file(package = pkg) == '') install.packages(pkg)
-})
-
-if (!grepl('windows', localSystem) && system('hash phantomjs 2>/dev/null') != 0)
-  webshot::install_phantomjs()
-
-if (system.file(package = 'tinytex') == '' || packageVersion("tinytex") < '0.6.4')
-  devtools::install_github('yihui/tinytex')
 
 # 生成依赖包
 
