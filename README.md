@@ -1,5 +1,10 @@
 # Deepin-Bible 深度易经
 
+[![CodeFactor](https://www.codefactor.io/repository/github/bubifengyun/deepin-bible/badge)](https://www.codefactor.io/repository/github/bubifengyun/deepin-bible)
+[![Build Status](https://travis-ci.org/bubifengyun/deepin-bible.svg?branch=master)](https://travis-ci.org/bubifengyun/deepin-bible)
+[![GitHub version](https://badge.fury.io/gh/bubifengyun/deepin-bible.svg)](http://badge.fury.io/gh/bubifengyun/deepin-bible)
+[![codecov](https://codecov.io/gh/bubifengyun/deepin-bible/branch/master/graph/badge.svg)](https://codecov.io/gh/bubifengyun/deepin-bible/branch/master)
+
 关于[深度操作系统（Deepin OS）](https://www.deepin.org/)的使用介绍。[PDF书籍下载地址](https://github.com/bubifengyun/deepin-bible/releases)。[在线阅读地址](https://bubifengyun.github.io/deepin-bible/)。
 
 ## 一、引言 (Introduction)
