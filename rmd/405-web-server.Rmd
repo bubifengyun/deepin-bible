@@ -1,6 +1,20 @@
 # Web Server 的搭建与运行
 
-随着互联网技术的发展，网络开发越来越普及，越来越多的内容以网页的形式呈现。掌握一些网站服务器知识还是挺实用的。
+通过阅读本章，你将会了解到以下几项内容。
+
+- 达梦数据库的安装；
+- JSP、PHP等开发环境的搭建；
+- bash 的流程结构
+- 实现把UC视频缓存变为普通视频文件的脚本
+
+参考网页：
+
+- https://baike.baidu.com/item/WEB%E6%9C%8D%E5%8A%A1%E5%99%A8
+
+随着互联网技术的发展，网络开发越来越普及，越来越多的内容以网页的形式呈现。常见的网站服务器软件（或称web服务器软件）有 Apache(HTTPD)、Nginx和IIS等。其中 Apache 归属 Apache Software Foundation (http://apache.org)，最近闹得沸沸扬扬的[美国出口管制](https://www.oschina.net/news/106863/what-about-ear-and-asf)事件，就跟这个软件基金会有关，且看[Apache 回应：参与开源不受 EAR 约束](https://blogs.apache.org/foundation/entry/statement-by-the-apache-software)，个人理解，这个Apache软件国内还是可以继续有权使用的。
+
+
+数据库安装，这里介绍达梦数据库，MySQL，MariaDB和微软的SQL Server 数据库。
 
 ## 面向开发的一键安装类型
 

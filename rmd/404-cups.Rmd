@@ -1,0 +1,23 @@
+# Unix 通用打印系统简介 {#chap:cups}
+
+通过阅读本章，你将会了解到以下几项内容。
+
+- xx
+- xxx
+- xx
+
+## 何谓 “CUPS”
+
+CUPS(Common UNIX Printing System，即通用Unix打印系统)是FedoraCore3中支持的打印系统，它主要是使用IPP(Internet PrintingProtocol)来管理打印工作及队列，但同时也支持”LPD”(Line Printer Daemon)和”SMB”(ServerMessage Block)以及Socket等通信协议。
+
+在Unix/Linux发展之初，打印总是会受到各种各样的限制，最初的打印都是用LPD(命令行方式的打印守护程序）来实现的，它不支持IPP（Internet打印协议），而且也不支持同时使用多个打印设备。而CUPS的出现，提供了一套完整的管理打印设备、实现可靠打印、网络打印的一套完整方案。此外，在Linux下进行CUPS驱动开发是遵循GPL协议规定的，也就是说必须开源。
+
+CUPS实际上是一个集成的服务。包括了前端接收打印命令的相关程序，后端控制打印机硬件的程序，中间则是打印驱动。首先来看看CUPS驱动打印机的方式。当CUPS接受到打印命令时，首先会进行一个格式的预转换，比如将.jpg等各种文件先转换成PostScript格式，然后进一步将PostScript格式转换成 CUPS内部格式，这个称为PostScript到PostScript转换，这两种格式还是有区别的，网上能找到更为详细的说明文件，这里我们不去深究它。
+
+但需要知道的是一般的打印机并不能直接只是PostScript格式的信息，所以在使用过程中我们还需要安装一类解释性的驱动，让CUPS能通过这类驱动将信息转换成一般打印机能识别的信息，现在使用的最多的这类驱动名叫GhostScript。有了这个驱动还不够，我们还需要foomatic来连接CUPS和GhostScript，它是一个脚本程序（用perl写的），用来打包各种不同格式的打印机命令，有了这些基础我们就可以开始安装和配置整套的CUPS打印系统了。
+
+
+参考网页：
+
+- https://wiki.deepin.org/wiki/%E6%89%93%E5%8D%B0%E6%9C%BA
+- https://blog.csdn.net/u014237185/article/details/39966715
