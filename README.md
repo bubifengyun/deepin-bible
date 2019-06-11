@@ -31,7 +31,7 @@
 
 - 谢益辉，在其 https://github.com/yihui/bookdown-chinese 基础上修改完善的。
 - 深度操作系统的开发者和贡献者们。
-- 上海交大论文模板的贡献者们，本书采用[(2018-12-24)最新论文模板](https://raw.githubusercontent.com/sjtug/SJTUThesis/master/sjtuthesis.cls)。
+- 上海交大论文模板的贡献者们，本书采用[(2019-06-11)最新论文模板](https://raw.githubusercontent.com/sjtug/SJTUThesis/master/sjtuthesis.cls)。
 - 其他曾经帮助过，没有来得及记录的朋友。
 
 有兴趣的同学，欢迎在 [issue](https://github.com/bubifengyun/deepin-bible/issues) 上发表建议，或者直接推送。谢谢。
