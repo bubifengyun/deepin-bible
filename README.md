@@ -16,6 +16,10 @@
 
 参阅[这里](./rmd/802-appendix-makebook.Rmd)
 
+如果有问题，欢迎
+
+<a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=40d87fca306c56134e3cefd7053e973177033a818cd7f89fb4222f7c41d9332d"><img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="深度易经（Deepin Bible）" title="深度易经（Deepin Bible）"> 763546912</a>
+<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=402229566&site=qq&menu=yes"><img border="0" src="https://pub.idqqimg.com/wpa/images/counseling_style_52.png" alt="点击这里给我发消息" title="点击这里给我发消息"/> 402229566</a>
 
 ## 三、下一步打算 (In the Future)
 
