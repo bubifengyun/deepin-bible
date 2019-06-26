@@ -9,15 +9,14 @@ local({
   options(repos = r)
 })
 
-if (system.file(package = 'bookdown') == '') install.packages('bookdown')
-
 # 填上你需要用到的包
 
-err = lapply(c('DT', 'citr', 'formatR', 'svglite', 'webshot', 'devtools', 'tinytex'), function(pkg) {
+#install.packages("stringi",type="win.binary")
+err = lapply(c('bookdown', 'DT', 'citr', 'formatR', 'svglite', 'webshot', 'devtools', 'tinytex'), function(pkg) {
   if (system.file(package = pkg) == '') install.packages(pkg)
 })
 
-if (!grepl('Windows', Sys.info()['sysname'][[1]]) && system('hash phantomjs 2>/dev/null') != 0)
+if (!grepl('Windows', Sys.info()['sysname'][[1]]) && system('phantomjs --version') != 0)
   webshot::install_phantomjs()
 
 xelatex.has_installed <- system('xelatex --version') ==0
