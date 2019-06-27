@@ -8,3 +8,4 @@ deepin-bible.*
 rsconnect
 !deepin-bible.Rproj
 *.aux
+bib/packages.bib
