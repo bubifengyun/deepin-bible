@@ -2,7 +2,7 @@ quiet = "--quiet" %in% commandArgs(FALSE)
 formats = commandArgs(TRUE)
 travis = !is.na(Sys.getenv('CI', NA))
 
-# install bookdown
+#  配置包服务器地址
 local({
   r = getOption('repos')
   if (!length(r) || all(r['CRAN'] == '@CRAN@')) r['CRAN'] = 'https://cran.rstudio.com' 
@@ -11,17 +11,9 @@ local({
 
 # 填上你需要用到的包
 
-#install.packages("stringi",type="win.binary")
-err = lapply(c('bookdown', 'DT', 'citr', 'formatR', 'svglite', 'webshot', 'devtools', 'tinytex'), function(pkg) {
+err = lapply(c('bookdown', 'DT', 'citr', 'formatR', 'svglite', 'webshot', 'devtools'), function(pkg) {
   if (system.file(package = pkg) == '') install.packages(pkg)
 })
-
-if (!grepl('Windows', Sys.info()['sysname'][[1]]) && system('phantomjs --version') != 0)
-  webshot::install_phantomjs()
-
-xelatex.has_installed <- system('xelatex --version') ==0
-if ((!xelatex.has_installed) && (!tinytex:::is_tinytex()))
-  tinytex::install_tinytex()
 
 src = (function() {
   attr(body(sys.function()), 'srcfile')
