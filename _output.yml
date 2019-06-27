@@ -14,7 +14,7 @@ bookdown::gitbook:
       facebook: no
 bookdown::pdf_book:
   keep_tex: yes
-  dev: "cairo_pdf"
+  dev: cairo_pdf
   latex_engine: xelatex
   citation_package: biblatex
   template: latex/template.tex
