@@ -356,7 +356,7 @@ $ source /etc/profile   #使其立即生效
 
 ## 命令连接与扩展
 
-前面 Unix 哲学讲\cqh 程序，应当能够**协作**\cqt 。命令**协作**靠的是元字符（metacharacter）功能。元字符有如下7个：`|`,`&`,`;`,`(`,`)`,`<`,`>`。
+前面 Unix 哲学讲“ 程序，应当能够**协作**” 。命令**协作**靠的是元字符（metacharacter）功能。元字符有如下7个：`|`,`&`,`;`,`(`,`)`,`<`,`>`。
 
 ### 匿名管道
 
@@ -792,7 +792,7 @@ $ source $HOME/.bashrc #执行生效
 - https://www.cnblogs.com/lienhua34/p/5018119.html
 - http://billie66.github.io/TLCL/book/chap14.html
 
-Linux系统终端提示符,就是在前面\@ref(shell:intro)提到的`$`或者`#`之前的文字。是通过环境变量`PS1`，`PS2`，`PS3`，`PS4`配置的。一般都是配置系统环境变量`PS1`（是\cqh prompt string one\cqt 的简写）定义。通过命令`echo $PS1`查看当前设置。
+Linux系统终端提示符,就是在前面\@ref(shell:intro)提到的`$`或者`#`之前的文字。是通过环境变量`PS1`，`PS2`，`PS3`，`PS4`配置的。一般都是配置系统环境变量`PS1`（是“ prompt string one” 的简写）定义。通过命令`echo $PS1`查看当前设置。
 
 ```bash
 $ echo $PS1

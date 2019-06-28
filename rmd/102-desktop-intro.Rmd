@@ -11,7 +11,7 @@
 
 ## 运行 Live CD/DVD 试用系统
 
-本文一直强调\cqh 能动手的就不要光动口\cqt ，意思就是最好安装 GNU/Linux 操作系统。如果您不喜欢安装，也可用在不安装的前提下试用该系统。下面介绍如何试用系统。当然下载安装镜像还是不可避免的。
+本文一直强调“ 能动手的就不要光动口” ，意思就是最好安装 GNU/Linux 操作系统。如果您不喜欢安装，也可用在不安装的前提下试用该系统。下面介绍如何试用系统。当然下载安装镜像还是不可避免的。
 
 ### 下载深度系统
 
@@ -29,7 +29,7 @@ knitr::include_graphics("linux-desktop-live.png")
 安装说明： https://www.deepin.org/installation/
 
 现在流行 U 盘安装，当然也可用光盘安装。下面只介绍 U 盘启动器的制作，到[这里](https://www.deepin.org/original/deepin-boot-maker/)下载系统启动盘制作工具。
-根据自己操作系统情况请选择对应版本。另外也可用选择其他的制作软件，比如 Ultraiso 软件，网上搜索\cqh 使用UltraISO（软碟通）制作U盘启动盘完整教程\cqt ，可以找到相当多的资料，这里从略。
+根据自己操作系统情况请选择对应版本。另外也可用选择其他的制作软件，比如 Ultraiso 软件，网上搜索“ 使用UltraISO（软碟通）制作U盘启动盘完整教程” ，可以找到相当多的资料，这里从略。
 
 ### 开始试用
 
@@ -57,7 +57,7 @@ X系统由三个相关的部分组成：服务端（Server）、客户端（Clie
 
 **服务端（Server）**
 
-Server是控制显示器和输入设备（键盘和鼠标）的软件。Server可以创建视窗，在视窗中绘图和文字，回应Client程序的\cqh 需求\cqt （requests），但它不会自己完成，只有在Client程序提出需求后才完成动作。
+Server是控制显示器和输入设备（键盘和鼠标）的软件。Server可以创建视窗，在视窗中绘图和文字，回应Client程序的“ 需求” （requests），但它不会自己完成，只有在Client程序提出需求后才完成动作。
 
 每一套显示设备只对应惟一的Server，而Server一般由系统供应商提供，通常无法被用户修改。对操作系统而言，Server只是一个普通的用户程序而已，因此很容易更换新版本，甚至更换成第三方提供的原始程序。
 
@@ -65,9 +65,9 @@ Server是控制显示器和输入设备（键盘和鼠标）的软件。Server�
 
 Client是使用系统视窗功能的一些应用程序。在X下的应用程序称做Client，原因是它是Server的客户，要求Server回应它的请求完成特定动作。
 
-Client无法直接影响视窗行为或显示效果，它们只能送一个请求（request）给Server，由Server来完成这些的请求。典型的请求通常是\cqh 在某个视窗中写‘Hello World’的字符串\cqt ，或者从A到B划一条直线。
+Client无法直接影响视窗行为或显示效果，它们只能送一个请求（request）给Server，由Server来完成这些的请求。典型的请求通常是“ 在某个视窗中写‘Hello World’的字符串” ，或者从A到B划一条直线。
 
-Client的功能大致可分为两部分：向Server发出\cqh 需求\cqt 只是它的一部分功能，其他的功能是为用户执行程序而准备的。例如输入文字信息、作图、计算等等。通常，Client程序的这一部分是和X独立的，它对于X几乎不需要知道什么。通常，应用程序（特别是只大型的标准绘图软件、统计软件等）对许多输出设备具有输出的能力，而在X视窗中的显示只是Client程序许多输出中的一种，所以，Client程序中和X相关的部分只占整个程序中很小的一部分。
+Client的功能大致可分为两部分：向Server发出“ 需求” 只是它的一部分功能，其他的功能是为用户执行程序而准备的。例如输入文字信息、作图、计算等等。通常，Client程序的这一部分是和X独立的，它对于X几乎不需要知道什么。通常，应用程序（特别是只大型的标准绘图软件、统计软件等）对许多输出设备具有输出的能力，而在X视窗中的显示只是Client程序许多输出中的一种，所以，Client程序中和X相关的部分只占整个程序中很小的一部分。
 
 用户可以通过不同的途径使用Client程序：通过系统提供的程序使用；通过第三方的软件使用；或者用户为了某种特殊应用而自己编写的Client程序来使用。
 
@@ -95,7 +95,7 @@ X的设计目标之一就是能创建许多不同形式的用户接口。其他�
 
 ### 用户界面
 
-X刻意不去规范应用程序在用户界面上的具体细节设计，这些包括按钮、菜单和窗口的标题栏等等，这些都由窗口管理器（window manager）、GUI构件工具包、桌面环境（desktop environment）或者应用程序指定的GUI（如POS）等等的用户软件来提供，然而因为架构设计上保留了高度的弹性发挥空间，致使多年来X在\cqh 基础、典型、一般性\cqt 的用户界面上，也都有数目惊人的多样性选择。
+X刻意不去规范应用程序在用户界面上的具体细节设计，这些包括按钮、菜单和窗口的标题栏等等，这些都由窗口管理器（window manager）、GUI构件工具包、桌面环境（desktop environment）或者应用程序指定的GUI（如POS）等等的用户软件来提供，然而因为架构设计上保留了高度的弹性发挥空间，致使多年来X在“ 基础、典型、一般性” 的用户界面上，也都有数目惊人的多样性选择。
 
 在X的系统架构中，窗口管理器用于控制窗口程序的位置和外观，其界面类似Microsoft的Windows或者Macintosh（例如：KDE的KWin或者GNOME的Metacity），不过在控制机制上却截然不同（如：X提供的基本窗口管理器twm）。窗口管理器可能只是个框架（如：twm），但也可能提供了全套的桌面环境功能（如：Enlightenment）。
 
@@ -153,7 +153,7 @@ X Server和远端客户机之间的网络通信使用明文的缺陷，让攻击
 
 本篇大部分为转载，有改动。
 
-Wayland是一个简单的\cqh 显示服务器\cqt （Display Server），与X Window属于同一级的事物，而不是仅仅作为X Window下X Server的替代（注：X Window下分X Server和X Client）。也就是说，Wayland不仅仅是要完全取代X Window，而且它将颠覆Linux桌面上X Client/X Server的概念，以后将没有所谓的\cqh X Client\cqt 了，而是\cqh Wayland Client\cqt 。更确切的说，Wayland只是一个协议（Protocol），就像X Window当前的协议——X11一样，它只定义了如何与内核通讯、如何与Client通讯，具体的策略，依然是交给开发者自己。所以Wayland依然是贯彻\cqh 提供机制，而非策略\cqt 的Unix程序。
+Wayland是一个简单的“ 显示服务器” （Display Server），与X Window属于同一级的事物，而不是仅仅作为X Window下X Server的替代（注：X Window下分X Server和X Client）。也就是说，Wayland不仅仅是要完全取代X Window，而且它将颠覆Linux桌面上X Client/X Server的概念，以后将没有所谓的“ X Client” 了，而是“ Wayland Client” 。更确切的说，Wayland只是一个协议（Protocol），就像X Window当前的协议——X11一样，它只定义了如何与内核通讯、如何与Client通讯，具体的策略，依然是交给开发者自己。所以Wayland依然是贯彻“ 提供机制，而非策略” 的Unix程序。
 
 Wayland相对于古老的X11来说最大的提升是，Gtk/Qt 这些图形库进行图形绘制时，不用像X11那样发送绘制消息到XServer来进行绘制，而是由Client自己进行图形绘制，Wayland只用担任图层混合器的作用。这样不但减少了X Client和X Server之间不必要的通讯，而且因为由Client自己进行渲染，所以很多画面撕裂和闪屏的现象从原理上就避免了。
 
@@ -169,13 +169,13 @@ knitr::include_graphics("Wayland-architecture.png")
 
 Wayland 因为要彻底从技术架构上颠覆Linux几十年X11的渲染方式，不论从架构设计还是代码实现上都会非常复杂，不但要开发协议本身，还需要开发适合Wayland的混合器和窗口管理器，最后导致Wayland 1.0稳定版一再跳票。
 
-而Ubuntu在独立开发Unity桌面环境的同时，也仿造了Wayland的架构开发了自己的Mir显示服务器，除了等不及Wayland稳定之外，更重要的是Ubuntu要为了它的下一步宏伟计划　"Ubuntu Touch" ，按照Mark的设想，Mir不仅仅要像Wayland那样从原理上提升Linux图形渲染效率，而且Mir还得担负起手机和电脑融合的使命，可以让Ubuntu Touch的手机在插上显示器底座时，手机的应用通过Mir的支持，可以直接在外接显示器上显示手机应用窗口，最终达到\cqh 当你手机放到底座时就是电脑，拿走就是手机\cqt 的设想。
+而Ubuntu在独立开发Unity桌面环境的同时，也仿造了Wayland的架构开发了自己的Mir显示服务器，除了等不及Wayland稳定之外，更重要的是Ubuntu要为了它的下一步宏伟计划　"Ubuntu Touch" ，按照Mark的设想，Mir不仅仅要像Wayland那样从原理上提升Linux图形渲染效率，而且Mir还得担负起手机和电脑融合的使命，可以让Ubuntu Touch的手机在插上显示器底座时，手机的应用通过Mir的支持，可以直接在外接显示器上显示手机应用窗口，最终达到“ 当你手机放到底座时就是电脑，拿走就是手机” 的设想。
 
 不论Wayland还是Mir，虽然底层架构都非常先进，但是为了兼容现有的X11程序，它们分别开发了 XWayland 和 XMir 用于在新的显示服务器协议上支持现有的大多数 X11 程序（主要是Gtk2/Qt3/Qt4开发的大多数应用）。
 
-具有讽刺意味的是，Wayland和Mir本来就是要解决 X11 那种不适合现代PC场景繁琐的通讯协议，甚至很多开发者为了技术的洁癖都在大力安利 Wayland/Mir ，但是最后 XWayland 和 XMir 本身的兼容实现却比 X11 的实现更加\cqh 恶心\cqt 和繁琐，包括Mir的开发者最后都放弃 XMir 的开发。
+具有讽刺意味的是，Wayland和Mir本来就是要解决 X11 那种不适合现代PC场景繁琐的通讯协议，甚至很多开发者为了技术的洁癖都在大力安利 Wayland/Mir ，但是最后 XWayland 和 XMir 本身的兼容实现却比 X11 的实现更加“ 恶心” 和繁琐，包括Mir的开发者最后都放弃 XMir 的开发。
 
-正是因为Wayland/Mir这样的技术无法彻底解决和大部分原本就基于X11协议而开发的应用的兼容性问题，最后导致基于Wayland/Mir开发的桌面系统从　\cqt 解决渲染性能问题\cqh  转变到　\cqh 无法运行很多现有Linux应用\cqt 　这一个更加让用户难以接受的结果。这也是后面基于Mir开发的新版Unity难产的重要原因。
+正是因为Wayland/Mir这样的技术无法彻底解决和大部分原本就基于X11协议而开发的应用的兼容性问题，最后导致基于Wayland/Mir开发的桌面系统从　” 解决渲染性能问题“  转变到　“ 无法运行很多现有Linux应用” 　这一个更加让用户难以接受的结果。这也是后面基于Mir开发的新版Unity难产的重要原因。
 
 参考：
 

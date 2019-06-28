@@ -50,7 +50,7 @@ NTLDR 主要由两个文件组成，这两个文件必须放在系统分区（�
 
 NTLDR，这是引导程序本身 boot.ini，这是引导程序的配置文件 当 boot.ini 丢失时，NTLDR 会启动第一块硬盘第一个分区上的 /Windows 目录中的系统。 bootmgr (Windows Boot Manager) 是从 Windows Vista 开始引进的新一代开机管理程序，用以替换 NTLDR 。
 
-当电脑运行完 POST (Power On Self Test) 后，传统型 BIOS 会根据引导扇区查找开机硬盘中标记\cqh 引导\cqt 分区下的 bootmgr 文件；若是 UEFI 则是 bootmgr.efi 文件，接着管理程序会读取开机配置数据库 BCD (Boot Configuration Database) 内的引导数据，接着根据其中的数据加载与默认或用户所选择的操作系统。
+当电脑运行完 POST (Power On Self Test) 后，传统型 BIOS 会根据引导扇区查找开机硬盘中标记“ 引导” 分区下的 bootmgr 文件；若是 UEFI 则是 bootmgr.efi 文件，接着管理程序会读取开机配置数据库 BCD (Boot Configuration Database) 内的引导数据，接着根据其中的数据加载与默认或用户所选择的操作系统。
 
 ### GNU GRUB 及其使用
 

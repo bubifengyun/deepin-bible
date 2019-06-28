@@ -35,7 +35,7 @@ $ source .bashrc
 ```
 
 \BeginKnitrBlock{answer}
-因为没能很好的解决中文双引号问题，使用 `\cqh（Chinese Quote Head）`,`\cqt（Chinese Quote Tail） `，折衷解决。见 https://stackoverflow.com/questions/52052231/how-to-write-chinese-quotes-in-bookdown
+因为没能很好的解决中文双引号问题，使用 `\cqh（Chinese Quote Head）`,`\cqt（Chinese Quote Tail） `，折衷解决。见 https://stackoverflow.com/questions/52052231/how-to-write-chinese-quotes-in-bookdown 。现在这个问题已经[解决](https://github.com/rstudio/bookdown/issues/687)。
 \EndKnitrBlock{answer}
 
 ```{block2, type='question'}

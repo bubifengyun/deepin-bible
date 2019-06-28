@@ -8,8 +8,10 @@ local({
   if (!length(r) || all(r['CRAN'] == '@CRAN@')) r['CRAN'] = 'https://cran.rstudio.com' 
   options(repos = r)
 })
-
-if (system.file(package = 'bookdown') == '') install.packages('bookdown')
+if (system.file(package = 'rmarkdown') == '')
+  remotes::install_github('rstudio/rmarkdown')
+if (system.file(package = 'bookdown') == '')
+  install.packages('bookdown')
 
 # 填上你需要用到的包
 

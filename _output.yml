@@ -18,7 +18,9 @@ bookdown::pdf_book:
   latex_engine: xelatex
   citation_package: biblatex
   template: latex/template.tex
-  pandoc_args: ["--listings", "--top-level-division=chapter"]
+  pandoc_args: ["--listings", "--top-level-division=chapter", "--wrap=preserve"]
   quote_footer: ["\\VA{", "}{}"]
+  md_extensions: -smart
+  output_extensions: -smart
 bookdown::epub_book:
   stylesheet: css/style.css

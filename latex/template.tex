@@ -335,10 +335,6 @@ linewidth=4pt]{qBox}
 % 增加每章作者
 \newcommand\writeby[1]{\rightline{------ #1}}
 
-% 解决双引号不一致的问题。
-\newcommand\cqh{“}
-\newcommand\cqt{”}
-
 \makeatletter
 % 实现附录按甲乙丙丁、子丑寅卯排序，但是仅限于二十二个以内。否则，报错。
 % https://tex.stackexchange.com/questions/219711/definition-with-roman-counter-value
@@ -511,7 +507,7 @@ $endif$
 % 修复 Markdown 图片格式过大的问题。
 % 需要\usepackage[export]{adjustbox}
 \let\oldincludegraphics\includegraphics
-\renewcommand\includegraphics[2][]{%
+\renewcommand\includegraphics[2][]{
 \begin{adjustbox}{max size={\textwidth}{\textheight}}
 \centering
 \oldincludegraphics[#1]{#2}
