@@ -39,6 +39,14 @@ $ source .bashrc
 \EndKnitrBlock{answer}
 
 ```{block2, type='question'}
+怎么在`bash`代码的`#`开始的行里写下划线`_`？
+```
+
+\BeginKnitrBlock{answer}
+暂时没有太好的办法。代码总是把`#`作为注释，在注释里下划线`_`只能用`` `\_` `` 的形式。对于`bash`代码块其他地方的下划线可以直接使用下划线`` `_` ``即可。
+\EndKnitrBlock{answer}
+
+```{block2, type='question'}
 代码框里下划线`#`怎么处置？
 ```
 
