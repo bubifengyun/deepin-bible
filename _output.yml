@@ -20,7 +20,7 @@ bookdown::pdf_book:
   template: latex/template.tex
   pandoc_args: ["--listings", "--top-level-division=chapter", "--wrap=preserve"]
   quote_footer: ["\\VA{", "}{}"]
-  md_extensions: -smart
-  output_extensions: -smart
+#  md_extensions: -smart
+#  output_extensions: -smart
 bookdown::epub_book:
   stylesheet: css/style.css

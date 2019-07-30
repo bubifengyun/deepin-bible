@@ -10,3 +10,479 @@
 本章摘自本人博客：
 
 - https://my.oschina.net/bubifengyun/blog/3054820
+
+## 引言
+
+为了建立一个局域网的OA系统，初步设想利用后台自动发送邮件的形式提醒各位办公人员，后期如果有能力借助imo内网通实现后台自动发送消息。如果有可能，添加如下几个功能，纯粹为了折腾了。
+
+1. DNS 域名系统
+1. 数据库服务器
+1. 邮件系统
+1. Apache
+1. Jsp 运行环境
+1. PHP 运行环境
+1. 试卷自动生成系统
+1. 自动生成其他PDF文件
+1. 内网通在 Linux 下的应用
+1. 搜索引擎
+
+## 一、安装计划
+
+1. 安装 centos 7.6 minimal
+1. 优化 centos
+1. 搭建 DNS 域名系统
+
+## 二、VirtualBox虚拟机里安装 centos 7.6 minimal
+
+1. http://mirrors.aliyun.com/centos/7.6.1810/isos/x86_64/ 下载 CentOS-7-x86_64-Minimal-1810.iso
+1. 安装时，语言选择英文，时区选择亚洲上海，硬盘选择32G大小，网络选择桥接网卡，其他默认安装。
+
+## 三、centos 优化
+
+本小节参考余洪春《构建高可用Linux服务器（第四版）》，主要优化文件节点数量，IPV6关闭等。
+
+### 3.1 开通单网卡多IP功能
+
+参考网页：
+
+- https://www.jb51.net/article/107146.htm
+- https://www.linuxidc.com/Linux/2017-04/143002.htm
+
+虚拟机安装成功后，这个时候还无法连接网络，首先要打开网络，配置网卡信息。输入如下命令，获得网卡详细信息列表。
+
+```bash
+# ip addr
+```
+
+输出结果，
+
+```block2
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:81:71:d8 brd ff:ff:ff:ff:ff:ff
+```
+
+前面显示有两个网卡，一个是`lo`，127.0.0.1，环回地址是主机用于向自身发送通信的一个特殊地址；一个是`enp0s3`，这是一个实实在在的网卡名称，关于centos命名网卡的方法参考[这里](https://www.jianshu.com/p/1bd6461b930c)。一般网卡的配置文件在 */etc/sysconfig/network-scripts/* 目录下。网卡配置文件一般对应其名称，比如`ifcfg-enp0s3`。下面编辑该文字，
+
+```bash
+# vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+```
+
+原文一般是这样子的，
+
+```block2
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=dhcp
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=yes
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=enp0s3
+UUID=ebeffaa5-bff5-4fdc-ad4b-dab6bbc17525
+DEVICE=enp0s3
+ONBOOT=no
+```
+
+得知本局域网的IP地址类似`192.168.0.100`的样子，毕竟是服务器，`BOOTPROTO=static`修改为静态IP地址；设置开机启动网卡，`ONBOOT=yes`；配置IP地址、网关和域名等，其中是`DNS1`不能设置为`DNS0`；设置从DHCP处获得DNS，`PEERDNS=yes`；不允许普通用户修改网卡信息，`USERCTL=no`；关闭IPv6网络服务的一部分设置，`IPV6INIT=no`，其他部分的说明见后文，最终结果修改如下，
+
+```block2
+TYPE=Ethernet
+PROXY_METHOD=none
+BROWSER_ONLY=no
+BOOTPROTO=static
+DEFROUTE=yes
+IPV4_FAILURE_FATAL=no
+IPV6INIT=no
+IPV6_AUTOCONF=yes
+IPV6_DEFROUTE=yes
+IPV6_FAILURE_FATAL=no
+IPV6_ADDR_GEN_MODE=stable-privacy
+NAME=enp0s3
+UUID=ebeffaa5-bff5-4fdc-ad4b-dab6bbc17525
+DEVICE=enp0s3
+ONBOOT=yes
+IPADDR0=192.168.0.100
+IPADDR1=192.168.0.110
+IPADDR2=192.168.0.120
+PREFIX0=24
+PEERDNS=yes
+GATEWAY0=192.168.0.1
+DNS1=192.168.0.100
+USERCTL=no
+```
+
+### 3.2 配置 yum 官方源
+
+参考网页：
+
+- https://www.cnblogs.com/xiaochaohuashengmi/archive/2011/10/09/2203916.html
+- https://blog.csdn.net/u011095110/article/details/85220068
+
+因为要复制到局域网，且不能连接外网，迫切需要软件缓存包。
+
+```bash
+# vi /etc/yum.conf
+```
+
+修改`keepcache=0`为`keepcache=1`保存缓存。备份、下载、更新，不过本人感觉下面这一步意义不打，毕竟CDN技术发展了这么久，下面这段代码完全可以忽略。
+
+```bash
+# yum install wget -y
+# mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+# wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+# yum clean all
+# yum makecache
+# yum remove wget
+```
+
+另外为了更好的安装软件，常常需要`epel`源，先更新系统，再安装该源，并配置其优先级。
+
+```bash
+# yum update -y
+# yum install epel-release -y
+# yum install yum-priorities -y
+```
+
+对于优先级而言，我们希望优先使用官方源，然后使用epelyum源，优先级用数字1-99表示，1最高。编辑这些repo文件，*# vi /etc/yum.repos.d/CentOS-Base.repo*，*# vi /etc/yum.repos.d/epel.repo*，在文件最后一行加上不同的优先级说明，`priority=1`或`priority=2`(正确性有待核查)。同时确保`vi /etc/yum/pluginconf.d/priorities.conf`包含如下内容，
+
+```block2
+[main]
+enabled = 1
+```
+
+### 3.3 安装部分软件
+
+本人喜欢自己的[vim配置](https://my.oschina.net/bubifengyun/blog/163516)，一般都会在系统中安装这些vim插件的。
+
+```bash
+# yum update -y
+# yum install vim ctags cscope ctags-etags bzip2 -y
+```
+
+然后复制自己的配置过来。这里从略。
+
+### 3.4 关闭不需要的服务
+
+参考网页：
+
+- https://www.thegeekdiary.com/centos-rhel-7-how-to-disable-all-tty-consoles-and-enable-only-1/
+- http://linux.it.net.cn/CentOS/fast/2014/0720/3212.html
+- https://blog.csdn.net/ziwuzhulin/article/details/85340689
+
+首先查看当前有哪些服务在运行，
+
+```bash
+# systemctl list-units --type=service | grep running
+```
+
+本机显示如下，
+
+```block2
+auditd.service                     loaded active running Security Auditing Service
+crond.service                      loaded active running Command Scheduler
+dbus.service                       loaded active running D-Bus System Message Bus
+firewalld.service                  loaded active running firewalld - dynamic firewall daemon
+getty@tty1.service                 loaded active running Getty on tty1
+lvm2-lvmetad.service               loaded active running LVM2 metadata daemon
+NetworkManager.service             loaded active running Network Manager
+polkit.service                     loaded active running Authorization Manager
+postfix.service                    loaded active running Postfix Mail Transport Agent
+rsyslog.service                    loaded active running System Logging Service
+sshd.service                       loaded active running OpenSSH server daemon
+systemd-journald.service           loaded active running Journal Service
+systemd-logind.service             loaded active running Login Service
+systemd-udevd.service              loaded active running udev Kernel Device Manager
+tuned.service                      loaded active running Dynamic System Tuning Daemon
+```
+
+然后关闭不需要的服务，一般默认保留`cron`,`network`,`sshd`,`rsyslog`等，关闭方法参考[这里](https://blog.csdn.net/ziwuzhulin/article/details/85340689)，从略。
+
+### 3.5 关闭不需要的TTY
+
+```bash
+# vi /etc/systemd/logind.conf
+```
+
+内容如下，其中`NAutoVTs`表示当前自动开启的虚拟终端TTY数目，`ReserveVT`表示当前无条件保留的虚拟终端TTY的编号。切记，对于深度Deepin操作系统，NAutoVTs数值强烈最小为2，否则可能无法进入系统。但是对于最小化安装的centos，设置为1足够了。
+
+```block2
+[Login]
+NAutoVTs=1
+ReserveVT=1
+```
+
+### 3.6 调整TCP/IP网络参数，提高应对SYN Flood能力
+
+```bash
+# echo 'net.ipv4.tcp_syncookies = 1' >> /etc/sysctl.conf
+# sysctl -p
+```
+
+### 3.7 修改 SHELL命令的history记录条数
+
+```bash
+# vi /etc/profile
+```
+
+把`HISTSIZE=1000`改为`HISTSIZE=17`个数改小点，这个根据需求设置。下条命令不重启生效，
+
+```bash
+# source /etc/profile
+```
+
+### 3.8 停用IPv6网络服务
+
+本局域网不用 IPv6,而centos7默认开启，
+
+```bash
+# lsmod | grep ipv6
+```
+
+上述命令可以查看当前IPv6使用情况，下面参考余洪春书籍内容修改如下，
+
+```bash
+echo "install ipv6 /bin/true" > /etc/modprobe.d/disable-ipv6.conf
+```
+
+另外，`vi /etc/sysconfig/network-scripts/ifcfg-enp0s3`，设置`IPV6INIT=no`，上面已经修改。
+
+### 3.9 修改文件描述符限制
+
+系统级别最大打开文件数，称之为系统级限制，可以通过`sysctl -a | grep fs.file-max` 查看，当前本机为`183667`个，跟内存大小有关。单个进程最大打开文件数，也称用户级限制，一般通过`ulimit -n`查看，当前本机为`1024`。
+
+修改用户级限制采用如下命令。`vi /etc/security/limits.conf`，加上如下这么两行，
+
+```block2
+*               soft    nofile          65535
+*               hard    nofile          65535
+```
+修改系统级限制采用如下命令，一般系统级限制的上限是通过`内存数（KB为单位）×0.1`得出来的。本虚拟机内存2048MB,则上限为`2048×1024×0.1=209715`
+
+```bash
+echo "fs.file-max = 209715" >> /etc/sysctl.conf
+sysctl -p
+```
+
+### 3.10 修改SSH的设置
+
+参考《深度易经 Deepin Bible》一书，后面编写。
+
+### 3.11 关闭写磁盘I/O的功能
+
+这是后期根据网站开发需要，重新写的。
+
+### 3.12 为Apache，Postfix优化TCP/IP内核参数
+
+编辑`# vi /etc/sysctl.conf`，添加如下内容，
+
+```block2
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_fin_timeout = 30
+net.ipv4.tcp_keepalive_time = 300
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.tcp_tw_recycle = 1
+net.ipv4.ip_local_port_range = 10000 65000
+kernel.shmmax = 134217728
+fs.file-max = 209715
+```
+保存后，运行`# /sbin/sysctl -p`立即生效。
+
+在进行下一步之前，可以导出虚拟电脑，备份一次了。后面如果不需要某个服务，可以直接从备份文件里直接启动系统。
+
+## 四、安装配置DNS服务
+
+参考网页：
+
+- https://blog.csdn.net/lcl_xiaowugui/article/details/78659773
+- https://blog.csdn.net/solaraceboy/article/details/78960307
+- https://www.cnblogs.com/heiye123/articles/7687922.html
+- https://blog.csdn.net/f1228308235/article/details/79057184
+- https://blog.51cto.com/sweetpotato/1598225
+
+### 4.1 安装DNS相关软件
+
+```bash
+# yum install bind bind-utils -y
+```
+
+### 4.2 前期配置
+
+编辑配置文件`vi /etc/named.conf`，修改如下两行，
+
+```block2
+listen-on port 53 { any; };
+allow-query     { any; };
+```
+后期第一行修改为`listen-on port 53 {192.168.0.100; };`
+语法检查DNS配置文件,
+
+```bash
+# named-checkconf /etc/named.conf
+```
+
+没有返回即正常，启动dns服，
+
+```bash
+# systemctl start named
+```
+
+配置防火墙，为DNS打开绿灯，
+
+```bash
+# firewall-cmd --permanent --add-service=dns
+# firewall-cmd --reload
+```
+
+测试能否正常工作，
+
+```bash
+# dig www.baidu.com @192.168.0.100
+# dig www.baidu.com @192.168.0.107
+```
+
+前一个是本机IP，后一个是另外一台无DNS服务的IP，可以比较一下是否成功。下面命令设置开机启动DNS服务器
+
+```bash
+# systemctl enable named
+```
+
+### 4.3 配置正向解析。
+
+参考网页：
+
+- https://blog.csdn.net/lishuan182/article/details/81383448
+
+可是，我对bind的配置一点都不熟悉，看了几篇博客，知其然不知其所以然，一头雾水，接下来去好好看看资料，再来继续撰写。
+
+## 五、配置 Deepin-Bible 书籍模板运行环境
+
+### 5.1 安装 git 并下载源码
+
+```bash
+# yum install git -y
+# git clone https://github.com/bubifengyun/deepin-bible.git
+```
+首先下载源码，是为了检验安装时候，需要预先安装哪些软件。
+
+### 5.2 预备需要用的软件
+
+```bash
+# apt-get install libxml2-dev libcurl4-openssl-dev libssl-dev libcairo2-dev libcurl4-openssl-dev libssl-dev libgit2-dev libssl-dev libssh2-1-dev curl openssl
+# yum install R pandoc wget libxml2-devel libcurl-devel openssl-devel cairo-devel libcurl-devel openssl-devel libgit2-devel openssl-devel libssh2-devel curl openssl ImageMagick -y
+```
+
+其实上面这些都是运行`make`，根据错误，提取出来的。接下来，参考[网页](https://www.vultr.com/docs/how-to-install-phantomjs-on-ubuntu-16-04)安装 phantomjs,
+
+```bash
+# curl -O https://github.com/wch/webshot/releases/download/v0.3.1/phantomjs-2.1.1-linux-x86_64.tar.bz2
+# tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
+# cp ./phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/
+# rm -rf ./phantomjs-2.1.1-linux-x86_64
+# phantomjs --version
+```
+
+但是外网速度太慢了，于是我直接从 [CSDN](https://download.csdn.net/download/bubifengyun/11258408) 下载了*phantomjs-2.1.1-linux-x86_64.tar.bz2*，提取出 *./bin/phantomjs*，扔到 */usr/local/bin/*文件夹下即可。上述命令最后一行是验证是否安装成功。
+
+接下来安装`RStudio Server`，参考官网：https://www.rstudio.com/products/rstudio/download-server/
+
+```bash
+# wget https://download2.rstudio.org/server/centos6/x86_64/rstudio-server-rhel-1.2.1335-x86_64.rpm
+# yum install rstudio-server-rhel-1.2.1335-x86_64.rpm
+```
+
+还需要验证是否安装成功，
+
+```bash
+# systemctl status rstudio-server
+# systemctl stop rstudio-server
+# rstudio-server verify-installation
+# systemctl start rstudio-server
+# firewall-cmd --zone=public --add-port=8787/tcp --permanent
+# firewall-cmd --zone=public --add-port=8787/udp --permanent
+# firewall-cmd --reload
+
+```
+
+上面依次是查看当前状态，一般`rstudio-server`安装好了就会启动了。接着关闭，才可以验证。最后是启动`rstudio-server`。当然还要开辟端口才可以使用，如上开辟了UDP、TCP的8787端口。下面安装`pandoc`，
+
+```bash
+# wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
+# tar xvzf pandoc-2.7.3-linux.tar.gz --strip-components 1 -C /usr/local/
+# pandoc --version
+```
+
+同样，外网那是一个慢啊。如果你可以从[CSDN](https://download.csdn.net/download/bubifengyun/11258661)下载，那么采用更好的方式安装 pandoc。但是要保证在 2.0 以上版本。github国内六七点起床，貌似使用手机下载，比电脑上快几百倍。
+
+另外，还需要更新一下 ghostscript，到[官网](https://www.ghostscript.com/download/gsdnld.html)下载，解压缩后放在*/usr/bin*文件夹，替换掉原来的 `ghostscript`。
+
+### 5.3 编译书籍
+
+```bash
+# make
+```
+
+第一次编译会下载很多软件和包，第二次就不需要了。实际中，第一次下载会出很多问题，缺少很多包，慢慢补全后，不联网就可以直接编译了。
+
+## 六、搭建 iredmail 服务器
+
+参考网页：
+
+- https://www.linuxtechi.com/install-iredmail-mail-server-on-centos-7-rhel-7/
+
+### 修改域名，禁用SELinux
+
+```bash
+# hostnamectl set-hostname mail.jwdd.xfywl
+# hostname -f
+```
+
+更改 */etc/hosts* 
+
+```
+127.0.0.1 mail.jwdd.xfywl localhost.localdomain localhost
+```
+
+更改 */etc/sysconfig/selinux*
+
+```bash
+# vim /etc/sysconfig/selinux
+```
+
+设置`SELINUX=disabled`，对美国的SELINUX向来不放心，感觉禁用比较好。
+
+### 下载最新iRedMail包，解压缩并安装
+
+不知外网速度如何，我的电脑还是很快就下载完毕了。
+
+```bash
+# wget https://bitbucket.org/zhb/iredmail/downloads/iRedMail-0.9.9.tar.bz2
+# tar jxvf iRedMail-0.9.9.tar.bz2
+# cd iRedMail-0.9.9
+# sh iRedMail.sh
+```
+
+一大堆问答，就安装好了。
+
+### 加入中文名字的邮箱
+
+先安装一个需要用到的软件，
+
+```bash
+# yum install openldap-clients -y
+```
+
+上面我们解压缩的包为 *~/iRedMail-0.9.9/*，运行如下如下命令，
+
+```bash
+
+```

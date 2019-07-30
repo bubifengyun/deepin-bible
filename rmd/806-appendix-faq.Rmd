@@ -43,7 +43,7 @@ $ source .bashrc
 ```
 
 \BeginKnitrBlock{answer}
-直接使用 `` `#` ``，单个`#`会变成两个`#`。待完成本书，去pandoc提意见，再改。对于代码中出现，作为注释符号时，没有问题，但是出现在字符串中时，可能需要把整段代码改为`\lstset{mathescape=true}`，改完后，再改回`\lstset{mathescape=false}`。作为特殊字符处理，不然报错。例子见第\@ref(chap:simple-bash-scripts)章相关代码。
+直接使用 `` `#` ``，单个`#`会变成两个`#`。待完成本书，去pandoc提意见，再改。对于代码中出现，作为注释符号时，没有问题，但是出现在字符串中时，可能需要把整段代码改为`\lstset{mathescape=true}`，改完后，再改回`\lstset{mathescape=false}`。作为特殊字符处理，不然报错。例子见第\@ref(chap:simple-bash-scripts)章相关代码。现在这个问题已经[解决](https://github.com/jgm/pandoc/issues/4922)。
 \EndKnitrBlock{answer}
 
 ```{block2, type='question'}
