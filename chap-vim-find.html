@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>10 文件编辑与查找 | deepin-bible.utf8.md</title>
+  <meta name="description" content="深度操作系统的简单介绍" />
+  <meta name="generator" content="bookdown 0.11.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="10 文件编辑与查找 | deepin-bible.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="深度操作系统的简单介绍" />
+  <meta name="github-repo" content="bubifengyun/deepin-bible" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="10 文件编辑与查找 | deepin-bible.utf8.md" />
+  
+  <meta name="twitter:description" content="深度操作系统的简单介绍" />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="深度操作系统爱好者" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap-filesystem.html">
+<link rel="next" href="chap-manager-process.html">
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">深度易经</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>2</b> 致谢</a></li>
+<li class="chapter" data-level="3" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i><b>3</b> 作者简介</a></li>
+<li class="part"><span><b>I Linux 及 Deepin 入门</b></span></li>
+<li class="chapter" data-level="4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html"><i class="fa fa-check"></i><b>4</b> GNU/Linux 操作系统简介</a><ul>
+<li class="chapter" data-level="4.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#gnulinux-"><i class="fa fa-check"></i><b>4.1</b> GNU/Linux 使用范围</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#gnulinux--1"><i class="fa fa-check"></i><b>4.2</b> GNU/Linux 是什么</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#richard-stallman"><i class="fa fa-check"></i><b>4.2.1</b> Richard Stallman</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#linus-torvalds"><i class="fa fa-check"></i><b>4.2.2</b> Linus Torvalds</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix-"><i class="fa fa-check"></i><b>4.3</b> Unix 哲学</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix--1"><i class="fa fa-check"></i><b>4.3.1</b> Unix 哲学核心</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix--2"><i class="fa fa-check"></i><b>4.3.2</b> Unix 哲学下的用户</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix--3"><i class="fa fa-check"></i><b>4.3.3</b> Unix 哲学的对手</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#chap:linux-intro:distro"><i class="fa fa-check"></i><b>4.4</b> GNU/Linux 发行版的出现</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#red-hat-"><i class="fa fa-check"></i><b>4.4.1</b> Red Hat 系</a></li>
+<li class="chapter" data-level="4.4.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#debian-"><i class="fa fa-check"></i><b>4.4.2</b> Debian 系</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#linux-"><i class="fa fa-check"></i><b>4.5</b> 如何提高自己的 Linux 技术</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#gnulinux--2"><i class="fa fa-check"></i><b>4.5.1</b> 首先安装 GNU/Linux 操作系统</a></li>
+<li class="chapter" data-level="4.5.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-2"><i class="fa fa-check"></i><b>4.5.2</b> 平常多用</a></li>
+<li class="chapter" data-level="4.5.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-3"><i class="fa fa-check"></i><b>4.5.3</b> 多问多记</a></li>
+<li class="chapter" data-level="4.5.4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-4"><i class="fa fa-check"></i><b>4.5.4</b> 定个计划</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-5"><i class="fa fa-check"></i><b>4.6</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html"><i class="fa fa-check"></i><b>5</b> Linux 桌面系统简介</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#live-cddvd-"><i class="fa fa-check"></i><b>5.1</b> 运行 Live CD/DVD 试用系统</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-6"><i class="fa fa-check"></i><b>5.1.1</b> 下载深度系统</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#u"><i class="fa fa-check"></i><b>5.1.2</b> 把系统写到U盘里</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-7"><i class="fa fa-check"></i><b>5.1.3</b> 开始试用</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#x-window-"><i class="fa fa-check"></i><b>5.2</b> X Window 系统简介</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-8"><i class="fa fa-check"></i><b>5.2.1</b> 基本部件</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-9"><i class="fa fa-check"></i><b>5.2.2</b> 用户接口</a></li>
+<li class="chapter" data-level="5.2.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-10"><i class="fa fa-check"></i><b>5.2.3</b> 用户界面</a></li>
+<li class="chapter" data-level="5.2.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-11"><i class="fa fa-check"></i><b>5.2.4</b> 优缺点</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#wayland"><i class="fa fa-check"></i><b>5.3</b> 王勇谈 Wayland</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-12"><i class="fa fa-check"></i><b>5.4</b> 常见的桌面环境</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#cinnamon"><i class="fa fa-check"></i><b>5.4.1</b> Cinnamon</a></li>
+<li class="chapter" data-level="5.4.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#gnome"><i class="fa fa-check"></i><b>5.4.2</b> GNOME</a></li>
+<li class="chapter" data-level="5.4.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#kde"><i class="fa fa-check"></i><b>5.4.3</b> KDE</a></li>
+<li class="chapter" data-level="5.4.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#lxde"><i class="fa fa-check"></i><b>5.4.4</b> LXDE</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-13"><i class="fa fa-check"></i><b>5.5</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html"><i class="fa fa-check"></i><b>6</b> 深度操作系统简介</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-14"><i class="fa fa-check"></i><b>6.1</b> 深度科技简介</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-15"><i class="fa fa-check"></i><b>6.2</b> 深度操作系统的安装</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-16"><i class="fa fa-check"></i><b>6.2.1</b> 安装方案</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-17"><i class="fa fa-check"></i><b>6.2.2</b> 安装环境</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-18"><i class="fa fa-check"></i><b>6.2.3</b> 启动优盘的制作</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-19"><i class="fa fa-check"></i><b>6.2.4</b> 安装过程</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-20"><i class="fa fa-check"></i><b>6.3</b> 桌面使用</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-21"><i class="fa fa-check"></i><b>6.3.1</b> 开机</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-22"><i class="fa fa-check"></i><b>6.3.2</b> 关机</a></li>
+<li class="chapter" data-level="6.3.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-23"><i class="fa fa-check"></i><b>6.3.3</b> 控制中心-系统设置</a></li>
+<li class="chapter" data-level="6.3.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-24"><i class="fa fa-check"></i><b>6.3.4</b> 开机自启动</a></li>
+<li class="chapter" data-level="6.3.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-25"><i class="fa fa-check"></i><b>6.3.5</b> 常用快捷键</a></li>
+<li class="chapter" data-level="6.3.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-26"><i class="fa fa-check"></i><b>6.3.6</b> 安装软件</a></li>
+<li class="chapter" data-level="6.3.7" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-27"><i class="fa fa-check"></i><b>6.3.7</b> 卸载软件</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-28"><i class="fa fa-check"></i><b>6.4</b> 深度桌面常用软件</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-29"><i class="fa fa-check"></i><b>6.4.1</b> 搜狗输入法</a></li>
+<li class="chapter" data-level="6.4.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#qq"><i class="fa fa-check"></i><b>6.4.2</b> QQ</a></li>
+<li class="chapter" data-level="6.4.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-30"><i class="fa fa-check"></i><b>6.4.3</b> 深度截图</a></li>
+<li class="chapter" data-level="6.4.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-31"><i class="fa fa-check"></i><b>6.4.4</b> 网易云音乐</a></li>
+<li class="chapter" data-level="6.4.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-32"><i class="fa fa-check"></i><b>6.4.5</b> 深度系统监视器</a></li>
+<li class="chapter" data-level="6.4.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-33"><i class="fa fa-check"></i><b>6.4.6</b> 深度无线投屏</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-34"><i class="fa fa-check"></i><b>6.5</b> 总结</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-35"><i class="fa fa-check"></i><b>6.6</b> 附注</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-education-intro.html"><a href="chap-education-intro.html"><i class="fa fa-check"></i><b>7</b> 教学用的 Linux 软件</a><ul>
+<li class="chapter" data-level="7.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-36"><i class="fa fa-check"></i><b>7.1</b> 引言</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-37"><i class="fa fa-check"></i><b>7.2</b> 笔记</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#leanote"><i class="fa fa-check"></i><b>7.2.1</b> leanote</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#xpad-"><i class="fa fa-check"></i><b>7.2.2</b> Xpad 便笺</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-38"><i class="fa fa-check"></i><b>7.3</b> 课堂工具</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#veyon"><i class="fa fa-check"></i><b>7.3.1</b> Veyon</a></li>
+<li class="chapter" data-level="7.3.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#acontent"><i class="fa fa-check"></i><b>7.3.2</b> AContent</a></li>
+<li class="chapter" data-level="7.3.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#moodle"><i class="fa fa-check"></i><b>7.3.3</b> Moodle</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-39"><i class="fa fa-check"></i><b>7.4</b> 文献阅读写作管理工具</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#bookdown"><i class="fa fa-check"></i><b>7.4.1</b> bookdown</a></li>
+<li class="chapter" data-level="7.4.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#vufind"><i class="fa fa-check"></i><b>7.4.2</b> VuFind</a></li>
+<li class="chapter" data-level="7.4.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#calibre"><i class="fa fa-check"></i><b>7.4.3</b> Calibre</a></li>
+<li class="chapter" data-level="7.4.4" data-path="chap-education-intro.html"><a href="chap-education-intro.html#cajviewer"><i class="fa fa-check"></i><b>7.4.4</b> CAJViewer</a></li>
+<li class="chapter" data-level="7.4.5" data-path="chap-education-intro.html"><a href="chap-education-intro.html#everything"><i class="fa fa-check"></i><b>7.4.5</b> 搜索神器 Everything</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II GNU/Linux 基础知识</b></span></li>
+<li class="chapter" data-level="8" data-path="chap-shell.html"><a href="chap-shell.html"><i class="fa fa-check"></i><b>8</b> shell 用法简介</a><ul>
+<li class="chapter" data-level="8.1" data-path="chap-shell.html"><a href="chap-shell.html#shell-"><i class="fa fa-check"></i><b>8.1</b> 用 shell 有啥好处？</a></li>
+<li class="chapter" data-level="8.2" data-path="chap-shell.html"><a href="chap-shell.html#shell:intro"><i class="fa fa-check"></i><b>8.2</b> 深度操作系统下 shell 简介</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="chap-shell.html"><a href="chap-shell.html#section-40"><i class="fa fa-check"></i><b>8.2.1</b> 牛刀小试</a></li>
+<li class="chapter" data-level="8.2.2" data-path="chap-shell.html"><a href="chap-shell.html#section-41"><i class="fa fa-check"></i><b>8.2.2</b> 命令语法结构</a></li>
+<li class="chapter" data-level="8.2.3" data-path="chap-shell.html"><a href="chap-shell.html#options"><i class="fa fa-check"></i><b>8.2.3</b> 选项(Options)</a></li>
+<li class="chapter" data-level="8.2.4" data-path="chap-shell.html"><a href="chap-shell.html#arguments"><i class="fa fa-check"></i><b>8.2.4</b> 参数(Arguments)</a></li>
+<li class="chapter" data-level="8.2.5" data-path="chap-shell.html"><a href="chap-shell.html#shell:more-example"><i class="fa fa-check"></i><b>8.2.5</b> 更多例子</a></li>
+<li class="chapter" data-level="8.2.6" data-path="chap-shell.html"><a href="chap-shell.html#section-42"><i class="fa fa-check"></i><b>8.2.6</b> 找找命令文件在哪里</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="chap-shell.html"><a href="chap-shell.html#section-43"><i class="fa fa-check"></i><b>8.3</b> 命令快捷编辑</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="chap-shell.html"><a href="chap-shell.html#section-44"><i class="fa fa-check"></i><b>8.3.1</b> 方便编辑的快捷键</a></li>
+<li class="chapter" data-level="8.3.2" data-path="chap-shell.html"><a href="chap-shell.html#section-45"><i class="fa fa-check"></i><b>8.3.2</b> 重输之前的命令</a></li>
+<li class="chapter" data-level="8.3.3" data-path="chap-shell.html"><a href="chap-shell.html#section-46"><i class="fa fa-check"></i><b>8.3.3</b> 自动补全</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="chap-shell.html"><a href="chap-shell.html#section-47"><i class="fa fa-check"></i><b>8.4</b> 命令连接与扩展</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="chap-shell.html"><a href="chap-shell.html#section-48"><i class="fa fa-check"></i><b>8.4.1</b> 匿名管道</a></li>
+<li class="chapter" data-level="8.4.2" data-path="chap-shell.html"><a href="chap-shell.html#sec:redirect"><i class="fa fa-check"></i><b>8.4.2</b> 重定向</a></li>
+<li class="chapter" data-level="8.4.3" data-path="chap-shell.html"><a href="chap-shell.html#section-49"><i class="fa fa-check"></i><b>8.4.3</b> 重定向和管道的区别</a></li>
+<li class="chapter" data-level="8.4.4" data-path="chap-shell.html"><a href="chap-shell.html#section-50"><i class="fa fa-check"></i><b>8.4.4</b> 顺序执行</a></li>
+<li class="chapter" data-level="8.4.5" data-path="chap-shell.html"><a href="chap-shell.html#section-51"><i class="fa fa-check"></i><b>8.4.5</b> 后台命令</a></li>
+<li class="chapter" data-level="8.4.6" data-path="chap-shell.html"><a href="chap-shell.html#section-52"><i class="fa fa-check"></i><b>8.4.6</b> 命令扩展</a></li>
+<li class="chapter" data-level="8.4.7" data-path="chap-shell.html"><a href="chap-shell.html#section-53"><i class="fa fa-check"></i><b>8.4.7</b> 简单数值计算</a></li>
+<li class="chapter" data-level="8.4.8" data-path="chap-shell.html"><a href="chap-shell.html#section-54"><i class="fa fa-check"></i><b>8.4.8</b> 输出变量值</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="chap-shell.html"><a href="chap-shell.html#shell-variables"><i class="fa fa-check"></i><b>8.5</b> Shell 变量（Variables）</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="chap-shell.html"><a href="chap-shell.html#section-55"><i class="fa fa-check"></i><b>8.5.1</b> 别名的创建和使用</a></li>
+<li class="chapter" data-level="8.5.2" data-path="chap-shell.html"><a href="chap-shell.html#shell"><i class="fa fa-check"></i><b>8.5.2</b> 退出 shell</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="chap-shell.html"><a href="chap-shell.html#shell--1"><i class="fa fa-check"></i><b>8.6</b> 定制 shell 环境</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="chap-shell.html"><a href="chap-shell.html#prompt"><i class="fa fa-check"></i><b>8.6.1</b> 配置提示（prompt）</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="chap-shell.html"><a href="chap-shell.html#section-56"><i class="fa fa-check"></i><b>8.7</b> 命令帮助</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-shell.html"><a href="chap-shell.html#section-57"><i class="fa fa-check"></i><b>8.8</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-filesystem.html"><a href="chap-filesystem.html"><i class="fa fa-check"></i><b>9</b> 文件系统</a><ul>
+<li class="chapter" data-level="9.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-58"><i class="fa fa-check"></i><b>9.1</b> 树形结构</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-59"><i class="fa fa-check"></i><b>9.2</b> 文件系统常用命令</a></li>
+<li class="chapter" data-level="9.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-60"><i class="fa fa-check"></i><b>9.3</b> 元字符和操作符</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#filesystem:metachar"><i class="fa fa-check"></i><b>9.3.1</b> 元字符</a></li>
+<li class="chapter" data-level="9.3.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-61"><i class="fa fa-check"></i><b>9.3.2</b> 操作符</a></li>
+<li class="chapter" data-level="9.3.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-62"><i class="fa fa-check"></i><b>9.3.3</b> 花括号<code>{}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-63"><i class="fa fa-check"></i><b>9.4</b> 几个常用的目录</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-64"><i class="fa fa-check"></i><b>9.5</b> 文件（夹）的权限和归属</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-65"><i class="fa fa-check"></i><b>9.5.1</b> 权限简介</a></li>
+<li class="chapter" data-level="9.5.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#chmod"><i class="fa fa-check"></i><b>9.5.2</b> 权限更改<code>chmod</code></a></li>
+<li class="chapter" data-level="9.5.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#umask"><i class="fa fa-check"></i><b>9.5.3</b> 权限掩码<code>umask</code></a></li>
+<li class="chapter" data-level="9.5.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-68"><i class="fa fa-check"></i><b>9.5.4</b> 归属</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-69"><i class="fa fa-check"></i><b>9.6</b> 文件（夹）的创建、查看、移动、复制和删除</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-70"><i class="fa fa-check"></i><b>9.6.1</b> 文件（夹）的创建</a></li>
+<li class="chapter" data-level="9.6.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-71"><i class="fa fa-check"></i><b>9.6.2</b> 文件（夹）的查看</a></li>
+<li class="chapter" data-level="9.6.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-72"><i class="fa fa-check"></i><b>9.6.3</b> 文件（夹）的复制</a></li>
+<li class="chapter" data-level="9.6.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-73"><i class="fa fa-check"></i><b>9.6.4</b> 文件（夹）的删除</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-74"><i class="fa fa-check"></i><b>9.7</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-vim-find.html"><a href="chap-vim-find.html"><i class="fa fa-check"></i><b>10</b> 文件编辑与查找</a><ul>
+<li class="chapter" data-level="10.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-75"><i class="fa fa-check"></i><b>10.1</b> 字符集和字符编码</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#ascii"><i class="fa fa-check"></i><b>10.1.1</b> ASCII</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gb2312"><i class="fa fa-check"></i><b>10.1.2</b> GB2312</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gbk"><i class="fa fa-check"></i><b>10.1.3</b> GBK字符集</a></li>
+<li class="chapter" data-level="10.1.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#big5"><i class="fa fa-check"></i><b>10.1.4</b> BIG5</a></li>
+<li class="chapter" data-level="10.1.5" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gb18030"><i class="fa fa-check"></i><b>10.1.5</b> GB18030</a></li>
+<li class="chapter" data-level="10.1.6" data-path="chap-vim-find.html"><a href="chap-vim-find.html#unicode"><i class="fa fa-check"></i><b>10.1.6</b> Unicode字符集</a></li>
+<li class="chapter" data-level="10.1.7" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-76"><i class="fa fa-check"></i><b>10.1.7</b> 编码的常用命令</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-77"><i class="fa fa-check"></i><b>10.2</b> 编辑器</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-78"><i class="fa fa-check"></i><b>10.3</b> 文件查找</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#find-"><i class="fa fa-check"></i><b>10.3.1</b> <code>find</code> 查找文件</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#grep-"><i class="fa fa-check"></i><b>10.3.2</b> <code>grep</code> 查找文件内部信息</a></li>
+<li class="chapter" data-level="10.3.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-83"><i class="fa fa-check"></i><b>10.3.3</b> 其他检索工具</a></li>
+<li class="chapter" data-level="10.3.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-84"><i class="fa fa-check"></i><b>10.3.4</b> 正则表达式</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-92"><i class="fa fa-check"></i><b>10.4</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-manager-process.html"><a href="chap-manager-process.html"><i class="fa fa-check"></i><b>11</b> 进程管理</a><ul>
+<li class="chapter" data-level="11.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-93"><i class="fa fa-check"></i><b>11.1</b> 何谓进程</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-94"><i class="fa fa-check"></i><b>11.2</b> 深度系统监视器管理进程</a></li>
+<li class="chapter" data-level="11.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-95"><i class="fa fa-check"></i><b>11.3</b> 命令方式查看进程</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#ps-"><i class="fa fa-check"></i><b>11.3.1</b> ps 命令基本用法</a></li>
+<li class="chapter" data-level="11.3.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#top-"><i class="fa fa-check"></i><b>11.3.2</b> top 命令基本用法</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-96"><i class="fa fa-check"></i><b>11.4</b> 进程的分类</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-97"><i class="fa fa-check"></i><b>11.4.1</b> 怎么生成后台进程呢？</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="chap-manager-process.html"><a href="chap-manager-process.html#killing-and-renicing"><i class="fa fa-check"></i><b>11.5</b> 进程的终结与调整优先级（Killing and Renicing）</a></li>
+<li class="chapter" data-level="11.6" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6</b> 通过<code>cgroups</code>限制进程</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups-1"><i class="fa fa-check"></i><b>11.6.1</b> <code>cgroups</code>是什么？</a></li>
+<li class="chapter" data-level="11.6.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups-2"><i class="fa fa-check"></i><b>11.6.2</b> <code>cgroups</code>可以做什么？</a></li>
+<li class="chapter" data-level="11.6.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups-3"><i class="fa fa-check"></i><b>11.6.3</b> <code>cgroups</code>相关概念及其关系</a></li>
+<li class="chapter" data-level="11.6.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups-4"><i class="fa fa-check"></i><b>11.6.4</b> <code>cgroups</code>子系统介绍</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-98"><i class="fa fa-check"></i><b>11.7</b> 进程的状态</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxr-task_running"><i class="fa fa-check"></i><b>11.7.1</b> Linux进程状态：R (TASK_RUNNING)，可执行状态。</a></li>
+<li class="chapter" data-level="11.7.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxs-task_interruptible"><i class="fa fa-check"></i><b>11.7.2</b> Linux进程状态：S (TASK_INTERRUPTIBLE)，可中断的睡眠状态。</a></li>
+<li class="chapter" data-level="11.7.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxd-task_uninterruptible"><i class="fa fa-check"></i><b>11.7.3</b> Linux进程状态：D (TASK_UNINTERRUPTIBLE)，不可中断的睡眠状态。</a></li>
+<li class="chapter" data-level="11.7.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxt-task_stopped-or-task_traced"><i class="fa fa-check"></i><b>11.7.4</b> Linux进程状态：T (TASK_STOPPED or TASK_TRACED)，暂停状态或跟踪状态。</a></li>
+<li class="chapter" data-level="11.7.5" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxz-task_dead---exit_zombie"><i class="fa fa-check"></i><b>11.7.5</b> Linux进程状态：Z (TASK_DEAD - EXIT_ZOMBIE)，退出状态，进程成为僵尸进程。</a></li>
+<li class="chapter" data-level="11.7.6" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxx-task_dead---exit_dead"><i class="fa fa-check"></i><b>11.7.6</b> Linux进程状态：X (TASK_DEAD - EXIT_DEAD)，退出状态，进程即将被销毁。</a></li>
+<li class="chapter" data-level="11.7.7" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-99"><i class="fa fa-check"></i><b>11.7.7</b> 进程的初始状态</a></li>
+<li class="chapter" data-level="11.7.8" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-100"><i class="fa fa-check"></i><b>11.7.8</b> 进程状态变迁</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-101"><i class="fa fa-check"></i><b>11.8</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html"><i class="fa fa-check"></i><b>12</b> 简单bash脚本</a><ul>
+<li class="chapter" data-level="12.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell--2"><i class="fa fa-check"></i><b>12.1</b> 何谓 shell 脚本</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-102"><i class="fa fa-check"></i><b>12.1.1</b> 执行和调试</a></li>
+<li class="chapter" data-level="12.1.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell--3"><i class="fa fa-check"></i><b>12.1.2</b> shell 变量</a></li>
+<li class="chapter" data-level="12.1.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-103"><i class="fa fa-check"></i><b>12.1.3</b> 特殊变量</a></li>
+<li class="chapter" data-level="12.1.4" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-104"><i class="fa fa-check"></i><b>12.1.4</b> 执行时输入参数</a></li>
+<li class="chapter" data-level="12.1.5" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-105"><i class="fa fa-check"></i><b>12.1.5</b> 其他需求的参数</a></li>
+<li class="chapter" data-level="12.1.6" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-106"><i class="fa fa-check"></i><b>12.1.6</b> 简单计算</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell--4"><i class="fa fa-check"></i><b>12.2</b> shell 脚本的三大结构</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-107"><i class="fa fa-check"></i><b>12.2.1</b> 分支结构的语法</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#sed"><i class="fa fa-check"></i><b>12.3</b> 流编辑器<code>sed</code></a></li>
+<li class="chapter" data-level="12.4" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell-uc-"><i class="fa fa-check"></i><b>12.4</b> shell脚本例子：转换 UC 缓存视频</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#file.txt"><i class="fa fa-check"></i><b>12.4.1</b> 生成 <code>file.txt</code>文件</a></li>
+<li class="chapter" data-level="12.4.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#mp4-"><i class="fa fa-check"></i><b>12.4.2</b> 生成 MP4 文件</a></li>
+<li class="chapter" data-level="12.4.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#bash-"><i class="fa fa-check"></i><b>12.4.3</b> 做成一个 bash 脚本</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-109"><i class="fa fa-check"></i><b>12.5</b> 总结</a></li>
+</ul></li>
+<li class="part"><span><b>III 本机管理员</b></span></li>
+<li class="chapter" data-level="13" data-path="section-110.html"><a href="section-110.html"><i class="fa fa-check"></i><b>13</b> 系统管理基础知识</a></li>
+<li class="chapter" data-level="14" data-path="deepin-install.html"><a href="deepin-install.html"><i class="fa fa-check"></i><b>14</b> 深度系统安装</a><ul>
+<li class="chapter" data-level="14.1" data-path="deepin-install.html"><a href="deepin-install.html#uefi--legacy-bios-"><i class="fa fa-check"></i><b>14.1</b> UEFI 和 legacy BIOS 区别和联系</a></li>
+<li class="chapter" data-level="14.2" data-path="deepin-install.html"><a href="deepin-install.html#section-111"><i class="fa fa-check"></i><b>14.2</b> 优盘安装</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="deepin-install.html"><a href="deepin-install.html#deepin.iso-"><i class="fa fa-check"></i><b>14.2.1</b> 第一步下载并校验 deepin.iso 文件</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="deepin-install.html"><a href="deepin-install.html#section-112"><i class="fa fa-check"></i><b>14.3</b> 安装常见问题</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="software-install.html"><a href="software-install.html"><i class="fa fa-check"></i><b>15</b> 软件安装</a><ul>
+<li class="chapter" data-level="15.1" data-path="software-install.html"><a href="software-install.html#npm-"><i class="fa fa-check"></i><b>15.1</b> npm 软件的安装</a></li>
+<li class="chapter" data-level="15.2" data-path="software-install.html"><a href="software-install.html#veil-"><i class="fa fa-check"></i><b>15.2</b> veil 软件安装</a></li>
+<li class="chapter" data-level="15.3" data-path="software-install.html"><a href="software-install.html#dpkg-"><i class="fa fa-check"></i><b>15.3</b> dpkg 安装</a></li>
+<li class="chapter" data-level="15.4" data-path="software-install.html"><a href="software-install.html#section-113"><i class="fa fa-check"></i><b>15.4</b> 其他安装方式</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="software-install.html"><a href="software-install.html#bitnami"><i class="fa fa-check"></i><b>15.4.1</b> bitnami</a></li>
+<li class="chapter" data-level="15.4.2" data-path="software-install.html"><a href="software-install.html#turnkeylinux"><i class="fa fa-check"></i><b>15.4.2</b> turnkeylinux</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="software-install.html"><a href="software-install.html#you-get-"><i class="fa fa-check"></i><b>15.5</b> you-get 软件的安装</a></li>
+<li class="chapter" data-level="15.6" data-path="software-install.html"><a href="software-install.html#section-114"><i class="fa fa-check"></i><b>15.6</b> 字体的安装</a></li>
+<li class="chapter" data-level="15.7" data-path="software-install.html"><a href="software-install.html#section-115"><i class="fa fa-check"></i><b>15.7</b> 输入法的安装</a></li>
+<li class="chapter" data-level="15.8" data-path="software-install.html"><a href="software-install.html#wireshark-"><i class="fa fa-check"></i><b>15.8</b> wireshark 的安装</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="manager-user.html"><a href="manager-user.html"><i class="fa fa-check"></i><b>16</b> 管理账户</a><ul>
+<li class="chapter" data-level="16.1" data-path="manager-user.html"><a href="manager-user.html#section-116"><i class="fa fa-check"></i><b>16.1</b> 引言</a></li>
+<li class="chapter" data-level="16.2" data-path="manager-user.html"><a href="manager-user.html#section-117"><i class="fa fa-check"></i><b>16.2</b> 创建账户</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="manager-user.html"><a href="manager-user.html#section-118"><i class="fa fa-check"></i><b>16.2.1</b> 图形方式</a></li>
+<li class="chapter" data-level="16.2.2" data-path="manager-user.html"><a href="manager-user.html#section-119"><i class="fa fa-check"></i><b>16.2.2</b> 命令方式</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV 服务器管理员</b></span></li>
+<li class="chapter" data-level="17" data-path="chap-server-intro.html"><a href="chap-server-intro.html"><i class="fa fa-check"></i><b>17</b> 服务器简介</a></li>
+<li class="chapter" data-level="18" data-path="chap-cups.html"><a href="chap-cups.html"><i class="fa fa-check"></i><b>18</b> Unix 通用打印系统简介</a><ul>
+<li class="chapter" data-level="18.1" data-path="chap-cups.html"><a href="chap-cups.html#cups"><i class="fa fa-check"></i><b>18.1</b> 何谓 “CUPS”</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="web-server-.html"><a href="web-server-.html"><i class="fa fa-check"></i><b>19</b> Web Server 的搭建与运行</a><ul>
+<li class="chapter" data-level="19.1" data-path="web-server-.html"><a href="web-server-.html#section-120"><i class="fa fa-check"></i><b>19.1</b> 面向开发的一键安装类型</a></li>
+<li class="chapter" data-level="19.2" data-path="web-server-.html"><a href="web-server-.html#section-121"><i class="fa fa-check"></i><b>19.2</b> 关注效率稳定的搭建方法</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="windows-samba-.html"><a href="windows-samba-.html"><i class="fa fa-check"></i><b>20</b> 与 Windows 共享文件打印机的 samba 服务</a><ul>
+<li class="chapter" data-level="20.1" data-path="windows-samba-.html"><a href="windows-samba-.html#samba-"><i class="fa fa-check"></i><b>20.1</b> Samba 文件传输服务简介</a></li>
+<li class="chapter" data-level="20.2" data-path="windows-samba-.html"><a href="windows-samba-.html#samba--1"><i class="fa fa-check"></i><b>20.2</b> 深度自带 samba 的使用</a><ul>
+<li class="chapter" data-level="20.2.1" data-path="windows-samba-.html"><a href="windows-samba-.html#section-122"><i class="fa fa-check"></i><b>20.2.1</b> 共享本地文件</a></li>
+<li class="chapter" data-level="20.2.2" data-path="windows-samba-.html"><a href="windows-samba-.html#section-123"><i class="fa fa-check"></i><b>20.2.2</b> 访问共享文件</a></li>
+<li class="chapter" data-level="20.2.3" data-path="windows-samba-.html"><a href="windows-samba-.html#section-124"><i class="fa fa-check"></i><b>20.2.3</b> 我的共享</a></li>
+<li class="chapter" data-level="20.2.4" data-path="windows-samba-.html"><a href="windows-samba-.html#section-125"><i class="fa fa-check"></i><b>20.2.4</b> 可能存在的小问题</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="windows-samba-.html"><a href="windows-samba-.html#samba--2"><i class="fa fa-check"></i><b>20.3</b> 关于 samba 的配置</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="windows-samba-.html"><a href="windows-samba-.html#section-126"><i class="fa fa-check"></i><b>20.3.1</b> 手动安装</a></li>
+<li class="chapter" data-level="20.3.2" data-path="windows-samba-.html"><a href="windows-samba-.html#section-127"><i class="fa fa-check"></i><b>20.3.2</b> 启动与停止</a></li>
+<li class="chapter" data-level="20.3.3" data-path="windows-samba-.html"><a href="windows-samba-.html#section-128"><i class="fa fa-check"></i><b>20.3.3</b> 配置文件</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="windows-samba-.html"><a href="windows-samba-.html#u-file-"><i class="fa fa-check"></i><b>20.4</b> 例：借助安卓软件 U-File 实现手机电脑互传</a><ul>
+<li class="chapter" data-level="20.4.1" data-path="windows-samba-.html"><a href="windows-samba-.html#section-129"><i class="fa fa-check"></i><b>20.4.1</b> 开启局域网</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="section-130.html"><a href="section-130.html"><i class="fa fa-check"></i><b>21</b> 构建综合性服务器记录</a><ul>
+<li class="chapter" data-level="21.1" data-path="section-130.html"><a href="section-130.html#section-131"><i class="fa fa-check"></i><b>21.1</b> 引言</a></li>
+<li class="chapter" data-level="21.2" data-path="section-130.html"><a href="section-130.html#section-132"><i class="fa fa-check"></i><b>21.2</b> 一、安装计划</a></li>
+<li class="chapter" data-level="21.3" data-path="section-130.html"><a href="section-130.html#virtualbox-centos-7.6-minimal"><i class="fa fa-check"></i><b>21.3</b> 二、VirtualBox虚拟机里安装 centos 7.6 minimal</a></li>
+<li class="chapter" data-level="21.4" data-path="section-130.html"><a href="section-130.html#centos-"><i class="fa fa-check"></i><b>21.4</b> 三、centos 优化</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="section-130.html"><a href="section-130.html#ip"><i class="fa fa-check"></i><b>21.4.1</b> 3.1 开通单网卡多IP功能</a></li>
+<li class="chapter" data-level="21.4.2" data-path="section-130.html"><a href="section-130.html#yum-"><i class="fa fa-check"></i><b>21.4.2</b> 3.2 配置 yum 官方源</a></li>
+<li class="chapter" data-level="21.4.3" data-path="section-130.html"><a href="section-130.html#section-133"><i class="fa fa-check"></i><b>21.4.3</b> 3.3 安装部分软件</a></li>
+<li class="chapter" data-level="21.4.4" data-path="section-130.html"><a href="section-130.html#section-134"><i class="fa fa-check"></i><b>21.4.4</b> 3.4 关闭不需要的服务</a></li>
+<li class="chapter" data-level="21.4.5" data-path="section-130.html"><a href="section-130.html#tty"><i class="fa fa-check"></i><b>21.4.5</b> 3.5 关闭不需要的TTY</a></li>
+<li class="chapter" data-level="21.4.6" data-path="section-130.html"><a href="section-130.html#tcpipsyn-flood"><i class="fa fa-check"></i><b>21.4.6</b> 3.6 调整TCP/IP网络参数，提高应对SYN Flood能力</a></li>
+<li class="chapter" data-level="21.4.7" data-path="section-130.html"><a href="section-130.html#shellhistory"><i class="fa fa-check"></i><b>21.4.7</b> 3.7 修改 SHELL命令的history记录条数</a></li>
+<li class="chapter" data-level="21.4.8" data-path="section-130.html"><a href="section-130.html#ipv6"><i class="fa fa-check"></i><b>21.4.8</b> 3.8 停用IPv6网络服务</a></li>
+<li class="chapter" data-level="21.4.9" data-path="section-130.html"><a href="section-130.html#section-135"><i class="fa fa-check"></i><b>21.4.9</b> 3.9 修改文件描述符限制</a></li>
+<li class="chapter" data-level="21.4.10" data-path="section-130.html"><a href="section-130.html#ssh"><i class="fa fa-check"></i><b>21.4.10</b> 3.10 修改SSH的设置</a></li>
+<li class="chapter" data-level="21.4.11" data-path="section-130.html"><a href="section-130.html#io"><i class="fa fa-check"></i><b>21.4.11</b> 3.11 关闭写磁盘I/O的功能</a></li>
+<li class="chapter" data-level="21.4.12" data-path="section-130.html"><a href="section-130.html#apachepostfixtcpip"><i class="fa fa-check"></i><b>21.4.12</b> 3.12 为Apache，Postfix优化TCP/IP内核参数</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="section-130.html"><a href="section-130.html#dns"><i class="fa fa-check"></i><b>21.5</b> 四、安装配置DNS服务</a><ul>
+<li class="chapter" data-level="21.5.1" data-path="section-130.html"><a href="section-130.html#dns-1"><i class="fa fa-check"></i><b>21.5.1</b> 4.1 安装DNS相关软件</a></li>
+<li class="chapter" data-level="21.5.2" data-path="section-130.html"><a href="section-130.html#section-136"><i class="fa fa-check"></i><b>21.5.2</b> 4.2 前期配置</a></li>
+<li class="chapter" data-level="21.5.3" data-path="section-130.html"><a href="section-130.html#section-137"><i class="fa fa-check"></i><b>21.5.3</b> 4.3 配置正向解析。</a></li>
+</ul></li>
+<li class="chapter" data-level="21.6" data-path="section-130.html"><a href="section-130.html#deepin-bible-"><i class="fa fa-check"></i><b>21.6</b> 五、配置 Deepin-Bible 书籍模板运行环境</a><ul>
+<li class="chapter" data-level="21.6.1" data-path="section-130.html"><a href="section-130.html#git-"><i class="fa fa-check"></i><b>21.6.1</b> 5.1 安装 git 并下载源码</a></li>
+<li class="chapter" data-level="21.6.2" data-path="section-130.html"><a href="section-130.html#section-138"><i class="fa fa-check"></i><b>21.6.2</b> 5.2 预备需要用的软件</a></li>
+<li class="chapter" data-level="21.6.3" data-path="section-130.html"><a href="section-130.html#section-139"><i class="fa fa-check"></i><b>21.6.3</b> 5.3 编译书籍</a></li>
+</ul></li>
+<li class="chapter" data-level="21.7" data-path="section-130.html"><a href="section-130.html#iredmail-"><i class="fa fa-check"></i><b>21.7</b> 六、搭建 iredmail 服务器</a><ul>
+<li class="chapter" data-level="21.7.1" data-path="section-130.html"><a href="section-130.html#selinux"><i class="fa fa-check"></i><b>21.7.1</b> 修改域名，禁用SELinux</a></li>
+<li class="chapter" data-level="21.7.2" data-path="section-130.html"><a href="section-130.html#iredmail"><i class="fa fa-check"></i><b>21.7.2</b> 下载最新iRedMail包，解压缩并安装</a></li>
+<li class="chapter" data-level="21.7.3" data-path="section-130.html"><a href="section-130.html#section-140"><i class="fa fa-check"></i><b>21.7.3</b> 加入中文名字的邮箱</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V 安全</b></span></li>
+<li class="chapter" data-level="22" data-path="chap-network-security.html"><a href="chap-network-security.html"><i class="fa fa-check"></i><b>22</b> 网络安全</a></li>
+<li class="part"><span><b>VI 附录</b></span></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="A" data-path="chap-yugong.html"><a href="chap-yugong.html"><i class="fa fa-check"></i><b>A</b> 愚公移山</a></li>
+<li class="chapter" data-level="B" data-path="chap-makebook.html"><a href="chap-makebook.html"><i class="fa fa-check"></i><b>B</b> 如何制作本书</a><ul>
+<li class="chapter" data-level="B.1" data-path="chap-makebook.html"><a href="chap-makebook.html#section-141"><i class="fa fa-check"></i><b>B.1</b> 准备工作</a><ul>
+<li class="chapter" data-level="B.1.1" data-path="chap-makebook.html"><a href="chap-makebook.html#linux--1"><i class="fa fa-check"></i><b>B.1.1</b> Linux 下使用</a></li>
+<li class="chapter" data-level="B.1.2" data-path="chap-makebook.html"><a href="chap-makebook.html#windows-"><i class="fa fa-check"></i><b>B.1.2</b> Windows 下使用</a></li>
+<li class="chapter" data-level="B.1.3" data-path="chap-makebook.html"><a href="chap-makebook.html#section-142"><i class="fa fa-check"></i><b>B.1.3</b> 苹果操作系统下使用</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="chap-makebook.html"><a href="chap-makebook.html#section-143"><i class="fa fa-check"></i><b>B.2</b> 编译模板</a><ul>
+<li class="chapter" data-level="B.2.1" data-path="chap-makebook.html"><a href="chap-makebook.html#section-144"><i class="fa fa-check"></i><b>B.2.1</b> 第一种编译方法 —— 命令行编译</a></li>
+<li class="chapter" data-level="B.2.2" data-path="chap-makebook.html"><a href="chap-makebook.html#rstudio"><i class="fa fa-check"></i><b>B.2.2</b> 第二种编译方法 —— RStudio编译</a></li>
+<li class="chapter" data-level="B.2.3" data-path="chap-makebook.html"><a href="chap-makebook.html#section-145"><i class="fa fa-check"></i><b>B.2.3</b> 字数统计</a></li>
+<li class="chapter" data-level="B.2.4" data-path="chap-makebook.html"><a href="chap-makebook.html#r-"><i class="fa fa-check"></i><b>B.2.4</b> 本书编译的 R 各包信息</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="chap-makebook.html"><a href="chap-makebook.html#section-146"><i class="fa fa-check"></i><b>B.3</b> 文件布局</a></li>
+<li class="chapter" data-level="B.4" data-path="chap-makebook.html"><a href="chap-makebook.html#section-147"><i class="fa fa-check"></i><b>B.4</b> 主要文件介绍</a><ul>
+<li class="chapter" data-level="B.4.1" data-path="chap-makebook.html"><a href="chap-makebook.html#section-148"><i class="fa fa-check"></i><b>B.4.1</b> 模板文件</a></li>
+<li class="chapter" data-level="B.4.2" data-path="chap-makebook.html"><a href="chap-makebook.html#section-149"><i class="fa fa-check"></i><b>B.4.2</b> 各章源文件</a></li>
+<li class="chapter" data-level="B.4.3" data-path="chap-makebook.html"><a href="chap-makebook.html#section-150"><i class="fa fa-check"></i><b>B.4.3</b> 配置文件</a></li>
+<li class="chapter" data-level="B.4.4" data-path="chap-makebook.html"><a href="chap-makebook.html#intro:fig"><i class="fa fa-check"></i><b>B.4.4</b> 图片文件夹 images</a></li>
+<li class="chapter" data-level="B.4.5" data-path="chap-makebook.html"><a href="chap-makebook.html#intro:bib"><i class="fa fa-check"></i><b>B.4.5</b> 参考文献数据库bib</a></li>
+<li class="chapter" data-level="B.4.6" data-path="chap-makebook.html"><a href="chap-makebook.html#section-151"><i class="fa fa-check"></i><b>B.4.6</b> 辅助文件</a></li>
+</ul></li>
+<li class="chapter" data-level="B.5" data-path="chap-makebook.html"><a href="chap-makebook.html#section-152"><i class="fa fa-check"></i><b>B.5</b> 关于在线网页的制作</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="chap-chapters.html"><a href="chap-chapters.html"><i class="fa fa-check"></i><b>C</b> 各章格式说明</a><ul>
+<li class="chapter" data-level="C.1" data-path="chap-chapters.html"><a href="chap-chapters.html#section-153"><i class="fa fa-check"></i><b>C.1</b> 章：前言</a></li>
+<li class="chapter" data-level="C.2" data-path="chap-chapters.html"><a href="chap-chapters.html#section-154"><i class="fa fa-check"></i><b>C.2</b> 前言后的部分章节</a></li>
+<li class="chapter" data-level="C.3" data-path="chap-chapters.html"><a href="chap-chapters.html#section-155"><i class="fa fa-check"></i><b>C.3</b> 部分：第一部分简介</a></li>
+<li class="chapter" data-level="C.4" data-path="chap-chapters.html"><a href="chap-chapters.html#section-156"><i class="fa fa-check"></i><b>C.4</b> 各部分内部的章</a></li>
+<li class="chapter" data-level="C.5" data-path="chap-chapters.html"><a href="chap-chapters.html#section-157"><i class="fa fa-check"></i><b>C.5</b> 部分：附录及其他</a></li>
+<li class="chapter" data-level="C.6" data-path="chap-chapters.html"><a href="chap-chapters.html#section-158"><i class="fa fa-check"></i><b>C.6</b> 附录内部各章</a></li>
+<li class="chapter" data-level="C.7" data-path="chap-chapters.html"><a href="chap-chapters.html#section-159"><i class="fa fa-check"></i><b>C.7</b> 后缀部分</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html"><i class="fa fa-check"></i><b>D</b> RMarkdown/Bookdown 排版示例</a><ul>
+<li class="chapter" data-level="D.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#markdown-syntax"><i class="fa fa-check"></i><b>D.1</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="D.1.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#inline-formatting"><i class="fa fa-check"></i><b>D.1.1</b> Inline formatting</a></li>
+<li class="chapter" data-level="D.1.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#block-level-elements"><i class="fa fa-check"></i><b>D.1.2</b> Block-level elements</a></li>
+<li class="chapter" data-level="D.1.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#math-expressions"><i class="fa fa-check"></i><b>D.1.3</b> Math expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="D.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#markdown-extensions-by-bookdown"><i class="fa fa-check"></i><b>D.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="D.2.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#equations"><i class="fa fa-check"></i><b>D.2.1</b> Number and reference equations</a></li>
+<li class="chapter" data-level="D.2.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#theorems"><i class="fa fa-check"></i><b>D.2.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="D.2.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#special-headers"><i class="fa fa-check"></i><b>D.2.3</b> Special headers</a></li>
+<li class="chapter" data-level="D.2.4" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#text-references"><i class="fa fa-check"></i><b>D.2.4</b> Text references</a></li>
+</ul></li>
+<li class="chapter" data-level="D.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#r-code"><i class="fa fa-check"></i><b>D.3</b> R code</a></li>
+<li class="chapter" data-level="D.4" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#figures"><i class="fa fa-check"></i><b>D.4</b> Figures</a></li>
+<li class="chapter" data-level="D.5" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#tables"><i class="fa fa-check"></i><b>D.5</b> Tables</a></li>
+<li class="chapter" data-level="D.6" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#cross-references"><i class="fa fa-check"></i><b>D.6</b> Cross-references</a></li>
+<li class="chapter" data-level="D.7" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#custom-blocks"><i class="fa fa-check"></i><b>D.7</b> Custom blocks</a></li>
+<li class="chapter" data-level="D.8" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#citations"><i class="fa fa-check"></i><b>D.8</b> Citations</a></li>
+<li class="chapter" data-level="D.9" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#latex-index"><i class="fa fa-check"></i><b>D.9</b> Index</a></li>
+<li class="chapter" data-level="D.10" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#html-widgets"><i class="fa fa-check"></i><b>D.10</b> HTML widgets</a></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="chap-faqs.html"><a href="chap-faqs.html"><i class="fa fa-check"></i><b>E</b> 常见问题</a></li>
+<li class="chapter" data-level="F" data-path="install-further-read.html"><a href="install-further-read.html"><i class="fa fa-check"></i><b>F</b> 操作系统安装延伸阅读</a><ul>
+<li class="chapter" data-level="F.1" data-path="install-further-read.html"><a href="install-further-read.html#section-160"><i class="fa fa-check"></i><b>F.1</b> 计算机引导过程</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="install-further-read.html"><a href="install-further-read.html#bios-"><i class="fa fa-check"></i><b>F.1.1</b> 传统 BIOS 引导</a></li>
+<li class="chapter" data-level="F.1.2" data-path="install-further-read.html"><a href="install-further-read.html#uefi-"><i class="fa fa-check"></i><b>F.1.2</b> UEFI 引导</a></li>
+<li class="chapter" data-level="F.1.3" data-path="install-further-read.html"><a href="install-further-read.html#uefi--1"><i class="fa fa-check"></i><b>F.1.3</b> UEFI 的多重引导</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="install-further-read.html"><a href="install-further-read.html#bios--1"><i class="fa fa-check"></i><b>F.2</b> 常见 BIOS 设置</a><ul>
+<li class="chapter" data-level="F.2.1" data-path="install-further-read.html"><a href="install-further-read.html#section-161"><i class="fa fa-check"></i><b>F.2.1</b> 常见启动引导器</a></li>
+<li class="chapter" data-level="F.2.2" data-path="install-further-read.html"><a href="install-further-read.html#ntldrbootmgr"><i class="fa fa-check"></i><b>F.2.2</b> NTLDR/BOOTMGR</a></li>
+<li class="chapter" data-level="F.2.3" data-path="install-further-read.html"><a href="install-further-read.html#gnu-grub-"><i class="fa fa-check"></i><b>F.2.3</b> GNU GRUB 及其使用</a></li>
+</ul></li>
+<li class="chapter" data-level="F.3" data-path="install-further-read.html"><a href="install-further-read.html#linux--2"><i class="fa fa-check"></i><b>F.3</b> LINUX 启动过程</a><ul>
+<li class="chapter" data-level="F.3.1" data-path="install-further-read.html"><a href="install-further-read.html#vmlinuz"><i class="fa fa-check"></i><b>F.3.1</b> VMLINUZ</a></li>
+<li class="chapter" data-level="F.3.2" data-path="install-further-read.html"><a href="install-further-read.html#initrd"><i class="fa fa-check"></i><b>F.3.2</b> INITRD</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="history.html"><a href="history.html"><i class="fa fa-check"></i><b>G</b> 大事记</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">深度易经</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:vim-find" class="section level1">
+<h1><span class="header-section-number">10</span> 文件编辑与查找</h1>
+<p>通过阅读本章，你将会了解到以下几项内容。</p>
+<ul>
+<li>字符集和字符编码</li>
+<li>编辑器简介</li>
+<li>文件查找</li>
+</ul>
+<div id="section-75" class="section level2">
+<h2><span class="header-section-number">10.1</span> 字符集和字符编码</h2>
+<p>参考网页：</p>
+<ul>
+<li><a href="https://baike.baidu.com/item/%E5%AD%97%E7%AC%A6%E9%9B%86/946585?fr=aladdin" class="uri">https://baike.baidu.com/item/%E5%AD%97%E7%AC%A6%E9%9B%86/946585?fr=aladdin</a></li>
+<li><a href="https://www.cnblogs.com/happyday56/p/4135845.html" class="uri">https://www.cnblogs.com/happyday56/p/4135845.html</a></li>
+<li><a href="https://linux.cn/article-7959-1.html" class="uri">https://linux.cn/article-7959-1.html</a></li>
+</ul>
+<p>提到文本文件，不得不说文件的字符集，对于英文世界，ASCII码足够他们玩耍的了，但是对于中文，我们还需要中文字符集，不然就会显示很多框框或者乱码等。</p>
+<p>字符(Character)是各种文字和符号的总称，包括各国家文字、标点符号、图形符号、数字等。字符集(Character set)是多个字符的集合，字符集种类较多，每个字符集包含的字符个数不同，常见字符集名称：ASCII字符集、GB2312字符集、BIG5字符集、 GB18030字符集、Unicode字符集等。计算机要准确的处理各种字符集文字，需要进行字符编码，以便计算机能够识别和存储各种文字。中文文字数目大，而且还分为简体中文和繁体中文两种不同书写规则的文字，而计算机最初是按英语单字节字符设计的，因此，对中文字符进行编码，是中文信息交流的技术基础。</p>
+<div id="ascii" class="section level3">
+<h3><span class="header-section-number">10.1.1</span> ASCII</h3>
+<p>ASCII（American Standard Code for Information Interchange，美国信息互换标准编码）是基于罗马字母表的一套电脑编码系统。</p>
+<ul>
+<li><strong>特点</strong> 它主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO 646。</li>
+<li><strong>包含内容</strong>
+<ul>
+<li>控制字符：回车键、退格、换行键等。</li>
+<li>可显示字符：英文大小写字符、阿拉伯数字和西文符号。</li>
+</ul></li>
+<li><strong>技术特征</strong> 7位（bits）表示一个字符，共128字符，字符值从0到127，其中32到126是可打印字符。</li>
+<li><strong>扩展字符集</strong> 7位编码的字符集只能支持128个字符，为了表示更多的欧洲常用字符对ASCII进行了扩展，ASCII扩展字符集使用8位（bits）表示一个字符，共256字符，增加了表格符号、计算符号、希腊字母和特殊的拉丁符号。</li>
+</ul>
+</div>
+<div id="gb2312" class="section level3">
+<h3><span class="header-section-number">10.1.2</span> GB2312</h3>
+<p>GB2312又称为GB2312-80字符集，全称为《信息交换用汉字编码字符集·基本集》，由原中国国家标准总局发布，1981年5月1日实施,是中国国家标准的简体中文字符集。</p>
+<p>它所收录的汉字已经覆盖99.75%的使用频率，基本满足了汉字的计算机处理需要。在中国大陆和新加坡获广泛使用。</p>
+<p><strong>包含内容</strong></p>
+<p>GB2312收录简化汉字及一般符号、序号、数字、拉丁字母、日文假名、希腊字母、俄文字母、汉语拼音符号、汉语注音字母，共 7445 个图形字符。其中包括6763个汉字，其中一级汉字3755个，二级汉字3008个；包括拉丁字母、希腊字母、日文平假名及片假名字母、俄语西里尔字母在内的682个全角字符。</p>
+<p><strong>技术特征</strong></p>
+<p>（1）分区表示：</p>
+<p>GB2312中对所收汉字进行了“ 分区” 处理，每区含有94个汉字/符号。这种表示方式也称为区位码。
+各区包含的字符如下：01-09区为特殊符号；16-55区为一级汉字，按拼音排序；56-87区为二级汉字，按部首/笔画排序；10-15区及88-94区则未有编码。</p>
+<p>（2）双字节表示</p>
+<p>两个字节中前面的字节为第一字节，后面的字节为第二字节。习惯上称第一字节为“ 高字节” ，而称第二字节为“ 低字节” 。
+“ 高位字节” 使用了0xA1-0xF7(把01-87区的区号加上0xA0)，“ 低位字节” 使用了0xA1-0xFE(把01-94加上0xA0)。</p>
+<p>以GB2312字符集的第一个汉字“ 啊” 字为例，它的区号16，位号01，则区位码是1601，在大多数计算机程序中，高字节和低字节分别加0xA0得到程序的汉字处理编码0xB0A1。计算公式是：0xB0=0xA0+16, 0xA1=0xA0+1。</p>
+</div>
+<div id="gbk" class="section level3">
+<h3><span class="header-section-number">10.1.3</span> GBK字符集</h3>
+<p>GBK编码(Chinese Internal Code Specification)是中国大陆制订的、等同于UCS的新的中文编码扩展国家标准。gbk编码能够用来同时表示繁体字和简体字，而gb2312只 能表示简体字，gbk是兼容gb2312编码的。GBK工作小组于1995年10月，同年12月完成GBK规范。该编码标准兼容GB2312，共收录汉字 21003个、符号883个，并提供1894个造字码位，简、繁体字融于一库。Windows95/98简体中文版的字库表层编码就采用的是GBK，通过 GBK与UCS之间一一对应的码表与底层字库联系。</p>
+<ul>
+<li>英文名：Chinese Internal Code Specification</li>
+<li>中文名：汉字内码扩展规范1.0版</li>
+<li>双字节编码，GB2312-80的扩充，在码位上和GB2312-80兼容</li>
+<li>范围：8140~FEFE（剔除xx7F）共23940个码位。包含21003个汉字，包含了ISO/IEC 10646-1中的全部中日韩汉字。</li>
+<li>作用：它是GB2312的扩展，加入对繁体字的支持，兼容GB2312。</li>
+<li>位数：使用2个字节表示，可表示21886个字符。</li>
+<li>范围：高字节从81到FE，低字节从40到FE。</li>
+</ul>
+</div>
+<div id="big5" class="section level3">
+<h3><span class="header-section-number">10.1.4</span> BIG5</h3>
+<p>大五码或五大码，1984年由台湾财团法人信息工业策进会和五家软件公司宏碁 (Acer)、神通 (MiTAC)、佳佳、零壹 (Zero One)、大众 (FIC)创立，故称大五码。</p>
+<p>Big5码的产生，是因为当时台湾不同厂商各自推出不同的编码，如倚天码、IBM PS55、王安码等，彼此不能兼容；另一方面，台湾政府当时尚未推出官方的汉字编码，而中国大陆的GB2312编码亦未有收录繁体中文字。</p>
+<p>Big5字符集共收录13,053个中文字，该字符集在中国台湾使用。耐人寻味的是该字符集重复地收录了两个相同的字：“ 兀” (0xA461及0xC94A)、“ 嗀” (0xDCD1及0xDDFC)。</p>
+<p><strong>编码方法</strong></p>
+<p>Big5码使用了双字节储存方法，以两个字节来编码一个字。第一个字节称为“ 高位字节” ，第二个字节称为“ 低位字节” 。高位字节的编码范围0xA1-0xF9，低位字节的编码范围0x40-0x7E及0xA1-0xFE。</p>
+<p>各编码范围对应的字符类型如下：0xA140-0xA3BF为标点符号、希腊字母及特殊符号，另外于0xA259-0xA261，存放了双音节度量衡单位用字：兙兛兞兝兡兣嗧瓩糎；0xA440-0xC67E为常用汉字，先按笔划再按部首排序；0xC940-0xF9D5为次常用汉字，亦是先按笔划再按部首排序。</p>
+<p><strong>局限性</strong></p>
+<p>尽管Big5码内包含一万多个字符，但是没有考虑社会上流通的人名、地名用字、方言用字、化学及生物科等用字，没有包含日文平假名及片假名字母。</p>
+<p>例如台湾视“ 着” 为“ 著” 的异体字，故没有收录“ 着” 字。康熙字典中的一些部首用字(如“ 亠” 、“ 疒” 、“ 辵” 、“ 癶” 等)、常见的人名用字(如“ 堃” 、“ 煊” 、“ 栢” 、“ 喆” 等) 也没有收录到Big5之中。</p>
+</div>
+<div id="gb18030" class="section level3">
+<h3><span class="header-section-number">10.1.5</span> GB18030</h3>
+<p>GB18030的全称是GB18030-2000《信息交换用汉字编码字符集基本集的扩充》，是我国政府于2000年3月17日发布的新的汉字编码国家标准，2001年8月31日后在中国市场上发布的软件必须符合本标准。</p>
+<p>该标准解决汉字、日文假名、朝鲜语和中国少数民族文字组成的大字符集计算机编码问题。该标准的字符总编码空间超过150万个编码位，收录了27484个汉字，覆盖中文、日文、朝鲜语和中国少数民族文字。满足中国大陆、香港、台湾、日本和韩国等东亚地区信息交换多文种、大字量、多用途、统一编码格式的要求。并且与Unicode 3.0版本兼容，填补Unicode扩展字符字汇“ 统一汉字扩展A” 的内容。并且与以前的国家字符编码标准（GB2312，GB13000.1）兼容。</p>
+<p><strong>编码方法</strong></p>
+<p>GB18030标准采用单字节、双字节和四字节三种方式对字符编码。单字节部分使用0×00至0×7F码(对应于ASCII码的相应码)。双字节部分，首字节码从0×81至0×FE，尾字节码位分别是0×40至0×7E和0×80至0×FE。四字节部分采用GB/T 11383未采用的0×30到0×39作为对双字节编码扩充的后缀，这样扩充的四字节编码，其范围为0×81308130到0×FE39FE39。其中第一、三个字节编码码位均为0×81至0×FE，第二、四个字节编码码位均为0×30至0×39。</p>
+<p><strong>包含内容</strong></p>
+<p>双字节部分收录内容主要包括GB13000.1全部CJK汉字20902个、有关标点符号、表意文字描述符13个、增补的汉字和部首/构件80个、双字节编码的欧元符号等。四字节部分收录了上述双字节字符之外的，包括CJK统一汉字扩充A在内的GB 13000.1中的全部字符。</p>
+</div>
+<div id="unicode" class="section level3">
+<h3><span class="header-section-number">10.1.6</span> Unicode字符集</h3>
+<p>Unicode字符集（简称为UCS）,国际标准组织于1984年4月成立ISO/IEC JTC1/SC2/WG2工作组，针对各国文字、符号进行统一性编码。1991年美国跨国公司成立Unicode Consortium，并于1991年10月与WG2达成协议，采用同一编码字集。目前Unicode是采用16位编码体系，其字符集内容与 ISO10646的BMP（Basic Multilingual Plane）相同。Unicode于1992年6月通过DIS（Draf International Standard），目前版本V2.0于1996公布，内容包含符号6811个，汉字20902个，韩文拼音11172个，造字区6400个，保留 20249个，共计65534个。Unicode编码后的大小是一样的.例如一个英文字母 “a” 和　一个汉字 “好”，编码后都是占用的空间大小是一样的，都是两个字节！</p>
+<p>Unicode可以用来表示所有语言的字符，而且是定长双字节（也有四字节的）编码，包括英文字母在内。所以可以说它是不兼容iso8859-1编码的， 也不兼容任何编码。不过，相对于iso8859-1编码来说，uniocode编码只是在前面增加了一个0字节，比如字母’a’为“00 61”。</p>
+<p>需要说明的是，定长编码便于计算机处理（注意GB2312/GBK不是定长编码），而unicode又可以用来表示所有字符，所以在很多软件内部是使用unicode编码来处理的，比如java。</p>
+<p>UNICODE字符集有多个编码方式，分别是UTF-8，UTF-16，UTF-32和UTF-7编码。</p>
+<div id="utf-8" class="section level4">
+<h4><span class="header-section-number">10.1.6.1</span> UTF-8</h4>
+<p>UTF:UCS Transformation Format.考虑到unicode编码不兼容iso8859-1编码，而且容易占用更多的空间：因为对于英文字母，unicode也需要两个字节来表 示。所以unicode不便于传输和存储。因此而产生了utf编码，utf编码兼容iso8859-1编码，同时也可以用来表示所有语言的字符，不 过，utf编码是不定长编码，每一个字符的长度从1-6个字节不等。另外，utf编码自带简单的校验功能。一般来讲，英文字母都是用一个字节表示，而汉字 使用三个字节。</p>
+<p>注意，虽然说utf是为了使用更少的空间而使用的，但那只是相对于unicode编码来说，如果已经知道是汉字，则使用GB2312/GBK无疑是 最节省的。不过另一方面，值得说明的是，虽然utf编码对汉字使用3个字节，但即使对于汉字网页，utf编码也会比unicode编码节省，因为网页中包 含了很多的英文字符。</p>
+<p>UTF8编码后的大小是不一定,例如一个英文字母<code>a</code>和一个汉字<code>好</code>，编码后占用的空间大小就不样了，前者是一个字节，后者是三个字节！编码的方法是从低位到高位。黄色为标志位其它着色为了显示其，编码后的位置。</p>
+</div>
+<div id="utf-16" class="section level4">
+<h4><span class="header-section-number">10.1.6.2</span> UTF-16</h4>
+<p>采用2 字节，Unicode中不同部分的字符都同样基于现有的标准。这是为了便于转换。从 0x0000到0x007F是ASCII字符，从0x0080到0x00FF是ISO-8859-1对ASCII的扩展。希腊字母表使用从0x0370到 0x03FF 的代码，斯拉夫语使用从0x0400到0x04FF的代码，美国使用从0x0530到0x058F的代码，希伯来语使用从0x0590到0x05FF的代 码。中国、日本和韩国的象形文字（总称为CJK）占用了从0x3000到0x9FFF的代码；</p>
+<p>由于0x00在c语言及操作系统文件名等中有特殊意义，故很多情况下需要UTF-8编码保存文本，去掉这个0x00。举例如下：</p>
+<ul>
+<li>UTF-16: 0x0080 = 0000 0000 1000 0000</li>
+<li>UTF-8: 0xC280 = 1100 0010 1000 0000</li>
+</ul>
+</div>
+<div id="utf-32" class="section level4">
+<h4><span class="header-section-number">10.1.6.3</span> UTF-32</h4>
+<p>采用4字节。</p>
+</div>
+<div id="utf-7" class="section level4">
+<h4><span class="header-section-number">10.1.6.4</span> UTF-7</h4>
+<p>A Mail-Safe Transformation Format of Unicode(RFC1642)。这是一种使用 7 位 ASCII 码对 Unicode 码进行转换的编码。它的设计目的仍然是为了在只能传递 7 为编码的邮件网关中传递信息。 UTF-7 对英语字母、数字和常见符号直接显示，而对其他符号用修正的 Base64 编码。符号 + 和 - 号控制编码过程的开始和暂停。所以乱码中如果夹有英文单词，并且相伴有 + 号和 - 号，这就有可能是 UTF-7 编码。</p>
+<ul>
+<li>作用：为世界650种语言进行统一编码，兼容ISO-8859-1。</li>
+<li>位数：UNICODE字符集有多个编码方式，分别是UTF-8，UTF-16和UTF-32。</li>
+</ul>
+</div>
+</div>
+<div id="section-76" class="section level3">
+<h3><span class="header-section-number">10.1.7</span> 编码的常用命令</h3>
+<p>在 Linux 下通常使用 UTF-8 编码。如果你需要对用户姓名排序的话，建议使用 GB18030 编码，以便直接排序。各种编码也是可以相互转换的。</p>
+<p>如果我们想查看某个文件的编码方式，可以使用<code>file -i</code>命令。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb82-1"><a href="chap-vim-find.html#cb82-1"></a>$ <span class="fu">file</span> -i test.md</span>
+<span id="cb82-2"><a href="chap-vim-find.html#cb82-2"></a><span class="ex">test.md</span>: text/plain<span class="kw">;</span> <span class="va">charset=</span>utf-8</span></code></pre></div>
+<p>这样就可以看到<strong>test.md</strong>文件的属性普通文本文件<code>text/plain</code>以及编码方式为UTF-8，<code>charset=utf-8</code>。</p>
+<p>一般的编辑器都是支持编码方式转换的，如果你想改变某个文件的编码方式，可以使用<code>iconv</code>工具。
+iconv 工具的使用方法如下：</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb83-1"><a href="chap-vim-find.html#cb83-1"></a>$ <span class="ex">iconv</span> option</span>
+<span id="cb83-2"><a href="chap-vim-find.html#cb83-2"></a>$ <span class="ex">iconv</span> options -f from-encoding -t to-encoding inputfile(s) <span class="ex">-o</span> outputfile </span></code></pre></div>
+<p>在这里，<code>-f</code> 或 <code>--from-code</code> 表明了输入编码，而 <code>-t</code> 或 <code>--to-encoding</code> 指定了输出编码。</p>
+<p>为了列出所有已有编码的字符集，你可以使用以下命令：</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb84-1"><a href="chap-vim-find.html#cb84-1"></a>$ <span class="ex">iconv</span> -l</span>
+<span id="cb84-2"><a href="chap-vim-find.html#cb84-2"></a>以下的列表包含所有已知的编码字符集，但这不代表所有的字符名称组合皆可用于</span>
+<span id="cb84-3"><a href="chap-vim-find.html#cb84-3"></a>命令行的 <span class="st">&quot;来源&quot;</span> 以及 <span class="st">&quot;目的&quot;</span> 参数。一个编码字符集可以用几个不同的名称</span>
+<span id="cb84-4"><a href="chap-vim-find.html#cb84-4"></a>来表示 <span class="kw">(</span>即 <span class="st">&quot;别名&quot;</span><span class="kw">)</span>。</span>
+<span id="cb84-5"><a href="chap-vim-find.html#cb84-5"></a></span>
+<span id="cb84-6"><a href="chap-vim-find.html#cb84-6"></a>  <span class="ex">437</span>, 500, 500V1, 850, 851, 852, 855, 856, 857, 858, 860, 861, 862, 863, 864,</span>
+<span id="cb84-7"><a href="chap-vim-find.html#cb84-7"></a>  <span class="ex">865</span>, 866, 866NAV, 869, 874, 904, 1026, 1046, 1047, 8859_1, 8859_2, 8859_3,</span>
+<span id="cb84-8"><a href="chap-vim-find.html#cb84-8"></a>  <span class="ex">8859_4</span>, 8859_5, 8859_6, 8859_7, 8859_8, 8859_9, 10646-1:1993,</span>
+<span id="cb84-9"><a href="chap-vim-find.html#cb84-9"></a>  <span class="ex">10646-1</span>:1993/UCS4, ANSI_X3.4-1968, ANSI_X3.4-1986, ANSI_X3.4,</span></code></pre></div>
+<p>下面举个小例子。其中<em>test.md</em>文件是包含中英文的。</p>
+<p>在运行 iconv 命令之后，我们可以像下面这样检查输出文件的内容，和它使用的字符编码。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb85-1"><a href="chap-vim-find.html#cb85-1"></a>$ <span class="fu">file</span> -i test.md</span>
+<span id="cb85-2"><a href="chap-vim-find.html#cb85-2"></a><span class="ex">test.md</span>: text/plain<span class="kw">;</span> <span class="va">charset=</span>utf-8</span>
+<span id="cb85-3"><a href="chap-vim-find.html#cb85-3"></a>$ <span class="fu">cat</span> test.md </span>
+<span id="cb85-4"><a href="chap-vim-find.html#cb85-4"></a><span class="bu">:</span> Shell 提示符中用到的转义字符</span>
+<span id="cb85-5"><a href="chap-vim-find.html#cb85-5"></a>$ <span class="ex">iconv</span> -f utf-8 -t GB18030 test.md -o out.md</span>
+<span id="cb85-6"><a href="chap-vim-find.html#cb85-6"></a>$ <span class="fu">cat</span> out.md</span>
+<span id="cb85-7"><a href="chap-vim-find.html#cb85-7"></a><span class="bu">:</span> Shell ��ʾ�����õ���ת���ַ�</span>
+<span id="cb85-8"><a href="chap-vim-find.html#cb85-8"></a>$ <span class="fu">file</span> -i out.md</span>
+<span id="cb85-9"><a href="chap-vim-find.html#cb85-9"></a><span class="ex">out.md</span>: text/plain<span class="kw">;</span> <span class="va">charset=</span>iso-8859-1</span></code></pre></div>
+<p>你会发现转换后，电脑没有正确识别出<em>out.md</em>文件的编码，如果你使用文本编辑器<code>gedit</code>打开<em>out.md</em>文件，还是可以正常打开的。</p>
+</div>
+</div>
+<div id="section-77" class="section level2">
+<h2><span class="header-section-number">10.2</span> 编辑器</h2>
+<p>办公常接触的文档，一般是有格式的文件，比如 xls, doc 等，他们常常需要相应的办公软件，比如金山公司的 WPS。本章提到的文字编辑，是指文本文件的编辑。讲到的编辑器有 vim,gedit,nano,vscode等。</p>
+<p>本人常用vim写代码，也自嗨的分享了自己的使用<a href="https://my.oschina.net/bubifengyun/blog/163516">经验教训</a>，但是编写书籍的话，我还是喜欢用vscode。各有所长吧。大家可以根据需要搜索相关入门教程。</p>
+</div>
+<div id="section-78" class="section level2">
+<h2><span class="header-section-number">10.3</span> 文件查找</h2>
+<p>文件查找用得好，绝对是一件利器。有人推荐<code>locate</code>命令，本人感觉不太好用，就不介绍了。下面介绍<code>find</code>和<code>grep</code>这两个命令，其中<code>find</code>负责查找文件的信息，<code>grep</code>负责查找文件内的信息。当然提到搜索不得不提正则表达式，适当了解一些正则表达式，对于我们搜索文件还是很有帮助的，且<code>find</code>，<code>grep</code>以及一些编辑器是支持正则表达式搜索的。</p>
+<div id="find-" class="section level3">
+<h3><span class="header-section-number">10.3.1</span> <code>find</code> 查找文件</h3>
+<p>参考网页：</p>
+<ul>
+<li><a href="http://www.runoob.com/linux/linux-comm-find.html" class="uri">http://www.runoob.com/linux/linux-comm-find.html</a></li>
+</ul>
+<p>Linux find命令用来在指定目录下查找文件。任何位于参数之前的字符串都将被视为欲查找的目录名。如果使用该命令时，不设置任何参数，则find命令将在当前目录下查找子目录与文件。并且将查找到的子目录和文件全部进行显示。前提是你必须对这个文件（夹）有相关权限。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb86-1"><a href="chap-vim-find.html#cb86-1"></a><span class="fu">find</span> path -option [ -print ] [ -exec -ok command ] {} <span class="dt">\;</span></span></code></pre></div>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li><code>find</code> 根据下列规则判断目录 <code>path</code> 和表达式 <code>expression</code>，在命令列上第一个 <code>-</code> <code>(</code> <code>)</code> <code>,</code> <code>!</code> 之前的部份为目录 <code>path</code>，之后的是 <code>expression</code>。如果 <code>path</code> 是空字串则使用目前路径，如果 <code>expression</code> 是空字串则使用 <code>-print</code> 为预设 <code>expression</code>。</li>
+<li>expression 中可使用的选项有二三十个之多，在此只介绍最常用的部份。
+<ul>
+<li>-mount, -xdev : 只检查和指定目录在同一个文件系统下的文件，避免列出其它文件系统中的文件</li>
+<li>-amin n : 在过去 n 分钟内被读取过</li>
+<li>-anewer file : 比文件 file 更晚被读取过的文件</li>
+<li>-atime n : 在过去n天内被读取过的文件</li>
+<li>-cmin n : 在过去 n 分钟内被修改过</li>
+<li>-cnewer file :比文件 file 更新的文件</li>
+<li>-ctime n : 在过去n天内被修改过的文件</li>
+<li>-empty : 空的文件-gid n or -group name : gid 是 n 或是 group 名称是 name</li>
+<li>-ipath p, -path p : 路径名称符合 p 的文件，ipath 会忽略大小写</li>
+<li>-name name, -iname name : 文件名称符合 name 的文件。iname 会忽略大小写</li>
+<li>-size n : 文件大小 是 n 单位，b 代表 512 位元组的区块，c 表示字元数，k 表示 kilo bytes，w 是二个位元组。</li>
+<li>-type c : 文件类型是 c 的文件。其中有如下可选变量。
+<ul>
+<li>d: 目录</li>
+<li>c: 字型装置文件</li>
+<li>b: 区块装置文件</li>
+<li>p: 具名贮列</li>
+<li>f: 一般文件</li>
+<li>l: 符号连结（）</li>
+<li>s: socket</li>
+</ul></li>
+<li>-pid n : process id 是 n 的文件</li>
+</ul></li>
+</ol>
+<p>下面介绍几个例子。</p>
+<div id="section-79" class="section level4">
+<h4><span class="header-section-number">10.3.1.1</span> 根据文件名查找文件</h4>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb87-1"><a href="chap-vim-find.html#cb87-1"></a>$ <span class="fu">find</span> . -name test.md</span>
+<span id="cb87-2"><a href="chap-vim-find.html#cb87-2"></a>$ <span class="fu">find</span> . -name <span class="st">&#39;test.md&#39;</span></span>
+<span id="cb87-3"><a href="chap-vim-find.html#cb87-3"></a>$ <span class="fu">find</span> . -name <span class="st">&quot;*.Rmd&quot;</span></span>
+<span id="cb87-4"><a href="chap-vim-find.html#cb87-4"></a>$ <span class="fu">find</span> . -name <span class="st">&quot;*.rmd&quot;</span></span>
+<span id="cb87-5"><a href="chap-vim-find.html#cb87-5"></a>$ <span class="fu">find</span> . -iname <span class="st">&quot;*.rmd&quot;</span></span>
+<span id="cb87-6"><a href="chap-vim-find.html#cb87-6"></a>$ <span class="fu">find</span> . -iname <span class="st">&#39;????.rmd&#39;</span></span>
+<span id="cb87-7"><a href="chap-vim-find.html#cb87-7"></a>$ <span class="fu">find</span> . -ls</span>
+<span id="cb87-8"><a href="chap-vim-find.html#cb87-8"></a>$ <span class="fu">find</span> /root -ls</span></code></pre></div>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1、2行，加不加单双引号<code>'</code>,<code>"</code>效果一样的。直接搜索当前目录下，名字是<em>test.md</em>的文件。</li>
+<li>第3行，<code>find</code>支持星<code>*</code>（任意多字符）和英文问号<code>?</code>（单个字符）的通配搜索的。注意要用单（双）引号括起来。本行就是查找所有以<code>.Rmd</code>结尾的文件。</li>
+<li>第4行，<code>find</code>是区分大小写的，本行命令跟上行命令结果是不一样的。</li>
+<li>第5行，<code>-iname</code>表示不区分大小写的搜索。</li>
+<li>第6行，是<code>?</code>的一个例子，查找所有四个字母后缀不区分大小写<code>.rmd</code>的文件。</li>
+<li>第7行，<code>-ls</code>选项，搜索结果是类似<code>ls -l</code>命令的显示样式。</li>
+<li>第8行，因为你没有权限，会报错。</li>
+</ol>
+</div>
+<div id="section-80" class="section level4">
+<h4><span class="header-section-number">10.3.1.2</span> 根据文件大小、用户名、权限、日期等查找文件</h4>
+<p>将目前目录其其下子目录中所有一般文件列出</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb88-1"><a href="chap-vim-find.html#cb88-1"></a>$ <span class="fu">find</span> . -type f</span>
+<span id="cb88-2"><a href="chap-vim-find.html#cb88-2"></a>$ <span class="fu">find</span> ./deepin-bible -size +10M</span>
+<span id="cb88-3"><a href="chap-vim-find.html#cb88-3"></a>$ <span class="fu">find</span> /mostlybig -size -1M</span>
+<span id="cb88-4"><a href="chap-vim-find.html#cb88-4"></a>$ <span class="fu">find</span> /bigdata -size +500M -size -5G -exec du -sh {} <span class="dt">\;</span></span>
+<span id="cb88-5"><a href="chap-vim-find.html#cb88-5"></a>$ <span class="fu">find</span> /home -user litianci -ls</span>
+<span id="cb88-6"><a href="chap-vim-find.html#cb88-6"></a>$ <span class="fu">sudo</span> find /home -user litianci -or -user joe -ls</span>
+<span id="cb88-7"><a href="chap-vim-find.html#cb88-7"></a>$ <span class="fu">sudo</span> find /etc -group ntp -ls</span>
+<span id="cb88-8"><a href="chap-vim-find.html#cb88-8"></a>$ <span class="fu">sudo</span> find /var/spool -not -user root -ls</span>
+<span id="cb88-9"><a href="chap-vim-find.html#cb88-9"></a>$ <span class="fu">find</span> /bin -perm 755 -ls</span>
+<span id="cb88-10"><a href="chap-vim-find.html#cb88-10"></a>$ <span class="fu">find</span> /home/chris/ -perm -222 -type d -ls</span>
+<span id="cb88-11"><a href="chap-vim-find.html#cb88-11"></a>$ <span class="fu">find</span> /myreadonly -perm /222 -type f</span>
+<span id="cb88-12"><a href="chap-vim-find.html#cb88-12"></a>$ <span class="fu">find</span> . -perm -002 -type f -ls</span>
+<span id="cb88-13"><a href="chap-vim-find.html#cb88-13"></a>$ <span class="fu">sudo</span> find /etc/ -mmin -10</span>
+<span id="cb88-14"><a href="chap-vim-find.html#cb88-14"></a>$ <span class="fu">sudo</span> find /bin /usr/bin /sbin /usr/sbin -ctime -3</span>
+<span id="cb88-15"><a href="chap-vim-find.html#cb88-15"></a>$ <span class="fu">find</span> /var/ftp /var/www -atime +300</span></code></pre></div>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1行，<code>-type f</code>，查找当前目录下的所有普通文件，<code>f</code>代表普通文件的意思，详情见上面说明。</li>
+<li>第2-4行，根据文件大小查找文件，<code>+10M</code>是大于10MB的意思，<code>-1M</code>是小于5MB的意思。单位大小还支持<code>k,M,G，c,b,w</code>。其中M表示MB大小，G表示GB大小，b 代表 512 位元组的区块，c 表示字元数，k 表示kB，w 是二个位元组。第2行的意思就是查找大于10MB的文件，读者不难理解第3行命令的意思吧。第4行，是查找大于500MB，小于5G的文件(夹)，然后对每个文件执行命令<code>du -sh {找到的文件（夹）}</code>显示文件大小。方便处理一些过大文件。<code>-exec</code>的用法后面讲解。</li>
+<li>第5-8行，根据文件的用户搜索文件。其中用到了联合查找<code>-or</code>关键词，表示或的意思。也可以根据组用户查找文件。第8行，查找非root用户的文件。</li>
+<li>第9-12行，根据文件权限搜索文件。前面以及介绍了数字表示权限的方法。第9行，实现对权限的精确匹配。第10-12行，是对符合一定规则权限的文件进行搜索。其中<code>-perm +222</code>也即<code>-perm +mode</code>，已经不推荐使用了，深度操作系统自带bash已经报错了，建议用<code>-perm /222</code>。<code>-perm -mode</code>表示所有为1的权限都必须匹配才可以，示例中<code>-perm -222</code>也即<code>u,g,o</code>的写权限都具备才可以。<code>-perm /mode</code>表示<code>u,g,o</code>只要有一个具备即可。<code>-perm /mode</code>对于查找那些非法权限的文件特别有效。</li>
+<li>第13-15,行，是根据文件修改、创建和访问时间搜索文件的。<code>mtime</code>,<code>ctime</code>,<code>atime</code>的单位是天，<code>mmin</code>,<code>cmin</code>,<code>amin</code>的单位是分钟。<code>mtime</code>,<code>mmin</code>表示文件内容修改的日期时间，<code>ctime</code>,<code>cmin</code>表示文件权限归属等属性信息修改的日期时间，<code>atime</code>,<code>amin</code>表示文件被访问的时间。上述三个例子，分别查找10分钟之内修改的<code>/etc</code>配置文件；3天内是否有黑客更改我系统可执行文件的属性信息；ftp服务器上查找300天以上都没有访问的文件。</li>
+</ol>
+<p>使用<code>man find</code>可以看到更多例子。</p>
+</div>
+<div id="section-81" class="section level4">
+<h4><span class="header-section-number">10.3.1.3</span> 联合若干条件查找文件</h4>
+<p>操作符 (优先级递减；未做任何指定时默认使用 -and):</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb89-1"><a href="chap-vim-find.html#cb89-1"></a><span class="kw">(</span> <span class="ex">EXPR</span> <span class="kw">)</span></span>
+<span id="cb89-2"><a href="chap-vim-find.html#cb89-2"></a>! <span class="ex">EXPR</span></span>
+<span id="cb89-3"><a href="chap-vim-find.html#cb89-3"></a><span class="ex">-not</span> EXPR</span>
+<span id="cb89-4"><a href="chap-vim-find.html#cb89-4"></a><span class="ex">EXPR1</span> -a EXPR2</span>
+<span id="cb89-5"><a href="chap-vim-find.html#cb89-5"></a><span class="ex">EXPR1</span> -and EXPR2</span>
+<span id="cb89-6"><a href="chap-vim-find.html#cb89-6"></a><span class="ex">EXPR1</span> -o EXPR2</span>
+<span id="cb89-7"><a href="chap-vim-find.html#cb89-7"></a><span class="ex">EXPR1</span> -or EXPR2</span>
+<span id="cb89-8"><a href="chap-vim-find.html#cb89-8"></a><span class="ex">EXPR1</span> , EXPR2</span></code></pre></div>
+<p>下面举几个例子。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb90-1"><a href="chap-vim-find.html#cb90-1"></a>$ <span class="fu">find</span> /var/all <span class="dt">\(</span> -user litianci -o -user xampp <span class="dt">\)</span> -ls</span>
+<span id="cb90-2"><a href="chap-vim-find.html#cb90-2"></a>$ <span class="fu">find</span> /var/all/ -user litianci -not -group litianci -ls</span>
+<span id="cb90-3"><a href="chap-vim-find.html#cb90-3"></a>$ <span class="fu">find</span> /var/all/ -user litianci -and -size +1M -ls</span></code></pre></div>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>这些例子不难理解，需要注意的是，与或非的位置，要位于这些条件的外面。括号要用<code>\</code>表示，不然就歧义了。</li>
+</ol>
+</div>
+<div id="section-82" class="section level4">
+<h4><span class="header-section-number">10.3.1.4</span> 找到文件后的动作</h4>
+<p>找到文件后只是列出来，有时不太满足我们的需求。强大的<code>find</code>给我们提供了找到后就操作的功能。语法如下，</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb91-1"><a href="chap-vim-find.html#cb91-1"></a>$ <span class="fu">find</span> [options] -exec command {} <span class="dt">\;</span></span>
+<span id="cb91-2"><a href="chap-vim-find.html#cb91-2"></a>$ <span class="fu">find</span> [options] -ok command {} <span class="dt">\;</span></span></code></pre></div>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li><code>find</code>命令对匹配的文件执行该参数所给出的shell命令。相应命令的形式为<code>command' { } \;</code>，注意<code>{ }</code>和<code>\；</code>之间的空格。
+<code>-ok</code>和<code>-exec</code>的作用相同，只不过以一种更为安全的模式来执行该参数所给出的shell命令，在执行每一个命令之前，都会给出提示，让用户来确定是否执行。</li>
+</ol>
+<p>下面给出几个例子。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb92-1"><a href="chap-vim-find.html#cb92-1"></a>$ <span class="fu">find</span> deepin-bible/ -iname <span class="st">&quot;*.Rmd&quot;</span>  -exec echo <span class="st">&quot;我找到了{}&quot;</span> <span class="dt">\;</span></span>
+<span id="cb92-2"><a href="chap-vim-find.html#cb92-2"></a>$ <span class="fu">find</span> /usr/share -size +5M -exec du {} <span class="dt">\;</span> <span class="kw">|</span> <span class="fu">sort</span> -nr</span>
+<span id="cb92-3"><a href="chap-vim-find.html#cb92-3"></a>$ <span class="fu">sudo</span> find /opt/lampp/ -user litianci -ok mv {} <span class="ex">/tmp/litianci/</span> <span class="dt">\;</span></span></code></pre></div>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1行，找所有的文件，然后换种样式显示出来。</li>
+<li>第2行，搜索<em>/usr/share</em>文件夹下所有大于5MB的文件，显示他们的大小，并排序。对于命令<code>du</code>和<code>sort -nr</code>，读者可以试着用前文提到的方法，查找他们的功能。</li>
+<li>第3行，搜<em>/opt/lampp/</em> 下我的文件，每个文件均需我同意，才可以放到<em>/tmp/litianci/</em>目录下。大家可以理解<code>{}</code>就是代表搜索到文件（夹）了吧。</li>
+</ol>
+</div>
+</div>
+<div id="grep-" class="section level3">
+<h3><span class="header-section-number">10.3.2</span> <code>grep</code> 查找文件内部信息</h3>
+<p>有时候你想找某个文件或者某个目录下的一段话，<code>grep</code>就能过来帮忙啦。但是对于中文，还是存在编码问题，<code>grep</code>默认文件为<code>utf8</code>编码（这句话对吗？需要核实。至少ASCII的，或者其他编码的文件，搜英文字母还是都可以搜得到的）。对于非UTF8文件，建议先转化为UFT8格式的临时文件，再查找。</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb93-1"><a href="chap-vim-find.html#cb93-1"></a>$ <span class="fu">cat</span> test.md</span>
+<span id="cb93-2"><a href="chap-vim-find.html#cb93-2"></a><span class="bu">:</span> Shell 提示符中用到的转义字符</span>
+<span id="cb93-3"><a href="chap-vim-find.html#cb93-3"></a>$ <span class="fu">grep</span> 转义字符 test.md</span>
+<span id="cb93-4"><a href="chap-vim-find.html#cb93-4"></a><span class="bu">:</span> Shell 提示符中用到的转义字符</span>
+<span id="cb93-5"><a href="chap-vim-find.html#cb93-5"></a>$ <span class="fu">grep</span> 转义字符 -rn .</span>
+<span id="cb93-6"><a href="chap-vim-find.html#cb93-6"></a><span class="fu">grep</span> 转义字符 -rn .</span>
+<span id="cb93-7"><a href="chap-vim-find.html#cb93-7"></a><span class="ex">.</span>/test.md:<span class="ex">1</span>:: Shell 提示符中用到的转义字符</span>
+<span id="cb93-8"><a href="chap-vim-find.html#cb93-8"></a>$ <span class="fu">grep</span> 转义 -rln .</span>
+<span id="cb93-9"><a href="chap-vim-find.html#cb93-9"></a><span class="ex">./test.md</span></span>
+<span id="cb93-10"><a href="chap-vim-find.html#cb93-10"></a>$ <span class="fu">grep</span> s test.md</span>
+<span id="cb93-11"><a href="chap-vim-find.html#cb93-11"></a>$ <span class="fu">grep</span> s -i test.md</span>
+<span id="cb93-12"><a href="chap-vim-find.html#cb93-12"></a><span class="bu">:</span> Shell 提示符中用到的转义字符</span>
+<span id="cb93-13"><a href="chap-vim-find.html#cb93-13"></a>$ <span class="fu">grep</span> s -v test.md</span>
+<span id="cb93-14"><a href="chap-vim-find.html#cb93-14"></a><span class="bu">:</span> Shell 提示符中用到的转义字符</span>
+<span id="cb93-15"><a href="chap-vim-find.html#cb93-15"></a>$ <span class="fu">grep</span> -i --color shell test.md</span>
+<span id="cb93-16"><a href="chap-vim-find.html#cb93-16"></a><span class="bu">:</span> Shell 提示符中用到的转义字符</span>
+<span id="cb93-17"><a href="chap-vim-find.html#cb93-17"></a>$ <span class="fu">grep</span> Shell -rn <span class="dt">{test.md,xxx.md}</span></span></code></pre></div>
+<p><strong>解释</strong></p>
+<ol style="list-style-type: decimal">
+<li>第1行，用于显示<em>test.md</em>文件的内容。</li>
+<li>第3行，在<em>test.md</em>文件内搜索<strong>“转义字符”</strong>。<code>grep</code>的命令格式，就是先写待搜索字段，后写搜索的范围，比如某个文件或者文件夹。</li>
+<li>第4行，显示搜索结果，显示含有搜索词的那些行数。</li>
+<li>第5行，<code>grep</code>的选项<code>-rn</code>分别表示递归以及搜索结果显示文件所在行数。从第6行，我们可以看到，搜索当前目录<code>.</code>，<em>./test.md</em>文件的第1行，包含该搜索词，该行内容紧接着显示出来了。</li>
+<li>第7行，<code>grep</code>的选项<code>-l</code>表示，只显示包含搜索词的文件，不显示文件夹。</li>
+<li>第9、10行，<code>grep</code>搜索是区分大小写的。选项<code>-i</code>也即<code>--ignore-case</code>，是忽略大小写的意思，表示在忽略大小写的情况下搜索。</li>
+<li>第12行，选项<code>-v</code>，<code>--invert-match</code>表示显示不匹配的行数，也即搜索不包含搜索词的那些文件或者行数等。</li>
+<li>第14行，<code>--color</code>表示搜索结果中高亮匹配词。</li>
+<li>第16行，<code>{}</code>表示集合，该语句实现了对集合内所有文件进行内部查找<code>Shell</code>的功能。</li>
+</ol>
+<p>如果有兴趣，可以使用 <code>grep --help</code> 或者其他命令，查看更多<code>grep</code>相关的用法。另外还有类似的<code>rgrep</code>等命令，这里就不介绍了。</p>
+</div>
+<div id="section-83" class="section level3">
+<h3><span class="header-section-number">10.3.3</span> 其他检索工具</h3>
+<p>除了这些命令行工具外，深度系统的深度文件管理器支持在相关的文件夹内搜索对应的文件，一些编辑器，比如某些配置的vim，支持文件及文件夹内搜索词汇，比如 VSCode 也支持。前面介绍的<a href="https://github.com/DoTheEvo/ANGRYsearch">ANGRYsearch</a>，大家也可看看。</p>
+</div>
+<div id="section-84" class="section level3">
+<h3><span class="header-section-number">10.3.4</span> 正则表达式</h3>
+<p>说到正则表达式，可能需要一本书来细细的讲，这里从略吧。简要介绍几个常用的内容。正则表达式(regular expression)描述了一种字符串匹配的模式（pattern），可以用来检查一个串是否含有某种子串、将匹配的子串替换或者从某个串中取出符合某个条件的子串等。</p>
+<p>参考网页</p>
+<ul>
+<li><a href="http://www.runoob.com/regexp/regexp-syntax.html" class="uri">http://www.runoob.com/regexp/regexp-syntax.html</a></li>
+<li><a href="https://deerchao.net/tutorials/regex/regex.htm" class="uri">https://deerchao.net/tutorials/regex/regex.htm</a></li>
+</ul>
+<p>例如：</p>
+<ul>
+<li><code>runoo+b</code>，可以匹配 <code>runoob</code>、<code>runooob</code>、<code>runoooooob</code> 等，<code>+</code> 号代表前面的字符必须至少出现一次（1次或多次）。</li>
+<li><code>runoo*b</code>，可以匹配 <code>runob</code>、<code>runoob</code>、<code>runoooooob</code> 等，<code>*</code> 号代表字符可以不出现，也可以出现一次或者多次（0次、或1次、或多次）。</li>
+<li><code>colo?r</code> 可以匹配 <code>color</code> 或者 <code>colour</code>，<code>?</code>问号代表前面的字符最多只可以出现一次（0次、或1次）(存疑，难道可以0次？)。</li>
+</ul>
+<p>构造正则表达式的方法和创建数学表达式的方法一样。也就是用多种元字符与运算符可以将小的表达式结合在一起来创建更大的表达式。正则表达式的组件可以是单个的字符、字符集合、字符范围、字符间的选择或者所有这些组件的任意组合。</p>
+<p>正则表达式是由普通字符（例如字符 a 到 z）以及特殊字符（称为“元字符”）组成的文字模式。模式描述在搜索文本时要匹配的一个或多个字符串。正则表达式作为一个模板，将某个字符模式与所搜索的字符串进行匹配。</p>
+<div id="section-85" class="section level4">
+<h4><span class="header-section-number">10.3.4.1</span> 普通字符</h4>
+<p>普通字符包括没有显式指定为元字符的所有可打印和不可打印字符。这包括所有大写和小写字母、所有数字、所有标点符号和一些其他符号。</p>
+</div>
+<div id="section-86" class="section level4">
+<h4><span class="header-section-number">10.3.4.2</span> 非打印字符</h4>
+<p>非打印字符也可以是正则表达式的组成部分。下表列出了表示非打印字符的转义序列：</p>
+<table>
+<caption>非打印字符转义字符</caption>
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>变量</strong></th>
+<th align="left"><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>\cx</code></td>
+<td align="left">匹配由x指明的控制字符。例如， <code>\cM</code> 匹配一个 Control-M 或回车符。x 的值必须为 A-Z 或 a-z 之一。否则，将 c 视为一个原义的 ‘c’ 字符。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>\f</code></td>
+<td align="left">匹配一个换页符。等价于 <code>\x0c</code> 和 <code>\cL</code>。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>\n</code></td>
+<td align="left">匹配一个换行符。等价于 <code>\x0a</code> 和 <code>\cJ</code>。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>\r</code></td>
+<td align="left">匹配一个回车符。等价于 <code>\x0d</code> 和 <code>\cM</code>。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>\s</code></td>
+<td align="left">匹配任何空白字符，包括空格、制表符、换页符等等。等价于 <code>[ \f\n\r\t\v]</code>。注意 Unicode 正则表达式会匹配全角空格符。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>\S</code></td>
+<td align="left">匹配任何非空白字符。等价于 <code>[^ \f\n\r\t\v]</code>。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>\t</code></td>
+<td align="left">匹配一个制表符。等价于 <code>\x09</code> 和 <code>\cI</code>。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>\v</code></td>
+<td align="left">匹配一个垂直制表符。等价于 <code>\x0b</code> 和 <code>\cK</code>。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-87" class="section level4">
+<h4><span class="header-section-number">10.3.4.3</span> 特殊字符</h4>
+<p>所谓特殊字符，就是一些有特殊含义的字符，如上面说的 <code>runoo*b</code> 中的 <code>*</code>，简单的说就是表示任何字符串的意思。如果要查找字符串中的 <code>*</code> 符号，则需要对 <code>*</code> 进行转义，即在其前加一个 <code>\: runo\*ob</code> 匹配 <code>runo*ob</code>。</p>
+<p>许多元字符要求在试图匹配它们时特别对待。若要匹配这些特殊字符，必须首先使字符“转义”，即，将反斜杠字符<code>\</code> 放在它们前面。下表列出了正则表达式中的特殊字符：</p>
+<table>
+<caption>特别字符</caption>
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>变量</strong></th>
+<th align="left"><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>$</code></td>
+<td align="left">匹配输入字符串的结尾位置。如果设置了 RegExp 对象的 Multiline 属性，则 <code>$</code> 也匹配 <code>'\n'</code> 或 <code>'\r'</code>。要匹配 <code>$</code> 字符本身，请使用 <code>\$</code>。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>( )</code></td>
+<td align="left">标记一个子表达式的开始和结束位置。子表达式可以获取供以后使用。要匹配这些字符，请使用 <code>\(</code>和 <code>\)</code>。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>*</code></td>
+<td align="left">匹配前面的子表达式零次或多次。要匹配 <code>*</code> 字符，请使用 <code>\*</code>。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>+</code></td>
+<td align="left">匹配前面的子表达式一次或多次。要匹配 <code>+</code> 字符，请使用 <code>\+</code>。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>.</code></td>
+<td align="left">匹配除换行符 <code>\n</code> 之外的任何单字符。要匹配 <code>.</code> ，请使用 <code>\.</code> 。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>[</code></td>
+<td align="left">标记一个中括号表达式的开始。要匹配 <code>[</code>，请使用 <code>\[</code>。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>?</code></td>
+<td align="left">匹配前面的子表达式零次或一次，或指明一个非贪婪限定符。要匹配 <code>?</code> 字符，请使用 <code>\?</code>。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>\</code></td>
+<td align="left">将下一个字符标记为或特殊字符、或原义字符、或向后引用、或八进制转义符。例如， <code>'n'</code> 匹配字符 <code>'n'</code>。<code>'\n'</code> 匹配换行符。序列 <code>'\\'</code> 匹配 <code>"\"</code>，而 <code>'\('</code> 则匹配 <code>"("</code>。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>^</code></td>
+<td align="left">匹配输入字符串的开始位置，除非在方括号表达式中使用，此时它表示不接受该字符集合。要匹配 <code>^</code>字符本身，请使用 <code>\^</code>。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>{</code></td>
+<td align="left">标记限定符表达式的开始。要匹配 <code>{</code>，请使用 <code>\{</code>。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>|</code></td>
+<td align="left">指明两项之间的一个选择。要匹配 <code>|</code>，请使用 <code>\|</code>。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-88" class="section level4">
+<h4><span class="header-section-number">10.3.4.4</span> 限定符</h4>
+<p>限定符用来指定正则表达式的一个给定组件必须要出现多少次才能满足匹配。有 <code>*</code> 或 <code>+</code> 或 <code>?</code> 或 <code>{n}</code> 或 <code>{n,}</code> 或 <code>{n,m}</code> 共6种。</p>
+<table>
+<caption>正则表达式的限定符</caption>
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>变量</strong></th>
+<th align="left"><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>*</code></td>
+<td align="left">匹配前面的子表达式零次或多次。例如，<code>zo*</code> 能匹配 “z” 以及 <code>"zoo"</code>。<code>*</code> 等价于<code>{0,}</code>。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>+</code></td>
+<td align="left">匹配前面的子表达式一次或多次。例如，<code>'zo+'</code> 能匹配 <code>"zo"</code> 以及 <code>"zoo"</code>，但不能匹配 <code>"z"</code>。+ 等价于 <code>{1,}</code>。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>?</code></td>
+<td align="left">匹配前面的子表达式零次或一次。例如，<code>"do(es)?"</code> 可以匹配 <code>"do"</code> 、 <code>"does"</code> 中的 <code>"does"</code> 、 <code>"doxy"</code> 中的 <code>"do"</code> 。<code>?</code> 等价于 <code>{0,1}</code>。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>{n}</code></td>
+<td align="left"><code>n</code> 是一个非负整数。匹配确定的 <code>n</code> 次。例如，<code>'o{2}'</code> 不能匹配 <code>"Bob"</code> 中的 <code>'o'</code>，但是能匹配 <code>"food"</code> 中的两个 <code>o</code>。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>{n,}</code></td>
+<td align="left"><code>n</code> 是一个非负整数。至少匹配<code>n</code> 次。例如，<code>'o{2,}'</code> 不能匹配 <code>"Bob"</code> 中的 <code>'o'</code>，但能匹配 <code>"foooood"</code> 中的所有 <code>o</code>。<code>'o{1,}'</code> 等价于 <code>'o+'</code>。<code>'o{0,}'</code> 则等价于 <code>'o*'</code>。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>{n,m}</code></td>
+<td align="left"><code>m</code> 和 <code>n</code> 均为非负整数，其中<code>n &lt;= m</code>。最少匹配 <code>n</code> 次且最多匹配 <code>m</code> 次。例如，<code>"o{1,3}"</code> 将匹配 <code>"fooooood"</code> 中的前三个 <code>o</code>。<code>'o{0,1}'</code> 等价于 <code>'o?'</code>。请注意在逗号和两个数之间不能有空格。</td>
+</tr>
+</tbody>
+</table>
+<p>由于章节编号在大的输入文档中会很可能超过九，所以您需要一种方式来处理两位或三位章节编号。限定符给您这种能力。下面的正则表达式匹配编号为任何位数的章节标题：</p>
+<p><code>/Chapter [1-9][0-9]*/</code></p>
+<p>请注意，限定符出现在范围表达式之后。因此，它应用于整个范围表达式，在本例中，只指定从 0 到 9 的数字（包括 0 和 9）。</p>
+<p>这里不使用 + 限定符，因为在第二个位置或后面的位置不一定需要有一个数字。也不使用 ? 字符，因为使用 ? 会将章节编号限制到只有两位数。您需要至少匹配 Chapter 和空格字符后面的一个数字。</p>
+<p>如果您知道章节编号被限制为只有 99 章，可以使用下面的表达式来至少指定一位但至多两位数字。</p>
+<p><code>/Chapter [0-9]{1,2}/</code></p>
+<p>上面的表达式的缺点是，大于 99 的章节编号仍只匹配开头两位数字。另一个缺点是 Chapter 0 也将匹配。只匹配两位数字的更好的表达式如下：</p>
+<p><code>/Chapter [1-9][0-9]?/</code></p>
+<p>或</p>
+<p><code>/Chapter [1-9][0-9]{0,1}/</code></p>
+<p><code>*</code>、<code>+</code>限定符都是贪婪的，因为它们会尽可能多的匹配文字，只有在它们的后面加上一个<code>?</code>就可以实现非贪婪或最小匹配。</p>
+<p>例如，您可能搜索 HTML 文档，以查找括在 H1 标记内的章节标题。该文本在您的文档中如下：</p>
+<p><code>&lt;H1&gt;Chapter 1 - 介绍正则表达式&lt;/H1&gt;</code></p>
+<p>贪婪：下面的表达式匹配从开始小于符号 (&lt;) 到关闭 H1 标记的大于符号 (&gt;) 之间的所有内容。</p>
+<p><code>/&lt;.*&gt;/</code></p>
+非贪婪：如果您只需要匹配开始和结束 H1 标签，下面的非贪婪表达式只匹配
+<H1>
+<p>。</p>
+<p><code>/&lt;.*?&gt;/</code></p>
+<p>如果只想匹配开始的 H1 标签，表达式则是：</p>
+<p><code>/&lt;\w+?&gt;/</code></p>
+<p>通过在 <code>*</code>、<code>+</code> 或 <code>?</code> 限定符之后放置 <code>?</code>，该表达式从“贪心”表达式转换为“非贪心”表达式或者最小匹配。</p>
+</div>
+<div id="section-89" class="section level4">
+<h4><span class="header-section-number">10.3.4.5</span> 定位符</h4>
+<p>定位符使您能够将正则表达式固定到行首或行尾。它们还使您能够创建这样的正则表达式，这些正则表达式出现在一个单词内、在一个单词的开头或者一个单词的结尾。</p>
+<p>定位符用来描述字符串或单词的边界，<code>^</code> 和 <code>$</code> 分别指字符串的开始与结束，<code>\b</code> 描述单词的前或后边界，<code>\B</code> 表示非单词边界。</p>
+<table>
+<caption>正则表达式的定位符</caption>
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"><strong>变量</strong></th>
+<th align="left"><strong>解释</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"><code>^</code></td>
+<td align="left">匹配输入字符串开始的位置。如果设置了 RegExp 对象的 Multiline 属性，<code>^</code> 还会与 <code>\n</code> 或 <code>\r</code> 之后的位置匹配。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>$</code></td>
+<td align="left">匹配输入字符串结尾的位置。如果设置了 RegExp 对象的 Multiline 属性，<code>$</code> 还会与 <code>\n</code> 或 <code>\r</code> 之前的位置匹配。</td>
+</tr>
+<tr class="odd">
+<td align="center"><code>\b</code></td>
+<td align="left">匹配一个单词边界，即字与空格间的位置。</td>
+</tr>
+<tr class="even">
+<td align="center"><code>\B</code></td>
+<td align="left">非单词边界匹配。</td>
+</tr>
+</tbody>
+</table>
+<p>注意：不能将限定符与定位符一起使用。由于在紧靠换行或者单词边界的前面或后面不能有一个以上位置，因此不允许诸如 <code>^*</code> 之类的表达式。</p>
+<p>若要匹配一行文本开始处的文本，请在正则表达式的开始使用 <code>^</code> 字符。不要将 <code>^</code> 的这种用法与中括号表达式内的用法混淆。</p>
+<p>若要匹配一行文本的结束处的文本，请在正则表达式的结束处使用 <code>$</code> 字符。</p>
+<p>若要在搜索章节标题时使用定位点，下面的正则表达式匹配一个章节标题，该标题只包含两个尾随数字，并且出现在行首：</p>
+<p><code>/^Chapter [1-9][0-9]{0,1}/</code></p>
+<p>真正的章节标题不仅出现行的开始处，而且它还是该行中仅有的文本。它即出现在行首又出现在同一行的结尾。下面的表达式能确保指定的匹配只匹配章节而不匹配交叉引用。通过创建只匹配一行文本的开始和结尾的正则表达式，就可做到这一点。</p>
+<p><code>/^Chapter [1-9][0-9]{0,1}$/</code></p>
+<p>匹配单词边界稍有不同，但向正则表达式添加了很重要的能力。单词边界是单词和空格之间的位置。非单词边界是任何其他位置。下面的表达式匹配单词 Chapter 的开头三个字符，因为这三个字符出现在单词边界后面：</p>
+<p><code>/\bCha/</code></p>
+<p><code>\b</code> 字符的位置是非常重要的。如果它位于要匹配的字符串的开始，它在单词的开始处查找匹配项。如果它位于字符串的结尾，它在单词的结尾处查找匹配项。例如，下面的表达式匹配单词 Chapter 中的字符串 ter，因为它出现在单词边界的前面：</p>
+<p><code>/ter\b/</code></p>
+<p>下面的表达式匹配 Chapter 中的字符串 apt，但不匹配 aptitude 中的字符串 apt：</p>
+<p><code>/\Bapt/</code></p>
+<p>字符串 apt 出现在单词 Chapter 中的非单词边界处，但出现在单词 aptitude 中的单词边界处。对于 <code>\B</code> 非单词边界运算符，位置并不重要，因为匹配不关心究竟是单词的开头还是结尾。</p>
+</div>
+<div id="section-90" class="section level4">
+<h4><span class="header-section-number">10.3.4.6</span> 选择</h4>
+<p>用圆括号将所有选择项括起来，相邻的选择项之间用|分隔。但用圆括号会有一个副作用，使相关的匹配会被缓存，此时可用?:放在第一个选项前来消除这种副作用。</p>
+<p>其中 <code>?:</code> 是非捕获元之一，还有两个非捕获元是 <code>?=</code> 和 <code>?!</code>，这两个还有更多的含义，前者为正向预查，在任何开始匹配圆括号内的正则表达式模式的位置来匹配搜索字符串，后者为负向预查，在任何开始不匹配该正则表达式模式的位置来匹配搜索字符串。</p>
+</div>
+<div id="section-91" class="section level4">
+<h4><span class="header-section-number">10.3.4.7</span> 反向引用</h4>
+<p>对一个正则表达式模式或部分模式两边添加圆括号将导致相关匹配存储到一个临时缓冲区中，所捕获的每个子匹配都按照在正则表达式模式中从左到右出现的顺序存储。缓冲区编号从 1 开始，最多可存储 99 个捕获的子表达式。每个缓冲区都可以使用 <code>\n</code>访问，其中 <code>n</code> 为一个标识特定缓冲区的一位或两位十进制数。</p>
+<p>可以使用非捕获元字符 <code>?:</code>、<code>?=</code> 或 <code>?!</code> 来重写捕获，忽略对相关匹配的保存。</p>
+<p>反向引用的最简单的、最有用的应用之一，是提供查找文本中两个相同的相邻单词的匹配项的能力。以下面的句子为例：</p>
+<p><code>Is is the cost of of gasoline going up up?</code></p>
+<p>上面的句子很显然有多个重复的单词。如果能设计一种方法定位该句子，而不必查找每个单词的重复出现，那该有多好。下面的正则表达式使用单个子表达式来实现这一点：
+实例</p>
+<p>查找重复的单词：</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb94-1"><a href="chap-vim-find.html#cb94-1"></a><span class="kw">var</span> str <span class="op">=</span> <span class="st">&quot;Is is the cost of of gasoline going up up&quot;</span><span class="op">;</span></span>
+<span id="cb94-2"><a href="chap-vim-find.html#cb94-2"></a><span class="kw">var</span> patt1 <span class="op">=</span> <span class="ss">/</span><span class="sc">\b([a-z]+)</span><span class="ss"> </span><span class="sc">\1\b</span><span class="ss">/ig</span><span class="op">;</span></span>
+<span id="cb94-3"><a href="chap-vim-find.html#cb94-3"></a><span class="va">document</span>.<span class="at">write</span>(<span class="va">str</span>.<span class="at">match</span>(patt1))<span class="op">;</span></span></code></pre></div>
+<p>捕获的表达式，正如 <code>[a-z]+</code> 指定的，包括一个或多个字母。正则表达式的第二部分是对以前捕获的子匹配项的引用，即，单词的第二个匹配项正好由括号表达式匹配。<code>\1</code> 指定第一个子匹配项。</p>
+<p>单词边界元字符确保只检测整个单词。否则，诸如 <code>"is issued"</code> 或 <code>"this is"</code>之类的词组将不能正确地被此表达式识别。</p>
+<p>正则表达式后面的全局标记 <code>g</code> 指定将该表达式应用到输入字符串中能够查找到的尽可能多的匹配。</p>
+<p>表达式的结尾处的不区分大小写 <code>i</code> 标记指定不区分大小写。</p>
+<p>多行标记指定换行符的两边可能出现潜在的匹配。</p>
+<p>反向引用还可以将通用资源指示符 (URI) 分解为其组件。假定您想将下面的 URI 分解为协议（ftp、http 等等）、域地址和页/路径：</p>
+<p><code>http://www.runoob.com:80/html/html-tutorial.html</code></p>
+<p>下面的正则表达式提供该功能：</p>
+<p>输出所有匹配的数据：</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb95-1"><a href="chap-vim-find.html#cb95-1"></a><span class="kw">var</span> str <span class="op">=</span> <span class="st">&quot;http://www.runoob.com:80/html/html-tutorial.html&quot;</span><span class="op">;</span></span>
+<span id="cb95-2"><a href="chap-vim-find.html#cb95-2"></a><span class="kw">var</span> patt1 <span class="op">=</span> <span class="ss">/</span><span class="sc">(\w+)</span><span class="ss">:</span><span class="sc">\/\/([^/:]+)(</span><span class="ss">:</span><span class="sc">\d*)?([^# ]*)</span><span class="ss">/</span><span class="op">;</span></span>
+<span id="cb95-3"><a href="chap-vim-find.html#cb95-3"></a>arr <span class="op">=</span> <span class="va">str</span>.<span class="at">match</span>(patt1)<span class="op">;</span></span>
+<span id="cb95-4"><a href="chap-vim-find.html#cb95-4"></a><span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">arr</span>.<span class="at">length</span> <span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></span>
+<span id="cb95-5"><a href="chap-vim-find.html#cb95-5"></a>    <span class="va">document</span>.<span class="at">write</span>(arr[i])<span class="op">;</span></span>
+<span id="cb95-6"><a href="chap-vim-find.html#cb95-6"></a>    <span class="va">document</span>.<span class="at">write</span>(<span class="st">&quot;&lt;br&gt;&quot;</span>)<span class="op">;</span></span>
+<span id="cb95-7"><a href="chap-vim-find.html#cb95-7"></a><span class="op">}</span></span></code></pre></div>
+<p>第三行代码 <code>str.match(patt1)</code> 返回一个数组，实例中的数组包含 5 个元素，索引 0 对应的是整个字符串，索引 1 对应第一个匹配符（括号内），以此类推。</p>
+<p>第一个括号子表达式捕获 Web 地址的协议部分。该子表达式匹配在冒号和两个正斜杠前面的任何单词。</p>
+<p>第二个括号子表达式捕获地址的域地址部分。子表达式匹配 <code>:</code> 和 <code>/</code> 之后的一个或多个字符。</p>
+<p>第三个括号子表达式捕获端口号（如果指定了的话）。该子表达式匹配冒号后面的零个或多个数字。只能重复一次该子表达式。</p>
+<p>最后，第四个括号子表达式捕获 Web 地址指定的路径和 <code>/</code> 或页信息。该子表达式能匹配不包括<code>#</code> 或空格字符的任何字符序列。</p>
+<p>将正则表达式应用到上面的 URI，各子匹配项包含下面的内容：</p>
+<pre><code>第一个括号子表达式包含 http
+第二个括号子表达式包含 www.runoob.com
+第三个括号子表达式包含 :80
+第四个括号子表达式包含 /html/html-tutorial.html</code></pre>
+<p><code>.</code> 特殊字符在中括号表达式时 如 <code>[.]</code> 只会匹配 <code>.</code>字符，等价于 <code>\.</code>，而非匹配除换行符 <code>\n</code> 外的所有字符。</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb97-1"><a href="chap-vim-find.html#cb97-1"></a><span class="kw">var</span> str <span class="op">=</span> <span class="st">&quot;runoob.com&quot;</span><span class="op">;</span></span>
+<span id="cb97-2"><a href="chap-vim-find.html#cb97-2"></a><span class="kw">var</span> patt1 <span class="op">=</span> <span class="ss">/</span><span class="sc">[.]</span><span class="ss">/</span><span class="op">;</span></span>
+<span id="cb97-3"><a href="chap-vim-find.html#cb97-3"></a><span class="va">document</span>.<span class="at">write</span>(<span class="va">str</span>.<span class="at">match</span>(patt1))<span class="op">;</span></span></code></pre></div>
+<p><code>^</code> 和 <code>[^指定字符串]</code> 之间的区别:</p>
+<p><code>^</code> 指的是匹配字符串开始的位置</p>
+<p><code>[^指定字符串]</code> 指的是除指定字符串以外的其他字符串</p>
+<pre class="sourceCode php"><code class="sourceCode php"><span id="cb98-1"><a href="chap-vim-find.html#cb98-1"></a><span class="ot">(</span>^<span class="ot">[</span><span class="dv">0-9</span><span class="ot">])</span>+     <span class="co">//匹配有一至多个数字的字符串组合</span></span>
+<span id="cb98-2"><a href="chap-vim-find.html#cb98-2"></a><span class="ot">[</span>^<span class="ot">[</span><span class="dv">0-9</span><span class="ot">]]</span>+  <span class="co">// 匹配有一至多个不含数字的字符串组合</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="section-92" class="section level2">
+<h2><span class="header-section-number">10.4</span> 总结</h2>
+<p>本章介绍了字符集编码知识，以及文件的查找文件内的查找命令。</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap-filesystem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-manager-process.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bubifengyun/deepin-bible/edit/master/rmd/203-text-files.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["deepin-bible.pdf", "deepin-bible.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

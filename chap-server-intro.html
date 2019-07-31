@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>17 服务器简介 | deepin-bible.utf8.md</title>
+  <meta name="description" content="深度操作系统的简单介绍" />
+  <meta name="generator" content="bookdown 0.11.1 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="17 服务器简介 | deepin-bible.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.jpg" />
+  <meta property="og:description" content="深度操作系统的简单介绍" />
+  <meta name="github-repo" content="bubifengyun/deepin-bible" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="17 服务器简介 | deepin-bible.utf8.md" />
+  
+  <meta name="twitter:description" content="深度操作系统的简单介绍" />
+  <meta name="twitter:image" content="images/cover.jpg" />
+
+<meta name="author" content="深度操作系统爱好者" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="manager-user.html">
+<link rel="next" href="chap-cups.html">
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="libs/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding/datatables.js"></script>
+<link href="libs/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk/js/crosstalk.min.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">深度易经</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>1</b> 前言</a></li>
+<li class="chapter" data-level="2" data-path="section-1.html"><a href="section-1.html"><i class="fa fa-check"></i><b>2</b> 致谢</a></li>
+<li class="chapter" data-level="3" data-path="author.html"><a href="author.html"><i class="fa fa-check"></i><b>3</b> 作者简介</a></li>
+<li class="part"><span><b>I Linux 及 Deepin 入门</b></span></li>
+<li class="chapter" data-level="4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html"><i class="fa fa-check"></i><b>4</b> GNU/Linux 操作系统简介</a><ul>
+<li class="chapter" data-level="4.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#gnulinux-"><i class="fa fa-check"></i><b>4.1</b> GNU/Linux 使用范围</a></li>
+<li class="chapter" data-level="4.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#gnulinux--1"><i class="fa fa-check"></i><b>4.2</b> GNU/Linux 是什么</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#richard-stallman"><i class="fa fa-check"></i><b>4.2.1</b> Richard Stallman</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#linus-torvalds"><i class="fa fa-check"></i><b>4.2.2</b> Linus Torvalds</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix-"><i class="fa fa-check"></i><b>4.3</b> Unix 哲学</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix--1"><i class="fa fa-check"></i><b>4.3.1</b> Unix 哲学核心</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix--2"><i class="fa fa-check"></i><b>4.3.2</b> Unix 哲学下的用户</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#unix--3"><i class="fa fa-check"></i><b>4.3.3</b> Unix 哲学的对手</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#chap:linux-intro:distro"><i class="fa fa-check"></i><b>4.4</b> GNU/Linux 发行版的出现</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#red-hat-"><i class="fa fa-check"></i><b>4.4.1</b> Red Hat 系</a></li>
+<li class="chapter" data-level="4.4.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#debian-"><i class="fa fa-check"></i><b>4.4.2</b> Debian 系</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#linux-"><i class="fa fa-check"></i><b>4.5</b> 如何提高自己的 Linux 技术</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#gnulinux--2"><i class="fa fa-check"></i><b>4.5.1</b> 首先安装 GNU/Linux 操作系统</a></li>
+<li class="chapter" data-level="4.5.2" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-2"><i class="fa fa-check"></i><b>4.5.2</b> 平常多用</a></li>
+<li class="chapter" data-level="4.5.3" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-3"><i class="fa fa-check"></i><b>4.5.3</b> 多问多记</a></li>
+<li class="chapter" data-level="4.5.4" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-4"><i class="fa fa-check"></i><b>4.5.4</b> 定个计划</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="chap-linux-intro.html"><a href="chap-linux-intro.html#section-5"><i class="fa fa-check"></i><b>4.6</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html"><i class="fa fa-check"></i><b>5</b> Linux 桌面系统简介</a><ul>
+<li class="chapter" data-level="5.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#live-cddvd-"><i class="fa fa-check"></i><b>5.1</b> 运行 Live CD/DVD 试用系统</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-6"><i class="fa fa-check"></i><b>5.1.1</b> 下载深度系统</a></li>
+<li class="chapter" data-level="5.1.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#u"><i class="fa fa-check"></i><b>5.1.2</b> 把系统写到U盘里</a></li>
+<li class="chapter" data-level="5.1.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-7"><i class="fa fa-check"></i><b>5.1.3</b> 开始试用</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#x-window-"><i class="fa fa-check"></i><b>5.2</b> X Window 系统简介</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-8"><i class="fa fa-check"></i><b>5.2.1</b> 基本部件</a></li>
+<li class="chapter" data-level="5.2.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-9"><i class="fa fa-check"></i><b>5.2.2</b> 用户接口</a></li>
+<li class="chapter" data-level="5.2.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-10"><i class="fa fa-check"></i><b>5.2.3</b> 用户界面</a></li>
+<li class="chapter" data-level="5.2.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-11"><i class="fa fa-check"></i><b>5.2.4</b> 优缺点</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#wayland"><i class="fa fa-check"></i><b>5.3</b> 王勇谈 Wayland</a></li>
+<li class="chapter" data-level="5.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-12"><i class="fa fa-check"></i><b>5.4</b> 常见的桌面环境</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#cinnamon"><i class="fa fa-check"></i><b>5.4.1</b> Cinnamon</a></li>
+<li class="chapter" data-level="5.4.2" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#gnome"><i class="fa fa-check"></i><b>5.4.2</b> GNOME</a></li>
+<li class="chapter" data-level="5.4.3" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#kde"><i class="fa fa-check"></i><b>5.4.3</b> KDE</a></li>
+<li class="chapter" data-level="5.4.4" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#lxde"><i class="fa fa-check"></i><b>5.4.4</b> LXDE</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="chap-linux-desktop-intro.html"><a href="chap-linux-desktop-intro.html#section-13"><i class="fa fa-check"></i><b>5.5</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html"><i class="fa fa-check"></i><b>6</b> 深度操作系统简介</a><ul>
+<li class="chapter" data-level="6.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-14"><i class="fa fa-check"></i><b>6.1</b> 深度科技简介</a></li>
+<li class="chapter" data-level="6.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-15"><i class="fa fa-check"></i><b>6.2</b> 深度操作系统的安装</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-16"><i class="fa fa-check"></i><b>6.2.1</b> 安装方案</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-17"><i class="fa fa-check"></i><b>6.2.2</b> 安装环境</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-18"><i class="fa fa-check"></i><b>6.2.3</b> 启动优盘的制作</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-19"><i class="fa fa-check"></i><b>6.2.4</b> 安装过程</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-20"><i class="fa fa-check"></i><b>6.3</b> 桌面使用</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-21"><i class="fa fa-check"></i><b>6.3.1</b> 开机</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-22"><i class="fa fa-check"></i><b>6.3.2</b> 关机</a></li>
+<li class="chapter" data-level="6.3.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-23"><i class="fa fa-check"></i><b>6.3.3</b> 控制中心-系统设置</a></li>
+<li class="chapter" data-level="6.3.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-24"><i class="fa fa-check"></i><b>6.3.4</b> 开机自启动</a></li>
+<li class="chapter" data-level="6.3.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-25"><i class="fa fa-check"></i><b>6.3.5</b> 常用快捷键</a></li>
+<li class="chapter" data-level="6.3.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-26"><i class="fa fa-check"></i><b>6.3.6</b> 安装软件</a></li>
+<li class="chapter" data-level="6.3.7" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-27"><i class="fa fa-check"></i><b>6.3.7</b> 卸载软件</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-28"><i class="fa fa-check"></i><b>6.4</b> 深度桌面常用软件</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-29"><i class="fa fa-check"></i><b>6.4.1</b> 搜狗输入法</a></li>
+<li class="chapter" data-level="6.4.2" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#qq"><i class="fa fa-check"></i><b>6.4.2</b> QQ</a></li>
+<li class="chapter" data-level="6.4.3" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-30"><i class="fa fa-check"></i><b>6.4.3</b> 深度截图</a></li>
+<li class="chapter" data-level="6.4.4" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-31"><i class="fa fa-check"></i><b>6.4.4</b> 网易云音乐</a></li>
+<li class="chapter" data-level="6.4.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-32"><i class="fa fa-check"></i><b>6.4.5</b> 深度系统监视器</a></li>
+<li class="chapter" data-level="6.4.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-33"><i class="fa fa-check"></i><b>6.4.6</b> 深度无线投屏</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-34"><i class="fa fa-check"></i><b>6.5</b> 总结</a></li>
+<li class="chapter" data-level="6.6" data-path="chap-deepin-intro.html"><a href="chap-deepin-intro.html#section-35"><i class="fa fa-check"></i><b>6.6</b> 附注</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap-education-intro.html"><a href="chap-education-intro.html"><i class="fa fa-check"></i><b>7</b> 教学用的 Linux 软件</a><ul>
+<li class="chapter" data-level="7.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-36"><i class="fa fa-check"></i><b>7.1</b> 引言</a></li>
+<li class="chapter" data-level="7.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-37"><i class="fa fa-check"></i><b>7.2</b> 笔记</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#leanote"><i class="fa fa-check"></i><b>7.2.1</b> leanote</a></li>
+<li class="chapter" data-level="7.2.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#xpad-"><i class="fa fa-check"></i><b>7.2.2</b> Xpad 便笺</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-38"><i class="fa fa-check"></i><b>7.3</b> 课堂工具</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#veyon"><i class="fa fa-check"></i><b>7.3.1</b> Veyon</a></li>
+<li class="chapter" data-level="7.3.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#acontent"><i class="fa fa-check"></i><b>7.3.2</b> AContent</a></li>
+<li class="chapter" data-level="7.3.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#moodle"><i class="fa fa-check"></i><b>7.3.3</b> Moodle</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="chap-education-intro.html"><a href="chap-education-intro.html#section-39"><i class="fa fa-check"></i><b>7.4</b> 文献阅读写作管理工具</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="chap-education-intro.html"><a href="chap-education-intro.html#bookdown"><i class="fa fa-check"></i><b>7.4.1</b> bookdown</a></li>
+<li class="chapter" data-level="7.4.2" data-path="chap-education-intro.html"><a href="chap-education-intro.html#vufind"><i class="fa fa-check"></i><b>7.4.2</b> VuFind</a></li>
+<li class="chapter" data-level="7.4.3" data-path="chap-education-intro.html"><a href="chap-education-intro.html#calibre"><i class="fa fa-check"></i><b>7.4.3</b> Calibre</a></li>
+<li class="chapter" data-level="7.4.4" data-path="chap-education-intro.html"><a href="chap-education-intro.html#cajviewer"><i class="fa fa-check"></i><b>7.4.4</b> CAJViewer</a></li>
+<li class="chapter" data-level="7.4.5" data-path="chap-education-intro.html"><a href="chap-education-intro.html#everything"><i class="fa fa-check"></i><b>7.4.5</b> 搜索神器 Everything</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II GNU/Linux 基础知识</b></span></li>
+<li class="chapter" data-level="8" data-path="chap-shell.html"><a href="chap-shell.html"><i class="fa fa-check"></i><b>8</b> shell 用法简介</a><ul>
+<li class="chapter" data-level="8.1" data-path="chap-shell.html"><a href="chap-shell.html#shell-"><i class="fa fa-check"></i><b>8.1</b> 用 shell 有啥好处？</a></li>
+<li class="chapter" data-level="8.2" data-path="chap-shell.html"><a href="chap-shell.html#shell:intro"><i class="fa fa-check"></i><b>8.2</b> 深度操作系统下 shell 简介</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="chap-shell.html"><a href="chap-shell.html#section-40"><i class="fa fa-check"></i><b>8.2.1</b> 牛刀小试</a></li>
+<li class="chapter" data-level="8.2.2" data-path="chap-shell.html"><a href="chap-shell.html#section-41"><i class="fa fa-check"></i><b>8.2.2</b> 命令语法结构</a></li>
+<li class="chapter" data-level="8.2.3" data-path="chap-shell.html"><a href="chap-shell.html#options"><i class="fa fa-check"></i><b>8.2.3</b> 选项(Options)</a></li>
+<li class="chapter" data-level="8.2.4" data-path="chap-shell.html"><a href="chap-shell.html#arguments"><i class="fa fa-check"></i><b>8.2.4</b> 参数(Arguments)</a></li>
+<li class="chapter" data-level="8.2.5" data-path="chap-shell.html"><a href="chap-shell.html#shell:more-example"><i class="fa fa-check"></i><b>8.2.5</b> 更多例子</a></li>
+<li class="chapter" data-level="8.2.6" data-path="chap-shell.html"><a href="chap-shell.html#section-42"><i class="fa fa-check"></i><b>8.2.6</b> 找找命令文件在哪里</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="chap-shell.html"><a href="chap-shell.html#section-43"><i class="fa fa-check"></i><b>8.3</b> 命令快捷编辑</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="chap-shell.html"><a href="chap-shell.html#section-44"><i class="fa fa-check"></i><b>8.3.1</b> 方便编辑的快捷键</a></li>
+<li class="chapter" data-level="8.3.2" data-path="chap-shell.html"><a href="chap-shell.html#section-45"><i class="fa fa-check"></i><b>8.3.2</b> 重输之前的命令</a></li>
+<li class="chapter" data-level="8.3.3" data-path="chap-shell.html"><a href="chap-shell.html#section-46"><i class="fa fa-check"></i><b>8.3.3</b> 自动补全</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="chap-shell.html"><a href="chap-shell.html#section-47"><i class="fa fa-check"></i><b>8.4</b> 命令连接与扩展</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="chap-shell.html"><a href="chap-shell.html#section-48"><i class="fa fa-check"></i><b>8.4.1</b> 匿名管道</a></li>
+<li class="chapter" data-level="8.4.2" data-path="chap-shell.html"><a href="chap-shell.html#sec:redirect"><i class="fa fa-check"></i><b>8.4.2</b> 重定向</a></li>
+<li class="chapter" data-level="8.4.3" data-path="chap-shell.html"><a href="chap-shell.html#section-49"><i class="fa fa-check"></i><b>8.4.3</b> 重定向和管道的区别</a></li>
+<li class="chapter" data-level="8.4.4" data-path="chap-shell.html"><a href="chap-shell.html#section-50"><i class="fa fa-check"></i><b>8.4.4</b> 顺序执行</a></li>
+<li class="chapter" data-level="8.4.5" data-path="chap-shell.html"><a href="chap-shell.html#section-51"><i class="fa fa-check"></i><b>8.4.5</b> 后台命令</a></li>
+<li class="chapter" data-level="8.4.6" data-path="chap-shell.html"><a href="chap-shell.html#section-52"><i class="fa fa-check"></i><b>8.4.6</b> 命令扩展</a></li>
+<li class="chapter" data-level="8.4.7" data-path="chap-shell.html"><a href="chap-shell.html#section-53"><i class="fa fa-check"></i><b>8.4.7</b> 简单数值计算</a></li>
+<li class="chapter" data-level="8.4.8" data-path="chap-shell.html"><a href="chap-shell.html#section-54"><i class="fa fa-check"></i><b>8.4.8</b> 输出变量值</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="chap-shell.html"><a href="chap-shell.html#shell-variables"><i class="fa fa-check"></i><b>8.5</b> Shell 变量（Variables）</a><ul>
+<li class="chapter" data-level="8.5.1" data-path="chap-shell.html"><a href="chap-shell.html#section-55"><i class="fa fa-check"></i><b>8.5.1</b> 别名的创建和使用</a></li>
+<li class="chapter" data-level="8.5.2" data-path="chap-shell.html"><a href="chap-shell.html#shell"><i class="fa fa-check"></i><b>8.5.2</b> 退出 shell</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="chap-shell.html"><a href="chap-shell.html#shell--1"><i class="fa fa-check"></i><b>8.6</b> 定制 shell 环境</a><ul>
+<li class="chapter" data-level="8.6.1" data-path="chap-shell.html"><a href="chap-shell.html#prompt"><i class="fa fa-check"></i><b>8.6.1</b> 配置提示（prompt）</a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="chap-shell.html"><a href="chap-shell.html#section-56"><i class="fa fa-check"></i><b>8.7</b> 命令帮助</a></li>
+<li class="chapter" data-level="8.8" data-path="chap-shell.html"><a href="chap-shell.html#section-57"><i class="fa fa-check"></i><b>8.8</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap-filesystem.html"><a href="chap-filesystem.html"><i class="fa fa-check"></i><b>9</b> 文件系统</a><ul>
+<li class="chapter" data-level="9.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-58"><i class="fa fa-check"></i><b>9.1</b> 树形结构</a></li>
+<li class="chapter" data-level="9.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-59"><i class="fa fa-check"></i><b>9.2</b> 文件系统常用命令</a></li>
+<li class="chapter" data-level="9.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-60"><i class="fa fa-check"></i><b>9.3</b> 元字符和操作符</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#filesystem:metachar"><i class="fa fa-check"></i><b>9.3.1</b> 元字符</a></li>
+<li class="chapter" data-level="9.3.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-61"><i class="fa fa-check"></i><b>9.3.2</b> 操作符</a></li>
+<li class="chapter" data-level="9.3.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-62"><i class="fa fa-check"></i><b>9.3.3</b> 花括号<code>{}</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-63"><i class="fa fa-check"></i><b>9.4</b> 几个常用的目录</a></li>
+<li class="chapter" data-level="9.5" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-64"><i class="fa fa-check"></i><b>9.5</b> 文件（夹）的权限和归属</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-65"><i class="fa fa-check"></i><b>9.5.1</b> 权限简介</a></li>
+<li class="chapter" data-level="9.5.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#chmod"><i class="fa fa-check"></i><b>9.5.2</b> 权限更改<code>chmod</code></a></li>
+<li class="chapter" data-level="9.5.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#umask"><i class="fa fa-check"></i><b>9.5.3</b> 权限掩码<code>umask</code></a></li>
+<li class="chapter" data-level="9.5.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-68"><i class="fa fa-check"></i><b>9.5.4</b> 归属</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-69"><i class="fa fa-check"></i><b>9.6</b> 文件（夹）的创建、查看、移动、复制和删除</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-70"><i class="fa fa-check"></i><b>9.6.1</b> 文件（夹）的创建</a></li>
+<li class="chapter" data-level="9.6.2" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-71"><i class="fa fa-check"></i><b>9.6.2</b> 文件（夹）的查看</a></li>
+<li class="chapter" data-level="9.6.3" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-72"><i class="fa fa-check"></i><b>9.6.3</b> 文件（夹）的复制</a></li>
+<li class="chapter" data-level="9.6.4" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-73"><i class="fa fa-check"></i><b>9.6.4</b> 文件（夹）的删除</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="chap-filesystem.html"><a href="chap-filesystem.html#section-74"><i class="fa fa-check"></i><b>9.7</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap-vim-find.html"><a href="chap-vim-find.html"><i class="fa fa-check"></i><b>10</b> 文件编辑与查找</a><ul>
+<li class="chapter" data-level="10.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-75"><i class="fa fa-check"></i><b>10.1</b> 字符集和字符编码</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#ascii"><i class="fa fa-check"></i><b>10.1.1</b> ASCII</a></li>
+<li class="chapter" data-level="10.1.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gb2312"><i class="fa fa-check"></i><b>10.1.2</b> GB2312</a></li>
+<li class="chapter" data-level="10.1.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gbk"><i class="fa fa-check"></i><b>10.1.3</b> GBK字符集</a></li>
+<li class="chapter" data-level="10.1.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#big5"><i class="fa fa-check"></i><b>10.1.4</b> BIG5</a></li>
+<li class="chapter" data-level="10.1.5" data-path="chap-vim-find.html"><a href="chap-vim-find.html#gb18030"><i class="fa fa-check"></i><b>10.1.5</b> GB18030</a></li>
+<li class="chapter" data-level="10.1.6" data-path="chap-vim-find.html"><a href="chap-vim-find.html#unicode"><i class="fa fa-check"></i><b>10.1.6</b> Unicode字符集</a></li>
+<li class="chapter" data-level="10.1.7" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-76"><i class="fa fa-check"></i><b>10.1.7</b> 编码的常用命令</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-77"><i class="fa fa-check"></i><b>10.2</b> 编辑器</a></li>
+<li class="chapter" data-level="10.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-78"><i class="fa fa-check"></i><b>10.3</b> 文件查找</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="chap-vim-find.html"><a href="chap-vim-find.html#find-"><i class="fa fa-check"></i><b>10.3.1</b> <code>find</code> 查找文件</a></li>
+<li class="chapter" data-level="10.3.2" data-path="chap-vim-find.html"><a href="chap-vim-find.html#grep-"><i class="fa fa-check"></i><b>10.3.2</b> <code>grep</code> 查找文件内部信息</a></li>
+<li class="chapter" data-level="10.3.3" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-83"><i class="fa fa-check"></i><b>10.3.3</b> 其他检索工具</a></li>
+<li class="chapter" data-level="10.3.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-84"><i class="fa fa-check"></i><b>10.3.4</b> 正则表达式</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="chap-vim-find.html"><a href="chap-vim-find.html#section-92"><i class="fa fa-check"></i><b>10.4</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap-manager-process.html"><a href="chap-manager-process.html"><i class="fa fa-check"></i><b>11</b> 进程管理</a><ul>
+<li class="chapter" data-level="11.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-93"><i class="fa fa-check"></i><b>11.1</b> 何谓进程</a></li>
+<li class="chapter" data-level="11.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-94"><i class="fa fa-check"></i><b>11.2</b> 深度系统监视器管理进程</a></li>
+<li class="chapter" data-level="11.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-95"><i class="fa fa-check"></i><b>11.3</b> 命令方式查看进程</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#ps-"><i class="fa fa-check"></i><b>11.3.1</b> ps 命令基本用法</a></li>
+<li class="chapter" data-level="11.3.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#top-"><i class="fa fa-check"></i><b>11.3.2</b> top 命令基本用法</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-96"><i class="fa fa-check"></i><b>11.4</b> 进程的分类</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-97"><i class="fa fa-check"></i><b>11.4.1</b> 怎么生成后台进程呢？</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="chap-manager-process.html"><a href="chap-manager-process.html#killing-and-renicing"><i class="fa fa-check"></i><b>11.5</b> 进程的终结与调整优先级（Killing and Renicing）</a></li>
+<li class="chapter" data-level="11.6" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups"><i class="fa fa-check"></i><b>11.6</b> 通过<code>cgroups</code>限制进程</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups-1"><i class="fa fa-check"></i><b>11.6.1</b> <code>cgroups</code>是什么？</a></li>
+<li class="chapter" data-level="11.6.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups-2"><i class="fa fa-check"></i><b>11.6.2</b> <code>cgroups</code>可以做什么？</a></li>
+<li class="chapter" data-level="11.6.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups-3"><i class="fa fa-check"></i><b>11.6.3</b> <code>cgroups</code>相关概念及其关系</a></li>
+<li class="chapter" data-level="11.6.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#cgroups-4"><i class="fa fa-check"></i><b>11.6.4</b> <code>cgroups</code>子系统介绍</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-98"><i class="fa fa-check"></i><b>11.7</b> 进程的状态</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxr-task_running"><i class="fa fa-check"></i><b>11.7.1</b> Linux进程状态：R (TASK_RUNNING)，可执行状态。</a></li>
+<li class="chapter" data-level="11.7.2" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxs-task_interruptible"><i class="fa fa-check"></i><b>11.7.2</b> Linux进程状态：S (TASK_INTERRUPTIBLE)，可中断的睡眠状态。</a></li>
+<li class="chapter" data-level="11.7.3" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxd-task_uninterruptible"><i class="fa fa-check"></i><b>11.7.3</b> Linux进程状态：D (TASK_UNINTERRUPTIBLE)，不可中断的睡眠状态。</a></li>
+<li class="chapter" data-level="11.7.4" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxt-task_stopped-or-task_traced"><i class="fa fa-check"></i><b>11.7.4</b> Linux进程状态：T (TASK_STOPPED or TASK_TRACED)，暂停状态或跟踪状态。</a></li>
+<li class="chapter" data-level="11.7.5" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxz-task_dead---exit_zombie"><i class="fa fa-check"></i><b>11.7.5</b> Linux进程状态：Z (TASK_DEAD - EXIT_ZOMBIE)，退出状态，进程成为僵尸进程。</a></li>
+<li class="chapter" data-level="11.7.6" data-path="chap-manager-process.html"><a href="chap-manager-process.html#linuxx-task_dead---exit_dead"><i class="fa fa-check"></i><b>11.7.6</b> Linux进程状态：X (TASK_DEAD - EXIT_DEAD)，退出状态，进程即将被销毁。</a></li>
+<li class="chapter" data-level="11.7.7" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-99"><i class="fa fa-check"></i><b>11.7.7</b> 进程的初始状态</a></li>
+<li class="chapter" data-level="11.7.8" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-100"><i class="fa fa-check"></i><b>11.7.8</b> 进程状态变迁</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="chap-manager-process.html"><a href="chap-manager-process.html#section-101"><i class="fa fa-check"></i><b>11.8</b> 总结</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html"><i class="fa fa-check"></i><b>12</b> 简单bash脚本</a><ul>
+<li class="chapter" data-level="12.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell--2"><i class="fa fa-check"></i><b>12.1</b> 何谓 shell 脚本</a><ul>
+<li class="chapter" data-level="12.1.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-102"><i class="fa fa-check"></i><b>12.1.1</b> 执行和调试</a></li>
+<li class="chapter" data-level="12.1.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell--3"><i class="fa fa-check"></i><b>12.1.2</b> shell 变量</a></li>
+<li class="chapter" data-level="12.1.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-103"><i class="fa fa-check"></i><b>12.1.3</b> 特殊变量</a></li>
+<li class="chapter" data-level="12.1.4" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-104"><i class="fa fa-check"></i><b>12.1.4</b> 执行时输入参数</a></li>
+<li class="chapter" data-level="12.1.5" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-105"><i class="fa fa-check"></i><b>12.1.5</b> 其他需求的参数</a></li>
+<li class="chapter" data-level="12.1.6" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-106"><i class="fa fa-check"></i><b>12.1.6</b> 简单计算</a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell--4"><i class="fa fa-check"></i><b>12.2</b> shell 脚本的三大结构</a><ul>
+<li class="chapter" data-level="12.2.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-107"><i class="fa fa-check"></i><b>12.2.1</b> 分支结构的语法</a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#sed"><i class="fa fa-check"></i><b>12.3</b> 流编辑器<code>sed</code></a></li>
+<li class="chapter" data-level="12.4" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#shell-uc-"><i class="fa fa-check"></i><b>12.4</b> shell脚本例子：转换 UC 缓存视频</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#file.txt"><i class="fa fa-check"></i><b>12.4.1</b> 生成 <code>file.txt</code>文件</a></li>
+<li class="chapter" data-level="12.4.2" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#mp4-"><i class="fa fa-check"></i><b>12.4.2</b> 生成 MP4 文件</a></li>
+<li class="chapter" data-level="12.4.3" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#bash-"><i class="fa fa-check"></i><b>12.4.3</b> 做成一个 bash 脚本</a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="chap-simple-bash-scripts.html"><a href="chap-simple-bash-scripts.html#section-109"><i class="fa fa-check"></i><b>12.5</b> 总结</a></li>
+</ul></li>
+<li class="part"><span><b>III 本机管理员</b></span></li>
+<li class="chapter" data-level="13" data-path="section-110.html"><a href="section-110.html"><i class="fa fa-check"></i><b>13</b> 系统管理基础知识</a></li>
+<li class="chapter" data-level="14" data-path="deepin-install.html"><a href="deepin-install.html"><i class="fa fa-check"></i><b>14</b> 深度系统安装</a><ul>
+<li class="chapter" data-level="14.1" data-path="deepin-install.html"><a href="deepin-install.html#uefi--legacy-bios-"><i class="fa fa-check"></i><b>14.1</b> UEFI 和 legacy BIOS 区别和联系</a></li>
+<li class="chapter" data-level="14.2" data-path="deepin-install.html"><a href="deepin-install.html#section-111"><i class="fa fa-check"></i><b>14.2</b> 优盘安装</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="deepin-install.html"><a href="deepin-install.html#deepin.iso-"><i class="fa fa-check"></i><b>14.2.1</b> 第一步下载并校验 deepin.iso 文件</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="deepin-install.html"><a href="deepin-install.html#section-112"><i class="fa fa-check"></i><b>14.3</b> 安装常见问题</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="software-install.html"><a href="software-install.html"><i class="fa fa-check"></i><b>15</b> 软件安装</a><ul>
+<li class="chapter" data-level="15.1" data-path="software-install.html"><a href="software-install.html#npm-"><i class="fa fa-check"></i><b>15.1</b> npm 软件的安装</a></li>
+<li class="chapter" data-level="15.2" data-path="software-install.html"><a href="software-install.html#veil-"><i class="fa fa-check"></i><b>15.2</b> veil 软件安装</a></li>
+<li class="chapter" data-level="15.3" data-path="software-install.html"><a href="software-install.html#dpkg-"><i class="fa fa-check"></i><b>15.3</b> dpkg 安装</a></li>
+<li class="chapter" data-level="15.4" data-path="software-install.html"><a href="software-install.html#section-113"><i class="fa fa-check"></i><b>15.4</b> 其他安装方式</a><ul>
+<li class="chapter" data-level="15.4.1" data-path="software-install.html"><a href="software-install.html#bitnami"><i class="fa fa-check"></i><b>15.4.1</b> bitnami</a></li>
+<li class="chapter" data-level="15.4.2" data-path="software-install.html"><a href="software-install.html#turnkeylinux"><i class="fa fa-check"></i><b>15.4.2</b> turnkeylinux</a></li>
+</ul></li>
+<li class="chapter" data-level="15.5" data-path="software-install.html"><a href="software-install.html#you-get-"><i class="fa fa-check"></i><b>15.5</b> you-get 软件的安装</a></li>
+<li class="chapter" data-level="15.6" data-path="software-install.html"><a href="software-install.html#section-114"><i class="fa fa-check"></i><b>15.6</b> 字体的安装</a></li>
+<li class="chapter" data-level="15.7" data-path="software-install.html"><a href="software-install.html#section-115"><i class="fa fa-check"></i><b>15.7</b> 输入法的安装</a></li>
+<li class="chapter" data-level="15.8" data-path="software-install.html"><a href="software-install.html#wireshark-"><i class="fa fa-check"></i><b>15.8</b> wireshark 的安装</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="manager-user.html"><a href="manager-user.html"><i class="fa fa-check"></i><b>16</b> 管理账户</a><ul>
+<li class="chapter" data-level="16.1" data-path="manager-user.html"><a href="manager-user.html#section-116"><i class="fa fa-check"></i><b>16.1</b> 引言</a></li>
+<li class="chapter" data-level="16.2" data-path="manager-user.html"><a href="manager-user.html#section-117"><i class="fa fa-check"></i><b>16.2</b> 创建账户</a><ul>
+<li class="chapter" data-level="16.2.1" data-path="manager-user.html"><a href="manager-user.html#section-118"><i class="fa fa-check"></i><b>16.2.1</b> 图形方式</a></li>
+<li class="chapter" data-level="16.2.2" data-path="manager-user.html"><a href="manager-user.html#section-119"><i class="fa fa-check"></i><b>16.2.2</b> 命令方式</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>IV 服务器管理员</b></span></li>
+<li class="chapter" data-level="17" data-path="chap-server-intro.html"><a href="chap-server-intro.html"><i class="fa fa-check"></i><b>17</b> 服务器简介</a></li>
+<li class="chapter" data-level="18" data-path="chap-cups.html"><a href="chap-cups.html"><i class="fa fa-check"></i><b>18</b> Unix 通用打印系统简介</a><ul>
+<li class="chapter" data-level="18.1" data-path="chap-cups.html"><a href="chap-cups.html#cups"><i class="fa fa-check"></i><b>18.1</b> 何谓 “CUPS”</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="web-server-.html"><a href="web-server-.html"><i class="fa fa-check"></i><b>19</b> Web Server 的搭建与运行</a><ul>
+<li class="chapter" data-level="19.1" data-path="web-server-.html"><a href="web-server-.html#section-120"><i class="fa fa-check"></i><b>19.1</b> 面向开发的一键安装类型</a></li>
+<li class="chapter" data-level="19.2" data-path="web-server-.html"><a href="web-server-.html#section-121"><i class="fa fa-check"></i><b>19.2</b> 关注效率稳定的搭建方法</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="windows-samba-.html"><a href="windows-samba-.html"><i class="fa fa-check"></i><b>20</b> 与 Windows 共享文件打印机的 samba 服务</a><ul>
+<li class="chapter" data-level="20.1" data-path="windows-samba-.html"><a href="windows-samba-.html#samba-"><i class="fa fa-check"></i><b>20.1</b> Samba 文件传输服务简介</a></li>
+<li class="chapter" data-level="20.2" data-path="windows-samba-.html"><a href="windows-samba-.html#samba--1"><i class="fa fa-check"></i><b>20.2</b> 深度自带 samba 的使用</a><ul>
+<li class="chapter" data-level="20.2.1" data-path="windows-samba-.html"><a href="windows-samba-.html#section-122"><i class="fa fa-check"></i><b>20.2.1</b> 共享本地文件</a></li>
+<li class="chapter" data-level="20.2.2" data-path="windows-samba-.html"><a href="windows-samba-.html#section-123"><i class="fa fa-check"></i><b>20.2.2</b> 访问共享文件</a></li>
+<li class="chapter" data-level="20.2.3" data-path="windows-samba-.html"><a href="windows-samba-.html#section-124"><i class="fa fa-check"></i><b>20.2.3</b> 我的共享</a></li>
+<li class="chapter" data-level="20.2.4" data-path="windows-samba-.html"><a href="windows-samba-.html#section-125"><i class="fa fa-check"></i><b>20.2.4</b> 可能存在的小问题</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="windows-samba-.html"><a href="windows-samba-.html#samba--2"><i class="fa fa-check"></i><b>20.3</b> 关于 samba 的配置</a><ul>
+<li class="chapter" data-level="20.3.1" data-path="windows-samba-.html"><a href="windows-samba-.html#section-126"><i class="fa fa-check"></i><b>20.3.1</b> 手动安装</a></li>
+<li class="chapter" data-level="20.3.2" data-path="windows-samba-.html"><a href="windows-samba-.html#section-127"><i class="fa fa-check"></i><b>20.3.2</b> 启动与停止</a></li>
+<li class="chapter" data-level="20.3.3" data-path="windows-samba-.html"><a href="windows-samba-.html#section-128"><i class="fa fa-check"></i><b>20.3.3</b> 配置文件</a></li>
+</ul></li>
+<li class="chapter" data-level="20.4" data-path="windows-samba-.html"><a href="windows-samba-.html#u-file-"><i class="fa fa-check"></i><b>20.4</b> 例：借助安卓软件 U-File 实现手机电脑互传</a><ul>
+<li class="chapter" data-level="20.4.1" data-path="windows-samba-.html"><a href="windows-samba-.html#section-129"><i class="fa fa-check"></i><b>20.4.1</b> 开启局域网</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="section-130.html"><a href="section-130.html"><i class="fa fa-check"></i><b>21</b> 构建综合性服务器记录</a><ul>
+<li class="chapter" data-level="21.1" data-path="section-130.html"><a href="section-130.html#section-131"><i class="fa fa-check"></i><b>21.1</b> 引言</a></li>
+<li class="chapter" data-level="21.2" data-path="section-130.html"><a href="section-130.html#section-132"><i class="fa fa-check"></i><b>21.2</b> 一、安装计划</a></li>
+<li class="chapter" data-level="21.3" data-path="section-130.html"><a href="section-130.html#virtualbox-centos-7.6-minimal"><i class="fa fa-check"></i><b>21.3</b> 二、VirtualBox虚拟机里安装 centos 7.6 minimal</a></li>
+<li class="chapter" data-level="21.4" data-path="section-130.html"><a href="section-130.html#centos-"><i class="fa fa-check"></i><b>21.4</b> 三、centos 优化</a><ul>
+<li class="chapter" data-level="21.4.1" data-path="section-130.html"><a href="section-130.html#ip"><i class="fa fa-check"></i><b>21.4.1</b> 3.1 开通单网卡多IP功能</a></li>
+<li class="chapter" data-level="21.4.2" data-path="section-130.html"><a href="section-130.html#yum-"><i class="fa fa-check"></i><b>21.4.2</b> 3.2 配置 yum 官方源</a></li>
+<li class="chapter" data-level="21.4.3" data-path="section-130.html"><a href="section-130.html#section-133"><i class="fa fa-check"></i><b>21.4.3</b> 3.3 安装部分软件</a></li>
+<li class="chapter" data-level="21.4.4" data-path="section-130.html"><a href="section-130.html#section-134"><i class="fa fa-check"></i><b>21.4.4</b> 3.4 关闭不需要的服务</a></li>
+<li class="chapter" data-level="21.4.5" data-path="section-130.html"><a href="section-130.html#tty"><i class="fa fa-check"></i><b>21.4.5</b> 3.5 关闭不需要的TTY</a></li>
+<li class="chapter" data-level="21.4.6" data-path="section-130.html"><a href="section-130.html#tcpipsyn-flood"><i class="fa fa-check"></i><b>21.4.6</b> 3.6 调整TCP/IP网络参数，提高应对SYN Flood能力</a></li>
+<li class="chapter" data-level="21.4.7" data-path="section-130.html"><a href="section-130.html#shellhistory"><i class="fa fa-check"></i><b>21.4.7</b> 3.7 修改 SHELL命令的history记录条数</a></li>
+<li class="chapter" data-level="21.4.8" data-path="section-130.html"><a href="section-130.html#ipv6"><i class="fa fa-check"></i><b>21.4.8</b> 3.8 停用IPv6网络服务</a></li>
+<li class="chapter" data-level="21.4.9" data-path="section-130.html"><a href="section-130.html#section-135"><i class="fa fa-check"></i><b>21.4.9</b> 3.9 修改文件描述符限制</a></li>
+<li class="chapter" data-level="21.4.10" data-path="section-130.html"><a href="section-130.html#ssh"><i class="fa fa-check"></i><b>21.4.10</b> 3.10 修改SSH的设置</a></li>
+<li class="chapter" data-level="21.4.11" data-path="section-130.html"><a href="section-130.html#io"><i class="fa fa-check"></i><b>21.4.11</b> 3.11 关闭写磁盘I/O的功能</a></li>
+<li class="chapter" data-level="21.4.12" data-path="section-130.html"><a href="section-130.html#apachepostfixtcpip"><i class="fa fa-check"></i><b>21.4.12</b> 3.12 为Apache，Postfix优化TCP/IP内核参数</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="section-130.html"><a href="section-130.html#dns"><i class="fa fa-check"></i><b>21.5</b> 四、安装配置DNS服务</a><ul>
+<li class="chapter" data-level="21.5.1" data-path="section-130.html"><a href="section-130.html#dns-1"><i class="fa fa-check"></i><b>21.5.1</b> 4.1 安装DNS相关软件</a></li>
+<li class="chapter" data-level="21.5.2" data-path="section-130.html"><a href="section-130.html#section-136"><i class="fa fa-check"></i><b>21.5.2</b> 4.2 前期配置</a></li>
+<li class="chapter" data-level="21.5.3" data-path="section-130.html"><a href="section-130.html#section-137"><i class="fa fa-check"></i><b>21.5.3</b> 4.3 配置正向解析。</a></li>
+</ul></li>
+<li class="chapter" data-level="21.6" data-path="section-130.html"><a href="section-130.html#deepin-bible-"><i class="fa fa-check"></i><b>21.6</b> 五、配置 Deepin-Bible 书籍模板运行环境</a><ul>
+<li class="chapter" data-level="21.6.1" data-path="section-130.html"><a href="section-130.html#git-"><i class="fa fa-check"></i><b>21.6.1</b> 5.1 安装 git 并下载源码</a></li>
+<li class="chapter" data-level="21.6.2" data-path="section-130.html"><a href="section-130.html#section-138"><i class="fa fa-check"></i><b>21.6.2</b> 5.2 预备需要用的软件</a></li>
+<li class="chapter" data-level="21.6.3" data-path="section-130.html"><a href="section-130.html#section-139"><i class="fa fa-check"></i><b>21.6.3</b> 5.3 编译书籍</a></li>
+</ul></li>
+<li class="chapter" data-level="21.7" data-path="section-130.html"><a href="section-130.html#iredmail-"><i class="fa fa-check"></i><b>21.7</b> 六、搭建 iredmail 服务器</a><ul>
+<li class="chapter" data-level="21.7.1" data-path="section-130.html"><a href="section-130.html#selinux"><i class="fa fa-check"></i><b>21.7.1</b> 修改域名，禁用SELinux</a></li>
+<li class="chapter" data-level="21.7.2" data-path="section-130.html"><a href="section-130.html#iredmail"><i class="fa fa-check"></i><b>21.7.2</b> 下载最新iRedMail包，解压缩并安装</a></li>
+<li class="chapter" data-level="21.7.3" data-path="section-130.html"><a href="section-130.html#section-140"><i class="fa fa-check"></i><b>21.7.3</b> 加入中文名字的邮箱</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>V 安全</b></span></li>
+<li class="chapter" data-level="22" data-path="chap-network-security.html"><a href="chap-network-security.html"><i class="fa fa-check"></i><b>22</b> 网络安全</a></li>
+<li class="part"><span><b>VI 附录</b></span></li>
+<li class="appendix"><span><b>附录</b></span></li>
+<li class="chapter" data-level="A" data-path="chap-yugong.html"><a href="chap-yugong.html"><i class="fa fa-check"></i><b>A</b> 愚公移山</a></li>
+<li class="chapter" data-level="B" data-path="chap-makebook.html"><a href="chap-makebook.html"><i class="fa fa-check"></i><b>B</b> 如何制作本书</a><ul>
+<li class="chapter" data-level="B.1" data-path="chap-makebook.html"><a href="chap-makebook.html#section-141"><i class="fa fa-check"></i><b>B.1</b> 准备工作</a><ul>
+<li class="chapter" data-level="B.1.1" data-path="chap-makebook.html"><a href="chap-makebook.html#linux--1"><i class="fa fa-check"></i><b>B.1.1</b> Linux 下使用</a></li>
+<li class="chapter" data-level="B.1.2" data-path="chap-makebook.html"><a href="chap-makebook.html#windows-"><i class="fa fa-check"></i><b>B.1.2</b> Windows 下使用</a></li>
+<li class="chapter" data-level="B.1.3" data-path="chap-makebook.html"><a href="chap-makebook.html#section-142"><i class="fa fa-check"></i><b>B.1.3</b> 苹果操作系统下使用</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="chap-makebook.html"><a href="chap-makebook.html#section-143"><i class="fa fa-check"></i><b>B.2</b> 编译模板</a><ul>
+<li class="chapter" data-level="B.2.1" data-path="chap-makebook.html"><a href="chap-makebook.html#section-144"><i class="fa fa-check"></i><b>B.2.1</b> 第一种编译方法 —— 命令行编译</a></li>
+<li class="chapter" data-level="B.2.2" data-path="chap-makebook.html"><a href="chap-makebook.html#rstudio"><i class="fa fa-check"></i><b>B.2.2</b> 第二种编译方法 —— RStudio编译</a></li>
+<li class="chapter" data-level="B.2.3" data-path="chap-makebook.html"><a href="chap-makebook.html#section-145"><i class="fa fa-check"></i><b>B.2.3</b> 字数统计</a></li>
+<li class="chapter" data-level="B.2.4" data-path="chap-makebook.html"><a href="chap-makebook.html#r-"><i class="fa fa-check"></i><b>B.2.4</b> 本书编译的 R 各包信息</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="chap-makebook.html"><a href="chap-makebook.html#section-146"><i class="fa fa-check"></i><b>B.3</b> 文件布局</a></li>
+<li class="chapter" data-level="B.4" data-path="chap-makebook.html"><a href="chap-makebook.html#section-147"><i class="fa fa-check"></i><b>B.4</b> 主要文件介绍</a><ul>
+<li class="chapter" data-level="B.4.1" data-path="chap-makebook.html"><a href="chap-makebook.html#section-148"><i class="fa fa-check"></i><b>B.4.1</b> 模板文件</a></li>
+<li class="chapter" data-level="B.4.2" data-path="chap-makebook.html"><a href="chap-makebook.html#section-149"><i class="fa fa-check"></i><b>B.4.2</b> 各章源文件</a></li>
+<li class="chapter" data-level="B.4.3" data-path="chap-makebook.html"><a href="chap-makebook.html#section-150"><i class="fa fa-check"></i><b>B.4.3</b> 配置文件</a></li>
+<li class="chapter" data-level="B.4.4" data-path="chap-makebook.html"><a href="chap-makebook.html#intro:fig"><i class="fa fa-check"></i><b>B.4.4</b> 图片文件夹 images</a></li>
+<li class="chapter" data-level="B.4.5" data-path="chap-makebook.html"><a href="chap-makebook.html#intro:bib"><i class="fa fa-check"></i><b>B.4.5</b> 参考文献数据库bib</a></li>
+<li class="chapter" data-level="B.4.6" data-path="chap-makebook.html"><a href="chap-makebook.html#section-151"><i class="fa fa-check"></i><b>B.4.6</b> 辅助文件</a></li>
+</ul></li>
+<li class="chapter" data-level="B.5" data-path="chap-makebook.html"><a href="chap-makebook.html#section-152"><i class="fa fa-check"></i><b>B.5</b> 关于在线网页的制作</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="chap-chapters.html"><a href="chap-chapters.html"><i class="fa fa-check"></i><b>C</b> 各章格式说明</a><ul>
+<li class="chapter" data-level="C.1" data-path="chap-chapters.html"><a href="chap-chapters.html#section-153"><i class="fa fa-check"></i><b>C.1</b> 章：前言</a></li>
+<li class="chapter" data-level="C.2" data-path="chap-chapters.html"><a href="chap-chapters.html#section-154"><i class="fa fa-check"></i><b>C.2</b> 前言后的部分章节</a></li>
+<li class="chapter" data-level="C.3" data-path="chap-chapters.html"><a href="chap-chapters.html#section-155"><i class="fa fa-check"></i><b>C.3</b> 部分：第一部分简介</a></li>
+<li class="chapter" data-level="C.4" data-path="chap-chapters.html"><a href="chap-chapters.html#section-156"><i class="fa fa-check"></i><b>C.4</b> 各部分内部的章</a></li>
+<li class="chapter" data-level="C.5" data-path="chap-chapters.html"><a href="chap-chapters.html#section-157"><i class="fa fa-check"></i><b>C.5</b> 部分：附录及其他</a></li>
+<li class="chapter" data-level="C.6" data-path="chap-chapters.html"><a href="chap-chapters.html#section-158"><i class="fa fa-check"></i><b>C.6</b> 附录内部各章</a></li>
+<li class="chapter" data-level="C.7" data-path="chap-chapters.html"><a href="chap-chapters.html#section-159"><i class="fa fa-check"></i><b>C.7</b> 后缀部分</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html"><i class="fa fa-check"></i><b>D</b> RMarkdown/Bookdown 排版示例</a><ul>
+<li class="chapter" data-level="D.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#markdown-syntax"><i class="fa fa-check"></i><b>D.1</b> Markdown syntax</a><ul>
+<li class="chapter" data-level="D.1.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#inline-formatting"><i class="fa fa-check"></i><b>D.1.1</b> Inline formatting</a></li>
+<li class="chapter" data-level="D.1.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#block-level-elements"><i class="fa fa-check"></i><b>D.1.2</b> Block-level elements</a></li>
+<li class="chapter" data-level="D.1.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#math-expressions"><i class="fa fa-check"></i><b>D.1.3</b> Math expressions</a></li>
+</ul></li>
+<li class="chapter" data-level="D.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#markdown-extensions-by-bookdown"><i class="fa fa-check"></i><b>D.2</b> Markdown extensions by bookdown</a><ul>
+<li class="chapter" data-level="D.2.1" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#equations"><i class="fa fa-check"></i><b>D.2.1</b> Number and reference equations</a></li>
+<li class="chapter" data-level="D.2.2" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#theorems"><i class="fa fa-check"></i><b>D.2.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="D.2.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#special-headers"><i class="fa fa-check"></i><b>D.2.3</b> Special headers</a></li>
+<li class="chapter" data-level="D.2.4" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#text-references"><i class="fa fa-check"></i><b>D.2.4</b> Text references</a></li>
+</ul></li>
+<li class="chapter" data-level="D.3" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#r-code"><i class="fa fa-check"></i><b>D.3</b> R code</a></li>
+<li class="chapter" data-level="D.4" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#figures"><i class="fa fa-check"></i><b>D.4</b> Figures</a></li>
+<li class="chapter" data-level="D.5" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#tables"><i class="fa fa-check"></i><b>D.5</b> Tables</a></li>
+<li class="chapter" data-level="D.6" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#cross-references"><i class="fa fa-check"></i><b>D.6</b> Cross-references</a></li>
+<li class="chapter" data-level="D.7" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#custom-blocks"><i class="fa fa-check"></i><b>D.7</b> Custom blocks</a></li>
+<li class="chapter" data-level="D.8" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#citations"><i class="fa fa-check"></i><b>D.8</b> Citations</a></li>
+<li class="chapter" data-level="D.9" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#latex-index"><i class="fa fa-check"></i><b>D.9</b> Index</a></li>
+<li class="chapter" data-level="D.10" data-path="chap-rmarkdown.html"><a href="chap-rmarkdown.html#html-widgets"><i class="fa fa-check"></i><b>D.10</b> HTML widgets</a></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="chap-faqs.html"><a href="chap-faqs.html"><i class="fa fa-check"></i><b>E</b> 常见问题</a></li>
+<li class="chapter" data-level="F" data-path="install-further-read.html"><a href="install-further-read.html"><i class="fa fa-check"></i><b>F</b> 操作系统安装延伸阅读</a><ul>
+<li class="chapter" data-level="F.1" data-path="install-further-read.html"><a href="install-further-read.html#section-160"><i class="fa fa-check"></i><b>F.1</b> 计算机引导过程</a><ul>
+<li class="chapter" data-level="F.1.1" data-path="install-further-read.html"><a href="install-further-read.html#bios-"><i class="fa fa-check"></i><b>F.1.1</b> 传统 BIOS 引导</a></li>
+<li class="chapter" data-level="F.1.2" data-path="install-further-read.html"><a href="install-further-read.html#uefi-"><i class="fa fa-check"></i><b>F.1.2</b> UEFI 引导</a></li>
+<li class="chapter" data-level="F.1.3" data-path="install-further-read.html"><a href="install-further-read.html#uefi--1"><i class="fa fa-check"></i><b>F.1.3</b> UEFI 的多重引导</a></li>
+</ul></li>
+<li class="chapter" data-level="F.2" data-path="install-further-read.html"><a href="install-further-read.html#bios--1"><i class="fa fa-check"></i><b>F.2</b> 常见 BIOS 设置</a><ul>
+<li class="chapter" data-level="F.2.1" data-path="install-further-read.html"><a href="install-further-read.html#section-161"><i class="fa fa-check"></i><b>F.2.1</b> 常见启动引导器</a></li>
+<li class="chapter" data-level="F.2.2" data-path="install-further-read.html"><a href="install-further-read.html#ntldrbootmgr"><i class="fa fa-check"></i><b>F.2.2</b> NTLDR/BOOTMGR</a></li>
+<li class="chapter" data-level="F.2.3" data-path="install-further-read.html"><a href="install-further-read.html#gnu-grub-"><i class="fa fa-check"></i><b>F.2.3</b> GNU GRUB 及其使用</a></li>
+</ul></li>
+<li class="chapter" data-level="F.3" data-path="install-further-read.html"><a href="install-further-read.html#linux--2"><i class="fa fa-check"></i><b>F.3</b> LINUX 启动过程</a><ul>
+<li class="chapter" data-level="F.3.1" data-path="install-further-read.html"><a href="install-further-read.html#vmlinuz"><i class="fa fa-check"></i><b>F.3.1</b> VMLINUZ</a></li>
+<li class="chapter" data-level="F.3.2" data-path="install-further-read.html"><a href="install-further-read.html#initrd"><i class="fa fa-check"></i><b>F.3.2</b> INITRD</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="history.html"><a href="history.html"><i class="fa fa-check"></i><b>G</b> 大事记</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">本书由 bookdown 强力驱动</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">深度易经</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap:server-intro" class="section level1">
+<h1><span class="header-section-number">17</span> 服务器简介</h1>
+<p>通过阅读本章，你将会了解到以下几项内容。</p>
+<ul>
+<li>管理 Linux 服务器</li>
+<li>访问远程或局域网服务器</li>
+<li>服务器的本地或远程日志记录</li>
+<li>监控服务器</li>
+<li>服务器的开启终止与状态查询</li>
+</ul>
+<p>深度操作系统不仅仅是桌面办公的操作系统，还可以作为服务器使用。当然，也可根据自己的需要，用把深度桌面操作系统作为办公环境，另外安装个redhat/centos或者debian的服务器，以求更稳定的服务器。</p>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="manager-user.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap-cups.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/bubifengyun/deepin-bible/edit/master/rmd/401-server-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["deepin-bible.pdf", "deepin-bible.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
