@@ -144,3 +144,10 @@ images 文件夹放置了需要插入文档中的图片文件(支持PNG/JPG/PDF/
 - *./\_bookdown\_files/* 过程中生成的文件所在文件夹。
 - *./bin/*，*./imakeidx.ist* 是索引引擎及索引模板文件。
 - *./css/* 用于生成非 PDF 书籍的模板，编译本书暂时用不到。
+
+## 关于在线网页的制作
+
+参考网页：
+
+- https://bookdown.org/yihui/bookdown/github.html
+
