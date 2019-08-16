@@ -1,3 +1,370 @@
 # 系统管理基础知识
 
-workrave
+Linux Deepin 深度操作系统是一个多用户多任务操作系统。人多嘴杂，权限滥用，很容易把操作系统给玩完。作为电脑负责人，管理员用户，要把好这个关，尤其是在处理一些文件系统、软件安装、账户管理、网络接入、服务软件和安全相关等事务时（注：深度的软件安装不需要最高权限）。而系统的最高权限归超级用户（`superuser`）也就是`root`用户所有。作为管理员需要及时申请超级（super）权限才能完成某些工作。申请方法如下。
+
+- `su` 命令，Switch User 切换用户的简写，默认打开新的shell终端，可以使用`exit`命令退出。有关`su`的详细介绍，可以百度或`man su`查看。
+- `sudo`命令，Super User DO 以超级用户的权限做事，用在其他命令前面，表示这些命令以超级用户的权限执行。
+- 右击快捷键以管理员模式运行。在深度操作系统下，在文件夹界面，右击弹出的快捷键里，有以管理员身份打开，也可以转化为超级权限的方式新打开一个文件夹窗口。但是对于普通文件，则没有这项右击快捷键功能。
+
+## 控制中心
+
+对于普通用户，类似Windows操作系统，按下`Super`键，（普通电脑`win`键，苹果电脑花键），在弹出的界面找控制中心打开即可。控制中心基本是傻瓜式操作，一看就明白咋回事，这里不再赘述，有时间自己动手操作一下就可以了。
+
+## 关于提升权限
+
+### root根用户
+
+深度操作系统安装时，会自动生成两个用户，一个是你自己那个普通的管理员用户，另外一个就是这个超级权限root根用户。按下快捷键`Ctrl+Alt+T`打开深度终端，输入`sudo su`，再输入密码，就登录到root用户了。或者按下`Ctrl+Alt+Fx`（其中`x=2,3,...,6`，`x!=1`，因为`Ctrl+Alt+F1`是窗口界面），打开虚拟终端，在`longin:`后输入`root`，回车，输入密码（此时不显示字符）回车即可登录root用户，但是不推荐此种登录方式，因为虚拟终端对中文支持不够友好。
+
+输入命令`id root`可以查看root用户的一些ID信息，
+\lstset{mathescape=true}
+
+```bash
+$\#$ id root
+# uid=0(root) gid=0(root) group=0(root),121(sambashare)
+```
+
+在文件*/etc/passwd*，也可获得关于root用户的一些信息。
+
+```bash
+$\#$ cat /etc/passwd | grep ^root
+# root:x:0:0:root:/root:/bin/bash
+```
+
+关于文件*/etc/passwd*的[格式说明](https://blog.csdn.net/ouyang_peng/article/details/8732644)为
+
+```
+用户名:密码:用户ID:组ID:用户全名:主目录:登录shell
+```
+
+**解释**
+
+1. 密码：存在**/etc/shadow**中，是就用`x`表示；
+1. UID：就是用户识别码（ID），当UID为0时说明其账号是管理员身份，1-499是保留给系统使用的主要是一些系统服务,500-65535是给一般用户的；
+1. GID：与*/etc/group*文件有关，这个是初始化组的ID，因为该用户可能属于多个组，这里只记录一个组ID；
+1. 用户全名：用户全称；
+1. 主目录：就是该用户的主目录；
+1. 登录Shell：用户登录时使用的默认shell，在redhat 企业版中，登录shell通常是*/bin/bash*，深度系统的登录shell当前版本默认也是*/bin/bash*。
+
+当前使用root用户，权限极大，如果不需要这些权限了，请尽快输入`exit`退出，避免权限滥用。
+
+```{block2, type='rmdtip'}
+但是深度操作系统跟Ubuntu系统一样，root账户的密码没有设置。也即`su`或者`su root`会报错，**su：鉴定故障**。这也算是一种安全手段吧。必须通过`sudo su`的方式才可以启用`su`命令。对于redhat系列的则不存在该问题。
+```
+
+### `su`命令提权
+
+在深度只可以使用`sudo`前缀的方式使用root根账户，也即`sudo su`，会继续在当前工作目录，环境变量（login session environment）下打开一个新的shell终端。当加上短横线`-`，也即`sudo su -`，表示初始化登录，也就是完全退出当前的目录和变量环境下的重新登录。也可切换到其他用户，比如`su - phptester`，`-`的意义同上，这是切换到phptester用户。
+
+### `sudo`命令提权
+
+超级权限不能随便全权下放，可以采用把部分权限下放给部分特殊用户的方式来执行，这些用户就是`sudoers`，他们不需要知道root用户的密码，使用自己的账户密码（也可用设置不需要密码），在命令前加上`sudo`就可以启用被授的权限。有关`sudo`的几点[说明](https://blog.csdn.net/xyz846/article/details/26406955)。
+
+- 超级权限可以部分也可用全部授予某个用户，他只需要在前面相关命令前加`sudo`即可；
+- `sudo`需要输入该用户自己的密码，不是root用户的密码，也可设置不要密码就启用`sudo`；
+- `sudo`的主配置文件为*/etc/sudoers*，提供日志功能。
+
+### 配置 */etc/sudoers*
+
+参考网页：
+
+- https://www.jianshu.com/p/009e748db9e8
+- https://blog.csdn.net/xyz846/article/details/26406955
+
+使用自己的喜欢的编辑器，编辑该文件，比如`vim`或者`gedit`。
+
+
+```bash
+$\$$ sudo su
+$\#$ SUDO_EDITOR=vim
+# 也可用使用 SUDO\_EDITOR=gedit
+$\#$ export SUDO_EDITOR
+$\#$ /usr/sbin/visudo 
+```
+
+其内容如下，
+
+```bash
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# Please consider adding local content in /etc/sudoers.d/ instead of
+# directly modifying this file.
+#
+# See the man page for details on how to write a sudoers file.
+#
+Defaults	env_reset
+Defaults	mail_badpass
+Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+# User privilege specification
+root	ALL=(ALL:ALL) ALL
+
+# Allow members of group sudo to execute any command
+%sudo	ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "\#include" directives:
+
+#includedir /etc/sudoers.d
+```
+
+查看自己的id信息`id litianci`，可以看到，
+\lstset{mathescape=true}
+
+```bash
+$\#$ id litianci
+ uid=1000(litianci) gid=1000(litianci) group=1000(litianci),7(lp),24(cdrom),27(sudo),100(users),109(netdev),113(lpadmin),116(scanner),121(sambashare),124(wireshark),999(bumblebee)
+```
+\lstset{mathescape=false}
+
+可以看出本用户属于`sudo`组，所有拥有超级权限。如果想拉个用户deepinuser进入`sudoers`里，可以加入到`sudo`组，使用命令，
+
+```bash
+$ sudo usermod -a -G sudo deepinuser
+```
+
+这样deepinuser就可以全权使用`sudo`了。也可用使用直接修改*/etc/sudoers*的方式，在文件中加入
+
+```{block2}
+deepinuser	ALL=(ALL:ALL) ALL
+```
+
+即可。下面讲述添加`sudo`日志的功能。在*/etc/sudoers*加入如下这行代码。所有的`sudo`命令都会被记录。
+
+
+```{block2}
+Defaults    logfile="/var/log/sudo"
+```
+
+更详细的例子，请查阅相关文献。
+
+## 常见服务的配置、日志和账户
+
+本着“一切都是文件”的哲学，Linux下软件的配置都是存储在文件里的。好处容易修改，坏处配置不当软件崩溃。好在相当多的软件能够检测配置的语法，确保配置合法有效。比如samba服务的`testparm`命令，就可以检测配置是否合法。另外编辑器`vim`，能够理解很多软件的配置格式，通过不同的颜色提示你配置是否合法。
+
+常见的两个配置文件的存放地址，一个是*$HOME*主目录下`.`点开头的隐藏文件，多为用户私有配置文件；一个是*/etc*文件夹下各个文件，多为公共配置文件。
+
+### */etc*下的配置文件
+
+下面介绍几个*/etc/*下的配置文件。
+
+- */etc/rc?.d/*—其中`?=0,1,...,6,S`，表示不同的系统状态。*rc0.d* (关机状态), *rc1.d* (单用户状态), *rc2.d* (多用户状态), *rc3.d* (多用户网络状态), *rc4.d* (用户定义状态), *rc5.d* (多用户网络视窗状态),  *rc6.d* (重启状态)和*rcS.d*。
+- */etc/systemd*—存储跟`systemd`相关的配置文件。这里从略，详解见后面章节。
+
+### 日志文件
+
+前事不忘后事之师，作为一个非常注重历史的民族，留下各种各样的记录，还是非常有意义的一件事。对于Linux操作系统同样如此，日志服务是非常重要的一个服务。`systemd`服务管理方案，采用`journalctl`日志服务。之前老的Linux版本会采用`rsyslogd`及更古老的`syslogd`(`rsyslogd`的前身)作为日志服务，这个`rsyslogd`命令也可以在`systemd`使用，但是在深度操作系统里这两个命令都不存在了。后面章节会详细介绍`systemd`的，这也是当前深度操作系统采用的服务管理方案。
+
+赶上`systemd`的新时代，我们就用`journalctl`来查看日志吧。下面是例子。
+
+```bash
+$ sudo journalctl 
+[sudo] litianci 的密码：
+-- Logs begin at Tue 2019-06-18 16:26:45 CST, end at Fri 2019-08-16 19:53:28 CST. --
+6月 18 16:26:45 litianci-PC startdde[6764]: startmanager.go:552: [/bin/sh -c export GIO_LAUNCHED_DESKTOP_FILE_PI
+6月 18 16:27:00 litianci-PC startdde[6764]: checker.go:288: process memory: /etc/xdg/autostart/dman-daemon.deskt
+6月 18 16:29:38 litianci-PC com.deepin.sync.Daemon[6845]: [DEB] 2019/06/18 - 16:29:38 | sync.go:77 | Sync | 0000
+6月 18 16:29:38 litianci-PC com.deepin.sync.Daemon[6845]: [DEB] 2019/06/18 - 16:29:38 | sync.go:79 | Sync | 0000
+6月 18 16:29:38 litianci-PC deepin-sync-daemon[6975]: [DEB] sync.go:77: [Modules] start sync...
+6月 18 16:29:38 litianci-PC deepin-sync-daemon[6975]: [DEB] sync.go:79: [Modules] sync has been disabled
+...
+
+$ sudo journalctl --list-boots | head
+-35 1c84933f8e994da7936fd6bc0dfef6c6 Tue 2019-06-18 16:26:45 CST—Wed 2019-06-19 16:55:01 CST
+-34 7e8740d7e0614ecba139985fcf5ee7fc Wed 2019-06-19 17:01:17 CST—Wed 2019-06-19 18:04:59 CST
+-33 225644f39e584c6fbbc975f2b7e36062 Sat 2019-06-22 23:06:03 CST—Sat 2019-06-22 23:47:11 CST
+-32 bbb2e873bc6547208ff966332ad6b3d7 Mon 2019-06-24 22:36:05 CST—Tue 2019-06-25 13:51:04 CST
+-31 cefff10a9e6749c0ae90671a031612c3 Tue 2019-06-25 15:18:17 CST—Wed 2019-06-26 13:47:52 CST
+-30 67039b792b354333a245a59cdea37a22 Wed 2019-06-26 15:14:47 CST—Wed 2019-06-26 15:41:12 CST
+-29 904e748103de4bf88c9c2b9c5222f819 Wed 2019-06-26 19:02:26 CST—Fri 2019-06-28 13:37:30 CST
+-28 4ad036cef79244c695811ce72128f0ae Fri 2019-06-28 16:04:13 CST—Fri 2019-06-28 16:18:26 CST
+-27 048ed66256eb44a49f34552f13857b00 Tue 2019-07-02 22:44:58 CST—Tue 2019-07-02 23:37:52 CST
+-26 199467ece36348a7988d3d205f0face0 Wed 2019-07-03 07:01:52 CST—Wed 2019-07-03 07:00:37 CST
+
+$ sudo journalctl -a -f
+-- Logs begin at Tue 2019-06-18 16:26:45 CST. --
+8月 16 19:54:11 litianci-PC deepin-anything-tool-ionice[1652]: [2019-08-16, 19:54:11.550] [Debug  ] [lftmanager.cpp=>LFTManager::sync: 653] found buf, path: "/media/litianci/os"
+8月 16 19:54:11 litianci-PC deepin-anything-tool-ionice[1652]: [2019-08-16, 19:54:11.550] [Debug  ] [lftmanager.cpp=>LFTManager::sync: 671] lft file: "/var/cache/deepin/deepin-anything/serial:by-id-ata-HFS512G39TND-N210A_FI72T002410102H6I-part3%2F.LFT"
+8月 16 19:54:17 litianci-PC daemon/dock[5443]: process_info.go:132: lstat /usr/share/code/code --unity-launch: no such file or directory
+8月 16 19:54:26 litianci-PC sudo[15146]: pam_unix(sudo:session): session closed for user root
+8月 16 19:54:40 litianci-PC sudo[15217]: litianci : TTY=pts/0 ; PWD=/home/litianci ; USER=root ; COMMAND=/bin/journalctl --list-boots
+8月 16 19:54:40 litianci-PC sudo[15217]: pam_unix(sudo:session): session opened for user root by (uid=0)
+8月 16 19:54:40 litianci-PC sudo[15217]: pam_unix(sudo:session): session closed for user root
+8月 16 19:55:02 litianci-PC com.deepin.sync.Daemon[5323]: 2019/08/16 19:55:02 INF    1 [user16639/7817e0feb5cbf9f653c786f7eda86b2fe0843c136db2a98f937ee52978c4c291] querying nsqlookupd http://push.deepinid.deepin.com/hub/lookup?topic=user16639
+8月 16 19:55:12 litianci-PC sudo[15235]: litianci : TTY=pts/0 ; PWD=/home/litianci ; USER=root ; COMMAND=/bin/journalctl -a -f
+8月 16 19:55:12 litianci-PC sudo[15235]: pam_unix(sudo:session): session opened for user root by (uid=0)
+...
+
+```
+
+**解释**
+
+1. `journalctl` 查看`systemd`的全部日志。
+1. `--list-boots` 列出每次启动是的boot-ID 和时间等信息。
+1. `-a -f`，`-f`表示跟踪 root 用户登进登出的信息，`-a`表示显示每个条目的全部信息。
+
+### 一些无法登录的服务器后台管理员账户
+
+Linux作为服务器，会运行很多服务软件。如果这些软件都使用同一超级用户运行，且其中一个软件有漏洞，被黑客攻破，获得超级用户权限，那么所有的软件都将暴露在黑客攻击范围。这是非常危险的一件事。所以这些服务软件运行时的用户，都是各自权限受限且无法登录的用户。前段时间[华为2019开发者大会](https://developer.huawei.com/consumer/cn/events/hdc2019/)提到的鸿蒙操作系统宣称内核没有超级权限用户，各个模块相互独立，也是出于安全考虑，[相关视频在这里](https://www.iqiyi.com/v_19rru1qdq0.html)。
+
+这些用户可以在*/etc/passwd*里查看到，每行最后一个选项一般为`/usr/sbin/nologin`或`/sbin/nologin`或`/bin/false`等。或者查阅`lslogins`命令的用法，获得更多帮助信息。
+
+
+## 硬件检测和配置
+
+随着智能设备和物联网的发展，连接到电脑上的设备品种也越来越多。这就要求Linux能够自动检测到这些硬件，并能够高效灵活的使用这些硬件。
+
+### 查看硬件信息
+
+开机后，Linux系统会检测各硬件并加载其驱动，相关信息快速的屏显。一般来不及查看，不过这些内核信息都保存下来了，在进入系统后，可以通过如下几种方式查看。
+
+- `dmesg`命令查看内核信息；
+- 如果存在*/var/log/dmesg*文件，可以查看该文件，但是深度操作系统没有；
+- `journalctl`命令也可查看特定的内核启动信息。
+
+下面介绍几个例子。
+
+```bash
+$ dmesg | less
+[    0.000000] microcode: microcode updated early to revision 0x84, date = 2018-01-21
+[    0.000000] Linux version 4.15.0-29deepin-generic (pbuilder@zs-PC) (gcc version 7.3.0 (Debian 7.3.0-19)) #31 
+SMP Fri Jul 27 07:12:08 UTC 2018 (Ubuntu 4.15.0-29deepin.31-generic 4.15.18)
+[    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-4.15.0-29deepin-generic root=UUID=9a608b46-a98c-49cf-831c-2d5838e975e9 ro splash quiet DEEPIN_GFXMODE=
+[    0.000000] KERNEL supported cpus:
+[    0.000000]   Intel GenuineIntel
+[    0.000000]   AMD AuthenticAMD
+[    0.000000]   Centaur CentaurHauls
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x001: 'x87 floating point registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x002: 'SSE registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x004: 'AVX registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x008: 'MPX bounds registers'
+[    0.000000] x86/fpu: Supporting XSAVE feature 0x010: 'MPX CSR'
+[    0.000000] x86/fpu: xstate_offset[2]:  576, xstate_sizes[2]:  256
+[    0.000000] x86/fpu: xstate_offset[3]:  832, xstate_sizes[3]:   64
+[    0.000000] x86/fpu: xstate_offset[4]:  896, xstate_sizes[4]:   64
+[    0.000000] x86/fpu: Enabled xstate features 0x1f, context size is 960 bytes, using 'compacted' format.
+[    0.000000] e820: BIOS-provided physical RAM map:
+[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x0000000000057fff] usable
+[    0.000000] BIOS-e820: [mem 0x0000000000058000-0x0000000000058fff] reserved
+...
+```
+
+从上面可以看到一些启动信息，还是需要一些英文能力，总体来说还是容易理解的。
+
+如果你想查看当前电脑PCI总线上连接的硬件信息，可以使用`lspci`命令。
+
+```bash
+$ lspci
+00:00.0 Host bridge: Intel Corporation Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers (rev 02)
+00:02.0 VGA compatible controller: Intel Corporation HD Graphics 620 (rev 02)
+00:04.0 Signal processing controller: Intel Corporation Skylake Processor Thermal Subsystem (rev 02)
+00:14.0 USB controller: Intel Corporation Sunrise Point-LP USB 3.0 xHCI Controller (rev 21)
+00:14.2 Signal processing controller: Intel Corporation Sunrise Point-LP Thermal subsystem (rev 21)
+00:15.0 Signal processing controller: Intel Corporation Sunrise Point-LP Serial IO I2C Controller #0 (rev 21)
+00:15.1 Signal processing controller: Intel Corporation Sunrise Point-LP Serial IO I2C Controller #1 (rev 21)
+00:16.0 Communication controller: Intel Corporation Sunrise Point-LP CSME HECI #1 (rev 21)
+00:17.0 SATA controller: Intel Corporation Sunrise Point-LP SATA Controller [AHCI mode] (rev 21)
+00:1c.0 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port (rev f1)
+00:1c.7 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port #8 (rev f1)
+00:1f.0 ISA bridge: Intel Corporation Sunrise Point-LP LPC Controller (rev 21)
+00:1f.2 Memory controller: Intel Corporation Sunrise Point-LP PMC (rev 21)
+00:1f.3 Audio device: Intel Corporation Sunrise Point-LP HD Audio (rev 21)
+00:1f.4 SMBus: Intel Corporation Sunrise Point-LP SMBus (rev 21)
+01:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev ff)
+02:00.0 Network controller: Intel Corporation Wireless 8260 (rev 3a)
+```
+
+如果你想查看USB或者CPU等的信息，可以使用`lsusb`、`lscpu`的命令，具体用法，请使用man手册或者上网查询。更多以`ls`开头的命令，你可以试着在shell里输入`ls`然后按两次`<tab>`键，就会显示出来了。
+
+### 管理可插拔设备
+
+这里可插拔设备主要指光驱和各类存储介质，比如光盘、安卓手机、优盘和硬盘等。深度操作系统下的文件管理器，类似Windows的操作方式，双击打开，右击快捷键等，这里不再赘述。
+
+一般光盘未挂载时，为*/dev/cd*，通常使用`# mount /dev/cd /tmp/somefolder`的方式挂载。一般优盘和硬盘等，多为`/dev/sda`,`/dev/sdx`(其中`x=a,b,c...`)等，在深度操作系统里，挂载到，*/media/用户名/*文件夹下。
+
+
+### 管理可加载的驱动模块驱动
+
+常见的硬件，深度操作系统一般都能自动找到合适的驱动，这些驱动一般存放于*/lib/modules/\`uname -r\`/*，其中`` `uname -r` ``是系统的内核发行号，比如我的电脑当前为*/lib/modules/4.15.0-29deepin-generic/*文件夹内。但是也存在部分硬件无法自动检测到，则需要手动添加相关模块（驱动）了。下面介绍如何显示模块列表、显示模块信息、加载卸载模块等。
+
+#### 查看驱动模块列表及信息
+\lstset{mathescape=true}
+
+```bash
+$\#$ lsmod
+```
+
+显示内容如下，
+
+```
+Module                  Size  Used by
+rfcomm                 77824  2
+hid_generic            16384  0
+usbhid                 49152  0
+xfrm_user              32768  2
+xfrm4_tunnel           16384  0
+tunnel4                16384  1 xfrm4_tunnel
+ipcomp                 16384  0
+xfrm_ipcomp            16384  1 ipcomp
+esp4                   20480  0
+...
+hid                   118784  4 i2c_hid,hid_generic,usbhid,hid_multitouch
+wmi                    24576  3 asus_wmi,wmi_bmof,mxm_wmi
+video                  45056  2 asus_wmi,i915
+```
+
+```bash
+$\#$ modinfo -d rfcomm
+Bluetooth RFCOMM ver 1.11
+```
+
+**解释**
+
+1. `lsmod`命令，使用普通用户权限和超级权限执行，结果是相同的。都是显示当前内核运行时已经加载的驱动模块列表。
+1. `rfcomm`模块，处于首位，如果我们想查看他的具体情况，可以采用如上命令`modinfo -d rfcomm` 查看。下面一行为显示结果。
+1. `modinfo`命令，同样不需要超级权限就可以运行，用于查看特定模块的稍微具体点的信息。该命令位于*/sbin/modinfo*。
+
+#### 加载驱动模块
+
+加载卸载驱动模块，一般在驱动开发里使用较多，平常也可能用到。命令`modprobe`用于在当前运行内核中加载模块，用例如下。
+
+```bash
+$\#$ modprobe parport
+$\#$ modprobe parport_pc io=0x3bc irq=auto
+```
+
+**解释**
+
+1. `modprobe`命令，在深度操作系统下不需要超级权限，尚未测试在centos下是否需要超级权限。
+1. 上述是加载了`parport`和`parport_pc`两个模块，后者有自己的参数。对于不同的驱动模块，可以查看其使用说明，然后确定加载方式。
+1. `modprobe`只是临时加载，重启后消失。如果想永久加载，可以放在开机自启动脚本里。
+
+#### 卸载驱动模块
+
+命令`rmmod`和`modprobe -r`均可用于从当前运行内核中卸载模块，用例如下。
+
+```bash
+$\#$ rmmod rfcomm
+rmmod: ERROR: Module rfcomm is in use
+$\#$ modprobe -r rfcomm
+modprobe: FATAL: Module rfcomm is in use.
+$\#$ rmmod usbcore
+rmmod: ERROR: Module usbcore is builtin.
+$\#$ modprobe -r usbcore
+modprobe: FATAL: Module usbcore is builtin.
+```
+
+**解释**
+
+1. `rmmod`命令，在深度操作系统下不需要超级权限，尚未测试在centos下是否需要超级权限。
+1. 如果一个模块没有被任何进程占用，也没有被其他已经加载的模块依赖，则可以成功卸载。
+1. `rmmod`只负责卸载该模块，关于进程关闭和其他进程依赖，需要预先处理好。
+1. `modprobe -r`可以卸载该模块，同时卸载掉那些依赖该模块的其他模块。但是内核内置模块、或者有其他进程占用，则无法卸载掉。
+
+\lstset{mathescape=false}

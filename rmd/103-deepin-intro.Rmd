@@ -314,7 +314,7 @@ $ sudo apt-get install netease-cloud-music
 $ sudo apt-get install deepin-system-monitor -y
 ```
 
-### 深度无线投屏
+### 深度无线投屏{deepin-presentation-assistant}
 
 深度演示助手是一款用于手机内容分享的演示工具。它支持照片分享功能，分享时可以对照片进行旋转、标记、聚焦等操作。甚至还可以直接将手机屏幕投射到电脑上，视频、游戏都轻松分享。另外还支持幻灯片远程控制，让您在演示幻灯片时无拘无束。
 
@@ -331,7 +331,7 @@ $ sudo apt-get install deepin-system-monitor -y
 ```bash
 $ sudo apt-get install deepin-presentation-assistant -y
 ```
-
+另外还有一个软件，
 ## 总结
 
 本章简要介绍了深度科技公司及深度操作系统的部分内容，并对桌面常用的一些操作和常用的若干软件做了简单描述。如果需要对深度操作系统的框架了解更多，可以阅读官网[架构设计](https://www.deepin.org/developer-community/architectural-design/)，或者更进一步阅读[源代码](https://github.com/linuxdeepin)。

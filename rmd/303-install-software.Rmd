@@ -121,3 +121,85 @@ $ sudo dpkg -i /path/to/***.deb
 ## wireshark 的安装
 
 包括`k3b`光盘刻录、`wireshark`网络抓包等软件，运行需要相关权限，虽然安装简单，但是安装后还需要配置权限。
+
+## 投屏软件 scrcpy 的安装
+
+深度自带无线投屏的，见\@ref(deepin-presentation-assistant)节介绍，但是播放视频的时候会比较卡。这里介绍的scrcpy相对流畅，顺便介绍一种snap的安装方式。
+
+参考网页：
+
+- https://bbs.deepin.org/forum.php?mod=viewthread&tid=178520&extra=&page=1
+- https://snapcraft.io/docs/installing-snap-on-deepin
+- https://github.com/Genymobile/scrcpy
+- https://snapcraft.io/scrcpy
+- https://gitee.com/mirrors/scrcpy
+
+### 第一种安装方法
+
+问题太多安装失败，跳过。
+
+```bash
+$ sudo apt update
+$ sudo apt install snapd
+$ sudo snap install scrcpy
+$ sudo reboot
+```
+
+使用方法，由于上述`snap`文件下载太慢了，源码在[码云有镜像](https://gitee.com/mirrors/scrcpy)，`snap`我在CSDN做了个备份。欢迎下载，改用下面方式即可安装完成。
+
+```bash
+$ sudo apt update
+$ sudo apt install snapd
+$ sudo snap install --dangerous scrcpy-snap/*
+```
+
+### 第二种安装方法
+
+在这个之前，还需要提前安装 [`adb`](https://developer.android.com/studio/releases/platform-tools.html)，下载解压缩在 */opt/android-platform-tools/*文件夹，并创建adb的超链接。
+
+```bash
+$ wget https://dl.google.com/android/repository/platform-tools_r29.0.2-linux.zip
+$ unzip platform-tools_r29.0.2-linux.zip
+$ sudo cp -r platform-tools /opt/android-platform-tools
+$ sudo ln -s /opt/android-platform-tools/adb /usr/local/bin/
+```
+
+后面继续安装，
+
+```bash
+# runtime dependencies
+$ sudo apt install ffmpeg libsdl2-2.0.0
+
+# client build dependencies
+$ sudo apt install make gcc pkg-config meson ninja-build \
+    libavcodec-dev libavformat-dev libavutil-dev \
+    libsdl2-dev
+
+# server build dependencies
+$ sudo apt install openjdk-8-jdk
+
+# 下载最新源码保存为 scrcpy.zip
+# wget https://gitee.com/mirrors/scrcpy/repository/archive/v1.10?format=zip -O scrcpy.zip
+# unzip scrcpy.zip
+
+# 其实也可直接使用 git clone 复制
+$ git clone https://gitee.com/mirrors/scrcpy.git
+$ cd scrcpy
+$ wget https://github.com/Genymobile/scrcpy/releases/download/v1.10/scrcpy-server-v1.10.jar \
+ -O scrcpy-server.jar
+$ meson x --buildtype release --strip -Db_lto=true -Dprebuilt_server=scrcpy-server.jar
+$ cd x
+$ ninja
+$ sudo ninja install
+```
+
+### 使用方法
+
+数据线连上手机，弹出窗口里选择打开USB调试，在电脑终端输入
+
+```bash
+$ scrcpy -f # 全屏显示，更多用法请查看官网
+```
+
+可以顺滑的享受播放视频了。确实比深度屏幕助手快多了。如果看电影还是不错的。
+

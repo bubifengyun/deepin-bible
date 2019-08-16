@@ -4,8 +4,6 @@
 
 - 达梦数据库的安装；
 - JSP、PHP等开发环境的搭建；
-- bash 的流程结构
-- 实现把UC视频缓存变为普通视频文件的脚本
 
 参考网页：
 
@@ -21,3 +19,18 @@
 前面我们提到了几个教学软件，
 
 ## 关注效率稳定的搭建方法
+
+## 数据库的安装
+
+### 达梦数据库的安装
+
+参考网页：
+
+- http://www.dameng.com/down.aspx
+
+#### 下载相应数据库
+
+到[网址](http://www.dameng.com/down.aspx)下载DM8开发板的Linux版本rh7-64位。其实是到百度网盘下载的。下载后
+
+链接：https://pan.baidu.com/s/1rslrobwe_ES4_prT_KzLog 
+提取码：kvk7 
