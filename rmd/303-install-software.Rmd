@@ -1,4 +1,4 @@
-# 软件安装 {#software-install}
+# 软件安装 {#chap:software-install}
 
 这里会介绍如下几种安装方式，
 
@@ -12,6 +12,11 @@
 - 输入法的安装
 - iso 文件安装
 - pandoc 安装
+- 编译内核
+
+## 深度商店之WPS办公套件的安装
+
+当然WPS办公套件是深度操作系统自带的，这里提到他有点打广告的意思。其实很多常用软件都可以在深度商店找到的。
 
 ## npm 软件的安装
 
@@ -122,7 +127,7 @@ $ sudo dpkg -i /path/to/***.deb
 
 包括`k3b`光盘刻录、`wireshark`网络抓包等软件，运行需要相关权限，虽然安装简单，但是安装后还需要配置权限。
 
-## 投屏软件 scrcpy 的安装
+## 投屏软件 scrcpy 的安装{#chap:software-install:scrcpy}
 
 深度自带无线投屏的，见\@ref(deepin-presentation-assistant)节介绍，但是播放视频的时候会比较卡。这里介绍的scrcpy相对流畅，顺便介绍一种snap的安装方式。
 
@@ -201,5 +206,11 @@ $ sudo ninja install
 $ scrcpy -f # 全屏显示，更多用法请查看官网
 ```
 
-可以顺滑的享受播放视频了。确实比深度屏幕助手快多了。如果看电影还是不错的。
+可以顺滑的享受播放视频了。而且支持鼠标点击和键盘操作，貌似输入法的键盘操作还不是很协调。确实比深度屏幕助手快多了，但是使用中还发现有可能导致电脑CPU狂飙，这个要小心了。可以使用如下命令强制让他熄火。
+
+```bash
+$ sudo killall -9 scrcpy # 强制关闭scrcpy
+```
+
+如果全屏，找[不到退出按钮](https://bbs.deepin.org/forum.php?mod=viewthread&tid=178520&page=2#pid615115)时，你可以按下`<Super>+D`键，或者`Alt+<tab>`键，切换一下窗口就出来了。
 

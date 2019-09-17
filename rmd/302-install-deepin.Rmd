@@ -1,4 +1,4 @@
-# 深度系统安装 {#deepin-install}
+# 深度系统安装 {#chap:deepin-install}
 
 本章讲介绍如何从优盘、光盘和硬盘安装深度操作系统，以及 LiveCD 模式简介。
 
@@ -29,7 +29,7 @@
 
 **官方镜像**
 
-访问 deepin 社区[下载页面](https://www.deepin.org/download/) ，下载深度操作系统系统最新版本的镜像文件（以便您能够体验到最新特性）。（据我本人的经验，如果你没有百度 VIP 账号，不建议从百度网盘下载。国内从官网或者 [sourceforge](https://sourceforge.net/projects/deepin/)相对快一点，也不是绝对的，可以根据实际情况选用不同的下载点）注意：为了更加专注系统的发展，deepin 15.4及后续版本将不再提供32位官方iso镜像，如需获取和技术支持，请发送邮件到support@deepin.org。
+访问 deepin 社区[下载页面](https://www.deepin.org/download/) ，下载深度操作系统系统最新版本的镜像文件（以便您能够体验到最新特性）。（据我本人的经验，如果你没有百度 VIP 账号，不建议从百度网盘下载。国内从官网或者 [sourceforge](https://sourceforge.net/projects/deepin/)相对快一点，也不是绝对的，可以根据实际情况选用不同的下载点）注意：为了更加专注系统的发展，deepin 15.4及后续版本将不再提供32位官方iso镜像，如需获取和技术支持，请发送邮件到[support@deepin.org](mailto:support@deepin.org)。
 
 **MD5校验**
 
@@ -38,6 +38,59 @@
 - Windows系统：下载Hash软件 ，校验您下载的镜像的MD5值与下载页面 提供的 MD5 值是否一致。( MD5 值在立即下载按钮下方)
 - Linux系统：在对应的镜像文件下，打开终端，执行md5sum deepin-xxx.iso命令，请确认下载的镜像的 MD5 值与下载页面提供的 MD5 值是否一致。( MD5 值在立即下载按钮下方)。说明：deepin-xxx.iso即为下载的系统镜像文件名，可使用 Tab 键自动补全文件名。
 
+## 光盘安装
+
+## 硬盘安装
+
+参考网页：
+
+- https://bbs.deepin.org/forum.php?mod=viewthread&tid=179215
+
+基本全文转载，有改动，本人未实机测试。已获[许可](https://bbs.deepin.org/forum.php?mod=redirect&goto=findpost&ptid=179215&pid=615712)
+
+所谓硬盘安装，就是将安装盘的 iso 文件置于某个硬盘分区上，然后引导到安装盘，将系统安装在另一个硬盘分区上的方法。硬盘安装不需要光驱或者U盘，有时候比较省事儿。步骤如下：
+
+1. 将安装盘的 iso 文件（如 deepin-15.10.1-amd64.iso ）置于某个硬盘分区的根目录上，这个分区的格式可以是FAT、NTFS、Ext2/3/4 之一。不在根目录或者iso的文件名不同也行，但后面的grub.cfg要相应修改。其他分区格式可能也行，我没试过。注意，你的 deepin 系统就不能安装到 iso 所在的分区了，得准备另一个分区。
+
+2. 给 iso 文件所在的分区设置一个卷标，英文的，比如 DATA ，不要与其他分区的卷标重复。不叫 DATA 的话后面的grub.cfg要相应修改。
+
+3. 如果你的机器上还没有 grub，例如只装过 windows，则根据下面的指示安装 grub；否则可以跳过本段，直接看第4步。本段适用于 UEFI 引导的机器（近5年的应该大部分都是）。MBR 引导的请找另外的资料或先改成 UEFI 的。按以下步骤安装 grub：
+  （1）打开 ESP 分区，打开 deepin-15.10.1-amd64.iso 文件。如果在 windows 上，建议用 diskgenius 来打开 ESP 分区（ http://www.diskgenius.cn/ ）。linux 上 ESP 分区一般自动挂载到了 /boot/efi 目录下；如果没有，手动 mount 一下。
+  （2）在 ESP 分区根目录下建立 /boot 目录，将 deepin-15.10.1-amd64.iso 下的 /boot/grub 目录复制过去。检查一下，ESP 分区下应该有 /boot/grub/grub.cfg 文件和 /boot/grub/x86_64-efi 目录。
+  （3）将 deepin-15.10.1-amd64.iso 下的 /EFI/BOOT/grubx64.efi 文件复制到 ESP 分区下的 /EFI/deepin-cd-grub.efi 文件。后者的名字可以随便起，只要容易区分就行。
+
+4. 修改 grub.cfg。如果你是按照3安装的 grub，那么就修改 ESP 分区下的 /boot/grub/grub.cfg 文件。全文如下：
+
+```
+    set timeout=3
+
+    insmod part_gpt
+    insmod ext2
+    insmod efi_gop
+    insmod efi_uga
+    insmod video_bochs
+    insmod video_cirrus
+    insmod loopback
+    insmod part_msdos
+    insmod fat
+    insmod ntfs
+    insmod ntfscomp
+
+    menuentry 'deepin install' {
+        search --label --set=root DATA
+        set isofile="/deepin-15.10.1-amd64.iso"
+        loopback loop $isofile
+        linux (loop)/live/vmlinuz.efi  boot=live union=overlay username=user quiet  live-config noprompt noeject findiso=$isofile locales=zh_CN.UTF-8
+        initrd (loop)/live/initrd.lz
+    }
+```
+
+
+其中的“DATA”就是 iso 文件所在的分区的卷标了，iso 在分区上的路径是 /deepin-15.10.1-amd64.iso，如果不符合你的情况可相应修改。
+
+5. 重启机器，进入 UEFI 启动菜单（按照机型和BIOS的不同，可能是按f12、f2、f9等，可能还要先在BIOS里设置启动等待时间大于0），选择“从efi文件启动”，然后浏览到ESP分区的下的前面创建的 /EFI/deepin-cd-grub.efi 文件，选中，应该会显示 'deepin install' 的 grub 菜单项，再选中即可启动 iso，开始安装 deepin 。
+
+6. 装完系统后，ESP 分区下的 /EFI/deepin-cd-grub.efi 文件和 /boot/grub/ 目录建议保留下来，以后修复系统或安装新版 iso 也可能用得上。
 
 ## 安装常见问题
 
@@ -48,3 +101,85 @@
 
 基本全文转载，有改动。已获[许可](https://bbs.deepin.org/forum.php?mod=viewthread&tid=146224&page=1#pid384937)。
 
+1. 开机提示没有GRUB的解决办法
+
+可直接查看：这里，下面我把我遇到问题的核心操作整理出来。
+
+(1). 有单独boot分区时操作方法 （你有专门为boot分区的的情况，比如说我就有）
+
+    ls         //  应该像这样  (hd0),(hd0,msdos3),(hd0,msdos2),(hd0,msdos1)
+    ls (hd0,x)            //盲查，这里x跟比如msdos2中的2一致，查看哪个是ext[x]格式（比如ext2），如果你知道，可直接下一指令,比如我的是(hd0,4)
+    ls (hd0,x)/grub         //查哪个是否有包含文件名有i386的文件，如果不包含，那可能系统没装完整，boot区缺少内容，最直接办法就是重装（注意设置好BIOS）
+    set root=(hd0,x)       //把启动目录设置成上一行指令已确认的x,比如(hd0,4）
+    set prefix=/grub        //因为 grub目录在boot分区，并且上一指令已经设置了boot分区地址，现在已经在boot分区（文件夹）内，所以这里可以直接这样做
+    insmod normal        // 上面步骤都没有提示的话，说明没毛病，接着这样做。
+    normal    //如果上面都正常，这条命令输入后应该可以进入引导界面了吧
+
+复制代码
+
+    上面从ls (hd0,x)/grub就没有发现包含文件名有i386的文件，那就得注意了，可能系统没装完整，boot区缺少内容，这种情况估计只能重装了，这情况我在装Ubuntu系列系统（Ubuntu,Kubuntu, elementary, linux mint等我都装过）时遇到过，原因是你的win用的legacy模式安装，而Ubuntu却使用UEFI模式安装，这个安装过程中有提示，如果它提示说是否强制UEFI，那你就就别强制了，因为肯定出错，导致boot区肯定没引导文件，重新设置BIOS才是正确做法。以下总结几种情况：
+
+1）. BIOS中只有legacy模式
+     这种情况就好办了，直接把USB启动项调到第一个然后插入U盘重启就好了，系统会先从U盘启动。
+
+2).  BIOS中有legacy和UEFI（应该现在大部分新机是这个）
+     这种情况对于deepin来说很简单，要不设置成UEFI first， 要不直接从boot menu的UEFI项启动即可，如果使用legacy可能会进不了安装界面，反正我的是这样，如果不嫌麻烦，你也可以试试。
+     而对于Ubuntu系列来说（如果你想装的话可以看看），这种情况就得注意了，最好设置成legacy first，或者直接从boot menu的USB...项启动（一般包含一个UEFI开头的usb和一个usb），这时候有两种情况，要么可以进入安装界面（欣喜），要么提示错误说 root file system not found。。之类的（大概这样，记不太请了），那么出现这样的问题最直接的原因可能就是BIOS设置有问题（起初我怀疑是启动盘制作问题，其实不是），那么你需要重新设置BIOS，最好先恢复默认，再逐个设置，确保没有误操作。值得注意的是，如果你的win装的是legacy，你非要强制UEFI，那么你的之后win是无法启动的，直到你安装成功后在Ubuntu recovery mod中 使用grub重新引导才可以（也有可能不可以，看你帅不帅了）。
+3）.安装成功后通过win引导选项无法进入win问题修复。
+  进入deepin recovery模式（advance模式），通过grub重新引导，系统会重新生成引导，如果之前的有毛病，那么这里可能会有所修复。退出重启，这里要说下recovery模式下的问题，这可能是个bug，导致该模式非常难用，我用过Ubuntu系列的，做的很好，响应很即时没啥毛病，但是deepin，基本上你在执行某个选项后就很有可能回不来了，即使回来了也可能不能再选择其他选项，要想退出只能靠电源键了（可能是个人情况）。重启后如果依然没办法进入win，别着急，多尝试几次，如果还没办法，先进如deepin用着再说，下次再尝试进入win的时候很大几率是可以进去的，如果进入了，那么以后就一直可以了，这个我也不知道为什么。
+
+
+(2). 无单独boot分区时操作方法 （你没单独分区就没有）
+
+    ls   //  应该像这样  (hd0),(hd0,msdos3),(hd0,msdos2),(hd0,msdos1)
+    ls (hd0,x)   //盲查，这里x跟比如msdos2中的2一致，查看哪个是ext[x]格式（比如ext2），如果你知道，可直接下一指令,比如我的是(hd0,4)   
+    ls (hd0,x)/boot/grub  //查哪个是否有包含文件名有i386的文件，如果不包含，那可能系统没装完整，boot区缺少内容，最直接办法就是重装（注意设置好BIOS）
+    set root=(hd0,x)/boot  //把启动目录设置成上一行指令已确认的x,比如(hd0,4）   
+    set prefix=/grub        
+    insmod normal        // 上面步骤都没有提示的话，说明没毛病，接着这样做。
+    normal    //如果上面都正常，这条命令输入后应该可以进入引导界面了吧
+
+3. 登录界面死循环，以及登陆后桌面不显示的可能原因及补救方法
+   登录界面死循环这个问题问题我是在使用ubuntu时遇到的，可能deepin也会存在，在这大伙预防预防；而登陆后桌面挂了（黑屏但是鼠标、文件管理起可用）的问题，我之前求助过，这里和这里这里，感谢各位的热心帮助，可能刚开始不太习惯一些操作，也没遇到过这些问题，所以总有点傻傻的。关于解决这个问题，我是再次回装ubuntu时遇到的，然后在Ubuntu解决后回到deepin，发现有效果，这里总结一下。
+
+  登录时死循环和登录后桌面不启动可能是一个问题，就我的情况看来，是自定义的配置有问题导致的，为什么呢？先说几个常识吧，一般来说，在终端中的用户名是高亮显示的，这个有注意到吧，好，那么如果某一指令让它变暗了，也就是说不高亮了，那么，这个指令肯定有问题，可能并非指令本身的问题，而是指令让系统某一文件发生改变而导致有错误异常，接着，你输入的所有指令都可能提示无法找到，比如说sudo、cd，这不可能找不到是吧。那么，出现这种情况你就得注意了，因为你之前的指令、修改的内容可能让你的系统崩溃，具体什么现象，得看你修改的是系统的什么文件，轻则某项功能无法使用，重则无法再次启动，虽然你当前可能不会有什么异常情况。
+
+  那么如果你忽略了上面所说的问题，就可能导致错误，这还真跟deepin无关，都是自己的问题，所以遇到这样的问题别老说deepin有bug，先想想是不是自己哪里操作错了。
+就我的情况看，配置JDK环境对于每个跟java打交道的人来说都是必备常识，但是这一小门槛还真郁闷了不少人，有时你的操作并没问题，但是效果却不如所愿。比方说我这次，
+登录时死循环和登录后桌面不启动的问题就来源于这里，我用
+
+    sudo gedit /etc/profile
+
+复制代码
+打开profile添加配置JDK环境，没毛病，常规操作，配置好后
+
+    source /etc/profile
+
+复制代码
+立即生效，也没毛病，常规操作。但是并非如此， 用户名的高亮变暗了，奇怪吧，但是我输入java测试，有提示输出，java -version也没毛病老铁，于是就不管了，继续做自己的事，但是有点不放心，于是重启系统。登录后的问题结果在Ubuntu和deepin中表现不太一样（可能是个例），比如Ubuntu中是登录界面死循环，而deepin是登录后桌面不启动。至此到了解决问题的关键环节,下面说说我的解决办法，其实很简单，就有点像打字打错了，你撤销操作一样，但是对于这种已经被保存的文件而言，你需要先找到他，然后删除因你的操作而添加的内容。 具体做法如下：
+
+1. 在登录界面  快捷键 ctrl + alt + f1,  这个会进入一个黑屏界面，只有一个_光标，没关系，继续 ctrl + alt + f2, 进入终端， 其实就是没有界面的linux系统，在里面你可以进行所有终端能完成的操作，除了开启界面软件外。
+
+
+2. 输入命令操作，当然，这里就需要你比较熟悉linux命令了，如果不太会也没关系，网上有很多资料，也有很多热心人提供解决方案，比如说deepin社区。
+    针对我的问题，当然就简单了，  sudo vi /etc/profile 打开proifile配置文件，删除我添加的jdk环境变量，保存，OK，这就完事了，没那么难吧，当然，有很多更加复杂的问题，这里我也没遇到过，但是思路是一致 的（误操作 -->异常 ---> 撤销操作 -->  异常解除 ），比方说有的老铁安装了专用显卡驱动导致桌面异常或者无法启动桌面，那么你要做的就是卸载你装的专用驱动，换成开源驱动，问题解决。 没毛病吧老铁。
+
+针对JDK配置，当然，但凡跟改系统文件相关的操作都最好先备份，再修改，最好寻找可替代的可命令完成的解决方法，因为手动编辑很可能出现问题。那么可以如下操作:
+
+    sudo apt-add-repository ppa:webupd8team/java
+    sudo apt-get update
+    sudo apt-get install oracle-java8-installer
+
+复制代码
+当然在deepin中执行上面命令会提示apt-add-repository 不存在，没关系，我们先执行下面命令安装相关依赖：
+
+    sudo apt-get install python-software-properties
+    sudo apt-get install software-properties-common
+
+复制代码
+至此，我的问题就解决了，deepin做开发是没毛病的，暂时从响应速度上来看，比Ubuntu好些，看具体需求吧。
+
+3.总结
+    怎么说呢，既然你选择使用linux，deepin也好还是其他，操作前请记住一点，一定要清楚你在做什么，可以不管操作会带来什么后果，但是你得清楚你的操作了什么，这对后续补救非常有利，别问我怎么知道，都是浪费的时间换来的血泪教训，希望对老铁门有所帮助，如果有啥错误或这老铁们有啥补充的，请在留言中补充，为了帮助（留住）更多想要使用deepin的人，把我们遇到的现实问题及解决办法都总结出来是很好的办法。
+
+## LiveCD模式
