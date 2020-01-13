@@ -1,0 +1,3 @@
+# 管理存储器 {#manager-storage}
+
+## 引言

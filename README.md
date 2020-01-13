@@ -21,15 +21,20 @@
 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=40d87fca306c56134e3cefd7053e973177033a818cd7f89fb4222f7c41d9332d"><img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="深度易经（Deepin Bible）" title="深度易经（Deepin Bible）"> 763546912</a>
 <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=402229566&site=qq&menu=yes"><img border="0" src="https://pub.idqqimg.com/wpa/images/counseling_style_52.png" alt="点击这里给我发消息" title="点击这里给我发消息"/> 402229566</a>
 
-## 三、下一步打算 (In the Future)
+## 三、下一步打算 (Future Plan)
 
 多阅读，多做笔记，然后再写作。
 
 接下来需要做的事情：
 
 - 找个小伙伴，授课、书写。
-- 书籍网页版放到github上共享。
 - 继续撰写内容。
+- 制作可以直接编译的虚拟机voa文件，放在百度网盘。
+- 参考 Ubuntu 的内容，继续添加内容。
+
+2020年工作计划
+
+每月更新一章吧。因为还要仿照驾校考试软件做一个考试的平板软件，耗时过多。建议每周抽出两个上午写代码，两个下午看书，一个下午跑步。在手机上更新一下本书的草稿。
 
 ## 四、致谢 (Acknowledgement)
 
