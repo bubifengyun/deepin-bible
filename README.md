@@ -16,6 +16,20 @@
 
 参阅[这里](./rmd/802-appendix-makebook.Rmd)
 
+由于bookdown的制作环境有点麻烦，现在制作了一个虚拟机文件，可以在[百度网盘](https://pan.baidu.com/s/1nsVbviTP2j6BBg-oiwAEmQ)下载， 提取码: gb2b。
+
+### （一）下载导入虚拟机
+
+下载后，解压缩为一个大小为5.4G的 *deepin-bible-server.ova* 文件。使用VirtualBox软件导入该虚拟机电脑。
+
+### （二）开机登录
+
+在VirtualBox虚拟机软件里，选择该电脑，点击启动。待启动进入登录界面后，在本机浏览器访问网址[http://localhost:8787](http://localhost:8787)即可访问虚拟机里的 RStudioServer。用户名为**deepin-bible**，密码为**deepinbible**。还有一个root用户，密码也是**deepinbible**。该虚拟机也为后面的考试系统等提供直接编译环境。
+
+### （三）修改编译
+
+这个时候应当呈现一个RStudioServer的标准界面。打开右下方文件夹里的*deepin-bible.Rproj*文件，在右上方能够找到**build**按钮，点击后会出现**Build all**按钮，继续点击，就可以编译出书了。修改右下方的各个文件，可以对本书内容进行修改。
+
 如果有问题，欢迎
 
 <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=40d87fca306c56134e3cefd7053e973177033a818cd7f89fb4222f7c41d9332d"><img border="0" src="https://pub.idqqimg.com/wpa/images/group.png" alt="深度易经（Deepin Bible）" title="深度易经（Deepin Bible）"> 763546912</a>
@@ -29,7 +43,6 @@
 
 - 找个小伙伴，授课、书写。
 - 继续撰写内容。
-- 制作可以直接编译的虚拟机voa文件，放在百度网盘。
 - 参考 Ubuntu 的内容，继续添加内容。
 
 2020年工作计划
@@ -57,6 +70,6 @@
 
 ![](images/zhifubaohongbao.png) ![](images/zhifubaozhifu.png)
 
-## 七、收藏情况（Stargazers over time）
+## 七、收藏状况（Stargazers over time）
 
-[![收藏情况](https://starchart.cc/bubifengyun/deepin-bible.svg)](https://starchart.cc/bubifengyun/deepin-bible)
+[![收藏状况](https://starchart.cc/bubifengyun/deepin-bible.svg)](https://starchart.cc/bubifengyun/deepin-bible)
