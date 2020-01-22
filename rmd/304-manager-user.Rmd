@@ -63,6 +63,6 @@ $ vim /etc/passwd
 删除账户，使用`userdel`命令。
 
 ```bash
-$ sudo userdel tester    ##删除tester用户在passwd、shadow、group文件中的相关条目,不删除tester的家目录
-$ sudo userdel -r tester ##删除tester用户在passwd、shadow、group文件中的相关条目并且删除tester的家目录
+$ sudo userdel tester    #删除tester用户在passwd、shadow、group文件中的相关条目,不删除tester的家目录
+$ sudo userdel -r tester #删除tester用户在passwd、shadow、group文件中的相关条目并且删除tester的家目录
 ```
