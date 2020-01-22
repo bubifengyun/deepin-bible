@@ -378,7 +378,7 @@ allow-query     { any; };
 
 ```bash
 # apt-get install libxml2-dev libcurl4-openssl-dev libssl-dev libcairo2-dev libcurl4-openssl-dev libssl-dev libgit2-dev libssl-dev libssh2-1-dev curl openssl
-# yum install R pandoc wget libxml2-devel libcurl-devel openssl-devel cairo-devel libcurl-devel openssl-devel libgit2-devel openssl-devel libssh2-devel curl openssl ImageMagick -y
+# yum install R pandoc wget libxml2-devel libcurl-devel openssl-devel cairo-devel libcurl-devel openssl-devel libgit2-devel openssl-devel libssh2-devel curl openssl ImageMagick ImageMagick-c++-devel -y
 ```
 
 其实上面这些都是运行`make`，根据错误，提取出来的。接下来，参考[网页](https://www.vultr.com/docs/how-to-install-phantomjs-on-ubuntu-16-04)安装 phantomjs,
@@ -396,8 +396,8 @@ allow-query     { any; };
 接下来安装`RStudio Server`，参考官网：https://www.rstudio.com/products/rstudio/download-server/
 
 ```bash
-# wget https://download2.rstudio.org/server/centos6/x86\_64/rstudio-server-rhel-1.2.1335-x86\_64.rpm
-# yum install rstudio-server-rhel-1.2.1335-x86\_64.rpm
+# wget https://download2.rstudio.org/server/centos6/x86\_64/rstudio-server-rhel-1.2.5033-x86\_64.rpm
+# yum install rstudio-server-rhel-1.2.5033-x86\_64.rpm
 ```
 
 还需要验证是否安装成功，
