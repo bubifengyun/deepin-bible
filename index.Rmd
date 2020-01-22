@@ -39,7 +39,7 @@ options(
 
 knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown', 'htmlwidgets', 'webshot', 'DT',
-  'miniUI', 'tufte', 'servr', 'citr', 'rticles'
+  'miniUI', 'tufte', 'servr', 'citr', 'rticles','magick'
 ), 'bib/packages.bib')
 
 # 支持图片标题双语言，为了排版优化，强制加入 \centering
