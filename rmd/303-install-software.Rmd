@@ -33,7 +33,7 @@
 
 ## npm 软件的安装
 
-这里以 `you-get` 软件为例，介绍 npm 软件的安装方式。
+这里以 `you-get`（？？？pip吧） 软件为例，介绍 npm 软件的安装方式。
 
 ## veil 软件安装
 
@@ -82,7 +82,6 @@ $ sudo ./setup.sh -c
 参考网页：
 
 + https://github.com/soimort/you-get
-+ 
 
 根据 you-get [源码网站](https://github.com/soimort/you-get)的提示，在 deepin 下，用如下命令安装，较为合适。
 
@@ -139,6 +138,10 @@ $ sudo dpkg -i /path/to/***.deb
 ## wireshark 的安装
 
 包括`k3b`光盘刻录、`wireshark`网络抓包等软件，运行需要相关权限，虽然安装简单，但是安装后还需要配置权限。
+
+## iso 的安装
+
+下面以texlive的安装为例，首先到国内镜像下载texlive的.iso文件，本人的[博客](https://my.oschina.net/bubifengyun/blog/1936119)记录了texlive2018的安装方式。安装方式比较傻瓜，相比于windows下一个个下一步按键来说，这里需要对着终端做好选择，然后安装。
 
 ## 投屏软件 scrcpy 的安装{#chap:software-install:scrcpy}
 

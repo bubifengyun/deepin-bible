@@ -199,3 +199,5 @@ $ sudo apt-get install software-properties-common
 ## Live 模式
 
 在正式安装系统之前，可以体验一下该操作系统如何。或者在系统崩溃了使用Live模式修复系统。建议添加live模式的详细介绍。
+
+另外深度自带**深度备份还原工具**，可以在深度商店搜索下载。

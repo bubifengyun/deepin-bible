@@ -15,3 +15,172 @@
 ## 整体设想
 
 有点事后诸葛亮了。这个小软件已经完成了有好几个月，当时用了两个星期搞定。现在回顾一下答题思路。
+
+1. 为了快捷开发，使用**Python**；
+1. 借用**讯飞的文字转声音**（TTS，Text To Speech）的技术，是免费开放可用的，减少额外控制声音的工作；
+1. 连接达梦数据库，采用他们提供的**dmPython**包；
+1. 完成相关的业务逻辑功能。
+
+### 讯飞的文字转声音技术
+
+参考网页：
+
+- https://www.xfyun.cn/doc/tts/offline_tts/Linux-SDK.html
+
+首先到[讯飞开放平台](https://www.xfyun.cn/)，注册账户登录等一系列操作后，就可以[下载SDK](https://www.xfyun.cn/sdk/dispatcher)了，普通版的离线语音合成是永久免费使用的，只选择这个下载。然后改动一下，做一个Linux的可执行文件，提供给Python调用，用来生成语音文件。为了减少代码量，这里把源码和可执行文件放在[CSDN下载页面](https://download.csdn.net/download/bubifengyun/12120935)了。有需要的可以去看看。
+
+### 达梦数据库7的`dmPython`包
+
+参考网页：
+
+- 下载： https://download.csdn.net/download/qq_39757145/11247309
+- 说明： http://www.dameng.com/teachers_view.aspx?typeid=183&id=735&fid=t26:183:26
+
+还有其他的文件，使用`-i`选项，无界面安装好达梦数据库后，可以在 doc 文件夹里找到，这里从略。
+
+### 相关业务逻辑
+
+其实就是根据扫码得到的数据，直接查询数据库，然后做相关的工作。详见后面完整源码，这里从略。
+
+### 其他问题
+
+centos min 安装后，无法播放声音。后来发现需要安装声卡驱动，也就是 `alsa-utils`，安装完毕后，音量默认为0，还得输入命令`alsamixer`，根据页面提示调整音量。
+
+还有其他问题，提示需要安装的软件，请自行安装，这里不赘述了。
+
+## 完整源码
+
+```python
+#!/usr/bin/env python3
+# 操作系统下必须安装play函数 
+# $ sudo apt-get install sox
+# main.py
+
+import evdev
+import time
+import datetime
+import subprocess
+import os
+import re
+import dmPython
+from evdev import InputDevice, categorize, ecodes
+
+# here: https://stackoverflow.com/questions/19732978/how-can-i-get-a-string-from-hid-device-in-python-with-evdev
+# Provided as an example taken from my own keyboard attached to a Centos 6 box:
+scancodes = {
+    # Scancode: ASCIICode
+    0: None, 1: u'ESC', 2: u'1', 3: u'2', 4: u'3', 5: u'4', 6: u'5', 7: u'6', 8: u'7', 9: u'8',
+    10: u'9', 11: u'0', 12: u'-', 13: u'=', 14: u'BKSP', 15: u'TAB', 16: u'q', 17: u'w', 18: u'e', 19: u'r',
+    20: u't', 21: u'y', 22: u'u', 23: u'i', 24: u'o', 25: u'p', 26: u'[', 27: u']', 28: u'CRLF', 29: u'LCTRL',
+    30: u'a', 31: u's', 32: u'd', 33: u'f', 34: u'g', 35: u'h', 36: u'j', 37: u'k', 38: u'l', 39: u';',
+    40: u'"', 41: u'`', 42: u'LSHFT', 43: u'\\\\', 44: u'z', 45: u'x', 46: u'c', 47: u'v', 48: u'b', 49: u'n',
+    50: u'm', 51: u',', 52: u'.', 53: u'/', 54: u'RSHFT', 56: u'LALT', 57: u' ', 74: u'-', 100: u'RALT'
+}
+
+capscodes = {
+    0: None, 1: u'ESC', 2: u'!', 3: u'@', 4: u'#', 5: u'$', 6: u'%', 7: u'^', 8: u'&', 9: u'*',
+    10: u'(', 11: u')', 12: u'_', 13: u'+', 14: u'BKSP', 15: u'TAB', 16: u'Q', 17: u'W', 18: u'E', 19: u'R',
+    20: u'T', 21: u'Y', 22: u'U', 23: u'I', 24: u'O', 25: u'P', 26: u'{', 27: u'}', 28: u'CRLF', 29: u'LCTRL',
+    30: u'A', 31: u'S', 32: u'D', 33: u'F', 34: u'G', 35: u'H', 36: u'J', 37: u'K', 38: u'L', 39: u':',
+    40: u'\'', 41: u'~', 42: u'LSHFT', 43: u'|', 44: u'Z', 45: u'X', 46: u'C', 47: u'V', 48: u'B', 49: u'N',
+    50: u'M', 51: u'<', 52: u'>', 53: u'?', 54: u'RSHFT', 56: u'LALT', 57: u' ', 74: u'-', 100: u'RALT'
+}
+
+device = None
+cwd = os.path.dirname(os.path.abspath(__file__))
+is_playing_warn = False
+male="1"
+female="0"
+
+def playprintword(play_word,sound_file,voice):
+    abs_sound_file = cwd+"/sound/"+sound_file
+    if not os.path.exists(abs_sound_file):
+        subprocess.call([cwd+"/tts", play_word, abs_sound_file, voice])
+
+    subprocess.call(["killall", "-9", "play"])
+    is_playing_warn = False
+    subprocess.Popen(["play", abs_sound_file])
+    print(play_word)
+
+while True: # 整体循环，不管任何情况不退出程序。
+    while True: # 查找扫描枪的代码
+        hasFoundQR = False
+        devices = [evdev.InputDevice(path) for path in evdev.list_devices()]
+        for dev in devices:
+            if "HID KBW" in dev.name:
+                device = dev
+                hasFoundQR = True
+                break
+        if hasFoundQR:
+            playprintword("欢迎使用二维码管理系统，已经检测到二维码，可以工作。","hasFoundQrDevice",female)
+            break
+        else:
+            if is_playing_warn:
+                time.sleep(1)#单位为秒
+            else:
+                subprocess.call(["killall", "-9", "play"])
+                #无限次重复播放，如果改为N+1次播放，则把最后一个`-`改为N
+                subprocess.Popen(["play", cwd+"/sound/dontremove/canNotFindQrDevice.wav", "repeat", "-"])
+                is_playing_warn = True
+                print("播放声音!二维码扫描枪找不到了，请连接好设备。")
+
+    conn = dmPython.connect( #连接数据库
+            user = 'SYSDBA',
+            password = 'mypassword',
+            server = 'localhost',
+            port = 5236,
+            autoCommit = True)
+    cursor = conn.cursor()
+    playprintword("欢迎使用对讲机管理系统，二维码扫描枪和数据库连接成功！可以工作",'databasesuccess',female)
+    try:
+        device.grab() #不让其他地方获得二维码的输入
+        x = ''
+        caps = False
+        for event in device.read_loop():
+            if event.type == ecodes.EV_KEY:
+                data = categorize(event)  # Save the event temporarily to introspect it
+                if data.scancode == 42:
+                    if data.keystate == 1:
+                        caps = True
+                    if data.keystate == 0:
+                        caps = False
+                if data.keystate == 1:  # Down events only
+                    if caps:
+                        key_lookup = u'{}'.format(capscodes.get(data.scancode)) or u'UNKNOWN:[{}]'.format(data.scancode)  # Lookup or return UNKNOWN:XX
+                    else:
+                        key_lookup = u'{}'.format(scancodes.get(data.scancode)) or u'UNKNOWN:[{}]'.format(data.scancode)  # Lookup or return UNKNOWN:XX
+                    if (data.scancode != 42) and (data.scancode != 28):
+                        x += key_lookup  
+                    if(data.scancode == 28):
+                        djj_id = re.sub(r"[^0-9a-zA-Z\\-]+","",x) #根据本单位实际，只保留数字字母和短横线
+                        sql_search_id = "select * from USRKJZB_ZYJXSJ.T_KJZB_BZSB_SLGL_SLZH where YSBWYBM = '{YSBWYBM}'".format(YSBWYBM=djj_id)
+                        cursor.execute(sql_search_id)
+                        if cursor.with_rows: # 该二维码有效，有该物品
+                            # 下面语句实现通过字符索引结果的功能，dmPython不自带，只好手动实现该功能
+                            slzh_dict = dict(zip(cursor.column_names, cursor.fetchone()))
+                            # 查找借用库里有无借用记录
+                            cursor.execute("select * from USRKJZB_ZYJXSJ.T_KJZB_BZSB_LYGH_LYGHJL where YSBWYBM = '" + djj_id + "' and GHRXM is NULL")
+                            if cursor.with_rows: #归还
+                                cursor.execute("update USRKJZB_ZYJXSJ.T_KJZB_BZSB_LYGH_LYGHJL set GHRXM=?, GHRBS=?,GHSJ=NOW where YSBWYBM = '" + djj_id + "' and GHRXM is NULL",slzh_dict['SYWHR'],slzh_dict['SYWHR'])
+                                return_word = "归还成功!"+slzh_dict['SBMC']+"，编号为：" +djj_id+"，使用维护人为："+slzh_dict['SYWHR']
+                                return_sound_file = "return" + slzh_dict['SBWYBM']+slzh_dict['SYWHR']
+                                playprintword(return_word, return_sound_file, male)
+                            else:#借出
+                                cursor.execute('select NEWID()')
+                                id = re.sub(r"[-]","",cursor.fetchone()[0])
+                                values = (slzh_dict['SBWYBM'],id,slzh_dict['SBMC'],slzh_dict['SBXH'],slzh_dict['SYWHR'],slzh_dict['SYWHR'],slzh_dict['ID'],slzh_dict['PZM'],slzh_dict['YSBWYBM'])
+                                insert_sql = "insert into USRKJZB_ZYJXSJ.T_KJZB_BZSB_LYGH_LYGHJL values('%s','%s','%s','%s','%s','%s',NOW,NULL,NULL,NULL,NULL,NOW,0,'%s','%s','%s',NULL,NULL,NULL,NULL)" % values
+cursor.execute(insert_sql)
+                                lender_word = "借用成功！"+slzh_dict['SBMC']+"，编号为：" +djj_id+"，使用维护人为："+slzh_dict['SYWHR']
+                                lender_sound_file = "lender" + slzh_dict['SBWYBM']+slzh_dict['SYWHR']
+                                playprintword(lender_word,lender_sound_file, female)
+                        else:#该二维码无效，声音告知。
+                            playprintword("非常抱歉，找不到二维码："+djj_id, djj_id,male)
+                        x = ''
+        device.ungrab()#取消唯一性输入
+    except:
+        cursor.close()
+        conn.close()
+        conn.disconnect()
+        print("系统故障，请重启电脑！")
+```

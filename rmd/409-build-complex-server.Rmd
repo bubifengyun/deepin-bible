@@ -377,8 +377,8 @@ allow-query     { any; };
 ### 5.2 预备需要用的软件
 
 ```bash
-# apt-get install libxml2-dev libcurl4-openssl-dev libssl-dev libcairo2-dev libcurl4-openssl-dev libssl-dev libgit2-dev libssl-dev libssh2-1-dev curl openssl
-# yum install R pandoc wget libxml2-devel libcurl-devel openssl-devel cairo-devel libcurl-devel openssl-devel libgit2-devel openssl-devel libssh2-devel curl openssl ImageMagick ImageMagick-c++-devel -y
+# apt-get install libxml2-dev libcurl4-openssl-dev libssl-dev libcairo2-dev libcurl4-openssl-dev libssl-dev libgit2-dev libssl-dev libssh2-1-dev curl openssl libmariadbclient-dev
+# yum install R pandoc wget libxml2-devel libcurl-devel openssl-devel cairo-devel libcurl-devel openssl-devel libgit2-devel openssl-devel libssh2-devel curl openssl ImageMagick ImageMagick-c++-devel mariadb-devel -y
 ```
 
 其实上面这些都是运行`make`，根据错误，提取出来的。接下来，参考[网页](https://www.vultr.com/docs/how-to-install-phantomjs-on-ubuntu-16-04)安装 phantomjs,
@@ -416,12 +416,12 @@ allow-query     { any; };
 上面依次是查看当前状态，一般`rstudio-server`安装好了就会启动了。接着关闭，才可以验证。最后是启动`rstudio-server`。当然还要开辟端口才可以使用，如上开辟了UDP、TCP的8787端口。下面安装`pandoc`，
 
 ```bash
-# wget https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-2.7.3-linux.tar.gz
-# tar xvzf pandoc-2.7.3-linux.tar.gz --strip-components 1 -C /usr/local/
+# wget https://github.com/jgm/pandoc/releases/download/2.9.1.1/pandoc-2.9.1.1-linux-amd64.tar.gz
+# tar xvzf pandoc-2.9.1.1-linux-amd64.tar.gz --strip-components 1 -C /usr/local/
 # pandoc --version
 ```
 
-同样，外网那是一个慢啊。如果你可以从[CSDN](https://download.csdn.net/download/bubifengyun/11258661)下载，那么采用更好的方式安装 pandoc。但是要保证在 2.0 以上版本。github国内六七点起床，貌似使用手机下载，比电脑上快几百倍。
+同样，外网那是一个慢啊。如果你可以从[CSDN](https://download.csdn.net/download/bubifengyun/12122742)下载，那么采用更好的方式安装 pandoc。但是要保证在 2.0 以上版本。github国内六七点起床，貌似使用手机下载，比电脑上快几百倍。后来发现阿里宝卡的联通信号，速度比普通网速快百倍不止。选择合适的下载渠道很重要啊。
 
 另外，还需要更新一下 ghostscript，到[官网](https://www.ghostscript.com/download/gsdnld.html)下载，解压缩后放在*/usr/bin*文件夹，替换掉原来的 `ghostscript`。
 
