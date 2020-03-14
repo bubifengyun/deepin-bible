@@ -1,0 +1,614 @@
+# FTP服务器\index{FTP服务器}简介 {#chap:ftp-server-intro}
+
+通过阅读本章，你将会了解到以下几项内容。
+
+- 了解FTP工作原理
+- 安装并配置 vsftpd
+- FTP客户端使用简介
+- FTP 替代品简介
+
+FTP是一种古老的网络文件共享协议，因为明文传输，不够安全，已经很少使用了。部分安全改进型FTP服务器还存在市场，比如 vsftpd(Very Secure FTP Daemon)软件包等。当前，构建云盘服务器，或者办公OA系统，比较流行。在本章最后会介绍如何在安装配置使用 **seafile** 企业云盘。
+
+## FTP 工作原理
+
+## 安装配置 vsftpd
+
+### 安装 vsftpd
+
+vsftpd 软件包基本不依赖其他软件包，在各个版本的名字也多为 vsftpd。因此，在 deepin 下的安装方式为，
+
+```bash
+$ sudo apt-get install vsftpd
+```
+
+其实作为服务器，一般我都是用 centos。安装方法为`sudo yum install vsftpd`。本书从略。
+
+### 配置 vsftpd
+
+一般vsftp安装完成后，默认开机自启动。当前想启动，可以使用如下命令，
+
+```bash
+$ sudo systemctl start vsftpd.service
+```
+
+当然，还可以把上述命令中的`start`换为`status`,`stop`，分别表示获取当前状态、关闭服务。
+
+
+## FTP客户端使用简介
+
+## seafile 网盘服务器软件简介
+
+搭建过程参考[官网](https://www.seafile.com/download/)。本人也写了一篇博客，简单的介绍了seafile社区版的搭建方法。
+
+本次涉及 seafile 的两款产品：桌面同步 Windows 客户端和 Linux 服务器端。
+
+作为体制内办公的一员，是不是天天抱怨电脑破旧卡滞，经常蓝屏崩溃，文档版本混乱，经常损坏打不开？这里推荐一个局域网内的文档同步多版本备份的软件seafile。先介绍如何安装，再介绍如何使用。
+
+### 安装前的准备工作
+
+本人办公的局域网内有一台多功能服务器，centos7的，安装了杂七杂八的服务器软件，我觉得多一个 seafile 也没啥。况且有个分区(*/dev/sda4*)100G，空着的，正好作为网盘存放区。划重点：**Linux服务器**（这里是centos7），**大容量的文件夹**（这里是一个空的分区）。
+
+假设你已经安装好 centos7 服务器了，如果你的空白分区（这里假设为*/dev/sda4*，根据自己实际情况，修改下面相关内容）没有格式化，不妨使用如下命令。硬盘有价，数据无价，如果该分区有内容，请提前做好备份，在你不是很懂Linux命令的情况下，强烈建议不要随意执行下面的命令。
+
+```bash
+$ sudo mkfs.xfs /dev/sda4
+```
+
+**解释**
+
+1. 上面的语句实现对分区 */dev/sda4* 格式化为 `xfs` 文件系统的分区。关于`xfs`文件系统的详细知识，可以百度，或者参考第@\ref(chap:filesystem)章（TODO：该章貌似没有xfs内容的介绍！！！）。当然也可用使用其他文件系统，这里只是以`xfs`为例。
+
+接下来挂载该分区到*/data*文件夹。如果没有该文件夹，首先创建，
+
+```bash
+$ sudo mkdir /data
+```
+
+使用命令`blkid`，查看*/dev/sda4*分区的UUID，这是设备的唯一标识。
+
+```bash
+$ sudo blkid /dev/sda4
+```
+
+就会输出类似`UUID="78cb6878-fa34-4cee-9d17-27e24d425fcc"`的内容，然后编辑 */dev/fstab* 文件，
+
+```bash
+$ sudo vim /etc/fstab
+```
+
+加入一行，确保开机就可以挂载该分区。当然本电脑早就挂载好了。如果需要的话，可以重启电脑了。
+
+```
+UUID=78cb6878-fa34-4cee-9d17-27e24d425fcc	/data         	xfs      	defaults	0 0
+```
+
+### 安装步骤
+
+这里安装的是社区版Linux服务器端。首先要安装配置数据库，这里采用MariaDB数据库，其实还可以使用MySQL和SQLite数据库。详情请参考[官网](https://cloud.seafile.com/published/seafile-manual-cn/deploy/using_mysql.md)。下面前几节都是在Linux下的操作。
+
+#### 方案一：安装配置 MariaDB 数据库
+
+```bash
+$ sudo yum update -y
+$ sudo yum install mariadb-server -y
+$ sudo systemctl start mariadb
+$ sudo mysql_secure_installation 
+```
+
+**解释**
+
+1. 第一行是更新软件源
+1. 第二行是安装 MariaDB 服务器软件
+1. 第三行是启动 MariaDB 服务
+1. 第四行是安全配置 MariaDB，输入回车后，弹出如下的对话框进行配置。
+
+
+```
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none): 
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n]   
+New password: 
+Re-enter new password: 
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] 
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] 
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] 
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] 
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+```
+
+稍懂英文的，上面的不难，除了在`New password: `一行和接下来的一行，输入要设置的数据库root用户的密码外，其他行基本是一路回车就可以了。上面完成了 MariaDB 服务的配置。
+
+#### 方案二：已经安装了XAMPP或者MySQL、MariaDB
+
+本人服务器上之前就安装了XAMPP，开启 XAMPP，当时MariaDB都是默认配置的，现在修改一下root用户的密码。就不用另外安装MariaDB了。MySQL与此类似，这里不再赘述。
+
+#### 下载 seafile 服务器端安装包
+
+到[官网](https://www.seafile.com/download/)下载Linux服务器端，也可用使用命令下载。
+
+```bash
+$ wget http://seafile-downloads.oss-cn-shanghai.aliyuncs.com/seafile-server_7.0.5_x86-64.tar.gz
+```
+
+因为是放在服务器多人使用的，选择了当前较新的相对稳定的7.0.5版本。假设上述文件下载到了 */home/litianci/* 目录，下面开始安装。
+
+#### 安装 seafile 服务器端安装包
+
+```bash
+$ su -
+# mkdir /opt/seafile
+# cd /opt/seafile
+# tar -xzf /home/litianci/seafile-server_7.0.5_x86-64.tar.gz
+# mv seafile-server-7.0.5/ seafile-server
+# yum install python python-setuptools MySQL-python python-urllib3 python-ldap -y
+# cd seafile-server/
+# ./setup-seafile-mysql.sh 
+```
+
+输入上述命令后，就进入安装的字符界面。
+
+```
+Checking python on this machine ...
+  Checking python module: python-mysqldb ... Done.
+
+-----------------------------------------------------------------
+This script will guide you to setup your seafile server using MySQL.
+Make sure you have read seafile server manual at
+
+        https://github.com/haiwen/seafile/wiki
+
+Press ENTER to continue
+-----------------------------------------------------------------
+
+
+What is the name of the server? It will be displayed on the client.
+3 - 15 letters or digits
+[ server name ] bubifengyun
+
+What is the ip or domain of the server?
+For example: www.mycompany.com, 192.168.1.101
+[ This server's ip or domain ] 192.168.0.101
+
+Where do you want to put your seafile data?
+Please use a volume with enough free space
+[ default "/opt/seafile/seafile-data" ] /data/seafile-data
+
+Which port do you want to use for the seafile fileserver?
+[ default "8082" ] 
+
+-------------------------------------------------------
+Please choose a way to initialize seafile databases:
+-------------------------------------------------------
+
+[1] Create new ccnet/seafile/seahub databases
+[2] Use existing ccnet/seafile/seahub databases
+
+[ 1 or 2 ] 1
+
+What is the host of mysql server?
+[ default "localhost" ] 
+
+What is the port of mysql server?
+[ default "3306" ] 
+
+What is the password of the mysql root user?
+[ root password ] 
+
+verifying password of user root ...  done
+
+Enter the name for mysql user of seafile. It would be created if not exists.
+[ default "seafile" ] 
+
+Enter the password for mysql user "seafile":
+[ password for seafile ] 
+
+Enter the database name for ccnet-server:
+[ default "ccnet-db" ] 
+
+Enter the database name for seafile-server:
+[ default "seafile-db" ] 
+
+Enter the database name for seahub:
+[ default "seahub-db" ] 
+
+---------------------------------
+This is your configuration
+---------------------------------
+
+    server name:            bubifengyun
+    server ip/domain:       192.168.0.101
+
+    seafile data dir:       /data/seafile-data
+    fileserver port:        8082
+
+    database:               create new
+    ccnet database:         ccnet-db
+    seafile database:       seafile-db
+    seahub database:        seahub-db
+    database user:          seafile
+
+
+
+---------------------------------
+Press ENTER to continue, or Ctrl-C to abort
+---------------------------------
+
+Generating ccnet configuration ...
+
+done
+Successly create configuration dir /opt/seafile/ccnet.
+Generating seafile configuration ...
+
+Done.
+done
+Generating seahub configuration ...
+
+----------------------------------------
+Now creating ccnet database tables ...
+
+----------------------------------------
+----------------------------------------
+Now creating seafile database tables ...
+
+----------------------------------------
+----------------------------------------
+Now creating seahub database tables ...
+
+----------------------------------------
+
+creating seafile-server-latest symbolic link ...  done
+
+
+
+
+-----------------------------------------------------------------
+Your seafile server configuration has been finished successfully.
+-----------------------------------------------------------------
+
+run seafile server:     ./seafile.sh { start | stop | restart }
+run seahub  server:     ./seahub.sh  { start <port> | stop | restart <port> }
+
+-----------------------------------------------------------------
+If you are behind a firewall, remember to allow input/output of these tcp ports:
+-----------------------------------------------------------------
+
+port of seafile fileserver:   8082
+port of seahub:               8000
+
+When problems occur, Refer to
+
+        https://github.com/haiwen/seafile/wiki
+
+for information.
+
+```
+
+根据自己需要就可以安装完成了。本文使用时，服务器IP地址为 192.168.0.101，
+
+#### 配置 seafile 服务
+
+> 注意：7.0.x 版本之后，8000端口默认监听在127.0.0.1地址上，这意味着您无法直接通过8000端口访问Seafile服务。建议您[配置nginx反向代理](https://cloud.seafile.com/published/seafile-manual-cn/deploy/deploy_with_nginx.md)。
+> 恭喜! 现在你已经成功的安装了 Seafile 服务器.
+>
+> --- 官网提示
+
+我感觉没有必应那么复杂。可以直接修改*/opt/seafile/conf/gunicorn.conf*，把IP地址改为服务器的IP地址即可。
+
+```bash
+# vim /opt/seafile/conf/gunicorn.conf
+```
+
+把其中的
+
+```
+# default localhost:8000
+bind = "127.0.0.1:8000"
+```
+
+改为本服务器的IP地址，
+
+```
+# default localhost:8000
+bind = "192.168.0.101:8000"
+```
+
+#### 运行 seafile、seahub 服务
+
+其实从安装的提示里就已经提示如何启动、停止和重启服务了。
+
+
+> -----------------------------------------------------------------
+> Your seafile server configuration has been finished successfully.
+> -----------------------------------------------------------------
+> 
+> run seafile server:     ./seafile.sh { start | stop | restart }
+> run seahub  server:     ./seahub.sh  { start <port> | stop | restart <port> }
+> 
+> -----------------------------------------------------------------
+> If you are behind a firewall, remember to allow input/output of these tcp ports:
+> -----------------------------------------------------------------
+> 
+> port of seafile fileserver:   8082
+> port of seahub:               8000
+
+
+首先开启防火墙上的TCP/8082和TCP/8000端口。
+
+```bash
+# firewall-cmd --permanent --zone=public --add-port=8082/tcp
+# firewall-cmd --permanent --zone=public --add-port=8082/tcp
+# firewall-cmd --reload
+```
+
+接着打开 `seafile` 和 `seahub` 服务。
+
+```bash
+# /opt/seafile/seafile-server-latest/seafile.sh start
+
+[03/14/20 08:07:55] ../common/session.c(132): using config file /opt/seafile/conf/ccnet.conf
+Starting seafile server, please wait ...
+** Message: seafile-controller.c(718): No seafevents.
+
+Seafile server started
+
+Done.
+```
+
+开启 `seafile` 基本没啥问题。下面是开启`seahub`的命令，第一次会让你配置管理员邮箱和密码的。本文配置为`bubifengyun@sina.com`
+
+```bash
+# /opt/seafile/seafile-server-latest/seahub.sh start
+LC_ALL is not set in ENV, set to en_US.UTF-8
+Starting seahub at port 8000 ...
+
+----------------------------------------
+It's the first time you start the seafile server. Now let's create the admin account
+----------------------------------------
+
+What is the email for the admin account?
+[ admin email ] bubifengyun@sina.com
+
+What is the password for the admin account?
+[ admin password ] 
+
+Enter the password again:
+[ admin password again ] 
+
+
+
+----------------------------------------
+Successfully created seafile admin
+----------------------------------------
+
+
+
+
+Seahub is started
+
+Done.
+```
+
+#### 局域网访问 seafile 服务
+
+此时在局域网其他电脑就可以使用浏览器直接访问 seafile 的网页页面了。一般都是采用火狐或者谷歌浏览器，IE浏览器貌似不好用，本服务器地址为： http://192.168.0.101:8000/ 界面如下图所示。
+
+```{r seafile-seahub-login, fig.show='hold', fig.cap='seafile的网页登录界面', echo=FALSE}
+knitr::include_graphics("seafile-seahub-login.png")
+```
+
+这时就可以使用刚才填写的账户`bubifengyun@sina.com`及密码登录该网站。在网站里怎么配置语言和其他的内容，这里从略。
+
+#### 开机自启动 seafile 服务
+
+这里完全参照[官网](https://cloud.seafile.com/published/seafile-manual-cn/deploy/start_seafile_at_system_bootup.md)和[英文网页](https://seafile.readthedocs.io/latest/installation/seafile/)。
+
+创建 `seafile` 用户，家目录`～`为*/opt/seafile*，并把*/data/seafile-data/* 也过继给 `seafile` 用户。
+
+```bash
+# useradd -U -m -d /opt/seafile seafile
+# chown -R seafile:seafile /opt/seafile /data/seafile-data/
+```
+
+创建*/etc/systemd/system/seafile.service* 文件，
+
+```bash
+# vim /etc/systemd/system/seafile.service
+```
+
+其中内容如下，
+
+```
+[Unit]
+Description=Seafile
+# add mysql.service or postgresql.service depending on your database to the line below
+After=network.target mariadb.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/seafile/seafile-server-latest/seafile.sh start
+ExecStop=/opt/seafile/seafile-server-latest/seafile.sh stop
+RemainAfterExit=yes
+User=seafile
+Group=seafile
+
+[Install]
+WantedBy=multi-user.target
+```
+
+创建*/etc/systemd/system/seahub.service* 文件，
+
+```bash
+# vim /etc/systemd/system/seahub.service
+```
+
+其中内容如下，
+
+```
+[Unit]
+Description=Seafile hub
+After=network.target seafile.service
+
+[Service]
+# change start to start-fastcgi if you want to run fastcgi
+ExecStart=/opt/seafile/seafile-server-latest/seahub.sh start
+ExecStop=/opt/seafile/seafile-server-latest/seahub.sh stop
+User=seafile
+Group=seafile
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+```
+
+接下来让mariadb, seafile, seahub服务开机自启动。
+
+```bash
+# systemctl enable mariadb.service
+# systemctl enable seafile.service
+# systemctl enable seahub.service
+```
+
+同时删除 root 用户产生的[cache文件](https://www.xiaoz.me/note/170.html)，避免跟 `seafile` 用户产生权限问题。
+
+```bash
+# rm /tmp/seahub_cache/ -rf
+```
+
+接下来重启服务器或者输入下面的命令，看看局域网的其他电脑还能通过浏览器访问该网站。
+
+```bash
+# systemctl daemon-reload
+# systemctl start seahub
+```
+
+#### 使用 memcached
+
+[官网](https://cloud.seafile.com/published/seafile-manual-cn/deploy/add_memcached.md)说：安装 Memcached 能够显著提高系统性能。下面先安装配置 `memcached`，
+
+```bash
+# yum install memcached libffi-devel -y
+# systemctl enable --now memcached
+```
+
+接下来编辑*/opt/seafile/conf/seahub_settings.py*
+
+```bash
+# vim /opt/seafile/conf/seahub_settings.py
+```
+
+在末尾加上，
+
+```
+CACHES = {
+    'default': {
+        'BACKEND': 'django_pylibmc.memcached.PyLibMCCache',
+        'LOCATION': '127.0.0.1:11211',
+    },
+    'locmem': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    },
+}
+
+COMPRESS_CACHE_BACKEND = 'locmem'
+```
+
+删除 */opt/seafile/conf/seahub_settings.pyc* 文件，并重启`seahub`服务。
+
+```bash
+# rm -f /opt/seafile/conf/seahub_settings.pyc
+# systemctl restart seahub
+```
+
+## seafile 客户端介绍
+
+### seafile 客户端的安装和配置
+
+参考[官网](https://www.seafile.com/download/)，Windows用户可以直接下载安装包进行安装，这里不再赘述。在 Deepin 下可以直接安装
+
+```bash
+$ sudo apt-get install seafile-gui -y
+```
+
+完成后，按下`Super`键或者左下角深度的图标，在应用程序里找到`Seafile`的图标，点击即可弹出类似下图的选择文件保存目录的窗口，
+
+```{r seafile-desktop-choose-dir, fig.show='hold', fig.cap='Seafile桌面同步端的默认保存文件夹设置窗口', echo=FALSE}
+knitr::include_graphics("seafile-desktop-choose-dir.png")
+```
+
+可以根据你的喜好设置，本文保持默认不变。接下来是配置客户端，这里只填写了上面seahub服务的网址，以及管理员账户，点击登录即可。
+
+```{r seafile-desktop-network-setting, fig.show='hold', fig.cap='Seafile桌面同步端的网络设置窗口', echo=FALSE}
+knitr::include_graphics("seafile-desktop-network-setting.png")
+```
+
+Seafile桌面同步端暂时还不具备用户注册功能，只可以在网页上注册账户，注册后可以在这里登录。登录完成后，就会弹出如下图的界面，
+
+```{r seafile-desktop-main-menu, fig.show='hold', fig.cap='Seafile桌面同步端的主窗口', echo=FALSE}
+knitr::include_graphics("seafile-desktop-main-menu.png")
+```
+
+### seafile 客户端的功能和使用
+
+对于办公用户来说，最怕的是电脑突然崩溃，文件无法找回。另外文件版本混乱，我们自己都搞不清楚哪个是最新版本了，常常提交了错误版本。针对这个问题，我们主要使用 seafile 的同步功能和版本控制功能。关于 seafile 的更多功能，请参考[官网特性介绍](https://www.seafile.com/features/)。
+
+在图\@ref(fig:seafile-desktop-main-menu)中，下方有个**选择文件夹或拖到这里同步**，就可以把你保持同步的文件夹拖到这里来。当你在这个文件夹里编辑文件保存时，seafile会自动把你的文件同步到服务器中，前提是**你不能退出seafile桌面同步客户端，但你可以最小化**。当你需要查看该文件的历次版本信息时，就可以登录到**seafile网页**上，如下图所示点击红色框的**历史**，
+
+```{r seafile-seahub-history, fig.show='hold', fig.cap='Seafile网页版查看历史的方法', echo=FALSE}
+knitr::include_graphics("seafile-seahub-history.png")
+```
+
+这个时候就会弹出如下图所示的界面，你就可以根据需要下载之前的版本了。
+
+```{r seafile-seahub-history-detail, fig.show='hold', fig.cap='Seafile网页版查看文件的各版本', echo=FALSE}
+knitr::include_graphics("seafile-seahub-history-detail.png")
+```
