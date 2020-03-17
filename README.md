@@ -60,9 +60,11 @@
 
 ## 五、版权 (License)
 
-- 本书是采用合作编写的方式，版权见条款。
-- 本书采用的 [bookdown](https://github.com/rstudio/bookdown) 编写的。相关编码图片等的所有权归相应的作者，谢谢。
+- 本书是采用合作编写的方式，共享版权。
+- 本书采用的 [bookdown](https://github.com/rstudio/bookdown) 编写的。相关编码图片等的所有权归相应的作者。
+- 非注明部分，采用[木兰宽松许可证, 第2版](https://license.coscl.org.cn/MulanPSL2/)。
 - 注意图片来源，尽量自己画，避免侵权。
+
 
 ## 六、捐赠 (Donation)
 
