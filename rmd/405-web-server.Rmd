@@ -22,15 +22,21 @@
 
 ## 数据库的安装
 
+说句实在话，不是工作需要，还是喜欢一条命令（`sudo apt-get install mariadb-server -y`）直接安装 `MariaDB` 数据库。下面还是记录一下如何使用国产的达梦数据库吧。
+
 ### 达梦数据库的安装
 
 参考网页：
 
 - http://www.dameng.com/down.aspx
 
-#### 下载相应数据库
-
 到[网址](http://www.dameng.com/down.aspx)下载DM8开发板的Linux版本rh7-64位。其实是到百度网盘下载的。下载后
 
-链接：https://pan.baidu.com/s/1rslrobwe_ES4_prT_KzLog 
-提取码：kvk7 
+- 链接: https://pan.baidu.com/s/1bu0YBXeQWI26lqEMS4XruA
+- 提取码: hctc
+
+解压缩后，内有中文的安装教程，非常详细，这里就不赘述了。本人的安装方式见[这篇博客](https://my.oschina.net/bubifengyun/blog/3161820)
+
+
+
+最好提及一下如何使用 PHP，Python 和 R 语言如何连接达梦数据库。
