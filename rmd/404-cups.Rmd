@@ -21,3 +21,7 @@ CUPS实际上是一个集成的服务。包括了前端接收打印命令的相�
 
 - https://wiki.deepin.org/wiki/%E6%89%93%E5%8D%B0%E6%9C%BA
 - https://blog.csdn.net/u014237185/article/details/39966715
+
+## Linux 使用得力DE-620K针式打印机
+
+组装打印机啥的就不说了，本办公室正好新进了这台打印机。

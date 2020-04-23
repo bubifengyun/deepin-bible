@@ -83,8 +83,18 @@ Windows10进入后，按`Super`键（也就是`Windows`图案的键，或者直�
 
 \EndKnitrBlock{answer}
 
+```{block2, type='question'}
+deepin 如何关闭 firefox 的标题栏？
+```
 
+\BeginKnitrBlock{answer}
+方法有几种，比如这几个
 
+- https://ywnz.com/linuxjc/5436.html
+- https://blog.csdn.net/dylan_lyd/article/details/89219553
+
+最终发现第一种好用，但是为了一个火狐还要安装一个新的软件，有点太复杂了。
+\EndKnitrBlock{answer}
 
 
 

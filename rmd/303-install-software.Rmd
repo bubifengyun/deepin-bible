@@ -77,6 +77,10 @@ $ sudo ./setup.sh -c
 
 另外，我常用的 xampp 一键安装包，却是从其他网站上下载的。如果你安装一个软件特别费劲，（不包含无法破解软件的哦）不妨试试搜索一下 “xxx 一键安装包”,看看有没有其他人已经帮你解决这个问题了。
 
+### android studio 的安装
+
+这个参考[官网](https://developer.android.google.cn/studio/install)就可以了。其他不说了。
+
 ## you-get 软件的安装
 
 参考网页：

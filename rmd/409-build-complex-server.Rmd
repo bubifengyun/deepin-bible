@@ -308,6 +308,7 @@ fs.file-max = 209715
 - https://www.cnblogs.com/heiye123/articles/7687922.html
 - https://blog.csdn.net/f1228308235/article/details/79057184
 - https://blog.51cto.com/sweetpotato/1598225
+- https://blog.csdn.net/random_w/article/details/78671816
 
 ### 4.1 安装DNS相关软件
 
