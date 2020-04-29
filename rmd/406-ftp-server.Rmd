@@ -99,7 +99,7 @@ $ sudo systemctl enable vsftpd.service
 
 浏览器那么发达，干嘛要安装客户端呢？火狐和谷歌浏览器都支持直接访问ftp。当本地服务器已经开启vsftp.server的时候，你可以在浏览器里直接输入 [ftp://localhost](ftp://localhost)，就会进入ftp登录界面。输入本机的用户名和密码就可以直接访问你的`HOME`文件夹了，也即*/home/litianci*的内容。这玩意貌似不支持中文直接显示。FTP 感觉用处不大，这里就不折腾了。
 
-## seafile 网盘服务器软件简介
+## seafile 网盘服务器软件简介{#chap:ftp-server-intro:seafile}
 
 搭建过程参考[官网](https://www.seafile.com/download/)。本人也写了一篇博客，简单的介绍了seafile社区版的搭建方法。
 
