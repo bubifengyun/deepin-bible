@@ -1,4 +1,4 @@
-# 管理账户 {#manager-user}
+# 管理账户 {#chap:manager-user}
 
 ## 引言
 

@@ -44,3 +44,115 @@
 对于存档，大家都懂得，不停的存，早晚把空间占满。就像行车记录仪，录像要时刻保持半个小时的内容，对于时间太长的旧内容就可以覆盖掉了。存盘（光盘除外）也一样，循环反复利用磁盘，就可以设定一下对于多长时间的资料可以删除了，给新的版本腾出空间。
 
 常用的备份软件如下。
+
+- 百度云盘？（打个广告）
+- 自建云盘（比如seafile）
+- amanda
+- cpio
+- dump/restore
+- tar
+- 系统删除后如何恢复文件？
+
+关于这些软件的具体做法，后面补充。（**记得加入这部分内容**）
+
+### 账号防护
+
+基于权限的安全管理，离不开对账号的管理。合适的账号管理，有助于提高安全性，比如下面这几条建议：
+
+- 单一原则，每个用户有且只有一个账号；
+- 规范限制对超级账号root的使用；
+- 对临时账号设置有效期；
+- 删除停用账号。
+
+#### 每个用户有且只有一个账号
+
+我单位的网站建立在局域网内，外人无法访问。大家都喜欢使用超级管理员账号登录，而且密码就是简单的``123456``，谁都可以访问，谁都可以擅自修改数据，关键是你还找不到是哪个人干的。这么糟糕的状态还在持续，虽然提了建议，后来有所改变，还是有小部分人都知道超级管理员的密码，并且都是用他来访问网站。找不到谁干的这个问题，有多可怕，只是后果现在还没显示出来。作恶可追溯，且不能被否认，这是账户防护必须要考虑的问题。采用每个用户有且只有一个账号的策略能够较好的解决这个问题。
+
+#### 规范限制对超级账号root的使用
+
+限制超级账号root的使用，也是一个必须要考虑的问题。root账号的权限实在太大了，属于“绝对的权力”，所谓“绝对的权力产生绝对的腐败”，这样的权限安排，是存在风险的。当然从操作系统上更改这种权限设计，不是我们用户考虑的事情，我们可以做到的是，不能多人共同使用root帐号。通过`sudo`对权限细粒度的划分，并做好日志。关于`sudo`的更多介绍，参考第\@ref(chap:manager-user)章。Instead of giving multiple people root permission on a Linux system, you can grant root 
+access on a per-command basis with the sudo command. Using sudo provides the following 
+security benefi ts:
+■ The root password does not have to be given out.
+■ You can fi ne-tune command access.
+■ All sudo use (who, what, when) is recorded in /var/log/secure.
+All failed sudo access attempts are logged.
+After you grant someone sudo permission, you can try to restrict root access to certain commands in the /etc/sudoers fi le (with the visudo command). However, after you grant root 
+permission to a user, even in a limited way, it is diffi cult to be sure that a determined user 
+can’t fi nd ways to gain full root access to your system and do what he or she wants to it.
+One way to keep a misbehaving administrator in check is to have security messages 
+intended for the /var/log/secure fi le sent to a remote log server that none of the local 
+administrators have access to. In that way, any misuse of root privilege is attached to a 
+particular user and is logged in a way that the user can’t cover his or her tracks.
+
+#### 对账号设置有效期
+
+电脑有时会被临时借用，这个时候最好设置个临时帐号，这帐号加上有效期。我单位使用的windows电脑，同事比较熟悉，都相互知道对方电脑的密码，就没有设置临时帐号的意识。通常的做法时，把电脑借出去，回来该密码。但是，如果我们的是服务器的话，我觉得，给他们设置一个临时帐号相对更安全些，避免临时人员分析出我们密码设置的习惯。给自己的帐号设置有效期，还算需要慎重，之前练习把自己的帐号就设置了一个有效期，过期后，就无法登录了。不得已，跑到`Ctrl+Alt+F2`虚拟终端里登录root帐号给改回来的。
+
+但是，对全体人员的帐号进行时效控制，还是非常必要的安全手段。
+
+```bash
+$ usermod --help
+用法：usermod [选项] 登录
+
+选项：
+  -e, --expiredate EXPIRE_DATE  设定帐户过期的日期为 EXPIRE_DATE
+  -f, --inactive INACTIVE       过期 INACTIVE 天数后，设定密码为失效状态
+```
+
+比如设置，
+
+```bash
+# usermod -e 2020-12-31 bubifengyun
+```
+
+使用`chage`可以查看用户的时效等信息。比如，
+
+```bash
+$ chage -l bubifengyun
+最近一次密码修改时间					：4月 20, 2020
+密码过期时间					：从不
+密码失效时间					：从不
+帐户过期时间						：从不
+两次改变密码之间相距的最小天数		：0
+两次改变密码之间相距的最大天数		：99999
+在密码过期之前警告的天数	：7
+```
+
+```{block2, note-text, type='rmdnote'}
+注意，chage命令是通过*/etc/shadow*查询信息的。如果不存在该文件，则`chage`无法正常使用。
+```
+
+#### 删除停用帐号
+
+离职人员还偷偷修改公司数据的新闻时常见诸报端，甚至还有删库的恶劣犯法行为。对离职人员，进行脱密教育的同时，在公司内部采用必要的安全防范措施，也是一个很值得考虑的问题。及时删除停用帐号就是一个比较好的安全防范措施。
+
+通常采用如下几步删除停用帐号，
+
+1. 查找该帐号所有文件资料，`find / -user <待删除帐号>`;
+1. 禁用该帐号，并停止其有效期;
+1. 备份该帐号的这些文件;
+1. 删除这些文件，或者修改这些文件的拥有者;
+1. 删除该帐号;
+
+**注意：**步骤顺序，应当先禁用或者停用该帐号，然后再操作其他步骤，避免趁这个空隙，该帐号又创建了其他文件或者做了不该做的事情。
+
+### 密码防护
+
+**不要使用简单密码。**
+
+### 文件系统的防护
+
+### 软件和服务管理
+
+### 高级设置
+
+## 监控系统
+
+### 监控日志
+
+### 监控账号
+
+### 监控文件系统
+
+## 系统的审计和复盘 
