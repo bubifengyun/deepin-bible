@@ -374,7 +374,7 @@ $ source /etc/profile   #使其立即生效
 
 
 ```{r shell-pipe, fig.show='hold', fig.cap='管道输出示意图', echo=FALSE}
-knitr::include_graphics("shell-pipe.png")
+knitr::include_graphics("images/shell-pipe.png")
 ```
 
 1. 管道命令只处理前一个命令正确输出，不处理错误输出

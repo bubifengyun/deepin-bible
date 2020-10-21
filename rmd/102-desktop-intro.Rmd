@@ -18,7 +18,7 @@
 下载深度操作系统系统最新版本的镜像文件（以便您能够体验到最新特性），下载地址：https://www.deepin.org/download/ 如图\@ref(fig:livecd)所示，
 
 ```{r livecd, fig.show='hold', fig.cap='如果只是试用请选择 Live 系统', echo=FALSE}
-knitr::include_graphics("linux-desktop-live.png")
+knitr::include_graphics("images/linux-desktop-live.png")
 ```
 如果您只是想试用系统，可以选择下载**Live 系统**。
 
@@ -160,11 +160,11 @@ Wayland相对于古老的X11来说最大的提升是，Gtk/Qt 这些图形库进
 大家可以看一下下面的两张架构图，图\@ref(fig:xw-x)和图\@ref(fig:xw-w)，来理解两者的差别：
 
 ```{r xw-x, fig.show='hold', fig.cap='X 架构图', echo=FALSE}
-knitr::include_graphics("X-architecture.png")
+knitr::include_graphics("images/X-architecture.png")
 ```
 
 ```{r xw-w, fig.show='hold', fig.cap='Wayland 架构图', echo=FALSE}
-knitr::include_graphics("Wayland-architecture.png")
+knitr::include_graphics("images/Wayland-architecture.png")
 ```
 
 Wayland 因为要彻底从技术架构上颠覆Linux几十年X11的渲染方式，不论从架构设计还是代码实现上都会非常复杂，不但要开发协议本身，还需要开发适合Wayland的混合器和窗口管理器，最后导致Wayland 1.0稳定版一再跳票。
@@ -205,7 +205,7 @@ Cinnamon，Unity，GNOME，KDE，XFCE，LXDE，MATE，Enlightenment，Pantheon
 ### Cinnamon
 
 ```{r de-Cinnamon, fig.show='hold', fig.cap='Cinnamon 桌面环境样图', echo=FALSE}
-knitr::include_graphics("de-Cinnamon.png")
+knitr::include_graphics("images/de-Cinnamon.png")
 ```
 图\@ref(fig:de-Cinnamon)，Cinnamon 桌面环境很现代很时尚，界面类似 Win 7，是 Linux Mate 的默认桌面环境，托 Linux Mate的福，也非常流行。
 
@@ -224,7 +224,7 @@ knitr::include_graphics("de-Cinnamon.png")
 ### GNOME
 
 ```{r de-GNOME, fig.show='hold', fig.cap='GNOME 桌面环境样图', echo=FALSE}
-knitr::include_graphics("de-GNOME.png")
+knitr::include_graphics("images/de-GNOME.png")
 ```
 
 图\@ref(fig:de-GNOME)，GNOME桌面环境，包括 GNOME2 和 GNOME3，GNU计划的一部分，开放源码运动的一个重要组成部分，是一种让使用者容易操作和设定电脑环境的工具，目标是基于自由软件，为Unix或者类Unix操作系统构造一个功能完善、操作简单以及界面友好的桌面环境，是GNU计划的正式桌面环境。
@@ -242,7 +242,7 @@ knitr::include_graphics("de-GNOME.png")
 ### KDE
 
 ```{r de-KDE, fig.show='hold', fig.cap='KDE桌面环境样图', echo=FALSE}
-knitr::include_graphics("de-KDE.png")
+knitr::include_graphics("images/de-KDE.png")
 ```
 
 图\@ref(fig:de-KDE)，KDE桌面环境类似 Cinnamon，仿 Win 7。底部有一个面板，菜单，快速启动栏和系统托盘图标。可以在桌面上添加新闻和天气等小部件。默认安装有大量的应用程序。
@@ -259,7 +259,7 @@ knitr::include_graphics("de-KDE.png")
 ### LXDE
 
 ```{r de-LXDE, fig.show='hold', fig.cap='LXDE 桌面环境样图', echo=FALSE}
-knitr::include_graphics("de-LXDE.png")
+knitr::include_graphics("images/de-LXDE.png")
 ```
 图\@ref(fig:de-LXDE)，LXDE桌面环境非常适合旧计算机。能提供一些非常基础的功能。
 

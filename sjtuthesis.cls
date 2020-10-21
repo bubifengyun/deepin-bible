@@ -269,11 +269,6 @@
 
 % Caption setting in caption and bicaption pacakge
 \DeclareCaptionFont{kaishu}{\kaishu}
-\captionsetup{format=plain,labelformat=simple,labelsep=space,justification=centering,font={small,kaishu}}
-\captionsetup[bi-first]{bi-first}
-\captionsetup[bi-second]{bi-second}
-\captionsetup[sub]{font=footnotesize}
-
 \DeclareCaptionOption{bi-first}[]{%
     \def\tablename{\sjtu@tablename}
     \def\figurename{\sjtu@figurename}
@@ -282,6 +277,10 @@
     \def\tablename{Table}
     \def\figurename{Figure}
 }
+\captionsetup{format=plain,labelformat=simple,labelsep=space,justification=centering,font={small,kaishu}}
+\captionsetup[bi-first]{bi-first}
+\captionsetup[bi-second]{bi-second}
+\captionsetup[sub]{font=footnotesize}
 
 % Set fontnote font size in threeparttable
 \appto\TPTnoteSettings{\footnotesize}

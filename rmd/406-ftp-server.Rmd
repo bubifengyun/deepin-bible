@@ -250,7 +250,7 @@ $ wget http://seafile-downloads.oss-cn-shanghai.aliyuncs.com/seafile-server_7.0.
 $ su -
 # mkdir /opt/seafile
 # cd /opt/seafile
-# tar -xzf /home/litianci/seafile-server_7.0.5_x86-64.tar.gz
+# tar -xzf /home/litianci/seafile-server\_7.0.5\_x86-64.tar.gz
 # mv seafile-server-7.0.5/ seafile-server
 # yum install python python-setuptools MySQL-python python-urllib3 python-ldap -y
 # cd seafile-server/
@@ -506,7 +506,7 @@ Done.
 此时在局域网其他电脑就可以使用浏览器直接访问 seafile 的网页页面了。一般都是采用火狐或者谷歌浏览器，IE浏览器貌似不好用，本服务器地址为： http://192.168.0.101:8000/ 界面如下图所示。
 
 ```{r seafile-seahub-login, fig.show='hold', fig.cap='seafile的网页登录界面', echo=FALSE}
-knitr::include_graphics("seafile-seahub-login.png")
+knitr::include_graphics("images/seafile-seahub-login.png")
 ```
 
 这时就可以使用刚才填写的账户`bubifengyun@sina.com`及密码登录该网站。在网站里怎么配置语言和其他的内容，这里从略。
@@ -585,7 +585,7 @@ WantedBy=multi-user.target
 同时删除 root 用户产生的[cache文件](https://www.xiaoz.me/note/170.html)，避免跟 `seafile` 用户产生权限问题。
 
 ```bash
-# rm /tmp/seahub_cache/ -rf
+# rm /tmp/seahub\_cache/ -rf
 ```
 
 接下来重启服务器或者输入下面的命令，看看局域网的其他电脑还能通过浏览器访问该网站。
@@ -607,7 +607,7 @@ WantedBy=multi-user.target
 接下来编辑*/opt/seafile/conf/seahub_settings.py*
 
 ```bash
-# vim /opt/seafile/conf/seahub_settings.py
+# vim /opt/seafile/conf/seahub\_settings.py
 ```
 
 在末尾加上，
@@ -629,7 +629,7 @@ COMPRESS_CACHE_BACKEND = 'locmem'
 删除 */opt/seafile/conf/seahub_settings.pyc* 文件，并重启`seahub`服务。
 
 ```bash
-# rm -f /opt/seafile/conf/seahub_settings.pyc
+# rm -f /opt/seafile/conf/seahub\_settings.pyc
 # systemctl restart seahub
 ```
 
@@ -646,19 +646,19 @@ $ sudo apt-get install seafile-gui -y
 完成后，按下`Super`键或者左下角深度的图标，在应用程序里找到`Seafile`的图标，点击即可弹出类似下图的选择文件保存目录的窗口，
 
 ```{r seafile-desktop-choose-dir, fig.show='hold', fig.cap='Seafile桌面同步端的默认保存文件夹设置窗口', echo=FALSE}
-knitr::include_graphics("seafile-desktop-choose-dir.png")
+knitr::include_graphics("images/seafile-desktop-choose-dir.png")
 ```
 
 可以根据你的喜好设置，本文保持默认不变。接下来是配置客户端，这里只填写了上面seahub服务的网址，以及管理员账户，点击登录即可。
 
 ```{r seafile-desktop-network-setting, fig.show='hold', fig.cap='Seafile桌面同步端的网络设置窗口', echo=FALSE}
-knitr::include_graphics("seafile-desktop-network-setting.png")
+knitr::include_graphics("images/seafile-desktop-network-setting.png")
 ```
 
 Seafile桌面同步端暂时还不具备用户注册功能，只可以在网页上注册账户，注册后可以在这里登录。登录完成后，就会弹出如下图的界面，
 
 ```{r seafile-desktop-main-menu, fig.show='hold', fig.cap='Seafile桌面同步端的主窗口', echo=FALSE}
-knitr::include_graphics("seafile-desktop-main-menu.png")
+knitr::include_graphics("images/seafile-desktop-main-menu.png")
 ```
 
 ### seafile 客户端的功能和使用
@@ -668,11 +668,11 @@ knitr::include_graphics("seafile-desktop-main-menu.png")
 在图\@ref(fig:seafile-desktop-main-menu)中，下方有个**选择文件夹或拖到这里同步**，就可以把你保持同步的文件夹拖到这里来。当你在这个文件夹里编辑文件保存时，seafile会自动把你的文件同步到服务器中，前提是**你不能退出seafile桌面同步客户端，但你可以最小化**。当你需要查看该文件的历次版本信息时，就可以登录到**seafile网页**上，如下图所示点击红色框的**历史**，
 
 ```{r seafile-seahub-history, fig.show='hold', fig.cap='Seafile网页版查看历史的方法', echo=FALSE}
-knitr::include_graphics("seafile-seahub-history.png")
+knitr::include_graphics("images/seafile-seahub-history.png")
 ```
 
 这个时候就会弹出如下图所示的界面，你就可以根据需要下载之前的版本了。
 
 ```{r seafile-seahub-history-detail, fig.show='hold', fig.cap='Seafile网页版查看文件的各版本', echo=FALSE}
-knitr::include_graphics("seafile-seahub-history-detail.png")
+knitr::include_graphics("images/seafile-seahub-history-detail.png")
 ```

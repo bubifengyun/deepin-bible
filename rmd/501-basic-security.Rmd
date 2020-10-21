@@ -70,20 +70,24 @@
 
 #### 规范限制对超级账号root的使用
 
-限制超级账号root的使用，也是一个必须要考虑的问题。root账号的权限实在太大了，属于“绝对的权力”，所谓“绝对的权力产生绝对的腐败”，这样的权限安排，是存在风险的。当然从操作系统上更改这种权限设计，不是我们用户考虑的事情，我们可以做到的是，不能多人共同使用root帐号。通过`sudo`对权限细粒度的划分，并做好日志。关于`sudo`的更多介绍，参考第\@ref(chap:manager-user)章。Instead of giving multiple people root permission on a Linux system, you can grant root 
+限制超级账号root的使用，也是一个必须要考虑的问题。root账号的权限实在太大了，属于“绝对的权力”，所谓“绝对的权力产生绝对的腐败”，这样的权限安排，是存在风险的。当然从操作系统上更改这种权限设计，不是我们用户考虑的事情，我们可以做到的是，不能多人共同使用root帐号。通过`sudo`对权限细粒度的划分，并做好日志。关于`sudo`的更多介绍，参考第\@ref(chap:manager-user)章。
+
+```block2
+Instead of giving multiple people root permission on a Linux system, you can grant root 
 access on a per-command basis with the sudo command. Using sudo provides the following 
 security benefi ts:
 ■ The root password does not have to be given out.
 ■ You can fi ne-tune command access.
 ■ All sudo use (who, what, when) is recorded in /var/log/secure.
 All failed sudo access attempts are logged.
-After you grant someone sudo permission, you can try to restrict root access to certain commands in the /etc/sudoers fi le (with the visudo command). However, after you grant root 
+After you grant someone sudo permission, you can try to restrict root access to certain commands in the /etc/sudoers file (with the visudo command). However, after you grant root 
 permission to a user, even in a limited way, it is diffi cult to be sure that a determined user 
 can’t fi nd ways to gain full root access to your system and do what he or she wants to it.
 One way to keep a misbehaving administrator in check is to have security messages 
 intended for the /var/log/secure fi le sent to a remote log server that none of the local 
 administrators have access to. In that way, any misuse of root privilege is attached to a 
 particular user and is logged in a way that the user can’t cover his or her tracks.
+```
 
 #### 对账号设置有效期
 
@@ -119,7 +123,7 @@ $ chage -l bubifengyun
 在密码过期之前警告的天数	：7
 ```
 
-```{block2, note-text, type='rmdnote'}
+```{.block2, type='rmdnote'}
 注意，chage命令是通过*/etc/shadow*查询信息的。如果不存在该文件，则`chage`无法正常使用。
 ```
 
@@ -169,7 +173,7 @@ Current password:
 
 但是制度是好的，能不能坚持下来则另当别论。为了更好的坚持制度，还可以在技术上强制执行这些规定。比如配置登录相关的文件*/etc/login.defs*，该文件在第\@ref(chap:manager-user)章详细介绍，主要内容如下。
 
-```{block2}
+```block2
 #
 # /etc/login.defs - Configuration control definitions for the login package.
 #

@@ -39,7 +39,36 @@ $ make
 
 ### 苹果操作系统下使用
 
-略
+主要涉及`R`、`pandoc`、`TinyTex`三个软件。`TinyTex`作为`TexLive`的替代品，安装量比较小。
+
+下面以macos 10.11 为例，介绍本人的安装方式。由于该操作系统版本较低，很多软件无法正常安装，甚至需要从源码开始。
+
+`pandoc`可以从[官网](https://pandoc.org/installing.html)下载直接安装。也可以通过源码安装。
+
+```{.bash numbers=none}
+$ brew install --build-from-source pandoc
+```
+
+下面是安装`TinyTex`，关于`TinyTex`的详细介绍，见[谢益辉的文章](https://yihui.name/tinytex/)。
+
+```{.bash numbers=none}
+$ curl -sL "https://yihui.org/tinytex/install-bin-unix.sh" | sh
+```
+并配置PATH，支持系统调用。打开文件 */etc/profile*，加入
+
+```{.bash}
+PATH="~/Library/TinyTex/bin/x86_64-darwin:"$PATH
+export PATH
+```
+
+重新打开终端，或者输入`source /etc/profile`。
+
+另外还需要安装本程序需要的几个软件，
+
+```{.bash numbers=none}
+$ brew install --build-from-source freetype imagemagick@6 cairo xquartz wget
+```
+下面安装R软件，参考官网，安装适合本操作系统的[R3.6.3版本](https://cran.r-project.org/bin/macosx/)，点击安装。后在编译中发现`biber`版本不可用，需要更换为适合MacOS 10.11 的版本，后在[官网](https://master.dl.sourceforge.net/project/biblatex-biber/biblatex-biber/current/binaries/OSX_Intel/biber-darwinlegacy_x86_64.tar.gz)下载了darwinlegacy的版本。安装完成后终于能够成功编译。
 
 ## 编译模板
 
@@ -115,7 +144,7 @@ sessionInfo()
 
 ### 各章源文件
 
-主要位于 *./rmd/* 文件夹。另外目录和模板的内容以 \LaTeX 形式存放在 *./latex/* 文件夹下。各文件的详细说明见第\@ref(chap:chapters)章。
+主要位于 *./rmd/* 文件夹。另外目录和模板的内容以 \LaTeX 形式存放在 *./latex/* 文件夹下。各文件的详细说明见附录\@ref(chap:chapters)。
 
 ### 配置文件
 

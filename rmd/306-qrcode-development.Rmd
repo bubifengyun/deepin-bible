@@ -53,7 +53,7 @@ centos min 安装后，无法播放声音。后来发现需要安装声卡驱动
 ```python
 #!/usr/bin/env python3
 # 操作系统下必须安装play函数 
-# $ sudo apt-get install sox
+# sudo apt-get install sox
 # main.py
 
 import evdev
