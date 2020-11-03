@@ -201,3 +201,16 @@ $ sudo apt-get install software-properties-common
 在正式安装系统之前，可以体验一下该操作系统如何。或者在系统崩溃了使用Live模式修复系统。建议添加live模式的详细介绍。
 
 另外深度自带**深度备份还原工具**，可以在深度商店搜索下载。
+
+## 苹果电脑上安装双系统 MacOS + Deepin
+
+前面电脑分区导致硬盘容量缺失，应该是 MacOS 系统的问题，通过[CSDN一篇博客](https://blog.csdn.net/pku_Coder/article/details/76864653)的方法，顺利解决了硬盘问题。
+
+
+> 用磁盘工具直接分区，随便分个大小，格式选择默认的os x扩展，然后点击分区，过一会 会显示分区成功，这时候你看你原来丢失的100g回来了，在你刚刚新分的盘里了。这时候点击减号把这个分区抹去就行了~
+>
+> --- [CSDN博主PKU_CXK](https://blog.csdn.net/pku_Coder/article/details/76864653)
+
+参考网页：
+
+- 

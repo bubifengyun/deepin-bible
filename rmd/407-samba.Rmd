@@ -9,12 +9,13 @@
 
 Windows 局域网中，为了方便互传文件或者打印，常常开启文件夹共享。在网上邻居里，能够看到其他人共享的文件夹，方便下载甚至上传。当前Windows局域网的通信工具也有一些，基本都支持文件互传，比如[飞鸽传书](http://www.feige360.com)（跨平台支持苹果、Linux和安卓）、[imo内网通](www.imoffice.com)、RTX腾讯通（貌似停更在[2015版](https://rtx.tencent.com/rtx/download/index.shtml)）、飞秋（貌似停更在[2013版](http://bbs.feiq18.com/config_nav.php?id=19)）、微软LYNC（貌似停更在[2013版](https://products.office.com/en-us/previous-versions/microsoft-lync-2013)）等。对于互联网，除了FTP、SCP和SSH外，QQ（深度系统自带），[安司密信](http://akey.me/)、[钉钉](https://www.dingtalk.com/)（暂时不支持Linux平台）等也是不错的选择。
 
-但是，对于局域网的Deepin深度用户来讲，除了[iptux信使](https://github.com/iptux-src/iptux)（只支持Linux、Mac，号称GNU/Linux版飞鸽传书）、[飞鸽传书](http://www.feige360.com/)（最新版跨平台支持Linux）、[大蚂蚁](https://www.bigant.cn/)外，还可以安装samba 文件传输服务器。
+但是，对于局域网的Deepin深度用户来讲，除了[iptux信使](https://github.com/iptux-src/iptux)（只支持Linux、Mac，号称GNU/Linux版飞鸽传书）、[飞鸽传书](http://www.feige360.com/)（最新版跨平台支持Linux）、[大蚂蚁](https://www.bigant.cn/)外，还可以安装 [samba 文件传输服务器](https://www.samba.org/)。
 
 ## Samba 文件传输服务简介
 
 参考网页：
 
+- https://www.samba.org/
 - https://docs.microsoft.com/en-us/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 - https://www.cnblogs.com/LittleHann/p/6916326.html
 - https://wiki.deepin.org/wiki/Samba%E6%9C%8D%E5%8A%A1

@@ -23,8 +23,10 @@ if (!grepl('Windows', Sys.info()['sysname'][[1]]) && system('hash phantomjs 2>/d
   webshot::install_phantomjs()
 
 xelatex.has_installed <- system('xelatex --version') ==0
-if ((!xelatex.has_installed) && (!tinytex:::is_tinytex()))
+if ((!xelatex.has_installed) && (!tinytex:::is_tinytex())){
   tinytex::install_tinytex()
+  tlmgr_install('texcount')
+}
 
 src = (function() {
   attr(body(sys.function()), 'srcfile')
