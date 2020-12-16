@@ -68,7 +68,17 @@ export PATH
 ```{.bash numbers=none}
 $ brew install --build-from-source freetype imagemagick@6 cairo xquartz wget
 ```
-下面安装R软件，参考官网，安装适合本操作系统的[R3.6.3版本](https://cran.r-project.org/bin/macosx/)，点击安装。后在编译中发现`biber`版本不可用，需要更换为适合MacOS 10.11 的版本，后在[官网](https://master.dl.sourceforge.net/project/biblatex-biber/biblatex-biber/current/binaries/OSX_Intel/biber-darwinlegacy_x86_64.tar.gz)下载了darwinlegacy的版本。安装完成后终于能够成功编译。
+下面安装R软件，由于brew 版的R默认不支持cairo，需要从官网下载，参考官网，安装适合本操作系统的[R3.6.3版本](https://cran.r-project.org/bin/macosx/)，点击安装。后在编译中发现`biber`版本不可用，需要更换为适合MacOS 10.11 的版本，后在[官网](https://master.dl.sourceforge.net/project/biblatex-biber/biblatex-biber/current/binaries/OSX_Intel/biber-darwinlegacy_x86_64.tar.gz)下载了darwinlegacy的版本。安装完成后终于能够成功编译。
+
+对于macos 10.15 catalina系统来说，安装有点类似，下面只贴代码，不作解释。
+
+```{.bash numbers=none}
+$ brew cask install xquartz
+$ ln -s /opt/X11/include/X11 /usr/local/include/X11
+$ brew install --build-from-source pandoc freetype imagemagick@6 cairo wget
+```
+
+接着官网下载安装最新版的R。
 
 ## 编译模板
 
