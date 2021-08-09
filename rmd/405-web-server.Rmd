@@ -40,3 +40,36 @@
 
 
 最好提及一下如何使用 PHP，Python 和 R 语言如何连接达梦数据库。
+
+## 学习vue 笔记
+
+### 安装npm
+
+最开始不知道怎么安装npm，用的系统自带的，版本太低了，安装效果很差。总是出问题。于是[官网](https://nodejs.org/en/)下载安装最新版的npm
+
+```bash
+$ VERSION=v16.3.0
+$ DISTRO=linux-x64
+$ sudo mkdir -p /usr/local/lib/nodejs
+$ sudo tar -xJvf node-$VERSION-$DISTRO.tar.xz -C /usr/local/lib/nodejs
+$ sudo ln -s /usr/local/lib/nodejs/node-v16.3.0-linux-x64/bin/node /usr/local/bin/
+$ sudo ln -s /usr/local/lib/nodejs/node-v16.3.0-linux-x64/bin/npm /usr/local/bin/
+```
+
+接着安装 `vue-cli`
+
+```bash
+$ sudo npm install -g @vue/cli
+$ sudo npm install -g @vue/cli-service-global
+```
+
+创建自己的项目，`chenzj`，
+
+```bash
+$ vue create chenzj
+```
+
+## PHP 搭建网站
+
+https://blog.csdn.net/q297896911/article/details/80646536
+https://www.liquidweb.com/kb/install-lamp-stack-centos-7/

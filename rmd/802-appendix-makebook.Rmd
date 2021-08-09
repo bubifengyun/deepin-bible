@@ -12,21 +12,38 @@
 
 ### Linux 下使用
 
-下面以深度操作系统15.5版本为例说明。安装过程中，请确保当前 `rstudio` 的版本高于 1.0.0, `texlive` 为2015年后的版本， `pandoc` 的版本高于 2.0.0。
+下面以深度操作系统 20.2 版本为例说明。
+
+参考[官网](https://mirrors.tuna.tsinghua.edu.cn/CRAN/)安装最新版R语言。
+
+```{.bash numbers=none}
+$ sudo apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
+```
+
+安装稳定版的源，把源`deb http://cloud.r-project.org/bin/linux/debian buster-cran40/`写入到 */etc/apt/sources.list* 文件。并更新。
+
+```{.bash}
+$ sudo su
+# echo "deb http://cloud.r-project.org/bin/linux/debian buster-cran40/" >> /etc/apt/sources.list
+# exit
+$ sudo apt-get update
+```
+
+安装过程中，请确保当前 `rstudio` 的版本高于 1.0.0, `texlive` 为2015年后的版本， `pandoc` 的版本高于 2.0.0。
 
 ```{.bash numbers=none}
 $ sudo apt-get install r-base r-base-dev \
-rstudio texlive-full pandoc make
+libcurl4-openssl-dev libxt-dev libssl-dev libmagick++-dev libgit2-dev pandoc make 
 ```
 
-如果不能满足，请参考相关软件官网，下载最新版本。我的[博客](https://my.oschina.net/bubifengyun/blog/1936119)记录了如何安装最新版 texlive，有需要的可以去看看。[pandoc官网](https://github.com/jgm/pandoc/blob/master/INSTALL.md)有其安装教程。R 语言的安装方法[官网镜像](https://mirrors.tuna.tsinghua.edu.cn/CRAN/)也可找到，这里就不赘述了，有问题可以邮件联系。
-
-曾经在 Lubuntu 下试着安装过。一般先安装 `make`，运行命令，仍旧出错，提示没有`RScript`，接着安装`r-base r-base-dev`。再接着，`sudo make`还是出错。最后是`pandoc`版本问题了。由于 Lubuntu 版本太老，没能更新好。总结一下，
+下面是安装`TinyTex`，关于`TinyTex`的详细介绍，见[谢益辉的文章](https://yihui.name/tinytex/)。
 
 ```{.bash numbers=none}
-$ sudo apt-get install make r-base r-base-dev -y
-$ sudo make
+$ curl -sL "https://yihui.org/tinytex/install-bin-unix.sh" | sh
 ```
+
+如果`TinyTex`不能满足，请参考相关软件官网，下载最新版本的texlive。我的[博客](https://my.oschina.net/bubifengyun/blog/1936119)记录了如何安装最新版 texlive，有需要的可以去看看。[pandoc官网](https://github.com/jgm/pandoc/blob/master/INSTALL.md)有其安装教程。R 语言的安装方法[官网镜像](https://mirrors.tuna.tsinghua.edu.cn/CRAN/)也可找到，这里就不赘述了，有问题可以邮件联系。
+
 第一次编译，可能需要安装很多软件，请静静等待。后面，直接运行下面这条语句，实现编译。
 
 ```{.bash numbers=none}
