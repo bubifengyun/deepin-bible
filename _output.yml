@@ -14,7 +14,7 @@ bookdown::gitbook:
       facebook: no
 bookdown::pdf_book:
   keep_tex: yes
-  dev: cairo_pdf
+  dev: pdf
   latex_engine: xelatex
   citation_package: biblatex
   template: latex/template.tex
@@ -22,5 +22,5 @@ bookdown::pdf_book:
   quote_footer: ["\\VA{", "}{}"]
 #  md_extensions: -smart
 #  output_extensions: -smart
-#bookdown::epub_book:
-#stylesheet: css/style.css
+bookdown::epub_book:
+  stylesheet: css/style.css
