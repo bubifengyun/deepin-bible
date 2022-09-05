@@ -98,6 +98,7 @@
 % Segment 1. Import LaTeX packages.
 %==========
 
+\RequirePackage{zref-abspage}
 \RequirePackage{etoolbox}
 \RequirePackage{geometry} %设置版面
 \RequirePackage{fancyhdr}

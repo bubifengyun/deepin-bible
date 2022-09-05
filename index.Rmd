@@ -79,4 +79,5 @@ github-repo: bubifengyun/deepin-bible
 href2footnote: false
 cover-image: images/cover.jpg
 publisher: 尚未出版
+always_allow_html: true
 ---

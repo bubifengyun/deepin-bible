@@ -22,5 +22,5 @@ bookdown::pdf_book:
   quote_footer: ["\\VA{", "}{}"]
 #  md_extensions: -smart
 #  output_extensions: -smart
-bookdown::epub_book:
-  stylesheet: css/style.css
+#bookdown::epub_book:
+#stylesheet: css/style.css

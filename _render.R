@@ -15,7 +15,7 @@ if (system.file(package = 'bookdown') == '')
 
 # 填上你需要用到的包
 
-err = lapply(c('Cairo', 'DT', 'citr', 'formatR', 'svglite', 'webshot', 'devtools', 'tinytex','magick'), function(pkg) {
+err = lapply(c('DT', 'citr', 'formatR', 'svglite', 'webshot', 'tinytex','magick'), function(pkg) {
   if (system.file(package = pkg) == '') install.packages(pkg)
 })
 
